@@ -1,4 +1,5 @@
-The NENA Data Model Working Group welcomes contributions from anyone and everyone.
+The NENA Data Model Working Group welcomes contributions from anyone and 
+everyone.
 
 ## Contributing
 
