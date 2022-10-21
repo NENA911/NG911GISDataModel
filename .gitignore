@@ -1,0 +1,5 @@
+# gitignore template for NENA9-1-1 GIS Data Model
+
+# PyCharm
+.idea/*
+
