@@ -107,3 +107,33 @@ the Editor Tracking feature for each feature class so as not to unintentionally
 overwrite actual DateUpdate values from a source datasets.  When using this 
 template as the primary local data structure, the strategy of turning off 
 Editor Tracking should be considered as a temporary measure for an initial load.
+
+## Folders and Files
+* [esri_geodatabase](esri_geodatabase/README.md)
+  * NG911_GIS_20191120.gdb
+  * NG911_GIS_Metadata.xml
+  * README.md
+* [postgresql](postgresql/README.md)
+  * open_sources_template_process.pdf
+  * README.md
+  * table-creation.sql
+
+
+## Issues
+Found a bug or want to suggest an enhancement? Check out previously logged 
+Issues. If you don't see what you're looking for, feel free to submit a new
+issue.
+
+## License
+Copyright 2019-2022 National Emergency Number Association
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not 
+use these files except in compliance with the License. You may obtain a copy 
+of the License at http://www.apache.org/licenses/LICENSE-2.0. A copy of the 
+License is available in the repository's [LICENSE](LICENSE.md) file.
+
+Unless required by applicable law or agreed to in writing the tools 
+distributed under the License are distributed on an "AS IS" BASIS, WITHOUT 
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the 
+License for the specific language governing permissions and limitations 
+under the License.
