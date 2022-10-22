@@ -275,7 +275,7 @@ INSERT INTO nena.LegacyStreetNameTypes VALUES
 ,	('ORCH','ORCHARD')
 ,	('OVAL','OVAL')
 ,	('OPAS','OVERPASS')
-,	('PARK":"PARK(S)')
+,	('PARK','PARK(S)')
 ,	('PKWY','PARKWAY(S)')
 ,	('PASS','PASS')
 ,	('PSGE','PASSAGE')
