@@ -5,7 +5,6 @@ backup, and restore the NG9-1-1 Data Model Template for PostgreSQL/PostiGIS,
 prepared by the NENA Data Model Working Group. This Data Model is designed for 
 an open source PostgreSQL/PostGIS database but can be adapted for other platforms.
 
-<hr>
 
 ## Table of Contents
 
@@ -23,6 +22,7 @@ an open source PostgreSQL/PostGIS database but can be adapted for other platform
 * [Change Log](#change-log)
 * [Contributors](#contributors)
 
+
 ## Getting Started
 
 ### Dependencies
@@ -38,7 +38,6 @@ an open source PostgreSQL/PostGIS database but can be adapted for other platform
 
 ### Changing permissions
 
-<hr>
 
 ## Deploying the Data Model Template
 
@@ -54,15 +53,12 @@ an open source PostgreSQL/PostGIS database but can be adapted for other platform
 * How to install the template
 * Step-by-step bullets
 
-<hr>
 
 ## Backing up the Database
 
-<hr>
 
 ## Restoring the Database
 
-<hr>
 
 ## Change Log
 
@@ -74,7 +70,6 @@ an open source PostgreSQL/PostGIS database but can be adapted for other platform
     * Based on [NENA-STA-006.1.1-2020]()
     * Initial Release
 
-<hr>
 
 ## Contributors
 
