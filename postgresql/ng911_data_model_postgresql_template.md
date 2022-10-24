@@ -1060,6 +1060,25 @@ CREATE TABLE nena.LandmarkNamePartTable (
 , LMNP_Order INTEGER  NOT NULL  CHECK ( 1 <= LMNP_Order AND LMNP_Order <= 99 )
 );
 
+
+/* *****************************************************************************
+   TABLE:  nena.LandmarkNameCompleteAliasTable (Complete Landmark Name Aliases - Strongly Recommended)
+   Source: NENA-STA-006.2-2022, Section 4.2.3.2, p.39
+  *************************************************************************** */
+DROP TABLE IF EXISTS nena.LandmarkNameCompleteAliasTable;
+CREATE TABLE nena.LandmarkNameCompleteAliasTable (
+  id SERIAL  PRIMARY KEY
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, SSAP_NGUID VARCHAR(254)
+, CLNAlias VARCHAR(150)
+);
+
+
+
 DROP TABLE IF EXISTS nena.CellSectorLocation;
 CREATE TABLE nena.CellSectorLocation (
   Cell_NGUID VARCHAR(254)   NOT NULL  UNIQUE  
@@ -1083,16 +1102,7 @@ CREATE TABLE nena.CellSectorLocation (
 , Technology VARCHAR(10)  NOT NULL  
 );
 
-DROP TABLE IF EXISTS nena.CompleteLandmarkNameAliasTable;
-CREATE TABLE nena.CompleteLandmarkNameAliasTable (
-  ACLandmark VARCHAR(150)   
-, ACLMNNGUID VARCHAR(254)   NOT NULL  UNIQUE  
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE   
-, Site_NGUID VARCHAR(254)  NOT NULL  
-);
+
 
 DROP TABLE IF EXISTS nena.CountiesOrEquivalents;
 CREATE TABLE nena.CountiesOrEquivalents (
