@@ -1078,6 +1078,94 @@ CREATE TABLE nena.LandmarkNameCompleteAliasTable (
 );
 
 
+/* *****************************************************************************
+   Service Boundaries - REQUIRED and optional
+   Source: NENA-STA-006.2-2022, Section 4.3, p.39
+   
+   NOTE: The table schema of each Service Boundary layer is identical. Only the 
+   REQUIRED Service Boundary layers are included. If you wish to use additional 
+   Service Boundary layers as defined in NENA-STA-006.2-2002, Section 7.2, p. 82,
+   copy a table below and change the table name to the "Name" column in the 
+   "GIS Data Layers" Registry.
+     
+   QUESTION: How many shall we make? Should Service URI be default?
+  *************************************************************************** */
+
+DROP TABLE IF EXISTS nena.PsapPolygon;
+CREATE TABLE nena.PsapPolygon (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, Country nena.COUNTRY  NOT NULL  
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, ServiceURN VARCHAR(50)  NOT NULL  
+, ServiceNum VARCHAR(15)
+, AVcard_URI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, DsplayName VARCHAR(60)  NOT NULL
+);
+
+DROP TABLE IF EXISTS nena.PolicePolygon;
+CREATE TABLE nena.PolicePolygon (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, Country nena.COUNTRY  NOT NULL  
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, ServiceURN VARCHAR(50)  NOT NULL  
+, ServiceNum VARCHAR(15)
+, AVcard_URI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, DsplayName VARCHAR(60)  NOT NULL
+);
+
+DROP TABLE IF EXISTS nena.FirePolygon;
+CREATE TABLE nena.FirePolygon (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, Country nena.COUNTRY  NOT NULL  
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, ServiceURN VARCHAR(50)  NOT NULL  
+, ServiceNum VARCHAR(15)
+, AVcard_URI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, DsplayName VARCHAR(60)  NOT NULL
+);
+
+DROP TABLE IF EXISTS nena.EmsPolygon;
+CREATE TABLE nena.EmsPolygon (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, Country nena.COUNTRY  NOT NULL  
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, ServiceURN VARCHAR(50)  NOT NULL  
+, ServiceNum VARCHAR(15)
+, AVcard_URI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, DsplayName VARCHAR(60)  NOT NULL
+);
 
 DROP TABLE IF EXISTS nena.CellSectorLocation;
 CREATE TABLE nena.CellSectorLocation (
@@ -1102,8 +1190,6 @@ CREATE TABLE nena.CellSectorLocation (
 , Technology VARCHAR(10)  NOT NULL  
 );
 
-
-
 DROP TABLE IF EXISTS nena.CountiesOrEquivalents;
 CREATE TABLE nena.CountiesOrEquivalents (
   CntyNGUID VARCHAR(254)   NOT NULL  UNIQUE  
@@ -1117,22 +1203,6 @@ CREATE TABLE nena.CountiesOrEquivalents (
 , geom GEOMETRY ('polygon',4326)  NOT NULL  
 );
 
-DROP TABLE IF EXISTS nena.EmergencyServiceBoundary;
-CREATE TABLE nena.EmergencyServiceBoundary (
-  Agency_ID VARCHAR(100)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, AVcard_URI VARCHAR(254)  NOT NULL   REFERENCES nena.URIs(URI)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, DsplayName VARCHAR(60)  NOT NULL  
-, Effective TIMESTAMP WITH TIME ZONE   
-, ES_NGUID VARCHAR(254)   NOT NULL  UNIQUE  
-, Expire TIMESTAMP WITH TIME ZONE   
-, ServiceNum VARCHAR(15)   
-, ServiceURI VARCHAR(254)  NOT NULL   REFERENCES nena.URIs(URI)
-, ServiceURN VARCHAR(50)  NOT NULL  
-, geom GEOMETRY ('polygon',4326)  NOT NULL  
-, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
-);
 
 DROP TABLE IF EXISTS nena.HydrologyLine;
 CREATE TABLE nena.HydrologyLine (
@@ -1144,6 +1214,7 @@ CREATE TABLE nena.HydrologyLine (
 , geom GEOMETRY ('LineString',4326)  NOT NULL  
 );
 
+
 DROP TABLE IF EXISTS nena.HydrologyPolygon;
 CREATE TABLE nena.HydrologyPolygon (
   DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
@@ -1153,6 +1224,7 @@ CREATE TABLE nena.HydrologyPolygon (
 , HP_Type VARCHAR(100)   
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
+
 
 DROP TABLE IF EXISTS nena.IncorporatedMunicipalityBoundary;
 CREATE TABLE nena.IncorporatedMunicipalityBoundary (
@@ -1170,7 +1242,6 @@ CREATE TABLE nena.IncorporatedMunicipalityBoundary (
 );
 
 
-
 DROP TABLE  IF EXISTS nena.MileMarkerLocation;
 CREATE TABLE nena.MileMarkerLocation (
   DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
@@ -1183,6 +1254,7 @@ CREATE TABLE nena.MileMarkerLocation (
 , MileMValue DOUBLE PRECISION NOT NULL  
 , geom GEOMETRY ('point',4326)  NOT NULL  
 );
+
 
 DROP TABLE  IF EXISTS nena.NeighborhoodCommunityBoundary;
 CREATE TABLE nena.NeighborhoodCommunityBoundary (
@@ -1201,6 +1273,7 @@ CREATE TABLE nena.NeighborhoodCommunityBoundary (
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
+
 DROP TABLE  IF EXISTS nena.ProvisioningBoundary;
 CREATE TABLE nena.ProvisioningBoundary (
   DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
@@ -1211,22 +1284,6 @@ CREATE TABLE nena.ProvisioningBoundary (
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
-DROP TABLE  IF EXISTS nena.PSAP_Boundary;
-CREATE TABLE nena.PSAP_Boundary (
-  Agency_ID VARCHAR(100)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, AVcard_URI VARCHAR(254)  NOT NULL   REFERENCES nena.URIs(URI)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, DsplayName VARCHAR(60)  NOT NULL  
-, Effective TIMESTAMP WITH TIME ZONE   
-, ES_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
-, Expire TIMESTAMP WITH TIME ZONE   
-, ServiceNum VARCHAR(15)   
-, ServiceURI VARCHAR(254)  NOT NULL   REFERENCES nena.URIs(URI)
-, ServiceURN VARCHAR(50)  NOT NULL  
-, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
-, geom GEOMETRY ('Polygon',4326)  NOT NULL  
-);
 
 DROP TABLE  IF EXISTS nena.RailroadCenterlines;
 CREATE TABLE nena.RailroadCenterlines (
@@ -1242,10 +1299,6 @@ CREATE TABLE nena.RailroadCenterlines (
 );
 
 
-
-
-
-
 DROP TABLE  IF EXISTS nena.StatesOrEquivalents;
 CREATE TABLE nena.StatesOrEquivalents (
  Country nena.COUNTRY  NOT NULL  
@@ -1257,7 +1310,6 @@ CREATE TABLE nena.StatesOrEquivalents (
 , StateNGUID VARCHAR(254)  NOT NULL  UNIQUE  
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
-
 
 
 DROP TABLE  IF EXISTS nena.UnincorporatedCommunityBoundary;
