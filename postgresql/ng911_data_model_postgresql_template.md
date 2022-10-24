@@ -899,7 +899,7 @@ INSERT INTO nena.StreetNameTypes VALUES
 
 
 /* *****************************************************************************
-   TABLE:  nena.RoadCenterLine
+   TABLE:  nena.RoadCenterLine (Road Centerlines - REQUIRED)
    Source: NENA-STA-006.2-2022, Section 4.1.1, p.23
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.RoadCenterline;
@@ -962,7 +962,7 @@ CREATE TABLE nena.RoadCenterline (
 
 
 /* *****************************************************************************
-   TABLE:  nena.StreetNameAliasTable
+   TABLE:  nena.StreetNameAliasTable (Street Name Aliases - Strongly Recommended)
    Source: NENA-STA-006.2-2022, Section 4.1.2.2, p.28
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.StreetNameAliasTable;
@@ -986,8 +986,8 @@ CREATE TABLE nena.StreetNameAliasTable (
 
 
 /* *****************************************************************************
-   TABLE:  nena.SiteStructureAddressPoint
-   Source: NENA-STA-006.2-2022, Section 4.1.2.2, p.28
+   TABLE:  nena.SiteStructureAddressPoint (Site/Structure Address Points - REQUIRED)
+   Source: NENA-STA-006.2-2022, Section 4.2.1, p.29
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.SiteStructureAddressPoint;
 CREATE TABLE nena.SiteStructureAddressPoint (
