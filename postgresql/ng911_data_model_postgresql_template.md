@@ -22,6 +22,7 @@
 NOTE: The following script uses a SCHEMA "nena". If you chose to use a different 
 domain replace "nena." with "<your schema>." in a text editor.
 
+-- should there be ESN table or domain
 
 ```sql
 -- #############################################################################
@@ -896,6 +897,7 @@ INSERT INTO nena.StreetNameTypes VALUES
 -- NG9-1-1 Table Definitions
 -- #############################################################################
 
+
 /* *****************************************************************************
    TABLE:  nena.RoadCenterLine
    Source: NENA-STA-006.2-2022, Section 4.1.1, p.23
@@ -958,6 +960,7 @@ CREATE TABLE nena.RoadCenterline (
 , Valid_R VARCHAR(1)  CHECK ( Valid_R  in ('Y','N') ) 
 );
 
+
 /* *****************************************************************************
    TABLE:  nena.StreetNameAliasTable
    Source: NENA-STA-006.2-2022, Section 4.1.2.2, p.28
@@ -980,6 +983,64 @@ CREATE TABLE nena.StreetNameAliasTable (
 , ASt_PosDir nena.DIRECTIONAL   
 , ASt_PosMod VARCHAR(25)   
 );
+
+
+/* *****************************************************************************
+   TABLE:  nena.SiteStructureAddressPoint
+   Source: NENA-STA-006.2-2022, Section 4.1.2.2, p.28
+  *************************************************************************** */
+DROP TABLE  IF EXISTS nena.SiteStructureAddressPoint;
+CREATE TABLE nena.SiteStructureAddressPoint (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('Point',4326)  NOT NULL  
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, Country nena.COUNTRY  NOT NULL  
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, County VARCHAR(40)  NOT NULL  REFERENCES nena.Counties(County)
+, AddCode VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
+, AddDataURI VARCHAR(254)
+, Inc_Muni VARCHAR(100)  NOT NULL  
+, Uninc_Comm VARCHAR(100)   
+, Nbrhd_Comm VARCHAR(100)   
+, AddNum_Pre VARCHAR(15)   
+, Add_Number INTEGER   
+, AddNum_Suf VARCHAR(15)
+, St_PreMod VARCHAR(15)   
+, St_PreDir nena.DIRECTIONAL   
+, St_PreTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
+, St_PreSep VARCHAR(20)  REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
+, St_Name VARCHAR(254)
+, St_PosTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType) 
+, St_PosDir nena.DIRECTIONAL   
+, St_PosMod VARCHAR(25)
+, LSt_PreDir VARCHAR(2)  REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, LSt_Name VARCHAR(75)
+, LSt_Type VARCHAR(4)  REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)   
+, LSt_PosDir VARCHAR(2)  REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, ESN VARCHAR(5)
+, MSAGComm VARCHAR(30)
+, Post_Comm VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
+, Post_Code VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
+, Post_Code4 VARCHAR(4)   
+, Building VARCHAR(75)   
+, Floor VARCHAR(75)   
+, Unit VARCHAR(75)   
+, Room VARCHAR(75)   
+, Seat VARCHAR(75)   
+, Addtl_Loc VARCHAR(225)   
+, LandmkName VARCHAR(150)   
+, Milepost VARCHAR(150)   
+, Place_Type VARCHAR(50)  REFERENCES nena.PlaceTypes(PlaceType)
+, Placement VARCHAR(25)  REFERENCES nena.PlacementMethods(PlacementMethod)
+, Longitude DOUBLE PRECISION  CHECK ( -180 <= Long AND Long <= 180 )
+, Latitude DOUBLE PRECISION  CHECK ( -90 <= Lat AND Lat <= 90 )
+, Elev INTEGER
+);
+
 
 
 DROP TABLE IF EXISTS nena.CellSectorLocation;
@@ -1167,57 +1228,7 @@ CREATE TABLE nena.RailroadCenterlines (
 
 
 
-DROP TABLE  IF EXISTS nena.SiteStructureAddressPoints;
-CREATE TABLE nena.SiteStructureAddressPoints (
-  Add_Number INTEGER   
-, AddCode VARCHAR(6)    REFERENCES nena.AdditionalCodes(AddCode)
-, AddDataURI VARCHAR(254)   
-, AddNum_Pre VARCHAR(15)   
-, AddNum_Suf VARCHAR(15)   
-, Addtl_Loc VARCHAR(225)   
-, Building VARCHAR(75)   
-, Country nena.COUNTRY  NOT NULL  
-, County VARCHAR(40)  NOT NULL   REFERENCES nena.Counties(County)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, Effective TIMESTAMP WITH TIME ZONE   
-, Elev INTEGER   
-, ESN VARCHAR(5)    
-, Expire TIMESTAMP WITH TIME ZONE   
-, Floor VARCHAR(75)   
-, Inc_Muni VARCHAR(100)  NOT NULL  
-, LandmkName VARCHAR(150)   
-, Lat DOUBLE PRECISION  CHECK ( -90 <= Lat AND Lat <= 90 )
-, Long DOUBLE PRECISION  CHECK ( -90 <= Long AND Long <= 90 )
-, LSt_Name VARCHAR(75)   
-, LSt_PosDir VARCHAR(2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, LSt_PreDir VARCHAR(2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, LSt_Type VARCHAR(4)    REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
-, Mile_Post VARCHAR(150)   
-, MSAGComm VARCHAR(30)   
-, Nbrhd_Comm VARCHAR(100)   
-, Place_Type VARCHAR(50)    REFERENCES nena.PlaceTypes(PlaceType)
-, Placement VARCHAR(25)    REFERENCES nena.PlacementMethods(PlacementMethod)
-, Post_Code VARCHAR(7)    REFERENCES nena.PostalCodes(PostalCode)
-, Post_Code4 VARCHAR(4)   
-, Post_Comm VARCHAR(40)    REFERENCES nena.PostalCommunities(PostalCommunity)
-, Room VARCHAR(75)   
-, Seat VARCHAR(75)   
-, Site_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
-, St_Name VARCHAR(60)   
-, St_PosDir nena.DIRECTIONAL   
-, St_PosMod VARCHAR(25)   
-, St_PosTyp VARCHAR(50)    REFERENCES nena.StreetNameTypes(StreetNameType)
-, St_PreDir nena.DIRECTIONAL   
-, St_PreMod VARCHAR(15)   
-, St_PreSep VARCHAR(20)    REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
-, St_PreTyp VARCHAR(50)    REFERENCES nena.StreetNameTypes(StreetNameType)
-, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
-, Uninc_Comm VARCHAR(100)   
-, Unit VARCHAR(75)   
-, geom GEOMETRY ('Point',4326)  NOT NULL  
-);
--- should there be ESN table or domain
+
 
 DROP TABLE  IF EXISTS nena.StatesOrEquivalents;
 CREATE TABLE nena.StatesOrEquivalents (
