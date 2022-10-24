@@ -896,12 +896,13 @@ INSERT INTO nena.StreetNameTypes VALUES
 -- NG9-1-1 Table Definitions
 -- #############################################################################
 
-/* TABLE nena.RoadCenterLine
+/* *****************************************************************************
+   TABLE:  nena.RoadCenterLine
    Source: NENA-STA-006.2-2022, Section 4.1.1, p.23
-*/
+  *************************************************************************** */
 DROP TABLE  IF EXISTS nena.RoadCenterline;
 CREATE TABLE nena.RoadCenterline (
-  id SERIAL PRIMARY KEY,
+  id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString',4326)  NOT NULL  
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL
@@ -953,9 +954,33 @@ CREATE TABLE nena.RoadCenterline (
 , RoadClass VARCHAR(15)  REFERENCES nena.RoadClasses(RoadClass)
 , OneWay VARCHAR(2)  REFERENCES nena.OneWays(OneWay)
 , SpeedLimit INTEGER CHECK ( 1 <= SpeedLimit AND SpeedLimit <= 100 )
-, Valid_L VARCHAR(1)   CHECK ( Valid_L  in ('Y','N') ) 
-, Valid_R VARCHAR(1)   CHECK ( Valid_R  in ('Y','N') ) 
+, Valid_L VARCHAR(1)  CHECK ( Valid_L  in ('Y','N') ) 
+, Valid_R VARCHAR(1)  CHECK ( Valid_R  in ('Y','N') ) 
 );
+
+/* *****************************************************************************
+   TABLE:  nena.StreetNameAliasTable
+   Source: NENA-STA-006.2-2022, Section 4.1.2.2, p.28
+  *************************************************************************** */
+DROP TABLE  IF EXISTS nena.StreetNameAliasTable;
+CREATE TABLE nena.StreetNameAliasTable (
+  id SERIAL  PRIMARY KEY
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, RCL_NGUID VARCHAR(254)  NOT NULL
+, ASt_PreMod VARCHAR(15)
+, ASt_PreDir nena.DIRECTIONAL
+, ASt_PreTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
+, ASt_PreSep VARCHAR(20)  REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
+, ASt_Name VARCHAR(254)  NOT NULL  
+, ASt_PosTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
+, ASt_PosDir nena.DIRECTIONAL   
+, ASt_PosMod VARCHAR(25)   
+);
+
 
 DROP TABLE IF EXISTS nena.CellSectorLocation;
 CREATE TABLE nena.CellSectorLocation (
@@ -1206,27 +1231,7 @@ CREATE TABLE nena.StatesOrEquivalents (
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
-DROP TABLE  IF EXISTS nena.StreetNameAliasTable;
-CREATE TABLE nena.StreetNameAliasTable (
-  ALStName VARCHAR(75)   
-, ALStPosDir VARCHAR(2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, ALStPreDir VARCHAR(2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, ALStTyp VARCHAR(4)    REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
-, ASt_Name VARCHAR(60)  NOT NULL  
-, ASt_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
-, ASt_PosDir nena.DIRECTIONAL   
-, ASt_PosMod VARCHAR(25)   
-, ASt_PosTyp VARCHAR(50)    REFERENCES nena.StreetNameTypes(StreetNameType)
-, ASt_PreDir nena.DIRECTIONAL   
-, ASt_PreMod VARCHAR(15)   
-, ASt_PreSep VARCHAR(20)    REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
-, ASt_PreTyp VARCHAR(50)    REFERENCES nena.StreetNameTypes(StreetNameType)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE   
-, RCL_NGUID VARCHAR(254)  NOT NULL  
-);
+
 
 DROP TABLE  IF EXISTS nena.UnincorporatedCommunityBoundary;
 CREATE TABLE nena.UnincorporatedCommunityBoundary (
