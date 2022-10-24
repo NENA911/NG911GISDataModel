@@ -66,7 +66,7 @@ out of your database to tune PostgreSQL to your specific server.
 
 There are a variety of methods to determine the best settings but simple 
 starting point is to use [PGTune](https://pgtune.leopard.in.ua/). PGTune 
-provides the settings that can be manually applied to the the `postgresql.conf` 
+provides the settings that can be manually applied to the `postgresql.conf` 
 file or ALTER commands that can be executed as a SQL script.
 
 
