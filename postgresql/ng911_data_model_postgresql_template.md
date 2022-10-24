@@ -1042,6 +1042,23 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 );
 
 
+/* *****************************************************************************
+   TABLE:  nena.LandmarkNamePartTable (Landmark Name Parts - Strongly Recommended)
+   Source: NENA-STA-006.2-2022, Section 4.2.2.2, p.35
+  *************************************************************************** */
+DROP TABLE  IF EXISTS nena.LandmarkNamePartTable;
+CREATE TABLE nena.LandmarkNamePartTable (
+  id SERIAL  PRIMARY KEY
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, SSAP_NGUID VARCHAR(254)
+, CLNA_NGUID VARCHAR(254) 
+, LMNamePart VARCHAR(150)  NOT NULL   
+, LMNP_Order INTEGER  NOT NULL  CHECK ( 1 <= LMNP_Order AND LMNP_Order <= 99 )
+);
 
 DROP TABLE IF EXISTS nena.CellSectorLocation;
 CREATE TABLE nena.CellSectorLocation (
@@ -1142,18 +1159,7 @@ CREATE TABLE nena.IncorporatedMunicipalityBoundary (
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
-DROP TABLE  IF EXISTS nena.LandmarkNamePartTable;
-CREATE TABLE nena.LandmarkNamePartTable (
-  ACLMNNGUID VARCHAR(254)   
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE   
-, LMNamePart VARCHAR(150)  NOT NULL  
-, LMNP_NGUID VARCHAR(254)   UNIQUE  
-, LMNP_Order INTEGER  NOT NULL  CHECK ( 1 <= LMNP_Order AND LMNP_Order <= 99 )
-, Site_NGUID VARCHAR(254)   
-);
+
 
 DROP TABLE  IF EXISTS nena.MileMarkerLocation;
 CREATE TABLE nena.MileMarkerLocation (
