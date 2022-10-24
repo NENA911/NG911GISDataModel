@@ -1,6 +1,5 @@
 # NG9-1-1 Data Model PostGIS Template Script
 
-```sql
 --run the following lines of code
 --in the query tool on the nena backup database
 --*********************************************************************
@@ -20,26 +19,38 @@
 -- and finally individual check constraints on columns are used for minimal situations 
 -- where only one table is involved
 
+NOTE: The following script uses a SCHEMA "nena". If you chose to use a different 
+domain replace "nena." with "<your schema>." in a text editor.
 
--- domain for country creates a new data type 
+
+```sql
+-- #############################################################################
+-- Support tables
+-- #############################################################################
+
+/* DOMAIN nena.country
+   Domain for country creates a new data type 
+*/
 DROP DOMAIN IF EXISTS nena.country CASCADE;
-CREATE DOMAIN nena.country AS CHARACTER VARYING (2)
+CREATE DOMAIN nena.country AS VARCHAR(2)
 CHECK ( VALUE IN ('US', 'CA', 'MX') ); 
 
--- if counties or equivalents boundary layer is created then this should be dropped
--- and the layer should be used as the domain with pk/fk constraint
--- local listing will likely be limited to state or region 
+/* TABLE nena.counties
+   If counties or equivalents boundary layer is created then this should be 
+   dropped and the layer should be used as the domain with pk/fk constraint
+   local listing will likely be limited to state or region
+*/ 
 DROP TABLE  IF EXISTS nena.counties CASCADE;
 CREATE TABLE nena.counties (
-	County CHARACTER VARYING (75) PRIMARY KEY
+	County VARCHAR(75) PRIMARY KEY
 ); 
 
 -- if states or equivalents layer exists, then this should be dropped as well
 -- local domain will probably be limited so this is best maintained as a table
 DROP TABLE IF EXISTS nena.states CASCADE;
 CREATE TABLE nena.states (
-	state CHARACTER VARYING (2) PRIMARY KEY
-, 	state_name CHARACTER VARYING (50) NOT NULL 
+	state VARCHAR(2) PRIMARY KEY
+, 	state_name VARCHAR(50) NOT NULL 
 );
 INSERT INTO nena.states values 
 	('AL','Alabama')
@@ -110,25 +121,25 @@ INSERT INTO nena.states values
 -- need to verify that this format is adequate??
 DROP TABLE IF EXISTS nena.agencies CASCADE;
 CREATE TABLE nena.agencies (
-	AgencyID CHARACTER VARYING (75) PRIMARY KEY CHECK ( AgencyID ~* '(\w+\.)*\w+$' )
+	AgencyID VARCHAR(75) PRIMARY KEY CHECK ( AgencyID ~* '(\w+\.)*\w+$' )
 ); 
 
 -- Additional code is pk/fk  
 DROP TABLE IF EXISTS nena.AdditionalCodes CASCADE;
 CREATE TABLE nena.AdditionalCodes (
-	AddCode CHARACTER VARYING (6) PRIMARY KEY
+	AddCode VARCHAR(6) PRIMARY KEY
 );
 
 -- directional as data type 
 DROP DOMAIN IF EXISTS nena.Directional CASCADE;
-CREATE DOMAIN nena.Directional AS CHARACTER VARYING (9) 
+CREATE DOMAIN nena.Directional AS VARCHAR(9) 
 CHECK ( VALUE IN ('North', 'South', 'East', 'West', 'Northeast', 'Northwest', ' Southeast', 'Southwest') );
 
 -- legacy directional as lookup
 DROP TABLE IF EXISTS nena.LegacyDirectionals CASCADE;
 CREATE TABLE nena.LegacyDirectionals (
-	LegacyDirectional CHARACTER VARYING (2) PRIMARY KEY
-,	Legacy1Directional_lookup CHARACTER VARYING (9)
+	LegacyDirectional VARCHAR(2) PRIMARY KEY
+,	Legacy1Directional_lookup VARCHAR(9)
 );
 INSERT INTO nena.LegacyDirectionals VALUES
 	('N','North')
@@ -147,8 +158,8 @@ INSERT INTO nena.LegacyDirectionals VALUES
 -- of abbreviation lookups e.g. for parsing 
 DROP TABLE IF EXISTS nena.LegacyStreetNameTypes CASCADE;
 CREATE TABLE nena.LegacyStreetNameTypes (
-	LegacyStreetNameType  CHARACTER VARYING (4) PRIMARY KEY	
-,	LegacyStreetNameType_lookup CHARACTER VARYING (20) 
+	LegacyStreetNameType  VARCHAR(4) PRIMARY KEY	
+,	LegacyStreetNameType_lookup VARCHAR(20) 
 );
 INSERT INTO nena.LegacyStreetNameTypes VALUES 
 	('ALY','ALLEY')
@@ -358,8 +369,8 @@ INSERT INTO nena.LegacyStreetNameTypes VALUES
 -- lookup table for milepostindicators
 DROP TABLE IF EXISTS nena.MilePostIndicators CASCADE;
 CREATE TABLE nena.MilePostIndicators (
-	MilePostIndicator CHARACTER VARYING (1) PRIMARY KEY 
-,	MilePostIndicator_lookup CHARACTER VARYING (20)
+	MilePostIndicator VARCHAR(1) PRIMARY KEY 
+,	MilePostIndicator_lookup VARCHAR(20)
 );
 INSERT INTO nena.MilePostIndicators VALUES 
 	('P', 'Posted')
@@ -369,7 +380,7 @@ INSERT INTO nena.MilePostIndicators VALUES
 -- table for milepostunits - could be expanded 
 DROP TABLE IF EXISTS nena.MilePostUnitofMeasurements CASCADE;
 CREATE TABLE nena.MilePostUnitofMeasurements (
-	MilePostUnitofMeasurement CHARACTER VARYING (15) PRIMARY KEY 
+	MilePostUnitofMeasurement VARCHAR(15) PRIMARY KEY 
 );
 INSERT INTO nena.MilePostUnitofMeasurements VALUES 
 	('miles')
@@ -382,8 +393,8 @@ INSERT INTO nena.MilePostUnitofMeasurements VALUES
 -- lookup table for one way codes 
 DROP TABLE IF EXISTS nena.OneWays CASCADE;
 CREATE TABLE nena.OneWays (
-	OneWay CHARACTER VARYING (2) PRIMARY KEY 
-,	OneWay_lookup CHARACTER VARYING (50)
+	OneWay VARCHAR(2) PRIMARY KEY 
+,	OneWay_lookup VARCHAR(50)
 );
 INSERT INTO nena.OneWays VALUES 
 	('B', 'Travel in both directions allowed')
@@ -394,8 +405,8 @@ INSERT INTO nena.OneWays VALUES
 -- lookup table for parity codes 
 DROP TABLE IF EXISTS nena.Parities CASCADE;
 CREATE TABLE nena.Parities (
-	Parity CHARACTER VARYING (1) PRIMARY KEY 
-,	Parity_lookup CHARACTER VARYING (20)
+	Parity VARCHAR(1) PRIMARY KEY 
+,	Parity_lookup VARCHAR(20)
 ); 
 INSERT INTO nena.Parities VALUES 
 	('O','Odd')
@@ -407,7 +418,7 @@ INSERT INTO nena.Parities VALUES
 -- table listing for placement methods - could be expanded 
 DROP TABLE IF EXISTS nena.PlacementMethods CASCADE;
 CREATE TABLE nena.PlacementMethods (
-	PlacementMethod CHARACTER VARYING (25) PRIMARY KEY 
+	PlacementMethod VARCHAR(25) PRIMARY KEY 
 ); 
 INSERT INTO nena.PlacementMethods VALUES 
 	('Geocoding')
@@ -421,7 +432,7 @@ INSERT INTO nena.PlacementMethods VALUES
 -- lookup table for placetypes 
 DROP TABLE IF EXISTS nena.PlaceTypes CASCADE;
 CREATE TABLE nena.PlaceTypes (
-	PlaceType CHARACTER VARYING (50) PRIMARY KEY 
+	PlaceType VARCHAR(50) PRIMARY KEY 
 ,	PlaceType_lookup TEXT 
 ); 
 INSERT INTO nena.PlaceTypes VALUES 
@@ -464,19 +475,19 @@ INSERT INTO nena.PlaceTypes VALUES
 -- postal code listing with regular expression match for US and Canadian codes 
 DROP TABLE IF EXISTS nena.PostalCodes CASCADE; 
 CREATE TABLE nena.PostalCodes (
-	PostalCode CHARACTER VARYING (7) PRIMARY KEY CHECK ( PostalCode ~* '(\d{5})|([A-Z][0-9][A-Z] [0-9][A-Z][0-9])' )
+	PostalCode VARCHAR(7) PRIMARY KEY CHECK ( PostalCode ~* '(\d{5})|([A-Z][0-9][A-Z] [0-9][A-Z][0-9])' )
 ); 
 
 -- table list of postal communities will be locally populated 
 DROP TABLE IF EXISTS nena.PostalCommunities CASCADE;
 CREATE TABLE nena.PostalCommunities (
-	PostalCommunity CHARACTER VARYING (40) PRIMARY KEY 
+	PostalCommunity VARCHAR(40) PRIMARY KEY 
 ) ;
 
 -- table list of road classes 
 DROP TABLE IF EXISTS nena.RoadClasses CASCADE;
 CREATE TABLE nena.RoadClasses (
-	RoadClass CHARACTER VARYING (15) PRIMARY KEY 
+	RoadClass VARCHAR(15) PRIMARY KEY 
 ,	RoadClass_lookup TEXT
 );
 INSERT INTO nena.RoadClasses VALUES 
@@ -502,14 +513,14 @@ INSERT INTO nena.RoadClasses VALUES
 -- or should there be individual domains for the various URI fields ??
 DROP TABLE IF EXISTS nena.URIs CASCADE;
 CREATE TABLE nena.URIs (
-	URI CHARACTER VARYING (254) PRIMARY KEY 
+	URI VARCHAR(254) PRIMARY KEY 
 ); 
 	
 
 -- table listing of urns 
 DROP TABLE IF EXISTS nena.ServiceURNs CASCADE;
 CREATE TABLE nena.ServiceURNs (
-	ServiceURN CHARACTER VARYING (254) PRIMARY KEY
+	ServiceURN VARCHAR(254) PRIMARY KEY
 ,	ServiceURN_lookup TEXT
 );
 INSERT INTO nena.ServiceURNs VALUES 
@@ -554,7 +565,7 @@ INSERT INTO nena.ServiceURNs VALUES
 -- table listing of street name pre type separators 
 DROP TABLE IF EXISTS nena.StreetNamePreTypeSeparators CASCADE;
 CREATE TABLE nena.StreetNamePreTypeSeparators (
-	StreetNamePreTypeSeparator CHARACTER VARYING (20) PRIMARY KEY 
+	StreetNamePreTypeSeparator VARCHAR(20) PRIMARY KEY 
 );
 INSERT INTO nena.StreetNamePreTypeSeparators VALUES 
 	('of the')
@@ -571,7 +582,7 @@ INSERT INTO nena.StreetNamePreTypeSeparators VALUES
 -- list of street name types - will likely be expanded locally 
 DROP TABLE IF EXISTS nena.StreetNameTypes CASCADE;
 CREATE TABLE nena.StreetNameTypes (
-	StreetNameType CHARACTER VARYING (50) PRIMARY KEY
+	StreetNameType VARCHAR(50) PRIMARY KEY
 );
 INSERT INTO nena.StreetNameTypes VALUES 
 	('Access Road')
@@ -881,292 +892,304 @@ INSERT INTO nena.StreetNameTypes VALUES
 ,	('Wye')
 ;
 
+-- #############################################################################
+-- NG9-1-1 Table Definitions
+-- #############################################################################
+
+/* TABLE nena.RoadCenterLine
+   Source: NENA-STA-006.2-2022, Section 4.1.1, p.23
+*/
+DROP TABLE  IF EXISTS nena.RoadCenterline;
+CREATE TABLE nena.RoadCenterline (
+  id SERIAL PRIMARY KEY,
+, geom GEOMETRY ('LineString',4326)  NOT NULL  
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL
+, Effective TIMESTAMP WITH TIME ZONE
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, AdNumPre_L VARCHAR(15)
+, AdNumPre_R VARCHAR(15)
+, FromAddr_L INTEGER  NOT NULL  CHECK ( 0 <= FromAddr_L AND FromAddr_L <= 999999 )
+, ToAddr_L INTEGER  NOT NULL  CHECK ( 0 <= ToAddr_L AND ToAddr_L <= 999999 )
+, FromAddr_R INTEGER  NOT NULL  CHECK ( 0 <= FromAddr_R AND FromAddr_R <= 999999 )
+, ToAddr_R INTEGER  NOT NULL  CHECK ( 0 <= ToAddr_R AND ToAddr_R <= 999999 )
+, Parity_L VARCHAR(1)  NOT NULL  REFERENCES nena.Parities(Parity)
+, Parity_R VARCHAR(1)  NOT NULL  REFERENCES nena.Parities(Parity)
+, St_PreMod VARCHAR(15)   
+, St_PreDir nena.DIRECTIONAL
+, St_PreTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
+, St_PreSep VARCHAR(20)  REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
+, St_Name VARCHAR(254)   
+, St_PosTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
+, St_PosDir nena.DIRECTIONAL   
+, St_PosMod VARCHAR(25) 
+, LSt_PreDir VARCHAR(2)  REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, LSt_Name VARCHAR(75)   
+, LSt_Type VARCHAR(4)  REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
+, LSt_PosDir VARCHAR(2)  REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, ESN_L VARCHAR(5)  CHECK ( ESN_L ~* '\w{3,5}' )
+, ESN_R VARCHAR(5)  CHECK ( ESN_R ~* '\w{3,5}' )
+, MSAGComm_L VARCHAR(30)   
+, MSAGComm_R VARCHAR(30)  
+, Country_L nena.COUNTRY  NOT NULL  
+, Country_R nena.COUNTRY  NOT NULL 
+, State_L VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, State_R VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, County_L VARCHAR(40)  NOT NULL  REFERENCES nena.Counties(County)
+, County_R VARCHAR(40)  NOT NULL  REFERENCES nena.Counties(County)
+, AddCode_L VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
+, AddCode_R VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
+, IncMuni_L VARCHAR(100)  NOT NULL  
+, IncMuni_R VARCHAR(100)  NOT NULL  
+, UnincCom_L VARCHAR(100)   
+, UnincCom_R VARCHAR(100)
+, NbrhdCom_L VARCHAR(100)   
+, NbrhdCom_R VARCHAR(100)
+, PostCode_L VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
+, PostCode_R VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
+, PostComm_L VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
+, PostComm_R VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
+, RoadClass VARCHAR(15)  REFERENCES nena.RoadClasses(RoadClass)
+, OneWay VARCHAR(2)  REFERENCES nena.OneWays(OneWay)
+, SpeedLimit INTEGER CHECK ( 1 <= SpeedLimit AND SpeedLimit <= 100 )
+, Valid_L VARCHAR(1)   CHECK ( Valid_L  in ('Y','N') ) 
+, Valid_R VARCHAR(1)   CHECK ( Valid_R  in ('Y','N') ) 
+);
+
 DROP TABLE IF EXISTS nena.CellSectorLocation;
 CREATE TABLE nena.CellSectorLocation (
-  Cell_NGUID CHARACTER VARYING (254)   NOT NULL  UNIQUE  
-, CMarket_ID CHARACTER VARYING (10)   
+  Cell_NGUID VARCHAR(254)   NOT NULL  UNIQUE  
+, CMarket_ID VARCHAR(10)   
 , Country nena.COUNTRY  NOT NULL  
-, County CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Counties(County)
-, CSctr_Ornt CHARACTER VARYING (4)  NOT NULL  
-, CSite_Name CHARACTER VARYING (10)   
+, County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
+, CSctr_Ornt VARCHAR(4)  NOT NULL  
+, CSite_Name VARCHAR(10)   
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , ESRD_ESRK INTEGER   
 , ESRK_Last INTEGER   
 , Lat DOUBLE PRECISION  CHECK ( -90 <= Lat AND Lat <= 90 )
 , Long DOUBLE PRECISION  CHECK ( -90 <= Long AND Long <= 90 )
-, Sector_ID CHARACTER VARYING (4)  NOT NULL  
-, Site_ID CHARACTER VARYING (10)   
-, Site_NGUID CHARACTER VARYING (254)   
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
-, Switch_ID CHARACTER VARYING (10)   
+, Sector_ID VARCHAR(4)  NOT NULL  
+, Site_ID VARCHAR(10)   
+, Site_NGUID VARCHAR(254)   
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
+, Switch_ID VARCHAR(10)   
 , geom GEOMETRY ('point',4326)  NOT NULL  
-, Technology CHARACTER VARYING (10)  NOT NULL  
+, Technology VARCHAR(10)  NOT NULL  
 );
 
 DROP TABLE IF EXISTS nena.CompleteLandmarkNameAliasTable;
 CREATE TABLE nena.CompleteLandmarkNameAliasTable (
-  ACLandmark CHARACTER VARYING (150)   
-, ACLMNNGUID CHARACTER VARYING (254)   NOT NULL  UNIQUE  
+  ACLandmark VARCHAR(150)   
+, ACLMNNGUID VARCHAR(254)   NOT NULL  UNIQUE  
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, Site_NGUID CHARACTER VARYING (254)  NOT NULL  
+, Site_NGUID VARCHAR(254)  NOT NULL  
 );
 
 DROP TABLE IF EXISTS nena.CountiesOrEquivalents;
 CREATE TABLE nena.CountiesOrEquivalents (
-  CntyNGUID CHARACTER VARYING (254)   NOT NULL  UNIQUE  
+  CntyNGUID VARCHAR(254)   NOT NULL  UNIQUE  
 , Country nena.COUNTRY  NOT NULL  
-, County CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Counties(County)
+, County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
 , geom GEOMETRY ('polygon',4326)  NOT NULL  
 );
 
 DROP TABLE IF EXISTS nena.EmergencyServiceBoundary;
 CREATE TABLE nena.EmergencyServiceBoundary (
-  Agency_ID CHARACTER VARYING (100)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, AVcard_URI CHARACTER VARYING (254)  NOT NULL   REFERENCES nena.URIs(URI)
+  Agency_ID VARCHAR(100)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, AVcard_URI VARCHAR(254)  NOT NULL   REFERENCES nena.URIs(URI)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, DsplayName CHARACTER VARYING (60)  NOT NULL  
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DsplayName VARCHAR(60)  NOT NULL  
 , Effective TIMESTAMP WITH TIME ZONE   
-, ES_NGUID CHARACTER VARYING (254)   NOT NULL  UNIQUE  
+, ES_NGUID VARCHAR(254)   NOT NULL  UNIQUE  
 , Expire TIMESTAMP WITH TIME ZONE   
-, ServiceNum CHARACTER VARYING (15)   
-, ServiceURI CHARACTER VARYING (254)  NOT NULL   REFERENCES nena.URIs(URI)
-, ServiceURN CHARACTER VARYING (50)  NOT NULL  
+, ServiceNum VARCHAR(15)   
+, ServiceURI VARCHAR(254)  NOT NULL   REFERENCES nena.URIs(URI)
+, ServiceURN VARCHAR(50)  NOT NULL  
 , geom GEOMETRY ('polygon',4326)  NOT NULL  
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
 );
 
 DROP TABLE IF EXISTS nena.HydrologyLine;
 CREATE TABLE nena.HydrologyLine (
   DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, HS_Name CHARACTER VARYING (100)   
-, HS_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
-, HS_Type CHARACTER VARYING (100)   
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, HS_Name VARCHAR(100)   
+, HS_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
+, HS_Type VARCHAR(100)   
 , geom GEOMETRY ('LineString',4326)  NOT NULL  
 );
 
 DROP TABLE IF EXISTS nena.HydrologyPolygon;
 CREATE TABLE nena.HydrologyPolygon (
   DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, HP_Name CHARACTER VARYING (100)   
-, HP_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
-, HP_Type CHARACTER VARYING (100)   
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, HP_Name VARCHAR(100)   
+, HP_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
+, HP_Type VARCHAR(100)   
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
 DROP TABLE IF EXISTS nena.IncorporatedMunicipalityBoundary;
 CREATE TABLE nena.IncorporatedMunicipalityBoundary (
-  AddCode CHARACTER VARYING (6)    REFERENCES nena.AdditionalCodes(AddCode)
+  AddCode VARCHAR(6)    REFERENCES nena.AdditionalCodes(AddCode)
 , Country nena.COUNTRY  NOT NULL  
-, County CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Counties(County)
+, County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, Inc_Muni CHARACTER VARYING (100)  NOT NULL  
-, IncM_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
+, Inc_Muni VARCHAR(100)  NOT NULL  
+, IncM_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
 DROP TABLE  IF EXISTS nena.LandmarkNamePartTable;
 CREATE TABLE nena.LandmarkNamePartTable (
-  ACLMNNGUID CHARACTER VARYING (254)   
+  ACLMNNGUID VARCHAR(254)   
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, LMNamePart CHARACTER VARYING (150)  NOT NULL  
-, LMNP_NGUID CHARACTER VARYING (254)   UNIQUE  
+, LMNamePart VARCHAR(150)  NOT NULL  
+, LMNP_NGUID VARCHAR(254)   UNIQUE  
 , LMNP_Order INTEGER  NOT NULL  CHECK ( 1 <= LMNP_Order AND LMNP_Order <= 99 )
-, Site_NGUID CHARACTER VARYING (254)   
+, Site_NGUID VARCHAR(254)   
 );
 
 DROP TABLE  IF EXISTS nena.MileMarkerLocation;
 CREATE TABLE nena.MileMarkerLocation (
   DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, MileM_Ind CHARACTER VARYING (1)  NOT NULL   REFERENCES nena.MilePostIndicators(MilePostIndicator)
-, MileM_Rte CHARACTER VARYING (100)  NOT NULL  
-, MileM_Type CHARACTER VARYING (15)   
-, MileM_Unit CHARACTER VARYING (15)    REFERENCES nena.MilePostUnitofMeasurements(MilePostUnitofMeasurement)
-, MileMNGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, MileM_Ind VARCHAR(1)  NOT NULL   REFERENCES nena.MilePostIndicators(MilePostIndicator)
+, MileM_Rte VARCHAR(100)  NOT NULL  
+, MileM_Type VARCHAR(15)   
+, MileM_Unit VARCHAR(15)    REFERENCES nena.MilePostUnitofMeasurements(MilePostUnitofMeasurement)
+, MileMNGUID VARCHAR(254)  NOT NULL  UNIQUE  
 , MileMValue DOUBLE PRECISION NOT NULL  
 , geom GEOMETRY ('point',4326)  NOT NULL  
 );
 
 DROP TABLE  IF EXISTS nena.NeighborhoodCommunityBoundary;
 CREATE TABLE nena.NeighborhoodCommunityBoundary (
-  AddCode CHARACTER VARYING (6)    REFERENCES nena.AdditionalCodes(AddCode)
+  AddCode VARCHAR(6)    REFERENCES nena.AdditionalCodes(AddCode)
 , Country nena.COUNTRY  NOT NULL  
-, County CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Counties(County)
+, County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, Inc_Muni CHARACTER VARYING (100)  NOT NULL  
-, Nbrhd_Comm CHARACTER VARYING (100)  NOT NULL  
-, NbrhdNGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
-, Uninc_Comm CHARACTER VARYING (100)   
+, Inc_Muni VARCHAR(100)  NOT NULL  
+, Nbrhd_Comm VARCHAR(100)  NOT NULL  
+, NbrhdNGUID VARCHAR(254)  NOT NULL  UNIQUE  
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
+, Uninc_Comm VARCHAR(100)   
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
 DROP TABLE  IF EXISTS nena.ProvisioningBoundary;
 CREATE TABLE nena.ProvisioningBoundary (
   DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, PB_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
+, PB_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
 DROP TABLE  IF EXISTS nena.PSAP_Boundary;
 CREATE TABLE nena.PSAP_Boundary (
-  Agency_ID CHARACTER VARYING (100)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, AVcard_URI CHARACTER VARYING (254)  NOT NULL   REFERENCES nena.URIs(URI)
+  Agency_ID VARCHAR(100)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, AVcard_URI VARCHAR(254)  NOT NULL   REFERENCES nena.URIs(URI)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, DsplayName CHARACTER VARYING (60)  NOT NULL  
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DsplayName VARCHAR(60)  NOT NULL  
 , Effective TIMESTAMP WITH TIME ZONE   
-, ES_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
+, ES_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
 , Expire TIMESTAMP WITH TIME ZONE   
-, ServiceNum CHARACTER VARYING (15)   
-, ServiceURI CHARACTER VARYING (254)  NOT NULL   REFERENCES nena.URIs(URI)
-, ServiceURN CHARACTER VARYING (50)  NOT NULL  
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
+, ServiceNum VARCHAR(15)   
+, ServiceURI VARCHAR(254)  NOT NULL   REFERENCES nena.URIs(URI)
+, ServiceURN VARCHAR(50)  NOT NULL  
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
 DROP TABLE  IF EXISTS nena.RailroadCenterlines;
 CREATE TABLE nena.RailroadCenterlines (
   DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, RLNAME CHARACTER VARYING (100)   
-, RLOP CHARACTER VARYING (100)   
-, RLOWN CHARACTER VARYING (100)   
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, RLNAME VARCHAR(100)   
+, RLOP VARCHAR(100)   
+, RLOWN VARCHAR(100)   
 , RMPH DOUBLE PRECISION   
 , RMPL DOUBLE PRECISION  
-, RS_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
+, RS_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
 , geom GEOMETRY ('LineString',4326)  NOT NULL  
 );
 
-DROP TABLE  IF EXISTS nena.RoadCenterlines;
-CREATE TABLE nena.RoadCenterlines (
-  AddCode_L CHARACTER VARYING (6)    REFERENCES nena.AdditionalCodes(AddCode)
-, AddCode_R CHARACTER VARYING (6)    REFERENCES nena.AdditionalCodes(AddCode)
-, AdNumPre_L CHARACTER VARYING (15)   
-, AdNumPre_R CHARACTER VARYING (15)   
-, Country_L nena.COUNTRY  NOT NULL  
-, Country_R nena.COUNTRY  NOT NULL  
-, County_L CHARACTER VARYING (40)  NOT NULL   REFERENCES nena.Counties(County)
-, County_R CHARACTER VARYING (40)  NOT NULL   REFERENCES nena.Counties(County)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, Effective TIMESTAMP WITH TIME ZONE   
-, ESN_L  character varying (5) CHECK ( ESN_L ~* '\w{3,5}' )
-, ESN_R character varying (5) CHECK ( ESN_R ~* '\w{3,5}' )
-, Expire TIMESTAMP WITH TIME ZONE   
-, FromAddr_L INTEGER  NOT NULL  CHECK ( 0 <= FromAddr_L AND FromAddr_L <= 999999 )
-, FromAddr_R INTEGER  NOT NULL  CHECK ( 0 <= FromAddr_R AND FromAddr_R <= 999999 )
-, IncMuni_L CHARACTER VARYING (100)  NOT NULL  
-, IncMuni_R CHARACTER VARYING (100)  NOT NULL  
-, LSt_Name CHARACTER VARYING (75)   
-, LSt_PosDir CHARACTER VARYING (2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, LSt_PreDir CHARACTER VARYING (2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, LSt_Type CHARACTER VARYING (4)    REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
-, MSAGComm_L CHARACTER VARYING (30)   
-, MSAGComm_R CHARACTER VARYING (30)   
-, NbrhdCom_L CHARACTER VARYING (100)   
-, NbrhdCom_R CHARACTER VARYING (100)   
-, OneWay CHARACTER VARYING (2)    REFERENCES nena.OneWays(OneWay)
-, Parity_L CHARACTER VARYING (1)  NOT NULL   REFERENCES nena.Parities(Parity)
-, Parity_R CHARACTER VARYING (1)  NOT NULL   REFERENCES nena.Parities(Parity)
-, PostCode_L CHARACTER VARYING (7)    REFERENCES nena.PostalCodes(PostalCode)
-, PostCode_R CHARACTER VARYING (7)    REFERENCES nena.PostalCodes(PostalCode)
-, PostComm_L CHARACTER VARYING (40)    REFERENCES nena.PostalCommunities(PostalCommunity)
-, PostComm_R CHARACTER VARYING (40)    REFERENCES nena.PostalCommunities(PostalCommunity)
-, RCL_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
-, RoadClass CHARACTER VARYING (15)    REFERENCES nena.RoadClasses(RoadClass)
-, SpeedLimit INTEGER   CHECK ( 1 <= SpeedLimit AND SpeedLimit <= 100 )
-, St_Name CHARACTER VARYING (60)  NOT NULL  
-, St_PosMod CHARACTER VARYING (25)   
-, St_PosTyp CHARACTER VARYING (50)    REFERENCES nena.StreetNameTypes(StreetNameType)
-, St_PreMod CHARACTER VARYING (15)   
-, St_PreSep CHARACTER VARYING (20)    REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
-, St_PreTyp CHARACTER VARYING (50)    REFERENCES nena.StreetNameTypes(StreetNameType)
-, State_L CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
-, State_R CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
-, ToAddr_L INTEGER  NOT NULL  CHECK ( 0 <= ToAddr_L AND ToAddr_L <= 999999 )
-, ToAddr_R INTEGER  NOT NULL  CHECK ( 0 <= ToAddr_R AND ToAddr_R <= 999999 )
-, UnincCom_L CHARACTER VARYING (100)   
-, UnincCom_R CHARACTER VARYING (100)   
-, Valid_L CHARACTER VARYING (1)   CHECK ( Valid_L  in ('Y','N') ) 
-, Valid_R CHARACTER VARYING (1)   CHECK ( Valid_R  in ('Y','N') ) 
-, geom GEOMETRY ('LineString',4326)  NOT NULL  
-);
+
 
 
 DROP TABLE  IF EXISTS nena.SiteStructureAddressPoints;
 CREATE TABLE nena.SiteStructureAddressPoints (
   Add_Number INTEGER   
-, AddCode CHARACTER VARYING (6)    REFERENCES nena.AdditionalCodes(AddCode)
-, AddDataURI CHARACTER VARYING (254)   
-, AddNum_Pre CHARACTER VARYING (15)   
-, AddNum_Suf CHARACTER VARYING (15)   
-, Addtl_Loc CHARACTER VARYING (225)   
-, Building CHARACTER VARYING (75)   
+, AddCode VARCHAR(6)    REFERENCES nena.AdditionalCodes(AddCode)
+, AddDataURI VARCHAR(254)   
+, AddNum_Pre VARCHAR(15)   
+, AddNum_Suf VARCHAR(15)   
+, Addtl_Loc VARCHAR(225)   
+, Building VARCHAR(75)   
 , Country nena.COUNTRY  NOT NULL  
-, County CHARACTER VARYING (40)  NOT NULL   REFERENCES nena.Counties(County)
+, County VARCHAR(40)  NOT NULL   REFERENCES nena.Counties(County)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Elev INTEGER   
-, ESN CHARACTER VARYING (5)    
+, ESN VARCHAR(5)    
 , Expire TIMESTAMP WITH TIME ZONE   
-, Floor CHARACTER VARYING (75)   
-, Inc_Muni CHARACTER VARYING (100)  NOT NULL  
-, LandmkName CHARACTER VARYING (150)   
+, Floor VARCHAR(75)   
+, Inc_Muni VARCHAR(100)  NOT NULL  
+, LandmkName VARCHAR(150)   
 , Lat DOUBLE PRECISION  CHECK ( -90 <= Lat AND Lat <= 90 )
 , Long DOUBLE PRECISION  CHECK ( -90 <= Long AND Long <= 90 )
-, LSt_Name CHARACTER VARYING (75)   
-, LSt_PosDir CHARACTER VARYING (2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, LSt_PreDir CHARACTER VARYING (2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, LSt_Type CHARACTER VARYING (4)    REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
-, Mile_Post CHARACTER VARYING (150)   
-, MSAGComm CHARACTER VARYING (30)   
-, Nbrhd_Comm CHARACTER VARYING (100)   
-, Place_Type CHARACTER VARYING (50)    REFERENCES nena.PlaceTypes(PlaceType)
-, Placement CHARACTER VARYING (25)    REFERENCES nena.PlacementMethods(PlacementMethod)
-, Post_Code CHARACTER VARYING (7)    REFERENCES nena.PostalCodes(PostalCode)
-, Post_Code4 CHARACTER VARYING (4)   
-, Post_Comm CHARACTER VARYING (40)    REFERENCES nena.PostalCommunities(PostalCommunity)
-, Room CHARACTER VARYING (75)   
-, Seat CHARACTER VARYING (75)   
-, Site_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
-, St_Name CHARACTER VARYING (60)   
+, LSt_Name VARCHAR(75)   
+, LSt_PosDir VARCHAR(2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, LSt_PreDir VARCHAR(2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, LSt_Type VARCHAR(4)    REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
+, Mile_Post VARCHAR(150)   
+, MSAGComm VARCHAR(30)   
+, Nbrhd_Comm VARCHAR(100)   
+, Place_Type VARCHAR(50)    REFERENCES nena.PlaceTypes(PlaceType)
+, Placement VARCHAR(25)    REFERENCES nena.PlacementMethods(PlacementMethod)
+, Post_Code VARCHAR(7)    REFERENCES nena.PostalCodes(PostalCode)
+, Post_Code4 VARCHAR(4)   
+, Post_Comm VARCHAR(40)    REFERENCES nena.PostalCommunities(PostalCommunity)
+, Room VARCHAR(75)   
+, Seat VARCHAR(75)   
+, Site_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
+, St_Name VARCHAR(60)   
 , St_PosDir nena.DIRECTIONAL   
-, St_PosMod CHARACTER VARYING (25)   
-, St_PosTyp CHARACTER VARYING (50)    REFERENCES nena.StreetNameTypes(StreetNameType)
+, St_PosMod VARCHAR(25)   
+, St_PosTyp VARCHAR(50)    REFERENCES nena.StreetNameTypes(StreetNameType)
 , St_PreDir nena.DIRECTIONAL   
-, St_PreMod CHARACTER VARYING (15)   
-, St_PreSep CHARACTER VARYING (20)    REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
-, St_PreTyp CHARACTER VARYING (50)    REFERENCES nena.StreetNameTypes(StreetNameType)
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
-, Uninc_Comm CHARACTER VARYING (100)   
-, Unit CHARACTER VARYING (75)   
+, St_PreMod VARCHAR(15)   
+, St_PreSep VARCHAR(20)    REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
+, St_PreTyp VARCHAR(50)    REFERENCES nena.StreetNameTypes(StreetNameType)
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
+, Uninc_Comm VARCHAR(100)   
+, Unit VARCHAR(75)   
 , geom GEOMETRY ('Point',4326)  NOT NULL  
 );
 -- should there be ESN table or domain
@@ -1175,48 +1198,48 @@ DROP TABLE  IF EXISTS nena.StatesOrEquivalents;
 CREATE TABLE nena.StatesOrEquivalents (
  Country nena.COUNTRY  NOT NULL  
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
-, StateNGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
+, StateNGUID VARCHAR(254)  NOT NULL  UNIQUE  
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
 DROP TABLE  IF EXISTS nena.StreetNameAliasTable;
 CREATE TABLE nena.StreetNameAliasTable (
-  ALStName CHARACTER VARYING (75)   
-, ALStPosDir CHARACTER VARYING (2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, ALStPreDir CHARACTER VARYING (2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
-, ALStTyp CHARACTER VARYING (4)    REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
-, ASt_Name CHARACTER VARYING (60)  NOT NULL  
-, ASt_NGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
+  ALStName VARCHAR(75)   
+, ALStPosDir VARCHAR(2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, ALStPreDir VARCHAR(2)    REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, ALStTyp VARCHAR(4)    REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
+, ASt_Name VARCHAR(60)  NOT NULL  
+, ASt_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
 , ASt_PosDir nena.DIRECTIONAL   
-, ASt_PosMod CHARACTER VARYING (25)   
-, ASt_PosTyp CHARACTER VARYING (50)    REFERENCES nena.StreetNameTypes(StreetNameType)
+, ASt_PosMod VARCHAR(25)   
+, ASt_PosTyp VARCHAR(50)    REFERENCES nena.StreetNameTypes(StreetNameType)
 , ASt_PreDir nena.DIRECTIONAL   
-, ASt_PreMod CHARACTER VARYING (15)   
-, ASt_PreSep CHARACTER VARYING (20)    REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
-, ASt_PreTyp CHARACTER VARYING (50)    REFERENCES nena.StreetNameTypes(StreetNameType)
+, ASt_PreMod VARCHAR(15)   
+, ASt_PreSep VARCHAR(20)    REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
+, ASt_PreTyp VARCHAR(50)    REFERENCES nena.StreetNameTypes(StreetNameType)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, RCL_NGUID CHARACTER VARYING (254)  NOT NULL  
+, RCL_NGUID VARCHAR(254)  NOT NULL  
 );
 
 DROP TABLE  IF EXISTS nena.UnincorporatedCommunityBoundary;
 CREATE TABLE nena.UnincorporatedCommunityBoundary (
-  AddCode CHARACTER VARYING (6)    REFERENCES nena.AdditionalCodes(AddCode)
+  AddCode VARCHAR(6)    REFERENCES nena.AdditionalCodes(AddCode)
 , Country nena.COUNTRY  NOT NULL  
-, County CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Counties(County)
+, County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
 , DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID CHARACTER VARYING (75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
+, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE   
-, State CHARACTER VARYING (2)  NOT NULL   REFERENCES nena.States(State)
-, Uninc_Comm   CHARACTER VARYING (100) NOT NULL  
-, UnincNGUID CHARACTER VARYING (254)  NOT NULL  UNIQUE  
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
+, Uninc_Comm   VARCHAR(100) NOT NULL  
+, UnincNGUID VARCHAR(254)  NOT NULL  UNIQUE  
 , geom GEOMETRY ('Polygon',4326)  NOT NULL  
 ) ;
 ```
