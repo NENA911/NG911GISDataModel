@@ -21,14 +21,14 @@ be placed on the target machine and then connected to via a suitable GIS applica
 If interested in creating the template FGDB from a python script, the dependencies should first be met.
 Once either ArcGIS 10.2 (or later) or ArcGIS Pro 1.x (or later) has been installed the 
 esri_data_template_creation.py script can be downloaded to the target machine meeting the dependencies.  
-	+ Place the python script on the target machine containing either (or both) of the two GIS software 
-	   products.
-	+ Open a command prompt by clicking on the "Start" icon, typing "cmd" and pressing enter
-	+ Change directory (i.e. using the "cd" command) to the folder containing the python script
-	+ Execute the script by typing "python esri_data_template_creation.py" and pressing enter
-	+ The template FGDB can be found in the same directory as the python script
-	+ To re-run the script, you will need to delete the previously created FGDB.  The script will not
-		overwrite an existing FGDB.
+* Place the python script on the target machine containing either (or both) of the two GIS software
+	* products.
+* Open a command prompt by clicking on the "Start" icon, typing "cmd" and pressing enter
+* Change directory (i.e. using the "cd" command) to the folder containing the python script
+* Execute the script by typing "python esri_data_template_creation.py" and pressing enter
+* The template FGDB can be found in the same directory as the python script
+* To re-run the script, you will need to delete the previously created FGDB.  The script will not
+	* overwrite an existing FGDB.
 
 ## Help
 
