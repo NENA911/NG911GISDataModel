@@ -29,25 +29,44 @@ domain replace "nena." with "<your schema>." in a text editor.
 -- Support tables
 -- #############################################################################
 
-/* DOMAIN nena.country
-   Domain for country creates a new data type 
-*/
+
+/* *****************************************************************************
+   DOMAIN:   nena.agencies
+   Used by:  All tables
+   Source:   
+   Notes:    Lookup table for discrepancy agencies values. This is used as a 
+             PK/FK relationship in all layers. Agencies will need to be
+             manually added later. The AgencyID field uses a regex check 
+             constraing to ensure the proper format of the domain name.
+   TODOS:    * Verify the regex expression works for all domain formats.
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.agencies CASCADE;
+CREATE TABLE nena.agencies (
+	AgencyID VARCHAR(75) PRIMARY KEY CHECK ( AgencyID ~* '(\w+\.)*\w+$' )
+); 
+
+
+
+
+/* *****************************************************************************
+   DOMAIN:   nena.country
+   Used by:  
+   Source:   https://en.wikipedia.org/wiki/ISO_3166-1
+   Notes:    Domain for country creates a new data type 
+   ************************************************************************** */
 DROP DOMAIN IF EXISTS nena.country CASCADE;
 CREATE DOMAIN nena.country AS VARCHAR(2)
 CHECK ( VALUE IN ('US', 'CA', 'MX') ); 
 
-/* TABLE nena.counties
-   If counties or equivalents boundary layer is created then this should be 
-   dropped and the layer should be used as the domain with pk/fk constraint
-   local listing will likely be limited to state or region
-*/ 
-DROP TABLE  IF EXISTS nena.counties CASCADE;
-CREATE TABLE nena.counties (
-	County VARCHAR(75) PRIMARY KEY
-); 
 
--- if states or equivalents layer exists, then this should be dropped as well
--- local domain will probably be limited so this is best maintained as a table
+/* *****************************************************************************
+   TABLE:    nena.country
+   Used by:  
+   Source:   
+   Notes:    If states or equivalents layer exists, then this should be dropped 
+             as well local domain will probably be limited so this is best 
+             maintained as a table
+   ************************************************************************** */
 DROP TABLE IF EXISTS nena.states CASCADE;
 CREATE TABLE nena.states (
 	state VARCHAR(2) PRIMARY KEY
@@ -116,14 +135,23 @@ INSERT INTO nena.states values
 ,	('WY','Wyoming')
 ; 
 
--- table for agencies will be edited later 
--- this is used with pk/fk constraint on agencies in all tables 
--- uses a check constraint with a regular expression to check format for domain name 
--- need to verify that this format is adequate??
-DROP TABLE IF EXISTS nena.agencies CASCADE;
-CREATE TABLE nena.agencies (
-	AgencyID VARCHAR(75) PRIMARY KEY CHECK ( AgencyID ~* '(\w+\.)*\w+$' )
+
+/* *****************************************************************************
+   TABLE:    nena.counties
+   Used By:  
+   Source:   Varies
+   Notes:    If counties or equivalents boundary layer is created then this should 
+             be dropped and the layer should be used as the domain with pk/fk 
+             constraint local listing will likely be limited to state or region 
+   ************************************************************************** */
+DROP TABLE  IF EXISTS nena.counties CASCADE;
+CREATE TABLE nena.counties (
+	County VARCHAR(75) PRIMARY KEY
 ); 
+
+
+
+
 
 -- Additional code is pk/fk  
 DROP TABLE IF EXISTS nena.AdditionalCodes CASCADE;
@@ -367,29 +395,8 @@ INSERT INTO nena.LegacyStreetNameTypes VALUES
 ,	('WLS','WELLS')
 ;
 
--- lookup table for milepostindicators
-DROP TABLE IF EXISTS nena.MilePostIndicators CASCADE;
-CREATE TABLE nena.MilePostIndicators (
-	MilePostIndicator VARCHAR(1) PRIMARY KEY 
-,	MilePostIndicator_lookup VARCHAR(20)
-);
-INSERT INTO nena.MilePostIndicators VALUES 
-	('P', 'Posted')
-,	('L', 'Logical/Calculated')
-; 
 
--- table for milepostunits - could be expanded 
-DROP TABLE IF EXISTS nena.MilePostUnitofMeasurements CASCADE;
-CREATE TABLE nena.MilePostUnitofMeasurements (
-	MilePostUnitofMeasurement VARCHAR(15) PRIMARY KEY 
-);
-INSERT INTO nena.MilePostUnitofMeasurements VALUES 
-	('miles')
-,	('yards')
-,	('feet')
-,	('kilometers')
-,	('meters')
-; 
+
 
 -- lookup table for one way codes 
 DROP TABLE IF EXISTS nena.OneWays CASCADE;
@@ -893,6 +900,43 @@ INSERT INTO nena.StreetNameTypes VALUES
 ,	('Wye')
 ;
 
+
+/* *****************************************************************************
+   TABLE:    LocationMarker_Indicators
+   Used By:  LocationMarkerPoints
+   Source:   
+   Notes:    Lookup table for LocationMarkerPoints
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.LocationMarker_Indicators CASCADE;
+CREATE TABLE nena.LocationMarker_Indicators (
+	code VARCHAR(1) PRIMARY KEY 
+,	description VARCHAR(20)
+);
+INSERT INTO nena.MilePostIndicators VALUES (
+  ('P', 'Posted')
+, ('L', 'Logical/Calculated')
+; 
+
+
+/* *****************************************************************************
+   TABLE:    LocationMarker_Units
+   Used By:  LocationMarkerPoints
+   Source:   
+   Notes:    Lookup table for LocationMarkerPoints
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.LocationMarker_Units CASCADE;
+CREATE TABLE nena.LocationMarker_Units (
+  unit VARCHAR(15) PRIMARY KEY
+);
+INSERT INTO nena.LocationMarker_Units VALUES 
+	('miles')
+,	('yards')
+,	('feet')
+,	('kilometers')
+,	('meters')
+; 
+
+
 -- #############################################################################
 -- NG9-1-1 Table Definitions
 -- #############################################################################
@@ -1388,11 +1432,11 @@ CREATE TABLE nena.LocationMarkerPoint (
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, LM_Unit VARCHAR(15)  REFERENCES nena.MilePostUnitofMeasurements(MilePostUnitofMeasurement)
+, LM_Unit VARCHAR(15)  REFERENCES nena.LocationMarker_Units(unit)
 , LM_Value REAL  
 , LM_Rte VARCHAR(100)
 , LM_Label VARCHAR(100)
 , LM_Type VARCHAR(15)   
-, LM_Ind VARCHAR(1)  NOT NULL  REFERENCES nena.MilePostIndicators(MilePostIndicator)
+, LM_Ind VARCHAR(1)  NOT NULL  REFERENCES nena.LocationMarker_Indicators(code)
 );
 ```
