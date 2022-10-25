@@ -1036,8 +1036,8 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Milepost VARCHAR(150)   
 , Place_Type VARCHAR(50)  REFERENCES nena.PlaceTypes(PlaceType)
 , Placement VARCHAR(25)  REFERENCES nena.PlacementMethods(PlacementMethod)
-, Longitude DOUBLE PRECISION  CHECK ( -180 <= Long AND Long <= 180 )
-, Latitude DOUBLE PRECISION  CHECK ( -90 <= Lat AND Lat <= 90 )
+, Longitude REAL  CHECK ( -180 <= Long AND Long <= 180 )
+, Latitude REAL  CHECK ( -90 <= Lat AND Lat <= 90 )
 , Elev INTEGER
 );
 
@@ -1260,7 +1260,7 @@ CREATE TABLE nena.A4Polygon (
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.Counties(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
 , Inc_Muni VARCHAR(100)  NOT NULL
-, Uninc_Comm   VARCHAR(100) NOT NULL
+, Uninc_Comm VARCHAR(100) NOT NULL
 );
 
 
@@ -1282,8 +1282,29 @@ CREATE TABLE nena.A5Polygon (
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.Counties(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
 , Inc_Muni VARCHAR(100)  NOT NULL
-, Uninc_Comm   VARCHAR(100) NOT NULL
+, Uninc_Comm VARCHAR(100) NOT NULL
 , Nbrhd_Comm VARCHAR(100)  NOT NULL  
+);
+
+
+/* *****************************************************************************
+   TABLE:  nena.RailroadCenterLine (Railroads - Recommended)
+   Source: NENA-STA-006.2-2022, Section 4.6, p.45
+  *************************************************************************** */
+DROP TABLE  IF EXISTS nena.RailroadCenterLine;
+CREATE TABLE nena.RailroadCenterLine (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('LineString', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE 
+, RLOWN VARCHAR(100)
+, RLNAME VARCHAR(100)
+, RLOP VARCHAR(100)
+, RMPH REAL
+, RMPL REAL
 );
 
 
@@ -1357,17 +1378,6 @@ CREATE TABLE nena.MileMarkerLocation (
 
 
 
-DROP TABLE  IF EXISTS nena.RailroadCenterlines;
-CREATE TABLE nena.RailroadCenterlines (
-  DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, RLNAME VARCHAR(100)   
-, RLOP VARCHAR(100)   
-, RLOWN VARCHAR(100)   
-, RMPH DOUBLE PRECISION   
-, RMPL DOUBLE PRECISION  
-, RS_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
-, geom GEOMETRY ('LineString',4326)  NOT NULL  
-);
+
 
 ```
