@@ -1308,6 +1308,42 @@ CREATE TABLE nena.RailroadCenterLine (
 );
 
 
+/* *****************************************************************************
+   TABLE:  nena.HydrologyLine (Hydrology Line - Recommended)
+   Source: NENA-STA-006.2-2022, Section 4.7.1, p.46
+  *************************************************************************** */
+DROP TABLE IF EXISTS nena.HydrologyLine;
+CREATE TABLE nena.HydrologyLine (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('LineString', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, HS_Name VARCHAR(100)   
+, HS_Type VARCHAR(100)
+);
+
+
+/* *****************************************************************************
+   TABLE:  nena.HydrologyPolygon (Hydrology Line - Recommended)
+   Source: NENA-STA-006.2-2022, Section 4.7.2, p.46
+  *************************************************************************** */
+DROP TABLE IF EXISTS nena.HydrologyPolygon;
+CREATE TABLE nena.HydrologyPolygon (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('LineString', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, HP_Name VARCHAR(100)   
+, HP_Type VARCHAR(100)
+);
+
+
 DROP TABLE IF EXISTS nena.CellSectorLocation;
 CREATE TABLE nena.CellSectorLocation (
   Cell_NGUID VARCHAR(254)   NOT NULL  UNIQUE  
@@ -1329,30 +1365,6 @@ CREATE TABLE nena.CellSectorLocation (
 , Switch_ID VARCHAR(10)   
 , geom GEOMETRY ('point',4326)  NOT NULL  
 , Technology VARCHAR(10)  NOT NULL  
-);
-
-
-
-
-DROP TABLE IF EXISTS nena.HydrologyLine;
-CREATE TABLE nena.HydrologyLine (
-  DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, HS_Name VARCHAR(100)   
-, HS_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
-, HS_Type VARCHAR(100)   
-, geom GEOMETRY ('LineString',4326)  NOT NULL  
-);
-
-
-DROP TABLE IF EXISTS nena.HydrologyPolygon;
-CREATE TABLE nena.HydrologyPolygon (
-  DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, HP_Name VARCHAR(100)   
-, HP_NGUID VARCHAR(254)  NOT NULL  UNIQUE  
-, HP_Type VARCHAR(100)   
-, geom GEOMETRY ('Polygon',4326)  NOT NULL  
 );
 
 
