@@ -1036,8 +1036,8 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Milepost VARCHAR(150)   
 , Place_Type VARCHAR(50)  REFERENCES nena.PlaceTypes(PlaceType)
 , Placement VARCHAR(25)  REFERENCES nena.PlacementMethods(PlacementMethod)
-, Longitude REAL  CHECK ( -180 <= Long AND Long <= 180 )
-, Latitude REAL  CHECK ( -90 <= Lat AND Lat <= 90 )
+, Longitude REAL  CHECK ( -180 <= Longitude AND Longitude <= 180 )
+, Latitude REAL  CHECK ( -90 <= Latitude AND Latitude <= 90 )
 , Elev INTEGER
 );
 
@@ -1344,52 +1344,55 @@ CREATE TABLE nena.HydrologyPolygon (
 );
 
 
-DROP TABLE IF EXISTS nena.CellSectorLocation;
-CREATE TABLE nena.CellSectorLocation (
-  Cell_NGUID VARCHAR(254)   NOT NULL  UNIQUE  
-, CMarket_ID VARCHAR(10)   
-, Country nena.COUNTRY  NOT NULL  
-, County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
-, CSctr_Ornt VARCHAR(4)  NOT NULL  
-, CSite_Name VARCHAR(10)   
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, ESRD_ESRK INTEGER   
-, ESRK_Last INTEGER   
-, Lat DOUBLE PRECISION  CHECK ( -90 <= Lat AND Lat <= 90 )
-, Long DOUBLE PRECISION  CHECK ( -90 <= Long AND Long <= 90 )
-, Sector_ID VARCHAR(4)  NOT NULL  
-, Site_ID VARCHAR(10)   
-, Site_NGUID VARCHAR(254)   
+/* *****************************************************************************
+   TABLE:  nena.CellSectorPoint (Cell Sectors - Recommended)
+   Source: NENA-STA-006.2-2022, Section 4.8, p.47
+  *************************************************************************** */
+DROP TABLE IF EXISTS nena.CellSectorPoint;
+CREATE TABLE nena.CellSectorPoint (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('POINT', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, Country nena.COUNTRY  NOT NULL
 , State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
+, County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
+, Site_ID VARCHAR(10)   
+, Sector_ID VARCHAR(4)  NOT NULL  
 , Switch_ID VARCHAR(10)   
-, geom GEOMETRY ('point',4326)  NOT NULL  
-, Technology VARCHAR(10)  NOT NULL  
+, CMarket_ID VARCHAR(10)   
+, CSite_Name VARCHAR(10)   
+, ESRD_ESRK INTEGER   
+, ESRK_Last INTEGER
+, CSctr_Ornt VARCHAR(4)  NOT NULL  
+, Technology VARCHAR(10)  NOT NULL
+, SSAP_NGUID VARCHAR(254)
+, Longitude REAL  CHECK ( -180 <= Longitude AND Longitude <= 180 ) 
+, Latitude REAL  CHECK ( -90 <= Latitude AND Latitude <= 90 )
 );
 
 
-
-
-
-DROP TABLE  IF EXISTS nena.MileMarkerLocation;
-CREATE TABLE nena.MileMarkerLocation (
-  DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL  
-, DiscrpAgID VARCHAR(75)  NOT NULL   REFERENCES nena.Agencies(AgencyID)
-, MileM_Ind VARCHAR(1)  NOT NULL   REFERENCES nena.MilePostIndicators(MilePostIndicator)
-, MileM_Rte VARCHAR(100)  NOT NULL  
-, MileM_Type VARCHAR(15)   
-, MileM_Unit VARCHAR(15)    REFERENCES nena.MilePostUnitofMeasurements(MilePostUnitofMeasurement)
-, MileMNGUID VARCHAR(254)  NOT NULL  UNIQUE  
-, MileMValue DOUBLE PRECISION NOT NULL  
-, geom GEOMETRY ('point',4326)  NOT NULL  
+/* *****************************************************************************
+   TABLE:  nena.LocationMarkerPoint (Location Markers - Recommended)
+   Source: NENA-STA-006.2-2022, Section 4.9, p.48
+  *************************************************************************** */
+DROP TABLE  IF EXISTS nena.LocationMarkerPoint;
+CREATE TABLE nena.LocationMarkerPoint (
+  id SERIAL  PRIMARY KEY
+, geom GEOMETRY ('POINT', 4326)  NOT NULL 
+, DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
+, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
+, Effective TIMESTAMP WITH TIME ZONE   
+, Expire TIMESTAMP WITH TIME ZONE
+, NGUID VARCHAR(254)  NOT NULL  UNIQUE
+, LM_Unit VARCHAR(15)  REFERENCES nena.MilePostUnitofMeasurements(MilePostUnitofMeasurement)
+, LM_Value REAL  
+, LM_Rte VARCHAR(100)
+, LM_Label VARCHAR(100)
+, LM_Type VARCHAR(15)   
+, LM_Ind VARCHAR(1)  NOT NULL  REFERENCES nena.MilePostIndicators(MilePostIndicator)
 );
-
-
-
-
-
-
-
-
-
 ```
