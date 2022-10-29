@@ -1,28 +1,61 @@
 # NG9-1-1 Data Model PostGIS Template Script
 
---run the following lines of code
---in the query tool on the nena backup database
---*********************************************************************
--- sql script to create PostgreSQL template for GIS Data Model 
--- domains are based on WA state arcpy script for ESRI file geodatabase 
--- as edited by NENA workgroup 
--- this script is set up for open source PostGIS environment 
--- but can be adapted for other platforms
--- 
--- Notes on Domains -  domains are implemented in various ways based on their characteristics
--- in some cases a new data type is created with CREATE DOMAIN and a short, fixed list
--- in other cases a table is created with domain values as the primary key to support 
--- a foreign key constraint on matching columns 
--- some domain tables also have a lookup column to document code values 
--- just like  ESRI coded domains in WA state script 
--- additionally some domain tables implement pattern matching, ranges or other check constraints
--- and finally individual check constraints on columns are used for minimal situations 
--- where only one table is involved
+The following SQL script is used to create the NG9-1-1 GIS Data Model template 
+in PostgreSQL. This script is designed for PostgreSQL/PostGIS but may be 
+adapted for other platforms.
+
+## Instructions
+
+Run the following lines of code in the Query tool on the database.
 
 NOTE: The following script uses a SCHEMA "nena". If you chose to use a different 
 domain replace "nena." with "<your schema>." in a text editor.
 
--- should there be ESN table or domain
+## Notes on Domains
+
+Domains are based on WA state ArcPy script for ESRI file geodatabase as edited 
+by NENA workgroup.
+
+Domains are implemented in various ways based on their characteristics in some 
+cases a new data type is created with CREATE DOMAIN and a short, fixed list in 
+other cases a table is created with domain values as the primary key to support 
+a foreign key constraint on matching columns some domain tables also have a 
+lookup column to document code values just like  ESRI coded domains in WA 
+state script additionally some domain tables implement pattern matching, 
+ranges or other check constraints and finally individual check constraints on 
+columns are used for minimal situations where only one table is involved.
+
+## Fixes from v1.0
+
+* Corrected `longitude` check error from `CHECK ( -90 <= Longitude AND Longitude <= 90 )` 
+  to `CHECK ( -180 <= Longitude AND Longitude <= 180 )` in multiple tables.
+* 
+
+## Schema Changes from v1.0
+
+* Changed all `DOUBLE PRECISION` datatypes to `REAL` to reflect the `FLOAT`
+  value defined in NENA-STA-006.2-2022
+* Changed all `TIMESTAMP WITH TIME ZONE` datatypes to `TIMESTAMPTZ` which is the 
+  proper datatype which is a time zone-aware data and time datatype. PostgreSQL 
+  converts the `TIMESTAMPTZ` value into a UTC value and stores the UTC value in 
+  the table.
+* Changed all `CHARACTER VARYING` to `VARCHAR` which is the more common alias.
+* Added `id` field otherwise editing is slow and open to error. Not part of the 
+  standard but it best practice to have a `SERIAL` or `UUID` as the Primary Key. 
+  The NGUID could fill this position but it would require creating a TRIGGER.
+* Changed domain and reference tables to follow NENA table and field naming 
+  conventions
+* Improved documentation
+
+## Questions for WG
+
+* Should the script include indexes?
+* Should lookup tables include a prefix to identify them more easily?
+* Should the script include a trigger to create the NGUID?
+* Should the `id` field be replaced by a UUID?
+* Should the data model template be migrated to an ORM that would support 
+  deployment to multiple databases? This would require a rewrite into Python.
+* [v1.0] Should there be an ESN table or domain?
 
 ```sql
 -- #############################################################################
@@ -950,9 +983,9 @@ CREATE TABLE nena.RoadCenterline (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString',4326)  NOT NULL  
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL
-, Effective TIMESTAMP WITH TIME ZONE
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL
+, Effective TIMESTAMPTZ
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , AdNumPre_L VARCHAR(15)
 , AdNumPre_R VARCHAR(15)
@@ -1012,9 +1045,9 @@ DROP TABLE  IF EXISTS nena.StreetNameAliasTable;
 CREATE TABLE nena.StreetNameAliasTable (
   id SERIAL  PRIMARY KEY
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ  
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , RCL_NGUID VARCHAR(254)  NOT NULL
 , ASt_PreMod VARCHAR(15)
@@ -1037,9 +1070,9 @@ CREATE TABLE nena.SiteStructureAddressPoint (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('Point',4326)  NOT NULL  
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ  
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.COUNTRY  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1093,9 +1126,9 @@ DROP TABLE  IF EXISTS nena.LandmarkNamePartTable;
 CREATE TABLE nena.LandmarkNamePartTable (
   id SERIAL  PRIMARY KEY
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ NOT NULL 
+, Effective TIMESTAMPTZ  
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , SSAP_NGUID VARCHAR(254)
 , CLNA_NGUID VARCHAR(254) 
@@ -1112,9 +1145,9 @@ DROP TABLE IF EXISTS nena.LandmarkNameCompleteAliasTable;
 CREATE TABLE nena.LandmarkNameCompleteAliasTable (
   id SERIAL  PRIMARY KEY
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ 
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , SSAP_NGUID VARCHAR(254)
 , CLNAlias VARCHAR(150)
@@ -1139,9 +1172,9 @@ CREATE TABLE nena.PsapPolygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ   
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.COUNTRY  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1158,9 +1191,9 @@ CREATE TABLE nena.PolicePolygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ  
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.COUNTRY  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1177,9 +1210,9 @@ CREATE TABLE nena.FirePolygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ   
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.COUNTRY  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1196,9 +1229,9 @@ CREATE TABLE nena.EmsPolygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.COUNTRY  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1220,9 +1253,9 @@ CREATE TABLE nena.ProvisioningPolygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ 
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 );
 
@@ -1236,9 +1269,9 @@ CREATE TABLE nena.A1Polygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ   
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.COUNTRY  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1254,9 +1287,9 @@ CREATE TABLE nena.A2Polygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ   
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.COUNTRY  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1273,9 +1306,9 @@ CREATE TABLE nena.A3Polygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ 
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.COUNTRY  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1294,9 +1327,9 @@ CREATE TABLE nena.A4Polygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ NOT NULL 
+, Effective TIMESTAMPTZ  
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.COUNTRY  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1316,9 +1349,9 @@ CREATE TABLE nena.A5Polygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.COUNTRY  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
@@ -1339,9 +1372,9 @@ CREATE TABLE nena.RailroadCenterLine (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ  
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , RLOWN VARCHAR(100)
 , RLNAME VARCHAR(100)
@@ -1360,9 +1393,9 @@ CREATE TABLE nena.HydrologyLine (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ  
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , HS_Name VARCHAR(100)   
 , HS_Type VARCHAR(100)
@@ -1378,9 +1411,9 @@ CREATE TABLE nena.HydrologyPolygon (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ 
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , HP_Name VARCHAR(100)   
 , HP_Type VARCHAR(100)
@@ -1396,9 +1429,9 @@ CREATE TABLE nena.CellSectorPoint (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POINT', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ   
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.COUNTRY  NOT NULL
 , State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
@@ -1427,9 +1460,9 @@ CREATE TABLE nena.LocationMarkerPoint (
   id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POINT', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, DateUpdate TIMESTAMP WITH TIME ZONE  NOT NULL 
-, Effective TIMESTAMP WITH TIME ZONE   
-, Expire TIMESTAMP WITH TIME ZONE
+, DateUpdate TIMESTAMPTZ  NOT NULL 
+, Effective TIMESTAMPTZ 
+, Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , LM_Unit VARCHAR(15)  REFERENCES nena.LocationMarker_Units(Unit)
 , LM_Value REAL  
