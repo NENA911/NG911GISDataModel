@@ -31,48 +31,46 @@ domain replace "nena." with "<your schema>." in a text editor.
 
 
 /* *****************************************************************************
-   DOMAIN:   nena.agencies
+   DOMAIN:   nena.Agencies
    Used by:  All tables
-   Source:   
+   Source:   NENA-STA-006.2-2022, Section 5.9, p.51
    Notes:    Lookup table for discrepancy agencies values. This is used as a 
              PK/FK relationship in all layers. Agencies will need to be
              manually added later. The AgencyID field uses a regex check 
              constraing to ensure the proper format of the domain name.
    TODOS:    * Verify the regex expression works for all domain formats.
    ************************************************************************** */
-DROP TABLE IF EXISTS nena.agencies CASCADE;
-CREATE TABLE nena.agencies (
+DROP TABLE IF EXISTS nena.Agencies CASCADE;
+CREATE TABLE nena.Agencies (
 	AgencyID VARCHAR(75) PRIMARY KEY CHECK ( AgencyID ~* '(\w+\.)*\w+$' )
 ); 
 
 
-
-
 /* *****************************************************************************
-   DOMAIN:   nena.country
+   DOMAIN:   nena.Country
    Used by:  
-   Source:   https://en.wikipedia.org/wiki/ISO_3166-1
+   Source:   NENA-STA-006.2-2022, Section 5.24, p.55
    Notes:    Domain for country creates a new data type 
    ************************************************************************** */
-DROP DOMAIN IF EXISTS nena.country CASCADE;
-CREATE DOMAIN nena.country AS VARCHAR(2)
+DROP DOMAIN IF EXISTS nena.Country CASCADE;
+CREATE DOMAIN nena.Country AS VARCHAR(2)
 CHECK ( VALUE IN ('US', 'CA', 'MX') ); 
 
 
 /* *****************************************************************************
-   TABLE:    nena.country
-   Used by:  
-   Source:   
+   TABLE:    nena.States
+   Used by:  CellSectorPoint
+   Source:   NENA-STA-006.2-2022, Section 5.107, p.77
    Notes:    If states or equivalents layer exists, then this should be dropped 
              as well local domain will probably be limited so this is best 
              maintained as a table
    ************************************************************************** */
-DROP TABLE IF EXISTS nena.states CASCADE;
-CREATE TABLE nena.states (
-	state VARCHAR(2) PRIMARY KEY
-, 	state_name VARCHAR(50) NOT NULL 
+DROP TABLE IF EXISTS nena.States CASCADE;
+CREATE TABLE nena.States (
+	State VARCHAR(2) PRIMARY KEY
+, 	State_Name VARCHAR(50) NOT NULL 
 );
-INSERT INTO nena.states values 
+INSERT INTO nena.States values 
 	('AL','Alabama')
 ,	('AK','Alaska')
 ,	('AS','American Samoa')
@@ -138,16 +136,17 @@ INSERT INTO nena.states values
 
 /* *****************************************************************************
    TABLE:    nena.counties
-   Used By:  
-   Source:   Varies
+   Used By:  CellSectorPoint
+   Source:   NENA-STA-006.2-2022, Section 5.28, p.56
    Notes:    If counties or equivalents boundary layer is created then this should 
              be dropped and the layer should be used as the domain with pk/fk 
              constraint local listing will likely be limited to state or region 
    ************************************************************************** */
-DROP TABLE  IF EXISTS nena.counties CASCADE;
-CREATE TABLE nena.counties (
+DROP TABLE  IF EXISTS nena.Counties CASCADE;
+CREATE TABLE nena.Counties (
 	County VARCHAR(75) PRIMARY KEY
 ); 
+
 
 
 
@@ -904,13 +903,13 @@ INSERT INTO nena.StreetNameTypes VALUES
 /* *****************************************************************************
    TABLE:    LocationMarker_Indicators
    Used By:  LocationMarkerPoints
-   Source:   
+   Source:   NENA-STA-006.2-2022, Section 5.59, p.64
    Notes:    Lookup table for LocationMarkerPoints
    ************************************************************************** */
 DROP TABLE IF EXISTS nena.LocationMarker_Indicators CASCADE;
 CREATE TABLE nena.LocationMarker_Indicators (
-	code VARCHAR(1) PRIMARY KEY 
-,	description VARCHAR(20)
+	Code VARCHAR(1) PRIMARY KEY 
+,	Description VARCHAR(20)
 );
 INSERT INTO nena.MilePostIndicators VALUES (
   ('P', 'Posted')
@@ -921,12 +920,12 @@ INSERT INTO nena.MilePostIndicators VALUES (
 /* *****************************************************************************
    TABLE:    LocationMarker_Units
    Used By:  LocationMarkerPoints
-   Source:   
+   Source:   NENA-STA-006.2-2022, Section 5.64, p.65
    Notes:    Lookup table for LocationMarkerPoints
    ************************************************************************** */
 DROP TABLE IF EXISTS nena.LocationMarker_Units CASCADE;
 CREATE TABLE nena.LocationMarker_Units (
-  unit VARCHAR(15) PRIMARY KEY
+  Unit VARCHAR(15) PRIMARY KEY
 );
 INSERT INTO nena.LocationMarker_Units VALUES 
 	('miles')
@@ -1432,11 +1431,11 @@ CREATE TABLE nena.LocationMarkerPoint (
 , Effective TIMESTAMP WITH TIME ZONE   
 , Expire TIMESTAMP WITH TIME ZONE
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, LM_Unit VARCHAR(15)  REFERENCES nena.LocationMarker_Units(unit)
+, LM_Unit VARCHAR(15)  REFERENCES nena.LocationMarker_Units(Unit)
 , LM_Value REAL  
 , LM_Rte VARCHAR(100)
 , LM_Label VARCHAR(100)
 , LM_Type VARCHAR(15)   
-, LM_Ind VARCHAR(1)  NOT NULL  REFERENCES nena.LocationMarker_Indicators(code)
+, LM_Ind VARCHAR(1)  NOT NULL  REFERENCES nena.LocationMarker_Indicators(Code)
 );
 ```
