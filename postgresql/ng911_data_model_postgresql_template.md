@@ -81,7 +81,7 @@ CREATE TABLE nena.Agencies (
 
 /* *****************************************************************************
    DOMAIN:   nena.Country
-   Used by:  
+   Used by:  A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.24, p.55
    Notes:    Domain for country creates a new data type 
    ************************************************************************** */
@@ -92,7 +92,7 @@ CHECK ( VALUE IN ('US', 'CA', 'MX') );
 
 /* *****************************************************************************
    TABLE:    nena.States
-   Used by:  CellSectorPoint
+   Used by:  A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.107, p.77
    Notes:    If states or equivalents layer exists, then this should be dropped 
              as well local domain will probably be limited so this is best 
@@ -169,7 +169,7 @@ INSERT INTO nena.States values
 
 /* *****************************************************************************
    TABLE:    nena.counties
-   Used By:  CellSectorPoint
+   Used By:  A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.28, p.56
    Notes:    If counties or equivalents boundary layer is created then this should 
              be dropped and the layer should be used as the domain with pk/fk 
@@ -181,15 +181,18 @@ CREATE TABLE nena.Counties (
 ); 
 
 
-
-
-
-
--- Additional code is pk/fk  
+/* *****************************************************************************
+   TABLE:    nena.AdditionalCodes
+   Used By:  A1Polygon - A5Polygon
+   Source:   NENA-STA-006.2-2022, Section 5.1, p.49
+   Notes:    [v1.0] Additional code is pk/fk
+   ************************************************************************** */
 DROP TABLE IF EXISTS nena.AdditionalCodes CASCADE;
 CREATE TABLE nena.AdditionalCodes (
 	AddCode VARCHAR(6) PRIMARY KEY
 );
+
+
 
 -- directional as data type 
 DROP DOMAIN IF EXISTS nena.Directional CASCADE;
@@ -1011,8 +1014,8 @@ CREATE TABLE nena.RoadCenterline (
 , ESN_R VARCHAR(5)  CHECK ( ESN_R ~* '\w{3,5}' )
 , MSAGComm_L VARCHAR(30)   
 , MSAGComm_R VARCHAR(30)  
-, Country_L nena.COUNTRY  NOT NULL  
-, Country_R nena.COUNTRY  NOT NULL 
+, Country_L nena.Country  NOT NULL  
+, Country_R nena.Country  NOT NULL 
 , State_L VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , State_R VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , County_L VARCHAR(40)  NOT NULL  REFERENCES nena.Counties(County)
@@ -1074,7 +1077,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Effective TIMESTAMPTZ  
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.COUNTRY  NOT NULL  
+, Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , County VARCHAR(40)  NOT NULL  REFERENCES nena.Counties(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
@@ -1176,7 +1179,7 @@ CREATE TABLE nena.PsapPolygon (
 , Effective TIMESTAMPTZ   
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.COUNTRY  NOT NULL  
+, Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
@@ -1195,7 +1198,7 @@ CREATE TABLE nena.PolicePolygon (
 , Effective TIMESTAMPTZ  
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.COUNTRY  NOT NULL  
+, Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
@@ -1214,7 +1217,7 @@ CREATE TABLE nena.FirePolygon (
 , Effective TIMESTAMPTZ   
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.COUNTRY  NOT NULL  
+, Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
@@ -1233,7 +1236,7 @@ CREATE TABLE nena.EmsPolygon (
 , Effective TIMESTAMPTZ
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.COUNTRY  NOT NULL  
+, Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
@@ -1273,7 +1276,7 @@ CREATE TABLE nena.A1Polygon (
 , Effective TIMESTAMPTZ   
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
-, Country nena.COUNTRY  NOT NULL   
+, Country nena.Country  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 );
 
@@ -1291,7 +1294,7 @@ CREATE TABLE nena.A2Polygon (
 , Effective TIMESTAMPTZ   
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
-, Country nena.COUNTRY  NOT NULL   
+, Country nena.Country  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , County VARCHAR(100)  NOT NULL   REFERENCES nena.Counties(County)
 );
@@ -1310,7 +1313,7 @@ CREATE TABLE nena.A3Polygon (
 , Effective TIMESTAMPTZ 
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
-, Country nena.COUNTRY  NOT NULL   
+, Country nena.Country  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.Counties(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
@@ -1331,7 +1334,7 @@ CREATE TABLE nena.A4Polygon (
 , Effective TIMESTAMPTZ  
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
-, Country nena.COUNTRY  NOT NULL   
+, Country nena.Country  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.Counties(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
@@ -1353,7 +1356,7 @@ CREATE TABLE nena.A5Polygon (
 , Effective TIMESTAMPTZ
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
-, Country nena.COUNTRY  NOT NULL   
+, Country nena.Country  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.Counties(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
@@ -1433,7 +1436,7 @@ CREATE TABLE nena.CellSectorPoint (
 , Effective TIMESTAMPTZ   
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.COUNTRY  NOT NULL
+, Country nena.Country  NOT NULL
 , State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
 , County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
 , Site_ID VARCHAR(10)   
