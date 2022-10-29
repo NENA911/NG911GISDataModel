@@ -29,7 +29,7 @@ columns are used for minimal situations where only one table is involved.
 
 * Corrected `longitude` check error from `CHECK ( -90 <= Longitude AND Longitude <= 90 )` 
   to `CHECK ( -180 <= Longitude AND Longitude <= 180 )` in multiple tables.
-* 
+* ServiceURN was never hooked up
 
 ## Schema Changes from v1.0
 
@@ -47,6 +47,10 @@ columns are used for minimal situations where only one table is involved.
   conventions
 * Improved documentation
 
+## Changes from v1 to v2
+
+* 
+
 ## Questions for WG
 
 * Should the script include indexes?
@@ -55,6 +59,7 @@ columns are used for minimal situations where only one table is involved.
 * Should the `id` field be replaced by a UUID?
 * Should the data model template be migrated to an ORM that would support 
   deployment to multiple databases? This would require a rewrite into Python.
+* Need to discuss the use of Service URI in Service Boundary layers.
 * [v1.0] Should there be an ESN table or domain?
 
 ```sql
@@ -81,7 +86,7 @@ CREATE TABLE nena.Agencies (
 
 /* *****************************************************************************
    DOMAIN:   nena.Country
-   Used by:  A1Polygon - A5Polygon, CellSectorPoint
+   Used by:  ServiceBoundaryPolygons, A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.24, p.55
    Notes:    Domain for country creates a new data type 
    ************************************************************************** */
@@ -92,7 +97,7 @@ CHECK ( VALUE IN ('US', 'CA', 'MX') );
 
 /* *****************************************************************************
    TABLE:    nena.States
-   Used by:  A1Polygon - A5Polygon, CellSectorPoint
+   Used by:  ServiceBoundaryPolygons, A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.107, p.77
    Notes:    If states or equivalents layer exists, then this should be dropped 
              as well local domain will probably be limited so this is best 
@@ -185,13 +190,89 @@ CREATE TABLE nena.Counties (
    TABLE:    nena.AdditionalCodes
    Used By:  A1Polygon - A5Polygon
    Source:   NENA-STA-006.2-2022, Section 5.1, p.49
-   Notes:    [v1.0] Additional code is pk/fk
+   Notes:    [v1.0 comment] Additional code is pk/fk
    ************************************************************************** */
 DROP TABLE IF EXISTS nena.AdditionalCodes CASCADE;
 CREATE TABLE nena.AdditionalCodes (
 	AddCode VARCHAR(6) PRIMARY KEY
 );
 
+
+/* *****************************************************************************
+   TABLE:    nena.URIs
+   Used By:  ServiceBoundaryPolygons
+   Source:   NENA-STA-006.2-2022, Section 5.102, p.76
+   Notes:    [v1.0 comment] There is a data type uri in the data model - what 
+             is the pattern? Should this be implemented globally for service 
+             uris, av card uris, and addl data or should there be individual 
+             domains for the various URI fields?
+             
+             [TN Comment] The current implementation is messy and not well 
+             thought out. This is an excellent example where a true relational 
+             database implementation should be considered. A better solution 
+             would be to implement a ServiceProvider table that contained 
+             multiple fields currently in the ServiceBoundary layer fields with 
+             the Agency Identifier, Service URI, Service Number, Agency vCard 
+             URI, and Display Name. However, it may be a v3 decision as there 
+             are changes occuring NENA-STA-010 that would negate several of 
+             these fields.
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.URIs CASCADE;
+CREATE TABLE nena.URIs (
+	URI VARCHAR(254) PRIMARY KEY 
+); 
+
+
+/* *****************************************************************************
+   TABLE:    nena.ServiceBoundary_URNs
+   Used By:  ServiceBoundaryPolygons
+   Source:   NENA-STA-006.2-2022, Section 5.103, p.76
+   Notes:    Table listing of URNs
+   TODO:     * Add Source URL
+             * Verify values
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.ServiceBoundary_URNs CASCADE;
+CREATE TABLE nena.ServiceBoundary_URNs (
+	ServiceURN VARCHAR(254) PRIMARY KEY
+,	ServiceURN_lookup TEXT
+);
+INSERT INTO nena.ServiceBoundary_URNs VALUES 
+	('urn:service:sos','The generic ''sos'' service reaches a public safety answering point (PSAP), which in turn dispatches aid appropriate to the emergency.')
+,	('urn:service:sos.ambulance','This service identifier reaches an ambulance service that provides emergency medical assistance and transportation.')
+,	('urn:service:sos.animal-control','Animal control typically enforces laws and ordinances pertaining to animal control and management, investigates cases of animal abuse, educates the community in responsible pet ownership and wildlife care, and provides for the housing and care of homeless animals, among other animal-related services.')
+,	('urn:service:sos.fire','The ''fire'' service identifier summons the fire service, also known as the fire brigade or fire department.')
+,	('urn:service:sos.gas','The ''gas''service allows the reporting of natural gas (and other flammable gas) leaks or other natural gas emergencies.')
+,	('urn:service:sos.marine','The ''marine ''service refers to maritime search and rescue services such as those offered by the coast guard, lifeboat, or surf lifesavers.')
+,	('urn:service:sos.mountain','The ''mountain''service refers to mountain rescue services (i.e., search and rescue activities that occur in a mountainous environment), although the term is sometimes also used to apply to search and rescue in other wilderness environments.')
+,	('urn:service:sos.physician','The ''physician''emergency service connects the caller to a physician referral service.')
+,	('urn:service:sos.poison','The ''poison''service refers to special information centers set up to inform citizens about how to respond to potential poisoning.')
+,	('urn:service:sos.police','The ''police''service refers to the police department or other law enforcement authorities.')
+,	('urn:nena:service:sos.psap','Route calls to primary PSAP.')
+,	('urn:nena:service:sos.level_2_esrp','Route calls to a second level ESRP (for an example, a state ESRP routing towards a county ESRP).')
+,	('urn:nena:service:sos.level_3_esrp','Route calls to a third level ESRP (for example, a regional ESRP that received a call from a state ESRP and in turn routes towards a county ESRP).')
+,	('urn:nena:service:sos.call_taker','Route calls to a call taker within a PSAP.')
+,	('urn:nena:service:responder.police','Police Agency')
+,	('urn:nena:service:responder.fire','Fire Department')
+,	('urn:nena:service:responder.ems','Emergency Medical Service')
+,	('urn:nena:service:responder.poison_control','Poison Control Center')
+,	('urn:nena:service:responder.mountain_rescue','Mountain Rescue Service')
+,	('urn:nena:service:responder.sheriff','Sheriff''s office, when both a police and Sheriff dispattch may be possible')
+,	('urn:nena:service:responder.stateProvincial_police','State or provincial police office')
+,	('urn:nena:service:responder.coast_guard','Coast Guard Station')
+,	('urn:nena:service:responder.psap','Other purposes beyond use for dispatch via ECRF')
+,	('urn:nena:service:responder.federal_police.fbi','Federal Bureau of Investigation')
+,	('urn:nena:service:responder.federal_police.rcmp','Royal Canadian Mounted Police')
+,	('urn:nena:service:responder.federal_police.usss','U.S. Secret Service')
+,	('urn:nena:service:responder.federal_police.dea','Drug Enforcement Agency')
+,	('urn:nena:service:responder.federal_police.marshal','Marshals Service')
+,	('urn:nena:service:responder.federal_police.cbp','Customs and Border Protection')
+,	('urn:nena:service:responder.federal_police.ice','Immigration and Customs Enforcement')
+,	('urn:nena:service:responder.federal_police.atf','Bureau of Alcohol, Tobacco, Fire Arms and Explosives')
+,	('urn:nena:service:responder.federal_police.pp','U.S. Park Police')
+,	('urn:nena:service:responder.federal_police.dss','Diplomatic Security Service')
+,	('urn:nena:service:responder.federal_police.fps','Federal Protective Service')
+,	('urn:nena:service:additionalData','Return a URI to an Additional Data structure as defined in NENA-STA-012.2.')
+,	('urn:nena:policy','Route Policy');
 
 
 -- directional as data type 
@@ -551,58 +632,7 @@ INSERT INTO nena.RoadClasses VALUES
 ;
 
 
--- there is a data type uri din the data model - what is the pattern?
--- should this be implemented globally for service uris, av card uris and addl data uris
--- or should there be individual domains for the various URI fields ??
-DROP TABLE IF EXISTS nena.URIs CASCADE;
-CREATE TABLE nena.URIs (
-	URI VARCHAR(254) PRIMARY KEY 
-); 
-	
 
--- table listing of urns 
-DROP TABLE IF EXISTS nena.ServiceURNs CASCADE;
-CREATE TABLE nena.ServiceURNs (
-	ServiceURN VARCHAR(254) PRIMARY KEY
-,	ServiceURN_lookup TEXT
-);
-INSERT INTO nena.ServiceURNs VALUES 
-	('urn:service:sos','The generic ''sos'' service reaches a public safety answering point (PSAP), which in turn dispatches aid appropriate to the emergency.')
-,	('urn:service:sos.ambulance','This service identifier reaches an ambulance service that provides emergency medical assistance and transportation.')
-,	('urn:service:sos.animal-control','Animal control typically enforces laws and ordinances pertaining to animal control and management, investigates cases of animal abuse, educates the community in responsible pet ownership and wildlife care, and provides for the housing and care of homeless animals, among other animal-related services.')
-,	('urn:service:sos.fire','The ''fire'' service identifier summons the fire service, also known as the fire brigade or fire department.')
-,	('urn:service:sos.gas','The ''gas''service allows the reporting of natural gas (and other flammable gas) leaks or other natural gas emergencies.')
-,	('urn:service:sos.marine','The ''marine ''service refers to maritime search and rescue services such as those offered by the coast guard, lifeboat, or surf lifesavers.')
-,	('urn:service:sos.mountain','The ''mountain''service refers to mountain rescue services (i.e., search and rescue activities that occur in a mountainous environment), although the term is sometimes also used to apply to search and rescue in other wilderness environments.')
-,	('urn:service:sos.physician','The ''physician''emergency service connects the caller to a physician referral service.')
-,	('urn:service:sos.poison','The ''poison''service refers to special information centers set up to inform citizens about how to respond to potential poisoning.')
-,	('urn:service:sos.police','The ''police''service refers to the police department or other law enforcement authorities.')
-,	('urn:nena:service:sos.psap','Route calls to primary PSAP.')
-,	('urn:nena:service:sos.level_2_esrp','Route calls to a second level ESRP (for an example, a state ESRP routing towards a county ESRP).')
-,	('urn:nena:service:sos.level_3_esrp','Route calls to a third level ESRP (for example, a regional ESRP that received a call from a state ESRP and in turn routes towards a county ESRP).')
-,	('urn:nena:service:sos.call_taker','Route calls to a call taker within a PSAP.')
-,	('urn:nena:service:responder.police','Police Agency')
-,	('urn:nena:service:responder.fire','Fire Department')
-,	('urn:nena:service:responder.ems','Emergency Medical Service')
-,	('urn:nena:service:responder.poison_control','Poison Control Center')
-,	('urn:nena:service:responder.mountain_rescue','Mountain Rescue Service')
-,	('urn:nena:service:responder.sheriff','Sheriff''s office, when both a police and Sheriff dispattch may be possible')
-,	('urn:nena:service:responder.stateProvincial_police','State or provincial police office')
-,	('urn:nena:service:responder.coast_guard','Coast Guard Station')
-,	('urn:nena:service:responder.psap','Other purposes beyond use for dispatch via ECRF')
-,	('urn:nena:service:responder.federal_police.fbi','Federal Bureau of Investigation')
-,	('urn:nena:service:responder.federal_police.rcmp','Royal Canadian Mounted Police')
-,	('urn:nena:service:responder.federal_police.usss','U.S. Secret Service')
-,	('urn:nena:service:responder.federal_police.dea','Drug Enforcement Agency')
-,	('urn:nena:service:responder.federal_police.marshal','Marshals Service')
-,	('urn:nena:service:responder.federal_police.cbp','Customs and Border Protection')
-,	('urn:nena:service:responder.federal_police.ice','Immigration and Customs Enforcement')
-,	('urn:nena:service:responder.federal_police.atf','Bureau of Alcohol, Tobacco, Fire Arms and Explosives')
-,	('urn:nena:service:responder.federal_police.pp','U.S. Park Police')
-,	('urn:nena:service:responder.federal_police.dss','Diplomatic Security Service')
-,	('urn:nena:service:responder.federal_police.fps','Federal Protective Service')
-,	('urn:nena:service:additionalData','Return a URI to an Additional Data structure as defined in NENA-STA-012.2.')
-,	('urn:nena:policy','Route Policy');
 
 
 -- table listing of street name pre type separators 
@@ -1161,13 +1191,16 @@ CREATE TABLE nena.LandmarkNameCompleteAliasTable (
    Service Boundaries - REQUIRED and optional
    Source: NENA-STA-006.2-2022, Section 4.3, p.39
    
-   NOTE: The table schema of each Service Boundary layer is identical. Only the 
-   REQUIRED Service Boundary layers are included. If you wish to use additional 
-   Service Boundary layers as defined in NENA-STA-006.2-2002, Section 7.2, p. 82,
-   copy a table below and change the table name to the "Name" column in the 
-   "GIS Data Layers" Registry.
+   NOTE:   The table schema of each Service Boundary layer is identical. Only 
+           the REQUIRED Service Boundary layers are included. If you wish to 
+           use additional Service Boundary layers as defined in 
+           NENA-STA-006.2-2002, Section 7.2, p. 82, copy a table below and 
+           change the table name to the "Name" column in the "GIS Data Layers" 
+           Registry.
      
-   QUESTION: How many shall we make? Should Service URI be default?
+   Questions: * How many shall we make? 
+              * Should Service URN be a default value?
+              * The use of nena.URIs is confusing and involves 
   *************************************************************************** */
 
 DROP TABLE IF EXISTS nena.PsapPolygon;
@@ -1182,10 +1215,10 @@ CREATE TABLE nena.PsapPolygon (
 , Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
-, ServiceURN VARCHAR(50)  NOT NULL  
+, ServiceURI VARCHAR(254)  NOT NULL
+, ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceBoundary_URNs(ServiceURN)
 , ServiceNum VARCHAR(15)
-, AVcard_URI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, AVcard_URI VARCHAR(254)  NOT NULL
 , DsplayName VARCHAR(60)  NOT NULL
 );
 
@@ -1201,10 +1234,10 @@ CREATE TABLE nena.PolicePolygon (
 , Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
-, ServiceURN VARCHAR(50)  NOT NULL  
+, ServiceURI VARCHAR(254)  NOT NULL
+, ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceBoundary_URNs(ServiceURN)
 , ServiceNum VARCHAR(15)
-, AVcard_URI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, AVcard_URI VARCHAR(254)  NOT NULL
 , DsplayName VARCHAR(60)  NOT NULL
 );
 
@@ -1220,10 +1253,10 @@ CREATE TABLE nena.FirePolygon (
 , Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
-, ServiceURN VARCHAR(50)  NOT NULL  
+, ServiceURI VARCHAR(254)  NOT NULL
+, ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceBoundary_URNs(ServiceURN)
 , ServiceNum VARCHAR(15)
-, AVcard_URI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, AVcard_URI VARCHAR(254)  NOT NULL
 , DsplayName VARCHAR(60)  NOT NULL
 );
 
@@ -1239,10 +1272,10 @@ CREATE TABLE nena.EmsPolygon (
 , Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
-, ServiceURI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
-, ServiceURN VARCHAR(50)  NOT NULL  
+, ServiceURI VARCHAR(254)  NOT NULL
+, ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceBoundary_URNs(ServiceURN)
 , ServiceNum VARCHAR(15)
-, AVcard_URI VARCHAR(254)  NOT NULL  REFERENCES nena.URIs(URI)
+, AVcard_URI VARCHAR(254)  NOT NULL
 , DsplayName VARCHAR(60)  NOT NULL
 );
 
