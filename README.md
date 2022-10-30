@@ -1,28 +1,46 @@
 # NG9-1-1 GIS Data Model Templates
-#### Developed by: GIS Data Model Template Working Group
-##### Updated: 5/20/2020 (Added Additional Notes section and content for said section)
 
-<hr>
-
-This repository defines the Geographic Information Systems (GIS) Data Model, 
+This repository defines the [Geographic Information Systems (GIS) Data Model](https://www.nena.org/page/NG911GISDataModel), 
 which supports the NENA Next Generation 9-1-1 (NG9-1-1) Core Services (NGCS) of 
 location validation and routing, both geospatial call routing or to the 
 appropriate agency for dispatch. This model also defines several GIS data 
 layers (layers) used in local Public Safety Answering Point (PSAP) and 
 response agency mapping applications for handling and responding to 9-1-1 calls.
 
-The data structures defined in this repository are related to, but different 
-from the data structures defined in the NENA i3 Standard for Next Generation 
-9-1-1, NENA-STA-010, Appendix B. Appendix B describes the 
-Spatial Interface (SI). The purpose of the SI is to provision a functional 
-element (e.g., the Emergency Call Routing Function) and GIS data. In contrast, 
-this Data Model document describes the structure (e.g., field names, field data 
-types, domains) of GIS data. Care has been taken to ensure that this Data Model 
-is compatible with the SI provisioning process.
+---
+## Table of Contents
 
-https://www.nena.org/page/NG911GISDataModel
+* [Folders and Files](#folders-and-files)
+* [About](#about)
+* [Owner](#owner)
+* [Version History](#version-history)
+* [Issues](#issues)
+* [Contributing](#contributing)
+* [NENA Ethics & Code of Conduct Policy](#nena-ethics--code-of-conduct-policy)
+* [NENA Intellectual Property Rights & Antitrust Policy](#nena-intellectual-property-rights--antitrust-policy)
+* [License](#license)
 
-<hr>
+---
+
+## Folders and Files
+* [esri_geodatabase](esri_geodatabase/README.md)
+  * **NG911_GIS_20191120.gdb** - Pre-built Esri File Geodatabase containing 
+    the GIS Data Model template.
+  * **esri_date_template_creation.py** - Python script to creation the GIS 
+    Data Model template.
+  * **NG911_GIS_Metadata.xml** - GIS Data Model metadata template.
+  * **README.md** - README for the Esri Geodatabase Data Model template.
+* [postgresql](postgresql/README.md)
+  * ng911_data_model_postgresql_template.md
+  * open_sources_template_process.pdf
+  * README.md
+* .gitignore
+* LICENSE.md
+* README.md
+
+---
+
+## About
 
 There are two data structures (templates) provided as part of the 
 NG9-1-1 GIS Data Model Templates package; an open source version based on a 
@@ -38,91 +56,164 @@ that the scripts could also prove useful to the GIS community, so they have
 been included in this package.  While the scripts may prove useful, the 
 Working Group does urge caution in using these scripts directly as it presents 
 some potential for an entity to diverge from, and become incompatible with, 
-the official NENA template files.  
+the official NENA template files.
 
-ISO-compliant high-level metadata has been provided as a convenience and to 
-describe what the templates represent.  The entity is not expected to use the 
-provided metadata content when exchanging GIS data with another party.  
-Rather, the entity should prepare metadata that is specific and relevant to 
-their transaction with another entity.  The Working Group felt that high-level 
-metadata was appropriate because the actual data exchanged between two parties 
-would ultimately contain metadata that is specific to the party sharing the 
-data when it came to contacts, use constraints, etc.  Also, there was a 
-feeling that copying and pasting content from the NG9-1-1 GIS Data Model into 
-the GIS template was onerous and unnecessary.  
-
-At the conclusion of their work, the Working Group was left with a few issues 
-that were not covered completely in the standard.  For those, the working 
-group offers the following guidance:
-
-### Domain Use
-Within the templates there are some domains that have no entries.  These 
-domains include AdditionalCode, AgencyID, County, ESN, PostalCode, 
-PostalCommunityName and ServiceURI.  The entity is expected to populate these 
-domains, in accordance with guidelines specified within the NG9-1-1 GIS Data 
-Model standard, based on the needs within their jurisdiction.
-
-For domains that have entries, but do not completely meet the entity's needs, 
-the entity is encouraged to find the proper channel through which those domains 
-can be extended. For example, in the case of the LegacyStreetNameType, the 
-owner of those entries is the United States Postal Service; to extend that 
-domain requires a change in USPS Publication 28 Appendix C1. In the case of 
-the StreetNameType, StreetNamePreTypeSeparator and PlacementMethod domains, 
-those entries are maintained by NENA through the NENA Registry System and 
-new entries can be requested through that system.  In the case of Country, 
-PlaceType and ServiceURN the entity is encouraged to contact NENA to seek more 
-direction for requesting new entries.
-
-Lastly, there are some domains where extension is not anticipated. Those 
-include domains such as MilePostIndicator, MilePostUnitOfMeasurement, 
-LegacyStreetNameDirectional, StreetNameDirectional, OneWay, Parity, RoadClass, 
-State and Validation.  However, if an entity believes changes are needed for 
-these domains the entity is encouraged to contact NENA to seek more direction 
-for requesting new entries.
-
-### UTC
-Within the NG9-1-1 GIS Data Model Standard the domain associated with dates 
-states the following: "Date and Time may be stored in the local database 
-date/time format with the proviso that local time zone MUST be recorded and 
-time MUST be recorded to a precision of at least 1 second and MAY be recorded 
-to a precision of 0.1 second.  If the local database date/time format does not 
-meet these specifications, the database SHOULD record both the local date/time 
-format and a string conforming to W3C dateTime format as described in XML 
-Schema Part 2: Datatypes Second Edition."
-
-The Working Group felt that it was ideal to take advantage of built-in database 
-date/time mechanisms for managing time rather than populating a W3C dateTime 
-manually.  To address the intent of the domain, the working group determined 
-that coordinated universal time (UTC) was an appropriate way to address the 
-requirements.  Because UTC time is universal, it is also locally relevant while 
-not requiring an offset or consideration of daylight savings time.  While 
-entities are not expected to store UTC-based date/time in their locally 
-maintained GIS data, they are expected to convert their date/time values into 
-UTC when using these templates for sharing information with other parties.
-
-## Additional Notes
-When using this template solely for importing data as part of an 
-extract/transform/load process, consideration should be given to turning off 
-the Editor Tracking feature for each feature class so as not to unintentionally 
-overwrite actual DateUpdate values from a source datasets.  When using this 
-template as the primary local data structure, the strategy of turning off 
-Editor Tracking should be considered as a temporary measure for an initial load.
-
-## Folders and Files
 * [esri_geodatabase](esri_geodatabase/README.md)
-  * NG911_GIS_20191120.gdb
-  * NG911_GIS_Metadata.xml
-  * README.md
 * [postgresql](postgresql/README.md)
-  * open_sources_template_process.pdf
-  * README.md
-  * table-creation.sql
 
+---
+
+## Owner
+
+The owner of this repository approves all changes to the repository.
+
+This repository is owned by the [NENA Data Management Committee](https://www.nena.org/page/DataManagement), 
+GIS Data Model working group.
+
+**Contact:**
+
+[NENA Data Management Committee](https://www.nena.org/page/DataManagement)
+
+---
+
+# Version History
+All notable changes to NG9-1-1 GIS Data Model Templates will be 
+documented in this file. This project adheres to 
+[Semantic Versioning](http://semver.org/).
+
+
+## 1.0 - 2019-11-20
+
+- Initial public release
+
+---
 
 ## Issues
 Found a bug or want to suggest an enhancement? Check out previously logged 
 Issues. If you don't see what you're looking for, feel free to submit a new
 issue.
+
+---
+
+## Contributing
+
+The NENA Data Model Working Group welcomes contributions from anyone and 
+everyone. There are many ways you can contribute to this repository.
+
+* Suggest enhancements or code changes as GitHub issues.
+* Report potential bugs to GitHub issues.
+* Contribute code, as pull requests, to the respository.
+
+### Contribute code improvements
+
+1. Make sure you have a [GitHub account](https://github.com/signup/free).
+2. [Fork](https://help.github.com/articles/fork-a-repo) the repo on GitHub.
+3. Clone it to your local machine.
+4. Create a new feature branch on your local machine.
+    * The name of the branch doesn't matter, but as a best practice use a 
+      descriptive name like "Updated PrePostStreetName domain".
+5. Write code to add an enhancement or fix the problem.
+    * Document your code.
+    * Make commits of logical units.
+    * Use [clear and descriptive commit messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+6. Test your code.
+
+### Submitting changes
+1. Push the changes in your feature branch to your repository.
+2. Submit a [pull request](https://help.github.com/articles/using-pull-requests).  
+   Submitting a pull request will open a GitHub issue.
+    * Clearly describe the issue including steps to reproduce; or if an 
+      enhancement, indicate the functionality you built.
+
+### License of contributed code
+By contributing your code, you agree to license your contribution under the 
+terms of the [Apache License 2.0](LICENSE.md).
+
+---
+
+## NENA Ethics & Code of Conduct Policy
+
+To work in 9-1-1 is to be part of one of the most important institutions in 
+America and across the globe. Since the first 9-1-1 call was placed in 
+February of 1968, untold millions of lives have been saved because of 9-1-1 
+professionals’ dedication to public safety and service. NENA: The 9-1-1 
+Association – comprised of its members, board, staff, volunteers, and event 
+participants – is a community for all who are devoted to carrying this legacy 
+forward and setting the standard for excellence in the industry. To do so, 
+NENA strives to exemplify and embody the core values of respect, integrity, 
+commitment, and cooperation.
+
+Each association member, volunteer, and event attendee shall:
+
+1. Represent the association honestly and professionally and refuse to 
+   surrender any responsibility to special-interest or partisan political groups;
+2. Avoid any conflict of interest or impropriety which could result from her or 
+   his position, and refrain from using her or his status as an association 
+   member for personal gain or publicity;
+3. Take no public or private action that might compromise the actions, mission, 
+   reputation, or integrity of NENA, and respect the confidentiality of 
+   confidential information obtained in the representation of the association;
+4. Only exercise that authority which is lawful;
+5. Abide by the bylaws, policies, and procedures of the association;
+6. Foster an environment of cooperation and collaboration that engenders trust, 
+   openness and confidence – one where diverse perspectives and views are 
+   encouraged and valued;
+7. Encourage the free expression, through proper channels and means, of 
+   opinions held by others;
+8. Faithfully and diligently perform all duties properly assigned;
+9. Disclose and refuse any gift, loan, reward, or promise of future employment 
+   offered in exchange for a commitment to vote or take any other action 
+   affecting association business;
+10. Follow all accounting rules and financial controls imposed by the association;
+11. Follow all laws relative to the ethical conduct of a not-for-profit 
+    corporation;
+12. Conduct herself or himself in a fair, honest, responsible, trustworthy and 
+    unbiased manner;
+13. Conduct the business of the association without respect of persons, keeping 
+    deliberations and actions free from bias, prejudice, harassment, and 
+    discrimination on the basis of race, color, sex, sexual orientation, gender 
+    identity, religion, disability, age, political affiliation, genetic 
+    information, veteran status, ancestry, or national or ethnic origin.
+14. Remain professional and respectful to others in both word and deed at all 
+    times;
+15. Be protective of NENA, its brands, services, and reputation in all 
+    communications;
+16. Be committed to excelling in her or his role and support her or his peers’ 
+    efforts to do the same; and
+17. Share the association’s goals of improving 9-1-1 and the 9-1-1 industry; 
+    facilitating growth, change, and innovation; developing leaders; driving 
+    diversity; and creating community.
+
+Individuals determined by the CEO, the Board of Directors, or its designee, to 
+have violated the terms of this policy may, at NENA’s sole discretion, be 
+subject to the application of measures that may include notification of the 
+person’s agency or employer, forfeiture of event attendance, or revocation of 
+membership. Should the NENA Board, or its designee, determine to remove an 
+attendee from a NENA event or revoke membership, then it shall provide the 
+affected person with an opportunity to respond to NENA’s concerns or allegations.
+
+The above has been edited for clarity and is an abridged version of the 
+board-approved Ethics & Code of Conduct Policy. See the full policy 
+[here](https://cdn.ymaws.com/www.nena.org/resource/resmgr/membership/Ethics_and_Code_of_Conduct_2.pdf).
+
+---
+
+## NENA Intellectual Property Rights & Antitrust Policy
+
+
+NENA requires an explicit Intellectual Property Rights & Antitrust Policy to 
+conduct its daily work. The objectives of this policy are to:
+
+1. Ensure that Members’ and participating Entities’ IPR are protected;
+2. Promote awareness of IPR issues among NENA Committees so as to permit 
+   informed decision-making about the trade-offs associated with technical 
+   alternatives encountered in committee work; and
+3. Ensure that implementers producing products or services based on NENA 
+   standards are not unreasonably inhibited by IPR licensing requirements.
+
+See the full policy [here](https://www.nena.org/general/custom.asp?page=ipr).
+
+---
 
 ## License
 Copyright 2019-2022 National Emergency Number Association
