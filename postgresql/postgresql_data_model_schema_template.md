@@ -31,6 +31,8 @@ columns are used for minimal situations where only one table is involved.
   RoadCenterlines schema
 * Corrected `longitude` check error from `CHECK ( -90 <= Longitude AND Longitude <= 90 )` 
   to `CHECK ( -180 <= Longitude AND Longitude <= 180 )` in multiple tables.
+* Fixed typo `('PARK":"PARK(S)')` to `('PARK","PARK(S)')` in LegacyStreetTypes
+  lookup table.
 * Added missing relationship to ServiceURN. v1.0 included the look up table but 
   did not define the relationship.
 
