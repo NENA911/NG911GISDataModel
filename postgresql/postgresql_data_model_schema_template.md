@@ -27,9 +27,12 @@ columns are used for minimal situations where only one table is involved.
 
 ## Fixes from v1.0
 
+* Added missing `St_PreDir` and `St_PosDir` field missing from the v1.0 
+  RoadCenterlines schema
 * Corrected `longitude` check error from `CHECK ( -90 <= Longitude AND Longitude <= 90 )` 
   to `CHECK ( -180 <= Longitude AND Longitude <= 180 )` in multiple tables.
-* ServiceURN was never hooked up
+* Added missing relationship to ServiceURN. v1.0 included the look up table but 
+  did not define the relationship.
 
 ## Schema Changes from v1.0
 
@@ -46,14 +49,17 @@ columns are used for minimal situations where only one table is involved.
 * Changed domain and reference tables to follow NENA table and field naming 
   conventions
 * Improved documentation
+* Reordered fields in schema to the same order as GIS Data Model documentation 
+  for ease of quality assurance and control.
 
 ## Changes from v1 to v2
 
-* 
+* Combined the Street Name and Legacy Directionals into a single lookup table 
+  and added additional language directionals per NENA-STA-006.2-2022.
 
 ## Questions for WG
 
-* Should the script include indexes?
+* Should the script include the creation of indexes on appropriate fields?
 * Should lookup tables include a prefix to identify them more easily?
 * Should the script include a trigger to create the NGUID?
 * Should the `id` field be replaced by a UUID?
@@ -137,6 +143,58 @@ CREATE TABLE nena.AdditionalCodes (
 
 
 /* *****************************************************************************
+   TABLE:    nena.StreetName_Directionals
+   Used By:  RoadCenterLine, StreetNameAliasTable, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Sections 5.56, 5.57, 5.111, and 5.114. 
+   Notes:    Combined both the NG9-1-1 and Legacy Directional loopups into a 
+             single lookup table.
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.StreetName_Directionals
+CREATE TABLE nena.StreetName_Directionals (
+   Directional VARCHAR(9)
+,  LegacyDirectional VARCHAR(2)
+);
+
+
+/* *****************************************************************************
+   TABLE:    nena.StreetName_Types
+   Used By:  RoadCenterLine, StreetNameAliasTable, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Sections 5.113 and 5.117
+   Notes:    This may be split into a PreType and PostType in the future and 
+             may be expanded locally.
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.StreetName_Types CASCADE;
+CREATE TABLE nena.StreetName_Types (
+	StreetNameType VARCHAR(50) PRIMARY KEY
+);
+
+
+/* *****************************************************************************
+   TABLE:    nena.StreetName_LegacyTypes
+   Used By:  RoadCenterLine, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Sections 5.58, p.64
+   Notes:    This is limited to USPS Publication 28 main abbreviation lookup and 
+             may be expanded locally.
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.StreetName_LegacyTypes CASCADE;
+CREATE TABLE nena.StreetName_LegacyTypes (
+	Abbreviation  VARCHAR(4) PRIMARY KEY	
+,	Description VARCHAR(20) 
+);
+
+
+/* *****************************************************************************
+   TABLE:    nena.StreetName_PreTypeSeparators
+   Used By:  RoadCenterLine, StreetNameAliasTable, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Sections 5.117, p.80
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.StreetName_PreTypeSeparators CASCADE;
+CREATE TABLE nena.StreetName_PreTypeSeparators (
+	Separator VARCHAR(20) PRIMARY KEY 
+);
+
+
+/* *****************************************************************************
    TABLE:    nena.URIs
    Used By:  ServiceBoundaryPolygons
    Source:   NENA-STA-006.2-2022, Section 5.102, p.76
@@ -176,241 +234,6 @@ CREATE TABLE nena.ServiceBoundary_URNs (
 );
 
 
--- directional as data type 
-DROP DOMAIN IF EXISTS nena.Directional CASCADE;
-CREATE DOMAIN nena.Directional AS VARCHAR(9) 
-CHECK ( VALUE IN ('North', 'South', 'East', 'West', 'Northeast', 'Northwest', ' Southeast', 'Southwest') );
-
--- legacy directional as lookup
-DROP TABLE IF EXISTS nena.LegacyDirectionals CASCADE;
-CREATE TABLE nena.LegacyDirectionals (
-	LegacyDirectional VARCHAR(2) PRIMARY KEY
-,	Legacy1Directional_lookup VARCHAR(9)
-);
-INSERT INTO nena.LegacyDirectionals VALUES
-	('N','North')
-, 	('S','Southwest')
-, 	('E','East')
-, 	('W','West')
-, 	('NE','Northeast')
-,	('NW','Northwest')
-,	('SE','Southeast')
-,	('SW','Southwest')
-;
-
--- Legacy Street Name Types table
--- this is limited  to Pub 28 main abbrev. lookup 
--- Production DB would have similar table with much longer list 
--- of abbreviation lookups e.g. for parsing 
-DROP TABLE IF EXISTS nena.LegacyStreetNameTypes CASCADE;
-CREATE TABLE nena.LegacyStreetNameTypes (
-	LegacyStreetNameType  VARCHAR(4) PRIMARY KEY	
-,	LegacyStreetNameType_lookup VARCHAR(20) 
-);
-INSERT INTO nena.LegacyStreetNameTypes VALUES 
-	('ALY','ALLEY')
-,	('ANX','ANEX')
-,	('ARC','ARCADE')
-,	('AVE','AVENUE')
-,	('BYU','BAYOU')
-,	('BCH','BEACH')
-,	('BND','BEND')
-,	('BLF','BLUFF')
-,	('BLFS','BLUFFS')
-,	('BTM','BOTTOM')
-,	('BLVD','BOULEVARD')
-,	('BR','BRANCH')
-,	('BRG','BRIDGE')
-,	('BRK','BROOK')
-,	('BRKS','BROOKS')
-,	('BG','BURG')
-,	('BGS','BURGS')
-,	('BYP','BYPASS')
-,	('CP','CAMP')
-,	('CYN','CANYON')
-,	('CPE','CAPE')
-,	('CSWY','CAUSEWAY')
-,	('CTR','CENTER')
-,	('CTRS','CENTERS')
-,	('CIR','CIRCLE')
-,	('CIRS','CIRCLES')
-,	('CLF','CLIFF')
-,	('CLFS','CLIFFS')
-,	('CLB','CLUB')
-,	('CMN','COMMON')
-,	('CMNS','COMMONS')
-,	('COR','CORNER')
-,	('CORS','CORNERS')
-,	('CRSE','COURSE')
-,	('CT','COURT')
-,	('CTS','COURTS')
-,	('CV','COVE')
-,	('CVS','COVES')
-,	('CRK','CREEK')
-,	('CRES','CRESCENT')
-,	('CRST','CREST')
-,	('XING','CROSSING')
-,	('XRD','CROSSROAD')
-,	('XRDS','CROSSROADS')
-,	('CURV','CURVE')
-,	('DL','DALE')
-,	('DM','DAM')
-,	('DV','DIVIDE')
-,	('DR','DRIVE')
-,	('DRS','DRIVES')
-,	('EST','ESTATE')
-,	('ESTS','ESTATES')
-,	('EXPY','EXPRESSWAY')
-,	('EXT','EXTENSION')
-,	('EXTS','EXTENSIONS')
-,	('FALL','FALL')
-,	('FLS','FALLS')
-,	('FRY','FERRY')
-,	('FLD','FIELD')
-,	('FLDS','FIELDS')
-,	('FLT','FLAT')
-,	('FLTS','FLATS')
-,	('FRD','FORD')
-,	('FRDS','FORDS')
-,	('FRST','FOREST')
-,	('FRG','FORGE')
-,	('FRGS','FORGES')
-,	('FRK','FORK')
-,	('FRKS','FORKS')
-,	('FT','FORT')
-,	('FWY','FREEWAY')
-,	('GDN','GARDEN')
-,	('GDNS','GARDENS')
-,	('GTWY','GATEWAY')
-,	('GLN','GLEN')
-,	('GLNS','GLENS')
-,	('GRN','GREEN')
-,	('GRNS','GREENS')
-,	('GRV','GROVE')
-,	('GRVS','GROVES')
-,	('HBR','HARBOR')
-,	('HBRS','HARBORS')
-,	('HVN','HAVEN')
-,	('HTS','HEIGHTS')
-,	('HWY','HIGHWAY')
-,	('HL','HILL')
-,	('HLS','HILLS')
-,	('HOLW','HOLLOW')
-,	('INLT','INLET')
-,	('IS','ISLAND')
-,	('ISS','ISLANDS')
-,	('ISLE','ISLE')
-,	('JCT','JUNCTION')
-,	('JCTS','JUNCTIONS')
-,	('KY','KEY')
-,	('KYS','KEYS')
-,	('KNL','KNOLL')
-,	('KNLS','KNOLLS')
-,	('LK','LAKE')
-,	('LKS','LAKES')
-,	('LAND','LAND')
-,	('LNDG','LANDING')
-,	('LN','LANE')
-,	('LGT','LIGHT')
-,	('LGTS','LIGHTS')
-,	('LF','LOAF')
-,	('LCK','LOCK')
-,	('LCKS','LOCKS')
-,	('LDG','LODGE')
-,	('LOOP','LOOP')
-,	('MALL','MALL')
-,	('MNR','MANOR')
-,	('MNRS','MANORS')
-,	('MDW','MEADOW')
-,	('MDWS','MEADOWS')
-,	('MEWS','MEWS')
-,	('ML','MILL')
-,	('MLS','MILLS')
-,	('MSN','MISSION')
-,	('MTWY','MOTORWAY')
-,	('MT','MOUNT')
-,	('MTN','MOUNTAIN')
-,	('MTNS','MOUNTAINS')
-,	('NCK','NECK')
-,	('ORCH','ORCHARD')
-,	('OVAL','OVAL')
-,	('OPAS','OVERPASS')
-,	('PARK','PARK(S)')
-,	('PKWY','PARKWAY(S)')
-,	('PASS','PASS')
-,	('PSGE','PASSAGE')
-,	('PATH','PATH')
-,	('PIKE','PIKE')
-,	('PNE','PINE')
-,	('PNES','PINES')
-,	('PL','PLACE')
-,	('PLN','PLAIN')
-,	('PLNS','PLAINS')
-,	('PLZ','PLAZA')
-,	('PT','POINT')
-,	('PTS','POINTS')
-,	('PRT','PORT')
-,	('PRTS','PORTS')
-,	('PR','PRAIRIE')
-,	('RADL','RADIAL')
-,	('RAMP','RAMP')
-,	('RNCH','RANCH')
-,	('RPD','RAPID')
-,	('RPDS','RAPIDS')
-,	('RST','REST')
-,	('RDG','RIDGE')
-,	('RDGS','RIDGES')
-,	('RIV','RIVER')
-,	('RD','ROAD')
-,	('RDS','ROADS')
-,	('RTE','ROUTE')
-,	('ROW','ROW')
-,	('RUE','RUE')
-,	('RUN','RUN')
-,	('SHL','SHOAL')
-,	('SHLS','SHOALS')
-,	('SHR','SHORE')
-,	('SHRS','SHORES')
-,	('SKWY','SKYWAY')
-,	('SPG','SPRING')
-,	('SPGS','SPRINGS')
-,	('SPUR','SPUR(S)')
-,	('SQ','SQUARE')
-,	('SQS','SQUARES')
-,	('STA','STATION')
-,	('STRA','STRAVENUE')
-,	('STRM','STREAM')
-,	('ST','STREET')
-,	('STS','STREETS')
-,	('SMT','SUMMIT')
-,	('TER','TERRACE')
-,	('TRWY','THROUGHWAY')
-,	('TRCE','TRACE')
-,	('TRAK','TRACK')
-,	('TRFY','TRAFFICWAY')
-,	('TRL','TRAIL')
-,	('TRLR','TRAILER')
-,	('TUNL','TUNNEL')
-,	('TPKE','TURNPIKE')
-,	('UPAS','UNDERPASS')
-,	('UN','UNION')
-,	('UNS','UNIONS')
-,	('VLY','VALLEY')
-,	('VLYS','VALLEYS')
-,	('VIA','VIADUCT')
-,	('VW','VIEW')
-,	('VWS','VIEWS')
-,	('VLG','VILLAGE')
-,	('VLGS','VILLAGES')
-,	('VL','VILLE')
-,	('VIS','VISTA')
-,	('WALK','WALK(S)')
-,	('WALL','WALL')
-,	('WAY','WAY')
-,	('WAYS','WAYS')
-,	('WL','WELL')
-,	('WLS','WELLS')
-;
 
 
 
@@ -533,340 +356,6 @@ INSERT INTO nena.RoadClasses VALUES
 ;
 
 
-
-
-
--- table listing of street name pre type separators 
-DROP TABLE IF EXISTS nena.StreetNamePreTypeSeparators CASCADE;
-CREATE TABLE nena.StreetNamePreTypeSeparators (
-	StreetNamePreTypeSeparator VARCHAR(20) PRIMARY KEY 
-);
-INSERT INTO nena.StreetNamePreTypeSeparators VALUES 
-	('of the')
-,	('at')
-,	('de las')
-,	('in the')
-,	('des')
-,	('to the')
-,	('of')
-,	('on the')
-,	('to')
-;
-
--- list of street name types - will likely be expanded locally 
-DROP TABLE IF EXISTS nena.StreetNameTypes CASCADE;
-CREATE TABLE nena.StreetNameTypes (
-	StreetNameType VARCHAR(50) PRIMARY KEY
-);
-INSERT INTO nena.StreetNameTypes VALUES 
-	('Access Road')
-,	('Acres')
-,	('Alcove')
-,	('Alley')
-,	('Annex')
-,	('Approach')
-,	('Arcade')
-,	('Arch')
-,	('Avenida')
-,	('Avenue')
-,	('Avenue Court')
-,	('Bank')
-,	('Bay')
-,	('Bayou')
-,	('Bayway')
-,	('Beach')
-,	('Bend')
-,	('Bluff')
-,	('Bluffs')
-,	('Bottom')
-,	('Boardwalk')
-,	('Boulevard')
-,	('Branch')
-,	('Bridge')
-,	('Brook')
-,	('Brooks')
-,	('Bureau of Indian Affairs Route')
-,	('Burg')
-,	('Burgs')
-,	('Bypass')
-,	('Calle')
-,	('Camino')
-,	('Camp')
-,	('Canyon')
-,	('Cape')
-,	('Causeway')
-,	('Center')
-,	('Centers')
-,	('Chase')
-,	('Circle')
-,	('Circles')
-,	('Circus')
-,	('Cliff')
-,	('Cliffs')
-,	('Close')
-,	('Club')
-,	('Cluster')
-,	('Common')
-,	('Commons')
-,	('Concourse')
-,	('Connect')
-,	('Connector')
-,	('Corner')
-,	('Corners')
-,	('Corridor')
-,	('County Forest Road')
-,	('County Highway')
-,	('County Road')
-,	('County Route')
-,	('Course')
-,	('Court')
-,	('Courts')
-,	('Cove')
-,	('Coves')
-,	('Creek')
-,	('Crescent')
-,	('Crest')
-,	('Cross')
-,	('Crossing')
-,	('Crossroad')
-,	('Crossroads')
-,	('Crossway')
-,	('Curve')
-,	('Custer County Road')
-,	('Cutoff')
-,	('Cutting')
-,	('Dale')
-,	('Dam')
-,	('Dawson County Road')
-,	('Dell')
-,	('Divide')
-,	('Down')
-,	('Downs')
-,	('Drift')
-,	('Drive')
-,	('Drives')
-,	('Driveway')
-,	('End')
-,	('Esplanade')
-,	('Estate')
-,	('Estates')
-,	('Exchange')
-,	('Exit')
-,	('Expressway')
-,	('Extension')
-,	('Extensions')
-,	('Fall')
-,	('Falls')
-,	('Fare')
-,	('Farm')
-,	('Federal-Aid Secondary Highway')
-,	('Ferry')
-,	('Field')
-,	('Fields')
-,	('Flat')
-,	('Flats')
-,	('Flyway')
-,	('Ford')
-,	('Fords')
-,	('Forest')
-,	('Forge')
-,	('Forges')
-,	('Fork')
-,	('Forks')
-,	('Fort')
-,	('Freeway')
-,	('Front')
-,	('Garden')
-,	('Gardens')
-,	('Garth')
-,	('Gate')
-,	('Gates')
-,	('Gateway')
-,	('Glade')
-,	('Glen')
-,	('Glens')
-,	('Gorge')
-,	('Green')
-,	('Greens')
-,	('Grove')
-,	('Groves')
-,	('Harbor')
-,	('Harbors')
-,	('Harbour')
-,	('Haven')
-,	('Heights')
-,	('Highway')
-,	('Hill')
-,	('Hills')
-,	('Hollow')
-,	('Horseshoe')
-,	('Inlet')
-,	('Interstate')
-,	('Interval')
-,	('Island')
-,	('Islands')
-,	('Isle')
-,	('Junction')
-,	('Junctions')
-,	('Keep')
-,	('Key')
-,	('Keys')
-,	('Knoll')
-,	('Knolls')
-,	('Lair')
-,	('Lake')
-,	('Lakes')
-,	('Land')
-,	('Landing')
-,	('Lane')
-,	('Lateral')
-,	('Ledge')
-,	('Light')
-,	('Lights')
-,	('Loaf')
-,	('Lock')
-,	('Locks')
-,	('Lodge')
-,	('Lookout')
-,	('Loop')
-,	('Mall')
-,	('Manor')
-,	('Manors')
-,	('Market')
-,	('Meadow')
-,	('Meadows')
-,	('Mews')
-,	('Mill')
-,	('Mills')
-,	('Mission')
-,	('Montana Highway')
-,	('Motorway')
-,	('Mount')
-,	('Mountain')
-,	('Mountains')
-,	('Narrows')
-,	('National Forest Development Road')
-,	('Neck')
-,	('Nook')
-,	('Orchard')
-,	('Oval')
-,	('Overlook')
-,	('Overpass')
-,	('Park')
-,	('Parke')
-,	('Parks')
-,	('Parkway')
-,	('Parkways')
-,	('Pass')
-,	('Passage')
-,	('Path')
-,	('Pathway')
-,	('Pike')
-,	('Pine')
-,	('Pines')
-,	('Place')
-,	('Plain')
-,	('Plains')
-,	('Plaza')
-,	('Point')
-,	('Pointe')
-,	('Points')
-,	('Port')
-,	('Ports')
-,	('Prairie')
-,	('Promenade')
-,	('Quarter')
-,	('Quay')
-,	('Ramp')
-,	('Radial')
-,	('Ranch')
-,	('Rapid')
-,	('Rapids')
-,	('Reach')
-,	('Rest')
-,	('Ridge')
-,	('Ridges')
-,	('Rise')
-,	('River')
-,	('River Road')
-,	('Road')
-,	('Roads')
-,	('Round')
-,	('Route')
-,	('Row')
-,	('Rue')
-,	('Run')
-,	('Runway')
-,	('Shoal')
-,	('Shoals')
-,	('Shore')
-,	('Shores')
-,	('Skyway')
-,	('Slip')
-,	('Spring')
-,	('Springs')
-,	('Spur')
-,	('Spurs')
-,	('Square')
-,	('Squares')
-,	('State Highway')
-,	('State Parkway')
-,	('State Road')
-,	('State Route')
-,	('State Secondary')
-,	('Station')
-,	('Strand')
-,	('Strasse')
-,	('Stravenue')
-,	('Stream')
-,	('Street')
-,	('Street Court')
-,	('Streets')
-,	('Strip')
-,	('Summit')
-,	('Taxiway')
-,	('Tern')
-,	('Terrace')
-,	('Throughway')
-,	('Thruway')
-,	('Trace')
-,	('Track')
-,	('Trafficway')
-,	('Trail')
-,	('Trailer')
-,	('Triangle')
-,	('Tunnel')
-,	('Turn')
-,	('Turnpike')
-,	('United States Forest Service Road')
-,	('United States Highway')
-,	('Underpass')
-,	('Union')
-,	('Unions')
-,	('Valley')
-,	('Valleys')
-,	('Via')
-,	('Viaduct')
-,	('View')
-,	('Views')
-,	('Villa')
-,	('Village')
-,	('Villages')
-,	('Ville')
-,	('Vista')
-,	('Walk')
-,	('Walks')
-,	('Wall')
-,	('Way')
-,	('Ways')
-,	('Weeg')
-,	('Well')
-,	('Wells')
-,	('Woods')
-,	('Wye')
-;
-
-
 /* *****************************************************************************
    TABLE:    LocationMarker_Indicators
    Used By:  LocationMarkerPoints
@@ -919,17 +408,17 @@ CREATE TABLE nena.RoadCenterline (
 , Parity_L VARCHAR(1)  NOT NULL  REFERENCES nena.Parities(Parity)
 , Parity_R VARCHAR(1)  NOT NULL  REFERENCES nena.Parities(Parity)
 , St_PreMod VARCHAR(15)   
-, St_PreDir nena.DIRECTIONAL
-, St_PreTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
-, St_PreSep VARCHAR(20)  REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
+, St_PreDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)
+, St_PreTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
+, St_PreSep VARCHAR(20)  REFERENCES nena.StreetName_PreTypeSeparators(Separator)
 , St_Name VARCHAR(254)   
-, St_PosTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
-, St_PosDir nena.DIRECTIONAL   
+, St_PosTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
+, St_PosDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)  
 , St_PosMod VARCHAR(25) 
-, LSt_PreDir VARCHAR(2)  REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , LSt_Name VARCHAR(75)   
-, LSt_Type VARCHAR(4)  REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)
-, LSt_PosDir VARCHAR(2)  REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, LSt_Type VARCHAR(4)  REFERENCES nena.StreetName_LegacyTypes(Abbreviation)
+, LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , ESN_L VARCHAR(5)  CHECK ( ESN_L ~* '\w{3,5}' )
 , ESN_R VARCHAR(5)  CHECK ( ESN_R ~* '\w{3,5}' )
 , MSAGComm_L VARCHAR(30)   
@@ -974,12 +463,12 @@ CREATE TABLE nena.StreetNameAliasTable (
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , RCL_NGUID VARCHAR(254)  NOT NULL
 , ASt_PreMod VARCHAR(15)
-, ASt_PreDir nena.DIRECTIONAL
-, ASt_PreTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
-, ASt_PreSep VARCHAR(20)  REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
+, ASt_PreDir VARCHAR(9) REFERENCES nena.StreetName_Directionals(Directional)
+, ASt_PreTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
+, ASt_PreSep VARCHAR(20)  REFERENCES nena.StreetName_PreTypeSeparators(Separator)
 , ASt_Name VARCHAR(254)  NOT NULL  
-, ASt_PosTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
-, ASt_PosDir nena.DIRECTIONAL   
+, ASt_PosTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
+, ASt_PosDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)  
 , ASt_PosMod VARCHAR(25)   
 );
 
@@ -1009,17 +498,17 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Add_Number INTEGER   
 , AddNum_Suf VARCHAR(15)
 , St_PreMod VARCHAR(15)   
-, St_PreDir nena.DIRECTIONAL   
-, St_PreTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType)
-, St_PreSep VARCHAR(20)  REFERENCES nena.StreetNamePreTypeSeparators(StreetNamePreTypeSeparator)
+, St_PreDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional) 
+, St_PreTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
+, St_PreSep VARCHAR(20)  REFERENCES nena.StreetName_PreTypeSeparators(Separator)
 , St_Name VARCHAR(254)
-, St_PosTyp VARCHAR(50)  REFERENCES nena.StreetNameTypes(StreetNameType) 
-, St_PosDir nena.DIRECTIONAL   
+, St_PosTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType) 
+, St_PosDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)  
 , St_PosMod VARCHAR(25)
-, LSt_PreDir VARCHAR(2)  REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , LSt_Name VARCHAR(75)
-, LSt_Type VARCHAR(4)  REFERENCES nena.LegacyStreetNameTypes(LegacyStreetNameType)   
-, LSt_PosDir VARCHAR(2)  REFERENCES nena.LegacyDirectionals(LegacyDirectional)
+, LSt_Type VARCHAR(4)  REFERENCES nena.StreetName_LegacyTypes(Abbreviation)   
+, LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , ESN VARCHAR(5)
 , MSAGComm VARCHAR(30)
 , Post_Comm VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
