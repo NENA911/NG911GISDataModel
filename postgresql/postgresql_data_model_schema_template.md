@@ -147,6 +147,21 @@ CREATE TABLE nena.AdditionalCodes (
 
 
 /* *****************************************************************************
+   TABLE:    nena.StreetName_Parities
+   Used By:  RoadCenterLine, StreetNameAliasTable, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Sections 5.56, 5.57, 5.111, and 5.114. 
+   Notes:    Combined both the NG9-1-1 and Legacy Directional loopups into a 
+             single lookup table.
+   ************************************************************************** */
+-- lookup table for parity codes 
+DROP TABLE IF EXISTS nena.StreetName_Parities CASCADE;
+CREATE TABLE nena.StreetName_Parities (
+	Parity VARCHAR(1) PRIMARY KEY 
+,	Parity_lookup VARCHAR(20)
+); 
+
+
+/* *****************************************************************************
    TABLE:    nena.StreetName_Directionals
    Used By:  RoadCenterLine, StreetNameAliasTable, SiteStructureAddressPoint
    Source:   NENA-STA-006.2-2022, Sections 5.56, 5.57, 5.111, and 5.114. 
@@ -199,6 +214,73 @@ CREATE TABLE nena.StreetName_PreTypeSeparators (
 
 
 /* *****************************************************************************
+   TABLE:    nena.Postal
+   Used By:  RoadCenterLines, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Section 5.80 and 5.84
+   Notes:    Table listing postal communities and codes with regular expression 
+             match for US and Canadian codes
+   ************************************************************************** */
+
+-- postal code listing with regular expression match for US and Canadian codes 
+DROP TABLE IF EXISTS nena.Postal CASCADE; 
+CREATE TABLE nena.Postal (
+   PostalCode VARCHAR(7)  CHECK ( PostalCode ~* '(\d{5})|([A-Z][0-9][A-Z] [0-9][A-Z][0-9])' )
+,  PostalCommunity VARCHAR(40)
+); 
+
+
+/* *****************************************************************************
+   TABLE:    nena.RoadCenterLine_RoadClasses
+   Used By:  RoadCenterLines
+   Source:   NENA-STA-006.2-2022, Section 5.96, p.96
+   Notes:    Table listing of road classes
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.RoadCenterLine_RoadClasses CASCADE;
+CREATE TABLE nena.RoadCenterLine_RoadClasses (
+	RoadClass VARCHAR(15) PRIMARY KEY 
+,	RoadClass_lookup TEXT
+);
+
+
+/* *****************************************************************************
+   TABLE:    nena.RoadCenterLine_OneWays
+   Used By:  RoadCenterLines
+   Source:   NENA-STA-006.2-2022, Section 5.96, p.96
+   Notes:    Lookup table for one way codes 
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.RoadCenterLine_OneWays CASCADE;
+CREATE TABLE nena.RoadCenterLine_OneWays (
+	OneWay VARCHAR(2) PRIMARY KEY 
+,	OneWay_lookup VARCHAR(50)
+);
+
+
+/* *****************************************************************************
+   TABLE:    nena.SiteStructureAddressPoint_PlaceTypes
+   Used By:  SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Section 5.78, p.69
+   Notes:    Lookup table for placetypes  
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.SiteStructureAddressPoint_PlaceTypes CASCADE;
+CREATE TABLE nena.SiteStructureAddressPoint_PlaceTypes (
+	PlaceType VARCHAR(50) PRIMARY KEY 
+,	PlaceType_lookup TEXT 
+); 
+
+
+/* *****************************************************************************
+   TABLE:    nena.SiteStructureAddressPoint_PlacementMethods
+   Used By:  SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Section 5.79, p.69
+   Notes:    Table listing for placement methods - could be expanded  
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.SiteStructureAddressPoint_PlacementMethods CASCADE;
+CREATE TABLE nena.SiteStructureAddressPoint_PlacementMethods (
+	PlacementMethod VARCHAR(25) PRIMARY KEY 
+); 
+
+
+/* *****************************************************************************
    TABLE:    nena.URIs
    Used By:  ServiceBoundaryPolygons
    Source:   NENA-STA-006.2-2022, Section 5.102, p.76
@@ -236,128 +318,6 @@ CREATE TABLE nena.ServiceBoundary_URNs (
 	ServiceURN VARCHAR(254) PRIMARY KEY
 ,	ServiceURN_lookup TEXT
 );
-
-
-
-
-
-
--- lookup table for one way codes 
-DROP TABLE IF EXISTS nena.OneWays CASCADE;
-CREATE TABLE nena.OneWays (
-	OneWay VARCHAR(2) PRIMARY KEY 
-,	OneWay_lookup VARCHAR(50)
-);
-INSERT INTO nena.OneWays VALUES 
-	('B', 'Travel in both directions allowed')
-,	('FT','One-way traveling from FROM node to TO node')
-,	('TF','One way traveling from TO node to FROM node')
-; 
-
--- lookup table for parity codes 
-DROP TABLE IF EXISTS nena.Parities CASCADE;
-CREATE TABLE nena.Parities (
-	Parity VARCHAR(1) PRIMARY KEY 
-,	Parity_lookup VARCHAR(20)
-); 
-INSERT INTO nena.Parities VALUES 
-	('O','Odd')
-,	('E', 'Even')
-,	('B','Both')
-,	('Z','Address Range 0-0')
-; 
-
--- table listing for placement methods - could be expanded 
-DROP TABLE IF EXISTS nena.PlacementMethods CASCADE;
-CREATE TABLE nena.PlacementMethods (
-	PlacementMethod VARCHAR(25) PRIMARY KEY 
-); 
-INSERT INTO nena.PlacementMethods VALUES 
-	('Geocoding')
-,	('Parcel')
-,	('Property Access')
-,	('Structure')
-,	('Site')
-,	('Unknown')
-;
-
--- lookup table for placetypes 
-DROP TABLE IF EXISTS nena.PlaceTypes CASCADE;
-CREATE TABLE nena.PlaceTypes (
-	PlaceType VARCHAR(50) PRIMARY KEY 
-,	PlaceType_lookup TEXT 
-); 
-INSERT INTO nena.PlaceTypes VALUES 
-	('airport','A place from which aircrafts operate, such as an airport or heliport.')
-,	('arena','Enclosed area used for sports events.')
-,	('bank','Business establishment in which money is kept for saving, commercial purposes, is invested, supplied for loans, or exchanged.')
-,	('bar','A bar or saloon.')
-,	('bus-station','Terminal that serves bus passengers, such as a bus depot or bus terminal.')
-,	('cafe','Usually a small and informal establishment that serves various refreshments (such as coffee); coffee shop.')
-,	('classroom','Academic classroom or lecture hall.')
-,	('club','Dance club, nightclub, or discotheque.')
-,	('construction','Construction site.')
-,	('convention-center','Convention center or exhibition hall.')
-,	('government','Government building, such as those used by the legislative, executive, or judicial branches of governments, including court houses, police stations, and military installations.')
-,	('hospital','Hospital, hospice, medical clinic, mental institution, or doctor''s office.')
-,	('hotel','Hotel, motel, inn, or other lodging establishment.')
-,	('industrial','Industrial setting, such as a manufacturing floor or power plant.')
-,	('library','Library or other public place in which literary and artistic materials, such as books, music, periodicals, newspapers, pamphlets, prints, records, and tapes, are kept for reading, reference, or lending.')
-,	('office','Business setting, such as an office.')
-,	('other','A place without a registered place type representation.')
-,	('outdoors','Outside a building, in or into the open air, such as a park or city streets.')
-,	('parking','A parking lot or parking garage.')
-,	('place-of-worship','A religious site where congregations gather for religious observances, such as a church, chapel, meetinghouse, mosque, shrine, synagogue, or temple.')
-,	('prison','Correctional institution where persons are confined while on trial or for punishment, such as a prison, penitentiary, jail, brig.')
-,	('public','Public area such as a shopping mall, street, park, public building, train station, or airport or in public conveyance such as a bus, train, plane, or ship. This general description encompasses the more precise descriptors ''street'', ''public-transport'', ''airport'' and so on.')
-,	('residence','A private or residential setting, not necessarily the personal residence of the entity, e.g., including a friend''s home.')
-,	('restaurant','Restaurant, coffee shop, or other public dining establishment.')
-,	('school','School or university property, but not necessarily a classroom or library.')
-,	('shopping-area','Shopping mall or shopping area. This area is a large, often enclosed, shopping complex containing various stores, businesses, and restaurants usually accessible by common passageways.')
-,	('stadium','Large, usually open structure for sports events, including a racetrack.')
-,	('store','Place where merchandise is offered for sale, such as a shop.')
-,	('street','A public thoroughfare, such as an avenue, street, alley, lane, or road, including any sidewalks.')
-,	('theater','Theater, lecture hall, auditorium, classroom, movie theater, or similar facility designed for presentations, talks, plays, music performances, and other events involving an audience.')
-,	('train-station','Terminal where trains load or unload passengers or goods; railway station, railroad station, railroad terminal, train depot.')
-,	('unknown','The type of place is unknown.')
-,	('warehouse','Place in which goods or merchandise are stored, such as a storehouse or self-storage facility.')
-,	('water','In, on, or above bodies of water, such as an ocean, lake, river, canal, or other waterway.')
-;
-
--- postal code listing with regular expression match for US and Canadian codes 
-DROP TABLE IF EXISTS nena.PostalCodes CASCADE; 
-CREATE TABLE nena.PostalCodes (
-	PostalCode VARCHAR(7) PRIMARY KEY CHECK ( PostalCode ~* '(\d{5})|([A-Z][0-9][A-Z] [0-9][A-Z][0-9])' )
-); 
-
--- table list of postal communities will be locally populated 
-DROP TABLE IF EXISTS nena.PostalCommunities CASCADE;
-CREATE TABLE nena.PostalCommunities (
-	PostalCommunity VARCHAR(40) PRIMARY KEY 
-) ;
-
--- table list of road classes 
-DROP TABLE IF EXISTS nena.RoadClasses CASCADE;
-CREATE TABLE nena.RoadClasses (
-	RoadClass VARCHAR(15) PRIMARY KEY 
-,	RoadClass_lookup TEXT
-);
-INSERT INTO nena.RoadClasses VALUES 
-	('Primary','Primary roads are limited-access highways that connect to other roads only at interchanges and not at at-grade intersections')
-,	('Secondary','Secondary roads are main arteries that are not limited access, usually in the U.S. highway, state highway, or county highway systems.')
-,	('Local','Generally a paved non-arterial street, road, or byway that usually has a single lane of traffic in each direction.')
-,	('Ramp','A road that allows controlled access from adjacent roads onto a limited access highway, often in the form of a cloverleaf interchange.')
-,	('Service Drive','A road, usually paralleling a limited access highway, that provides access to structures and/or service facilities along the highway')
-,	('Vehicular Trail','An unpaved dirt trail where a four-wheel drive vehicle is required. These vehicular trails are found almost exclusively in very rural areas.')
-,	('Walkway','A path that is used for walking, being either too narrow for or legally restricted from vehicular traffic.')
-,	('Stairway','A pedestrian passageway from one level to another by a series of steps.')
-,	('Alley','A service road that does not generally have associated addressed structures and is usually unnamed. It is located at the rear of buildings and properties and is used for deliveries.')
-,	('Private','A road within private property that is privately maintained for service, extractive, or other purposes. These roads are often unnamed.')
-,	('Parking Lot','The main travel route for vehicles through a paved parking area. This may include unnamed roads through apartment/condominium/office complexes where pull-in parking spaces line the road.')
-,	('Trail','(Ski, Bike, Walking/Hikding Trail) is generally a path used by human powered modes of transportation.')
-,	('Bridle Path','A path that is used for horses, being either too narrow for or legally restricted from vehicular traffic.')
-,	('Other','Any road or path type that does not fit into the above categories')
-;
 
 
 /* *****************************************************************************
@@ -409,8 +369,8 @@ CREATE TABLE nena.RoadCenterline (
 , ToAddr_L INTEGER  NOT NULL  CHECK ( 0 <= ToAddr_L AND ToAddr_L <= 999999 )
 , FromAddr_R INTEGER  NOT NULL  CHECK ( 0 <= FromAddr_R AND FromAddr_R <= 999999 )
 , ToAddr_R INTEGER  NOT NULL  CHECK ( 0 <= ToAddr_R AND ToAddr_R <= 999999 )
-, Parity_L VARCHAR(1)  NOT NULL  REFERENCES nena.Parities(Parity)
-, Parity_R VARCHAR(1)  NOT NULL  REFERENCES nena.Parities(Parity)
+, Parity_L VARCHAR(1)  NOT NULL  REFERENCES nena.StreetName_Parities(Parity)
+, Parity_R VARCHAR(1)  NOT NULL  REFERENCES nena.StreetName_Parities(Parity)
 , St_PreMod VARCHAR(15)   
 , St_PreDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)
 , St_PreTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
@@ -441,12 +401,12 @@ CREATE TABLE nena.RoadCenterline (
 , UnincCom_R VARCHAR(100)
 , NbrhdCom_L VARCHAR(100)   
 , NbrhdCom_R VARCHAR(100)
-, PostCode_L VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
-, PostCode_R VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
-, PostComm_L VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
-, PostComm_R VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
+, PostCode_L VARCHAR(7)  REFERENCES nena.Postal(PostalCode)
+, PostCode_R VARCHAR(7)  REFERENCES nena.Postal(PostalCode)
+, PostComm_L VARCHAR(40)  REFERENCES nena.Postal(PostalCommunity)
+, PostComm_R VARCHAR(40)  REFERENCES nena.Postal(PostalCommunity)
 , RoadClass VARCHAR(15)  REFERENCES nena.RoadClasses(RoadClass)
-, OneWay VARCHAR(2)  REFERENCES nena.OneWays(OneWay)
+, OneWay VARCHAR(2)  REFERENCES nena.RoadCenterLine_OneWays(OneWay)
 , SpeedLimit INTEGER CHECK ( 1 <= SpeedLimit AND SpeedLimit <= 100 )
 , Valid_L VARCHAR(1)  CHECK ( Valid_L  in ('Y','N') ) 
 , Valid_R VARCHAR(1)  CHECK ( Valid_R  in ('Y','N') ) 
@@ -515,8 +475,8 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , ESN VARCHAR(5)
 , MSAGComm VARCHAR(30)
-, Post_Comm VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
-, Post_Code VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
+, Post_Comm VARCHAR(40)  REFERENCES nena.Postal(PostalCommunity)
+, Post_Code VARCHAR(7)  REFERENCES nena.Postal(PostalCode)
 , Post_Code4 VARCHAR(4)   
 , Building VARCHAR(75)   
 , Floor VARCHAR(75)   
@@ -526,8 +486,8 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Addtl_Loc VARCHAR(225)   
 , LandmkName VARCHAR(150)   
 , Milepost VARCHAR(150)   
-, Place_Type VARCHAR(50)  REFERENCES nena.PlaceTypes(PlaceType)
-, Placement VARCHAR(25)  REFERENCES nena.PlacementMethods(PlacementMethod)
+, Place_Type VARCHAR(50)  REFERENCES nena.SiteStructureAddressPoint_PlaceTypes(PlaceType)
+, Placement VARCHAR(25)  REFERENCES nena.SiteStructureAddressPoint_PlacementMethods(PlacementMethod)
 , Longitude REAL  CHECK ( -180 <= Longitude AND Longitude <= 180 )
 , Latitude REAL  CHECK ( -90 <= Latitude AND Latitude <= 90 )
 , Elevation INTEGER
