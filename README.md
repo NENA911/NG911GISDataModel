@@ -138,7 +138,7 @@ terms of the [Apache License 2.0](LICENSE.md).
 
 To work in 9-1-1 is to be part of one of the most important institutions in 
 America and across the globe. Since the first 9-1-1 call was placed in 
-February of 1968, untold millions of lives have been saved because of 9-1-1 
+February 1968, untold millions of lives have been saved because of 9-1-1 
 professionals’ dedication to public safety and service. NENA: The 9-1-1 
 Association – comprised of its members, board, staff, volunteers, and event 
 participants – is a community for all who are devoted to carrying this legacy 
