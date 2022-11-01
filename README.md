@@ -1,6 +1,7 @@
 # NG9-1-1 GIS Data Model Templates
 
-This repository defines the [Geographic Information Systems (GIS) Data Model](https://www.nena.org/page/NG911GISDataModel), 
+This repository defines the 
+[Geographic Information Systems (GIS) Data Model](https://www.nena.org/page/NG911GISDataModel), 
 which supports the NENA Next Generation 9-1-1 (NG9-1-1) Core Services (NGCS) of 
 location validation and routing, both geospatial call routing or to the 
 appropriate agency for dispatch. This model also defines several GIS data 
@@ -35,7 +36,7 @@ response agency mapping applications for handling and responding to 9-1-1 calls.
   * open_sources_template_process.pdf
   * README.md
 * .gitignore
-* LICENSE.md
+* [LICENSE.md](LICENSE.md)
 * README.md
 
 ---
@@ -67,22 +68,24 @@ the official NENA template files.
 
 The owner of this repository approves all changes to the repository.
 
-This repository is owned by the [NENA Data Management Committee](https://www.nena.org/page/DataManagement), 
-GIS Data Model working group.
+This repository is owned by the 
+[NENA Data Stuctures Committee](https://www.nena.org/page/DataStructures), 
+DS-GIS Template working group.
 
 **Contact:**
 
-[NENA Data Management Committee](https://www.nena.org/page/DataManagement)
+[NENA Data Stuctures Committee](https://www.nena.org/page/DataStructures)
 
 ---
 
 # Version History
 All notable changes to NG9-1-1 GIS Data Model Templates will be 
-documented in this file. This project adheres to 
-[Semantic Versioning](http://semver.org/).
+documented in this file. This project adheres to the 
+[NENA Rules for Code Repositories](https://github.com/babley/NENA-Rules-for-Code-Repositories/blob/main/NENA-ADM-012-2021.md). 
+For a more detailed, Change Log, please visit each packages respective CHANGE_LOG.
 
 
-## 1.0 - 2019-11-20
+## [1.0 - 2019-11-20](https://github.com/NENA911/NG911GISDataModel/releases/tag/1.0.0)
 
 - Initial public release
 
@@ -90,8 +93,8 @@ documented in this file. This project adheres to
 
 ## Issues
 Found a bug or want to suggest an enhancement? Check out previously logged 
-Issues. If you don't see what you're looking for, feel free to submit a new
-issue.
+[Issues](https://github.com/NENA911/NG911GISDataModel/issues). If you don't see 
+what you're looking for, feel free to submit a new issue.
 
 ---
 
@@ -108,7 +111,7 @@ everyone. There are many ways you can contribute to this repository.
 
 1. Make sure you have a [GitHub account](https://github.com/signup/free).
 2. [Fork](https://help.github.com/articles/fork-a-repo) the repo on GitHub.
-3. Clone it to your local machine.
+3. Clone this repository to your local machine.
 4. Create a new feature branch on your local machine.
     * The name of the branch doesn't matter, but as a best practice use a 
       descriptive name like "Updated PrePostStreetName domain".
