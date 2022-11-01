@@ -68,6 +68,8 @@ columns are used for minimal situations where only one table is involved.
 * Should the data model template be migrated to an ORM that would support 
   deployment to multiple databases? This would require a rewrite into Python.
 * Need to discuss the use of Service URI in Service Boundary layers.
+* Should we define dafaults such as Inc_Muni defaults to 'Unicorporated' or
+  DiscrepAgencyID = 'subdomain.domain.tld'
 * [v1.0] Should there be an ESN table or domain?
 
 ```sql
@@ -128,7 +130,7 @@ CREATE TABLE nena.States (
    ************************************************************************** */
 DROP TABLE  IF EXISTS nena.Counties CASCADE;
 CREATE TABLE nena.Counties (
-	County VARCHAR(75) PRIMARY KEY
+	County VARCHAR(100) PRIMARY KEY
 ); 
 
 
@@ -419,7 +421,7 @@ CREATE TABLE nena.RoadCenterline (
 , St_PosMod VARCHAR(25) 
 , LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , LSt_Name VARCHAR(75)   
-, LSt_Type VARCHAR(4)  REFERENCES nena.StreetName_LegacyTypes(Abbreviation)
+, LSt_Typ VARCHAR(4)  REFERENCES nena.StreetName_LegacyTypes(Abbreviation)
 , LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , ESN_L VARCHAR(5)  CHECK ( ESN_L ~* '\w{3,5}' )
 , ESN_R VARCHAR(5)  CHECK ( ESN_R ~* '\w{3,5}' )
@@ -429,8 +431,8 @@ CREATE TABLE nena.RoadCenterline (
 , Country_R nena.Country  NOT NULL 
 , State_L VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
 , State_R VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
-, County_L VARCHAR(40)  NOT NULL  REFERENCES nena.Counties(County)
-, County_R VARCHAR(40)  NOT NULL  REFERENCES nena.Counties(County)
+, County_L VARCHAR(100)  NOT NULL  REFERENCES nena.Counties(County)
+, County_R VARCHAR(100)  NOT NULL  REFERENCES nena.Counties(County)
 , AddCode_L VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
 , AddCode_R VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
 , IncMuni_L VARCHAR(100)  NOT NULL  
@@ -490,7 +492,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
-, County VARCHAR(40)  NOT NULL  REFERENCES nena.Counties(County)
+, County VARCHAR(100)  NOT NULL  REFERENCES nena.Counties(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCodes(AddCode)
 , AddDataURI VARCHAR(254)
 , Inc_Muni VARCHAR(100)  NOT NULL  
@@ -509,7 +511,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , St_PosMod VARCHAR(25)
 , LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , LSt_Name VARCHAR(75)
-, LSt_Type VARCHAR(4)  REFERENCES nena.StreetName_LegacyTypes(Abbreviation)   
+, LSt_Typ VARCHAR(4)  REFERENCES nena.StreetName_LegacyTypes(Abbreviation)   
 , LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
 , ESN VARCHAR(5)
 , MSAGComm VARCHAR(30)
@@ -528,7 +530,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Placement VARCHAR(25)  REFERENCES nena.PlacementMethods(PlacementMethod)
 , Longitude REAL  CHECK ( -180 <= Longitude AND Longitude <= 180 )
 , Latitude REAL  CHECK ( -90 <= Latitude AND Latitude <= 90 )
-, Elev INTEGER
+, Elevation INTEGER
 );
 
 
@@ -593,8 +595,8 @@ CREATE TABLE nena.PsapPolygon (
 , Effective TIMESTAMPTZ   
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.Country  NOT NULL  
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, Country nena.Country  NULL  
+, State VARCHAR(2)  NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
 , ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceBoundary_URNs(ServiceURN)
@@ -612,8 +614,8 @@ CREATE TABLE nena.PolicePolygon (
 , Effective TIMESTAMPTZ  
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.Country  NOT NULL  
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, Country nena.Country  NULL  
+, State VARCHAR(2)  NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
 , ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceBoundary_URNs(ServiceURN)
@@ -631,8 +633,8 @@ CREATE TABLE nena.FirePolygon (
 , Effective TIMESTAMPTZ   
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.Country  NOT NULL  
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, Country nena.Country  NULL  
+, State VARCHAR(2)  NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
 , ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceBoundary_URNs(ServiceURN)
@@ -650,8 +652,8 @@ CREATE TABLE nena.EmsPolygon (
 , Effective TIMESTAMPTZ
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
-, Country nena.Country  NOT NULL  
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.States(State)
+, Country nena.Country  NULL  
+, State VARCHAR(2)  NULL  REFERENCES nena.States(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agencies(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
 , ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceBoundary_URNs(ServiceURN)
@@ -793,11 +795,11 @@ CREATE TABLE nena.RailroadCenterLine (
 , Effective TIMESTAMPTZ  
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
-, RLOWN VARCHAR(100)
-, RLNAME VARCHAR(100)
-, RLOP VARCHAR(100)
-, RMPH REAL
+, RLOwn VARCHAR(100)
+, RLOp VARCHAR(100)
+, RLName VARCHAR(100)
 , RMPL REAL
+, RMPH REAL
 );
 
 
@@ -852,7 +854,7 @@ CREATE TABLE nena.CellSectorPoint (
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.Country  NOT NULL
 , State VARCHAR(2)  NOT NULL   REFERENCES nena.States(State)
-, County VARCHAR(75)  NOT NULL   REFERENCES nena.Counties(County)
+, County VARCHAR(100)  NOT NULL   REFERENCES nena.Counties(County)
 , Site_ID VARCHAR(10)   
 , Sector_ID VARCHAR(4)  NOT NULL  
 , Switch_ID VARCHAR(10)   
