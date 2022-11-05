@@ -73,6 +73,7 @@ columns are used for minimal situations where only one table is involved.
 * [v1.0] Should there be an ESN table or domain?
 
 ```sql
+
 -- #############################################################################
 -- Support tables
 -- #############################################################################
@@ -168,11 +169,10 @@ CREATE TABLE nena.StreetName_Parities (
    Notes:    Combined both the NG9-1-1 and Legacy Directional loopups into a 
              single lookup table.
    ************************************************************************** */
-DROP TABLE IF EXISTS nena.StreetName_Directionals
-CREATE TABLE nena.StreetName_Directionals (
-   Directional VARCHAR(9)
-,  LegacyDirectional VARCHAR(2)
-);
+-- directional as data type 
+DROP DOMAIN IF EXISTS nena.StreetName_Directionals CASCADE;
+CREATE DOMAIN nena.StreetName_Directionals AS CHARACTER VARYING (9) 
+CHECK ( VALUE IN ('North', 'South', 'East', 'West', 'Northeast', 'Northwest', ' Southeast', 'Southwest') );
 
 
 /* *****************************************************************************
@@ -185,6 +185,19 @@ CREATE TABLE nena.StreetName_Directionals (
 DROP TABLE IF EXISTS nena.StreetName_Types CASCADE;
 CREATE TABLE nena.StreetName_Types (
 	StreetNameType VARCHAR(50) PRIMARY KEY
+);
+
+
+/* *****************************************************************************
+   TABLE:    nena.StreetName_LegacyDirectionals
+   Used By:  RoadCenterLine, StreetNameAliasTable, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Sections 5.56, 5.57, 5.111, and 5.114. 
+   Notes:    legacy directional as lookup
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.StreetName_LegacyDirectionals CASCADE;
+CREATE TABLE nena.StreetName_LegacyDirectionals (
+	Directional CHARACTER VARYING (2) PRIMARY KEY
+,	Directional_lookup CHARACTER VARYING (9)
 );
 
 
@@ -222,11 +235,16 @@ CREATE TABLE nena.StreetName_PreTypeSeparators (
    ************************************************************************** */
 
 -- postal code listing with regular expression match for US and Canadian codes 
-DROP TABLE IF EXISTS nena.Postal CASCADE; 
-CREATE TABLE nena.Postal (
-   PostalCode VARCHAR(7)  CHECK ( PostalCode ~* '(\d{5})|([A-Z][0-9][A-Z] [0-9][A-Z][0-9])' )
-,  PostalCommunity VARCHAR(40)
+DROP TABLE IF EXISTS nena.PostalCodes CASCADE; 
+CREATE TABLE nena.PostalCodes (
+	PostalCode CHARACTER VARYING (7) PRIMARY KEY CHECK ( PostalCode ~* '(\d{5})|([A-Z][0-9][A-Z] [0-9][A-Z][0-9])' )
 ); 
+
+-- table list of postal communities will be locally populated 
+DROP TABLE IF EXISTS nena.PostalCommunities CASCADE;
+CREATE TABLE nena.PostalCommunities (
+	PostalCommunity CHARACTER VARYING (40) PRIMARY KEY 
+) ;
 
 
 /* *****************************************************************************
@@ -372,17 +390,17 @@ CREATE TABLE nena.RoadCenterline (
 , Parity_L VARCHAR(1)  NOT NULL  REFERENCES nena.StreetName_Parities(Parity)
 , Parity_R VARCHAR(1)  NOT NULL  REFERENCES nena.StreetName_Parities(Parity)
 , St_PreMod VARCHAR(15)   
-, St_PreDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)
+, St_PreDir nena.StreetName_Directionals
 , St_PreTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
 , St_PreSep VARCHAR(20)  REFERENCES nena.StreetName_PreTypeSeparators(Separator)
 , St_Name VARCHAR(254)   
 , St_PosTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
-, St_PosDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)  
+, St_PosDir nena.StreetName_Directionals
 , St_PosMod VARCHAR(25) 
-, LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
+, LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetName_LegacyDirectionals(Directional)
 , LSt_Name VARCHAR(75)   
 , LSt_Typ VARCHAR(4)  REFERENCES nena.StreetName_LegacyTypes(Abbreviation)
-, LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
+, LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_LegacyDirectionals(Directional)
 , ESN_L VARCHAR(5)  CHECK ( ESN_L ~* '\w{3,5}' )
 , ESN_R VARCHAR(5)  CHECK ( ESN_R ~* '\w{3,5}' )
 , MSAGComm_L VARCHAR(30)   
@@ -401,11 +419,11 @@ CREATE TABLE nena.RoadCenterline (
 , UnincCom_R VARCHAR(100)
 , NbrhdCom_L VARCHAR(100)   
 , NbrhdCom_R VARCHAR(100)
-, PostCode_L VARCHAR(7)  REFERENCES nena.Postal(PostalCode)
-, PostCode_R VARCHAR(7)  REFERENCES nena.Postal(PostalCode)
-, PostComm_L VARCHAR(40)  REFERENCES nena.Postal(PostalCommunity)
-, PostComm_R VARCHAR(40)  REFERENCES nena.Postal(PostalCommunity)
-, RoadClass VARCHAR(15)  REFERENCES nena.RoadClasses(RoadClass)
+, PostComm_L VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
+, PostComm_R VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
+, PostCode_L VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
+, PostCode_R VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
+, RoadClass VARCHAR(15)  REFERENCES nena.RoadCenterLine_RoadClasses(RoadClass)
 , OneWay VARCHAR(2)  REFERENCES nena.RoadCenterLine_OneWays(OneWay)
 , SpeedLimit INTEGER CHECK ( 1 <= SpeedLimit AND SpeedLimit <= 100 )
 , Valid_L VARCHAR(1)  CHECK ( Valid_L  in ('Y','N') ) 
@@ -427,12 +445,12 @@ CREATE TABLE nena.StreetNameAliasTable (
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , RCL_NGUID VARCHAR(254)  NOT NULL
 , ASt_PreMod VARCHAR(15)
-, ASt_PreDir VARCHAR(9) REFERENCES nena.StreetName_Directionals(Directional)
+, ASt_PreDir nena.StreetName_Directionals
 , ASt_PreTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
 , ASt_PreSep VARCHAR(20)  REFERENCES nena.StreetName_PreTypeSeparators(Separator)
 , ASt_Name VARCHAR(254)  NOT NULL  
 , ASt_PosTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
-, ASt_PosDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)  
+, ASt_PosDir nena.StreetName_Directionals  
 , ASt_PosMod VARCHAR(25)   
 );
 
@@ -462,21 +480,21 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Add_Number INTEGER   
 , AddNum_Suf VARCHAR(15)
 , St_PreMod VARCHAR(15)   
-, St_PreDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional) 
+, St_PreDir nena.StreetName_Directionals 
 , St_PreTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType)
 , St_PreSep VARCHAR(20)  REFERENCES nena.StreetName_PreTypeSeparators(Separator)
 , St_Name VARCHAR(254)
 , St_PosTyp VARCHAR(50)  REFERENCES nena.StreetName_Types(StreetNameType) 
-, St_PosDir VARCHAR(9)  REFERENCES nena.StreetName_Directionals(Directional)  
+, St_PosDir nena.StreetName_Directionals
 , St_PosMod VARCHAR(25)
-, LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
+, LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetName_LegacyDirectionals(Directional)
 , LSt_Name VARCHAR(75)
 , LSt_Typ VARCHAR(4)  REFERENCES nena.StreetName_LegacyTypes(Abbreviation)   
-, LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_Directionals(LegacyDirectional)
+, LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetName_LegacyDirectionals(Directional)
 , ESN VARCHAR(5)
 , MSAGComm VARCHAR(30)
-, Post_Comm VARCHAR(40)  REFERENCES nena.Postal(PostalCommunity)
-, Post_Code VARCHAR(7)  REFERENCES nena.Postal(PostalCode)
+, Post_Comm VARCHAR(40)  REFERENCES nena.PostalCommunities(PostalCommunity)
+, Post_Code VARCHAR(7)  REFERENCES nena.PostalCodes(PostalCode)
 , Post_Code4 VARCHAR(4)   
 , Building VARCHAR(75)   
 , Floor VARCHAR(75)   
