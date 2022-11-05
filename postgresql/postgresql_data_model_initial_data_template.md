@@ -3,6 +3,9 @@
 ```sql
 /* *****************************************************************************
    nena.States Initial Data
+   Source: https://www.census.gov/library/reference/code-lists/ansi/ansi-codes-for-states.html
+           per NENA-STA-006.2-2022, Section 5.107, p.77
+   Last Update:  2022-11-05
    ************************************************************************** */
 DELETE FROM nena.States;
 INSERT INTO nena.States values 
@@ -71,6 +74,7 @@ INSERT INTO nena.States values
 
 /* *****************************************************************************
    nena.StreetName_Parities Initial Data
+   Source: Domain of NENA-STA-006.2-2022, Section 5.76/77, p.68
    ************************************************************************** */
 DELETE FROM nena.StreetName_Parities;
 INSERT INTO nena.StreetName_Parities VALUES 
@@ -83,22 +87,32 @@ INSERT INTO nena.StreetName_Parities VALUES
 
 /* *****************************************************************************
    nena.StreetName_Types Initial Data
-   Source: https://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
-   TODO:   Verify against registry
+   Source: http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
+           per NENA-STA-006.2-2022, Section 5.116, p.80
+   Last Update:  2022-11-05
    ************************************************************************** */
 DELETE FROM nena.StreetName_Types;
 INSERT INTO nena.StreetName_Types VALUES 
-	('Access Road')
+    ('Abbey')
+,	('Access Road')
 ,	('Acres')
+,   ('Airport')
 ,	('Alcove')
+,	('Alle')
 ,	('Alley')
 ,	('Annex')
 ,	('Approach')
+,   ('Arc')
 ,	('Arcade')
 ,	('Arch')
 ,	('Avenida')
 ,	('Avenue')
+,   ('Avenue Circle')
 ,	('Avenue Court')
+,   ('Avenue Loop')
+,   ('Avenue Path')
+,   ('Avenue Place')
+,   ('Avenue Way')
 ,	('Bank')
 ,	('Bay')
 ,	('Bayou')
@@ -125,8 +139,11 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Cape')
 ,	('Causeway')
 ,	('Center')
+,   ('Centre')
 ,	('Centers')
+,   ('Channel')
 ,	('Chase')
+,   ('Chemin')
 ,	('Circle')
 ,	('Circles')
 ,	('Circus')
@@ -135,6 +152,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Close')
 ,	('Club')
 ,	('Cluster')
+,   ('Coast Highway')
 ,	('Common')
 ,	('Commons')
 ,	('Concourse')
@@ -143,10 +161,14 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Corner')
 ,	('Corners')
 ,	('Corridor')
+,   ('Corso')
+,   ('Corte')
 ,	('County Forest Road')
 ,	('County Highway')
 ,	('County Road')
 ,	('County Route')
+,   ('County State Aid Highway')
+,   ('Cours')
 ,	('Course')
 ,	('Court')
 ,	('Courts')
@@ -157,6 +179,8 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Crest')
 ,	('Cross')
 ,	('Crossing')
+,   ('Crossings')
+,   ('Crossover')
 ,	('Crossroad')
 ,	('Crossroads')
 ,	('Crossway')
@@ -169,13 +193,19 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Dawson County Road')
 ,	('Dell')
 ,	('Divide')
+,   ('Dock')
 ,	('Down')
 ,	('Downs')
+,   ('Draw')
 ,	('Drift')
 ,	('Drive')
 ,	('Drives')
 ,	('Driveway')
+,   ('Echo')
+,   ('Edge')
 ,	('End')
+,   ('Entrance')
+,   ('Entry')
 ,	('Esplanade')
 ,	('Estate')
 ,	('Estates')
@@ -194,10 +224,13 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Fields')
 ,	('Flat')
 ,	('Flats')
+,   ('Flowage')
 ,	('Flyway')
 ,	('Ford')
 ,	('Fords')
 ,	('Forest')
+,   ('Forest Road')
+,   ('Forest Highway')
 ,	('Forge')
 ,	('Forges')
 ,	('Fork')
@@ -205,6 +238,8 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Fort')
 ,	('Freeway')
 ,	('Front')
+,   ('Frontage Road')
+,   ('Gables')
 ,	('Garden')
 ,	('Gardens')
 ,	('Garth')
@@ -215,26 +250,33 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Glen')
 ,	('Glens')
 ,	('Gorge')
+,   ('Grade')
 ,	('Green')
 ,	('Greens')
+,   ('Greenway')
 ,	('Grove')
 ,	('Groves')
 ,	('Harbor')
 ,	('Harbors')
 ,	('Harbour')
+,   ('Haul Road')
 ,	('Haven')
+,   ('Heath')
 ,	('Heights')
 ,	('Highway')
 ,	('Hill')
 ,	('Hills')
 ,	('Hollow')
 ,	('Horseshoe')
+,   ('Indian Service Road')
 ,	('Inlet')
 ,	('Interstate')
 ,	('Interval')
 ,	('Island')
 ,	('Islands')
 ,	('Isle')
+,   ('Isles')
+,   ('J-Turn')
 ,	('Junction')
 ,	('Junctions')
 ,	('Keep')
@@ -248,16 +290,21 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Land')
 ,	('Landing')
 ,	('Lane')
+,   ('Lane Circle')
+,   ('Lane Court')
+,   ('Lane Road')
 ,	('Lateral')
 ,	('Ledge')
 ,	('Light')
 ,	('Lights')
+,   ('Line')
 ,	('Loaf')
 ,	('Lock')
 ,	('Locks')
 ,	('Lodge')
 ,	('Lookout')
 ,	('Loop')
+,   ('Loop Road')
 ,	('Mall')
 ,	('Manor')
 ,	('Manors')
@@ -277,6 +324,8 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('National Forest Development Road')
 ,	('Neck')
 ,	('Nook')
+,   ('North Carolina Highway')
+,   ('Old County Road')
 ,	('Orchard')
 ,	('Oval')
 ,	('Overlook')
@@ -286,6 +335,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Parks')
 ,	('Parkway')
 ,	('Parkways')
+,   ('Paseo')
 ,	('Pass')
 ,	('Passage')
 ,	('Path')
@@ -296,6 +346,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Place')
 ,	('Plain')
 ,	('Plains')
+,   ('Platz')
 ,	('Plaza')
 ,	('Point')
 ,	('Pointe')
@@ -303,6 +354,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Port')
 ,	('Ports')
 ,	('Prairie')
+,   ('Private Road')
 ,	('Promenade')
 ,	('Quarter')
 ,	('Quay')
@@ -312,7 +364,9 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Rapid')
 ,	('Rapids')
 ,	('Reach')
+,   ('Recreational Road')
 ,	('Rest')
+,   ('Retreat')
 ,	('Ridge')
 ,	('Ridges')
 ,	('Rise')
@@ -325,11 +379,13 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Row')
 ,	('Rue')
 ,	('Run')
+,   ('Runne')
 ,	('Runway')
 ,	('Shoal')
 ,	('Shoals')
 ,	('Shore')
 ,	('Shores')
+,   ('Skies')
 ,	('Skyway')
 ,	('Slip')
 ,	('Spring')
@@ -339,31 +395,42 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Square')
 ,	('Squares')
 ,	('State Highway')
+,   ('State Park Road')
 ,	('State Parkway')
 ,	('State Road')
 ,	('State Route')
 ,	('State Secondary')
+,   ('State Spur')
 ,	('Station')
 ,	('Strand')
 ,	('Strasse')
 ,	('Stravenue')
 ,	('Stream')
 ,	('Street')
+,   ('Street Circle')
 ,	('Street Court')
+,   ('Street Loop')
+,   ('Street Path')
+,   ('Street Place')
+,   ('Street Way')
 ,	('Streets')
 ,	('Strip')
 ,	('Summit')
 ,	('Taxiway')
+,   ('Terminal')
 ,	('Tern')
 ,	('Terrace')
 ,	('Throughway')
 ,	('Thruway')
+,   ('Timber Road')
+,   ('Township Road')
 ,	('Trace')
 ,	('Track')
 ,	('Trafficway')
 ,	('Trail')
 ,	('Trailer')
 ,	('Triangle')
+,   ('Truck Trail')
 ,	('Tunnel')
 ,	('Turn')
 ,	('Turnpike')
@@ -383,6 +450,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Villages')
 ,	('Ville')
 ,	('Vista')
+,   ('Waddy')
 ,	('Walk')
 ,	('Walks')
 ,	('Wall')
@@ -393,19 +461,26 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Wells')
 ,	('Woods')
 ,	('Wye')
+,   ('Wynd')
 ;
 
 
 /* *****************************************************************************
    nena.StreetName_PreTypeSeparators Initial Data
+   Source: http://technet.nena.org/nrs/registry/StreetNamePreTypeSeparators.xml
+           per NENA-STA-006.2-2022, Section 5.117, p.80
+   Last Update:  2022-11-05
    ************************************************************************** */
 DELETE FROM nena.StreetName_PreTypeSeparators;
 INSERT INTO nena.StreetName_PreTypeSeparators VALUES 
 	('of the')
 ,	('at')
+,	('de')
+,	('de la')
 ,	('de las')
-,	('in the')
+,	('del')
 ,	('des')
+,	('in the')
 ,	('to the')
 ,	('of')
 ,	('on the')
@@ -415,6 +490,7 @@ INSERT INTO nena.StreetName_PreTypeSeparators VALUES
 
 /* *****************************************************************************
    nena.StreetName_LegacyDirectionals Initial Data
+   Source: Domain of NENA-STA-006.2-2022, Section 5.57, p.64
    ************************************************************************** */
 DELETE FROM nena.StreetName_LegacyDirectionals;
 INSERT INTO nena.StreetName_LegacyDirectionals VALUES
@@ -434,8 +510,10 @@ INSERT INTO nena.StreetName_LegacyDirectionals VALUES
 
 /* *****************************************************************************
    nena.StreetName_LegacyTypes Initial Data
-   Source: https://pe.usps.com/text/pub28/28apc_002.htm
-   TODO:   Update to latest version
+   Source: NENA-STA-006.2-2022, Section 5.78, p.69
+           https://pe.usps.com/text/pub28/28apc_002.htm is used as a baseline. 
+           Additional values may be added to meet local vernacular.
+   Last Update:  2022-11-05
    ************************************************************************** */
 DELETE FROM nena.StreetName_LegacyTypes;
 INSERT INTO nena.StreetName_LegacyTypes VALUES 
@@ -646,6 +724,11 @@ INSERT INTO nena.StreetName_LegacyTypes VALUES
 
 /* *****************************************************************************
    nena.RoadCenterLine_RoadClasses Initial Data
+   Source: Domain of NENA-STA-006.2-2022, Section 5.96, p.73
+   ISSUE:  Domain specifies the use of 'Walkway/Pedestrian Trail' and 
+           'Bike Path or Trail' both of which exceed the 15 character length 
+           of the RoadClass field in RoadCenterLines. Change the classes to
+           'Walkway' and 'Trail' respectively temporarily.
    ************************************************************************** */
 DELETE FROM nena.RoadCenterLine_RoadClasses;
 INSERT INTO nena.RoadCenterLine_RoadClasses VALUES 
@@ -668,6 +751,7 @@ INSERT INTO nena.RoadCenterLine_RoadClasses VALUES
 
 /* *****************************************************************************
    nena.RoadCenterLine_OneWays Initial Data
+   Source: Domain of NENA-STA-006.2-2022, Section 5.75, p.68
    ************************************************************************** */
 DELETE FROM nena.RoadCenterLine_OneWays;
 INSERT INTO nena.RoadCenterLine_OneWays VALUES 
@@ -679,6 +763,9 @@ INSERT INTO nena.RoadCenterLine_OneWays VALUES
 
 /* *****************************************************************************
    nena.SiteStructureAddressPoint_PlaceTypes Initial Data
+   Source: https://www.iana.org/assignments/location-type-registry/location-type-registry.xml
+           per NENA-STA-006.2-2022, Section 5.78, p.69
+   Last Update:  2022-11-05
    ************************************************************************** */
 DELETE FROM nena.SiteStructureAddressPoint_PlaceTypes;
 INSERT INTO nena.SiteStructureAddressPoint_PlaceTypes VALUES 
@@ -697,6 +784,7 @@ INSERT INTO nena.SiteStructureAddressPoint_PlaceTypes VALUES
 ,	('hotel','Hotel, motel, inn, or other lodging establishment.')
 ,	('industrial','Industrial setting, such as a manufacturing floor or power plant.')
 ,	('library','Library or other public place in which literary and artistic materials, such as books, music, periodicals, newspapers, pamphlets, prints, records, and tapes, are kept for reading, reference, or lending.')
+,	('museum','Location where objects of historical, artistic, scientific or cultural interest are stored and exhibited.')
 ,	('office','Business setting, such as an office.')
 ,	('other','A place without a registered place type representation.')
 ,	('outdoors','Outside a building, in or into the open air, such as a park or city streets.')
@@ -721,20 +809,24 @@ INSERT INTO nena.SiteStructureAddressPoint_PlaceTypes VALUES
 
 /* *****************************************************************************
    nena.SiteStructureAddressPoint_PlacementMethods Initial Data
+   Source: http://technet.nena.org/nrs/registry/SiteStructureAddressPointPlacementMethod.xml 
+           per NENA-STA-006.2-2022, Section 5.79, p.69
+   Last Update:  2022-11-05
    ************************************************************************** */
 DELETE FROM nena.SiteStructureAddressPoint_PlacementMethods;
 INSERT INTO nena.SiteStructureAddressPoint_PlacementMethods VALUES 
 	('Geocoding')
 ,	('Parcel')
 ,	('Property Access')
-,	('Structure')
 ,	('Site')
+,	('Structure')
 ,	('Unknown')
 ;
 
 
 /* *****************************************************************************
    nena.ServiceBoundary_URNs Initial Data
+   Source:  TBD based on Working Group Direction
    ************************************************************************** */
 DELETE FROM nena.ServiceBoundary_URNs;
 INSERT INTO nena.ServiceBoundary_URNs VALUES 
@@ -778,6 +870,7 @@ INSERT INTO nena.ServiceBoundary_URNs VALUES
 
 /* *****************************************************************************
    nena.LocationMarker_Indicators Initial Data
+   Source:  Domain of NENA-STA-006.2-2022, Section 5.59, p.64
    ************************************************************************** */
 DELETE FROM nena.LocationMarker_Indicators;
 INSERT INTO nena.LocationMarker_Indicators VALUES
@@ -788,6 +881,7 @@ INSERT INTO nena.LocationMarker_Indicators VALUES
 
 /* *****************************************************************************
    nena.LocationMarker_Units Initial Data
+   Source:  Example of NENA-STA-006.2-2022, Section 5.64, p.65
    ************************************************************************** */
 DELETE FROM nena.LocationMarker_Units;
 INSERT INTO nena.LocationMarker_Units VALUES 
