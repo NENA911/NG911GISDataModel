@@ -172,7 +172,13 @@ CREATE TABLE nena.StreetName_Parities (
 -- directional as data type 
 DROP DOMAIN IF EXISTS nena.StreetName_Directionals CASCADE;
 CREATE DOMAIN nena.StreetName_Directionals AS CHARACTER VARYING (9) 
-CHECK ( VALUE IN ('North', 'South', 'East', 'West', 'Northeast', 'Northwest', ' Southeast', 'Southwest') );
+CHECK ( 
+  VALUE IN (
+    'North', 'South', 'East', 'West', 'Northeast', 'Northwest', ' Southeast', 
+    'Southwest', 'Nord', 'Sud', 'Est', 'Ouest', 'Nord-Est', 'Nord-Ouest',
+    'Sud-Est', 'Sud-Ouest'
+  )
+);
 
 
 /* *****************************************************************************
@@ -185,6 +191,17 @@ CHECK ( VALUE IN ('North', 'South', 'East', 'West', 'Northeast', 'Northwest', ' 
 DROP TABLE IF EXISTS nena.StreetName_Types CASCADE;
 CREATE TABLE nena.StreetName_Types (
 	StreetNameType VARCHAR(50) PRIMARY KEY
+);
+
+
+/* *****************************************************************************
+   TABLE:    nena.StreetName_PreTypeSeparators
+   Used By:  RoadCenterLine, StreetNameAliasTable, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Sections 5.117, p.80
+   ************************************************************************** */
+DROP TABLE IF EXISTS nena.StreetName_PreTypeSeparators CASCADE;
+CREATE TABLE nena.StreetName_PreTypeSeparators (
+	Separator VARCHAR(20) PRIMARY KEY 
 );
 
 
@@ -216,31 +233,24 @@ CREATE TABLE nena.StreetName_LegacyTypes (
 
 
 /* *****************************************************************************
-   TABLE:    nena.StreetName_PreTypeSeparators
-   Used By:  RoadCenterLine, StreetNameAliasTable, SiteStructureAddressPoint
-   Source:   NENA-STA-006.2-2022, Sections 5.117, p.80
-   ************************************************************************** */
-DROP TABLE IF EXISTS nena.StreetName_PreTypeSeparators CASCADE;
-CREATE TABLE nena.StreetName_PreTypeSeparators (
-	Separator VARCHAR(20) PRIMARY KEY 
-);
-
-
-/* *****************************************************************************
-   TABLE:    nena.Postal
+   TABLE:    nena.PostalCodes
    Used By:  RoadCenterLines, SiteStructureAddressPoint
-   Source:   NENA-STA-006.2-2022, Section 5.80 and 5.84
-   Notes:    Table listing postal communities and codes with regular expression 
-             match for US and Canadian codes
+   Source:   NENA-STA-006.2-2022, Section 5.80, p.69
+   Notes:    Postal code listing with regular expression match for US and 
+             Canadian codes 
    ************************************************************************** */
-
--- postal code listing with regular expression match for US and Canadian codes 
 DROP TABLE IF EXISTS nena.PostalCodes CASCADE; 
 CREATE TABLE nena.PostalCodes (
 	PostalCode CHARACTER VARYING (7) PRIMARY KEY CHECK ( PostalCode ~* '(\d{5})|([A-Z][0-9][A-Z] [0-9][A-Z][0-9])' )
 ); 
 
--- table list of postal communities will be locally populated 
+
+/* *****************************************************************************
+   TABLE:    nena.PostalCommunities
+   Used By:  RoadCenterLines, SiteStructureAddressPoint
+   Source:   NENA-STA-006.2-2022, Section 5.84, p.70
+   Notes:    Table list of postal communities will be locally populated 
+   ************************************************************************** */
 DROP TABLE IF EXISTS nena.PostalCommunities CASCADE;
 CREATE TABLE nena.PostalCommunities (
 	PostalCommunity CHARACTER VARYING (40) PRIMARY KEY 
