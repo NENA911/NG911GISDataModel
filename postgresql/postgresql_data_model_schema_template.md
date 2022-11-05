@@ -213,8 +213,8 @@ CREATE TABLE nena.StreetName_PreTypeSeparators (
    ************************************************************************** */
 DROP TABLE IF EXISTS nena.StreetName_LegacyDirectionals CASCADE;
 CREATE TABLE nena.StreetName_LegacyDirectionals (
-	Directional CHARACTER VARYING (2) PRIMARY KEY
-,	Directional_lookup CHARACTER VARYING (9)
+	Directional VARCHAR(2) PRIMARY KEY
+,	Directional_lookup VARCHAR(10)
 );
 
 
