@@ -4,6 +4,7 @@
 /* *****************************************************************************
    nena.States Initial Data
    ************************************************************************** */
+DELETE FROM nena.States;
 INSERT INTO nena.States values 
 	('AL','Alabama')
 ,	('AK','Alaska')
@@ -71,6 +72,7 @@ INSERT INTO nena.States values
 /* *****************************************************************************
    nena.StreetName_Parities Initial Data
    ************************************************************************** */
+DELETE FROM nena.StreetName_Parities;
 INSERT INTO nena.StreetName_Parities VALUES 
 	('O','Odd')
 ,	('E', 'Even')
@@ -80,33 +82,11 @@ INSERT INTO nena.StreetName_Parities VALUES
 
 
 /* *****************************************************************************
-   nena.StreetName_Directionals Initial Data
-   ************************************************************************** */
-INSERT INTO nena.StreetName_Directionals VALUES
-   ('North','N')
-,  ('South','S')
-,  ('East','E')
-,  ('West','W')
-,  ('Northeast','NE')
-,  ('Northwest','NW')
-,  ('Southeast','SE')
-,  ('Southwest','SW')
-   ('Nord','N')
-,  ('Sud','S')
-,  ('Est','E')
-,  ('Ouest','W')
-,  ('Nord-Est','NE')
-,  ('Nord-Ouest','NW')
-,  ('Sud-Est','SE')
-,  ('Sud-Ouest','SW')
-;
-
-
-/* *****************************************************************************
    nena.StreetName_Types Initial Data
    Source: https://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
    TODO:   Verify against registry
    ************************************************************************** */
+DELETE FROM nena.StreetName_Types;
 INSERT INTO nena.StreetName_Types VALUES 
 	('Access Road')
 ,	('Acres')
@@ -417,10 +397,47 @@ INSERT INTO nena.StreetName_Types VALUES
 
 
 /* *****************************************************************************
+   nena.StreetName_PreTypeSeparators Initial Data
+   ************************************************************************** */
+DELETE FROM nena.StreetName_PreTypeSeparators;
+INSERT INTO nena.StreetName_PreTypeSeparators VALUES 
+	('of the')
+,	('at')
+,	('de las')
+,	('in the')
+,	('des')
+,	('to the')
+,	('of')
+,	('on the')
+,	('to')
+;
+
+
+/* *****************************************************************************
+   nena.StreetName_LegacyDirectionals Initial Data
+   ************************************************************************** */
+DELETE FROM nena.StreetName_LegacyDirectionals;
+INSERT INTO nena.StreetName_LegacyDirectionals VALUES
+	('N','North')
+, 	('S','South')
+, 	('E','East')
+, 	('W','West')
+, 	('NE','Northeast')
+,	('NW','Northwest')
+,	('SE','Southeast')
+,	('SW','Southwest')
+,	('O','Ouest')
+,	('NO','Nord-Ouest')
+,	('SO','Sud-Ouest')
+;
+
+
+/* *****************************************************************************
    nena.StreetName_LegacyTypes Initial Data
    Source: https://pe.usps.com/text/pub28/28apc_002.htm
    TODO:   Update to latest version
    ************************************************************************** */
+DELETE FROM nena.StreetName_LegacyTypes;
 INSERT INTO nena.StreetName_LegacyTypes VALUES 
 	('ALY','ALLEY')
 ,	('ANX','ANEX')
@@ -628,24 +645,9 @@ INSERT INTO nena.StreetName_LegacyTypes VALUES
 
 
 /* *****************************************************************************
-   nena.StreetName_PreTypeSeparators Initial Data
-   ************************************************************************** */
-INSERT INTO nena.StreetName_PreTypeSeparators VALUES 
-	('of the')
-,	('at')
-,	('de las')
-,	('in the')
-,	('des')
-,	('to the')
-,	('of')
-,	('on the')
-,	('to')
-;
-
-
-/* *****************************************************************************
    nena.RoadCenterLine_RoadClasses Initial Data
    ************************************************************************** */
+DELETE FROM nena.RoadCenterLine_RoadClasses;
 INSERT INTO nena.RoadCenterLine_RoadClasses VALUES 
 	('Primary','Primary roads are limited-access highways that connect to other roads only at interchanges and not at at-grade intersections')
 ,	('Secondary','Secondary roads are main arteries that are not limited access, usually in the U.S. highway, state highway, or county highway systems.')
@@ -667,6 +669,7 @@ INSERT INTO nena.RoadCenterLine_RoadClasses VALUES
 /* *****************************************************************************
    nena.RoadCenterLine_OneWays Initial Data
    ************************************************************************** */
+DELETE FROM nena.RoadCenterLine_OneWays;
 INSERT INTO nena.RoadCenterLine_OneWays VALUES 
 	('B', 'Travel in both directions allowed')
 ,	('FT','One-way traveling from FROM node to TO node')
@@ -677,6 +680,7 @@ INSERT INTO nena.RoadCenterLine_OneWays VALUES
 /* *****************************************************************************
    nena.SiteStructureAddressPoint_PlaceTypes Initial Data
    ************************************************************************** */
+DELETE FROM nena.SiteStructureAddressPoint_PlaceTypes;
 INSERT INTO nena.SiteStructureAddressPoint_PlaceTypes VALUES 
 	('airport','A place from which aircrafts operate, such as an airport or heliport.')
 ,	('arena','Enclosed area used for sports events.')
@@ -718,6 +722,7 @@ INSERT INTO nena.SiteStructureAddressPoint_PlaceTypes VALUES
 /* *****************************************************************************
    nena.SiteStructureAddressPoint_PlacementMethods Initial Data
    ************************************************************************** */
+DELETE FROM nena.SiteStructureAddressPoint_PlacementMethods;
 INSERT INTO nena.SiteStructureAddressPoint_PlacementMethods VALUES 
 	('Geocoding')
 ,	('Parcel')
@@ -731,6 +736,7 @@ INSERT INTO nena.SiteStructureAddressPoint_PlacementMethods VALUES
 /* *****************************************************************************
    nena.ServiceBoundary_URNs Initial Data
    ************************************************************************** */
+DELETE FROM nena.ServiceBoundary_URNs;
 INSERT INTO nena.ServiceBoundary_URNs VALUES 
 	('urn:service:sos','The generic ''sos'' service reaches a public safety answering point (PSAP), which in turn dispatches aid appropriate to the emergency.')
 ,	('urn:service:sos.ambulance','This service identifier reaches an ambulance service that provides emergency medical assistance and transportation.')
@@ -773,7 +779,8 @@ INSERT INTO nena.ServiceBoundary_URNs VALUES
 /* *****************************************************************************
    nena.LocationMarker_Indicators Initial Data
    ************************************************************************** */
-INSERT INTO nena.MilePostIndicators VALUES (
+DELETE FROM nena.LocationMarker_Indicators;
+INSERT INTO nena.LocationMarker_Indicators VALUES
   ('P', 'Posted')
 , ('L', 'Logical/Calculated')
 ; 
@@ -782,6 +789,7 @@ INSERT INTO nena.MilePostIndicators VALUES (
 /* *****************************************************************************
    nena.LocationMarker_Units Initial Data
    ************************************************************************** */
+DELETE FROM nena.LocationMarker_Units;
 INSERT INTO nena.LocationMarker_Units VALUES 
 	('miles')
 ,	('yards')
