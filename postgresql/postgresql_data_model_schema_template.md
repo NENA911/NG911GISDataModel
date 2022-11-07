@@ -170,7 +170,7 @@ CREATE TABLE nena.StreetName_Parities (
    ************************************************************************** */
 -- directional as data type 
 DROP DOMAIN IF EXISTS nena.StreetName_Directionals CASCADE;
-CREATE DOMAIN nena.StreetName_Directionals AS CHARACTER VARYING (9) 
+CREATE DOMAIN nena.StreetName_Directionals AS CHARACTER VARYING (10) 
 CHECK ( 
   VALUE IN (
     'North', 'South', 'East', 'West', 'Northeast', 'Northwest', ' Southeast', 
