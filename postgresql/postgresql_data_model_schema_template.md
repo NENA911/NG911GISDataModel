@@ -73,7 +73,6 @@ columns are used for minimal situations where only one table is involved.
 * [v1.0] Should there be an ESN table or domain?
 
 ```sql
-
 -- #############################################################################
 -- Support tables
 -- #############################################################################
@@ -265,7 +264,7 @@ CREATE TABLE nena.PostalCommunities (
    ************************************************************************** */
 DROP TABLE IF EXISTS nena.RoadCenterLine_RoadClasses CASCADE;
 CREATE TABLE nena.RoadCenterLine_RoadClasses (
-	RoadClass VARCHAR(15) PRIMARY KEY 
+	RoadClass VARCHAR(24) PRIMARY KEY 
 ,	RoadClass_lookup TEXT
 );
 
