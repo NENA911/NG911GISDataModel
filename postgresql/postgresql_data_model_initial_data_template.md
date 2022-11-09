@@ -1,9 +1,22 @@
 # NG9-1-1 Data Model PostGIS Initial Data Script
 
+The following SQL script inserts initial data into the NG9-1-1 GIS Data Model. 
+This inital data is not required and may be altered by each organization to 
+meet each organization's unique operating environment.
+
+NOTE: This script does include a command to delete all values from the tables. 
+This command is commented out but can be reimplemented by copying the SQL 
+script into a text editor or database management tool and performing a Find and 
+Replace of `--DELETE FROM` to `DELETE FROM`.
+
 ```sql
 /* *****************************************************************************
    nena.States Initial Data
+   Source: https://www.census.gov/library/reference/code-lists/ansi/ansi-codes-for-states.html
+           per NENA-STA-006.2-2022, Section 5.107, p.77
+   Last Update:  2022-11-05
    ************************************************************************** */
+--DELETE FROM nena.States;
 INSERT INTO nena.States values 
 	('AL','Alabama')
 ,	('AK','Alaska')
@@ -69,45 +82,46 @@ INSERT INTO nena.States values
 
 
 /* *****************************************************************************
-   nena.StreetName_Directionals Initial Data
+   nena.StreetName_Parities Initial Data
+   Source: Domain of NENA-STA-006.2-2022, Section 5.76/77, p.68
    ************************************************************************** */
-INSERT INTO nena.StreetName_Directionals VALUES
-   ('North','N')
-,  ('South','S')
-,  ('East','E')
-,  ('West','W')
-,  ('Northeast','NE')
-,  ('Northwest','NW')
-,  ('Southeast','SE')
-,  ('Southwest','SW')
-   ('Nord','N')
-,  ('Sud','S')
-,  ('Est','E')
-,  ('Ouest','W')
-,  ('Nord-Est','NE')
-,  ('Nord-Ouest','NW')
-,  ('Sud-Est','SE')
-,  ('Sud-Ouest','SW')
-;
+--DELETE FROM nena.StreetName_Parities;
+INSERT INTO nena.StreetName_Parities VALUES 
+	('O','Odd')
+,	('E', 'Even')
+,	('B','Both')
+,	('Z','Address Range 0-0')
+; 
 
 
 /* *****************************************************************************
    nena.StreetName_Types Initial Data
-   Source: https://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
-   TODO:   Verify against registry
+   Source: http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
+           per NENA-STA-006.2-2022, Section 5.116, p.80
+   Last Update:  2022-11-05
    ************************************************************************** */
+--DELETE FROM nena.StreetName_Types;
 INSERT INTO nena.StreetName_Types VALUES 
-	('Access Road')
+    ('Abbey')
+,	('Access Road')
 ,	('Acres')
+,   ('Airport')
 ,	('Alcove')
+,	('Alle')
 ,	('Alley')
 ,	('Annex')
 ,	('Approach')
+,   ('Arc')
 ,	('Arcade')
 ,	('Arch')
 ,	('Avenida')
 ,	('Avenue')
+,   ('Avenue Circle')
 ,	('Avenue Court')
+,   ('Avenue Loop')
+,   ('Avenue Path')
+,   ('Avenue Place')
+,   ('Avenue Way')
 ,	('Bank')
 ,	('Bay')
 ,	('Bayou')
@@ -134,8 +148,11 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Cape')
 ,	('Causeway')
 ,	('Center')
+,   ('Centre')
 ,	('Centers')
+,   ('Channel')
 ,	('Chase')
+,   ('Chemin')
 ,	('Circle')
 ,	('Circles')
 ,	('Circus')
@@ -144,6 +161,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Close')
 ,	('Club')
 ,	('Cluster')
+,   ('Coast Highway')
 ,	('Common')
 ,	('Commons')
 ,	('Concourse')
@@ -152,10 +170,14 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Corner')
 ,	('Corners')
 ,	('Corridor')
+,   ('Corso')
+,   ('Corte')
 ,	('County Forest Road')
 ,	('County Highway')
 ,	('County Road')
 ,	('County Route')
+,   ('County State Aid Highway')
+,   ('Cours')
 ,	('Course')
 ,	('Court')
 ,	('Courts')
@@ -166,6 +188,8 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Crest')
 ,	('Cross')
 ,	('Crossing')
+,   ('Crossings')
+,   ('Crossover')
 ,	('Crossroad')
 ,	('Crossroads')
 ,	('Crossway')
@@ -178,13 +202,19 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Dawson County Road')
 ,	('Dell')
 ,	('Divide')
+,   ('Dock')
 ,	('Down')
 ,	('Downs')
+,   ('Draw')
 ,	('Drift')
 ,	('Drive')
 ,	('Drives')
 ,	('Driveway')
+,   ('Echo')
+,   ('Edge')
 ,	('End')
+,   ('Entrance')
+,   ('Entry')
 ,	('Esplanade')
 ,	('Estate')
 ,	('Estates')
@@ -203,10 +233,13 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Fields')
 ,	('Flat')
 ,	('Flats')
+,   ('Flowage')
 ,	('Flyway')
 ,	('Ford')
 ,	('Fords')
 ,	('Forest')
+,   ('Forest Road')
+,   ('Forest Highway')
 ,	('Forge')
 ,	('Forges')
 ,	('Fork')
@@ -214,6 +247,8 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Fort')
 ,	('Freeway')
 ,	('Front')
+,   ('Frontage Road')
+,   ('Gables')
 ,	('Garden')
 ,	('Gardens')
 ,	('Garth')
@@ -224,26 +259,33 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Glen')
 ,	('Glens')
 ,	('Gorge')
+,   ('Grade')
 ,	('Green')
 ,	('Greens')
+,   ('Greenway')
 ,	('Grove')
 ,	('Groves')
 ,	('Harbor')
 ,	('Harbors')
 ,	('Harbour')
+,   ('Haul Road')
 ,	('Haven')
+,   ('Heath')
 ,	('Heights')
 ,	('Highway')
 ,	('Hill')
 ,	('Hills')
 ,	('Hollow')
 ,	('Horseshoe')
+,   ('Indian Service Road')
 ,	('Inlet')
 ,	('Interstate')
 ,	('Interval')
 ,	('Island')
 ,	('Islands')
 ,	('Isle')
+,   ('Isles')
+,   ('J-Turn')
 ,	('Junction')
 ,	('Junctions')
 ,	('Keep')
@@ -257,16 +299,21 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Land')
 ,	('Landing')
 ,	('Lane')
+,   ('Lane Circle')
+,   ('Lane Court')
+,   ('Lane Road')
 ,	('Lateral')
 ,	('Ledge')
 ,	('Light')
 ,	('Lights')
+,   ('Line')
 ,	('Loaf')
 ,	('Lock')
 ,	('Locks')
 ,	('Lodge')
 ,	('Lookout')
 ,	('Loop')
+,   ('Loop Road')
 ,	('Mall')
 ,	('Manor')
 ,	('Manors')
@@ -286,6 +333,8 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('National Forest Development Road')
 ,	('Neck')
 ,	('Nook')
+,   ('North Carolina Highway')
+,   ('Old County Road')
 ,	('Orchard')
 ,	('Oval')
 ,	('Overlook')
@@ -295,6 +344,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Parks')
 ,	('Parkway')
 ,	('Parkways')
+,   ('Paseo')
 ,	('Pass')
 ,	('Passage')
 ,	('Path')
@@ -305,6 +355,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Place')
 ,	('Plain')
 ,	('Plains')
+,   ('Platz')
 ,	('Plaza')
 ,	('Point')
 ,	('Pointe')
@@ -312,6 +363,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Port')
 ,	('Ports')
 ,	('Prairie')
+,   ('Private Road')
 ,	('Promenade')
 ,	('Quarter')
 ,	('Quay')
@@ -321,7 +373,9 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Rapid')
 ,	('Rapids')
 ,	('Reach')
+,   ('Recreational Road')
 ,	('Rest')
+,   ('Retreat')
 ,	('Ridge')
 ,	('Ridges')
 ,	('Rise')
@@ -334,11 +388,13 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Row')
 ,	('Rue')
 ,	('Run')
+,   ('Runne')
 ,	('Runway')
 ,	('Shoal')
 ,	('Shoals')
 ,	('Shore')
 ,	('Shores')
+,   ('Skies')
 ,	('Skyway')
 ,	('Slip')
 ,	('Spring')
@@ -348,31 +404,42 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Square')
 ,	('Squares')
 ,	('State Highway')
+,   ('State Park Road')
 ,	('State Parkway')
 ,	('State Road')
 ,	('State Route')
 ,	('State Secondary')
+,   ('State Spur')
 ,	('Station')
 ,	('Strand')
 ,	('Strasse')
 ,	('Stravenue')
 ,	('Stream')
 ,	('Street')
+,   ('Street Circle')
 ,	('Street Court')
+,   ('Street Loop')
+,   ('Street Path')
+,   ('Street Place')
+,   ('Street Way')
 ,	('Streets')
 ,	('Strip')
 ,	('Summit')
 ,	('Taxiway')
+,   ('Terminal')
 ,	('Tern')
 ,	('Terrace')
 ,	('Throughway')
 ,	('Thruway')
+,   ('Timber Road')
+,   ('Township Road')
 ,	('Trace')
 ,	('Track')
 ,	('Trafficway')
 ,	('Trail')
 ,	('Trailer')
 ,	('Triangle')
+,   ('Truck Trail')
 ,	('Tunnel')
 ,	('Turn')
 ,	('Turnpike')
@@ -392,6 +459,7 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Villages')
 ,	('Ville')
 ,	('Vista')
+,   ('Waddy')
 ,	('Walk')
 ,	('Walks')
 ,	('Wall')
@@ -402,14 +470,61 @@ INSERT INTO nena.StreetName_Types VALUES
 ,	('Wells')
 ,	('Woods')
 ,	('Wye')
+,   ('Wynd')
+;
+
+
+/* *****************************************************************************
+   nena.StreetName_PreTypeSeparators Initial Data
+   Source: http://technet.nena.org/nrs/registry/StreetNamePreTypeSeparators.xml
+           per NENA-STA-006.2-2022, Section 5.117, p.80
+   Last Update:  2022-11-05
+   ************************************************************************** */
+--DELETE FROM nena.StreetName_PreTypeSeparators;
+INSERT INTO nena.StreetName_PreTypeSeparators VALUES 
+	('of the')
+,	('at')
+,	('de')
+,	('de la')
+,	('de las')
+,	('del')
+,	('des')
+,	('in the')
+,	('to the')
+,	('of')
+,	('on the')
+,	('to')
+;
+
+
+/* *****************************************************************************
+   nena.StreetName_LegacyDirectionals Initial Data
+   Source: Domain of NENA-STA-006.2-2022, Section 5.57, p.64
+   ************************************************************************** */
+--DELETE FROM nena.StreetName_LegacyDirectionals;
+INSERT INTO nena.StreetName_LegacyDirectionals VALUES
+	('N','North')
+, 	('S','South')
+, 	('E','East')
+, 	('W','West')
+, 	('NE','Northeast')
+,	('NW','Northwest')
+,	('SE','Southeast')
+,	('SW','Southwest')
+,	('O','Ouest')
+,	('NO','Nord-Ouest')
+,	('SO','Sud-Ouest')
 ;
 
 
 /* *****************************************************************************
    nena.StreetName_LegacyTypes Initial Data
-   Source: https://pe.usps.com/text/pub28/28apc_002.htm
-   TODO:   Update to latest version
+   Source: NENA-STA-006.2-2022, Section 5.78, p.69
+           https://pe.usps.com/text/pub28/28apc_002.htm is used as a baseline. 
+           Additional values may be added to meet local vernacular.
+   Last Update:  2022-11-05
    ************************************************************************** */
+--DELETE FROM nena.StreetName_LegacyTypes;
 INSERT INTO nena.StreetName_LegacyTypes VALUES 
 	('ALY','ALLEY')
 ,	('ANX','ANEX')
@@ -617,24 +732,112 @@ INSERT INTO nena.StreetName_LegacyTypes VALUES
 
 
 /* *****************************************************************************
-   nena.StreetName_PreTypeSeparators Initial Data
+   nena.RoadCenterLine_RoadClasses Initial Data
+   Source: Domain of NENA-STA-006.2-2022, Section 5.96, p.73
+   ISSUE:  Domain specifies the use of 'Walkway/Pedestrian Trail' and 
+           'Bike Path or Trail' both of which exceed the 15 character length 
+           of the RoadClass field in RoadCenterLines. Change the classes to
+           'Walkway' and 'Trail' respectively temporarily.
    ************************************************************************** */
-INSERT INTO nena.StreetName_PreTypeSeparators VALUES 
-	('of the')
-,	('at')
-,	('de las')
-,	('in the')
-,	('des')
-,	('to the')
-,	('of')
-,	('on the')
-,	('to')
+--DELETE FROM nena.RoadCenterLine_RoadClasses;
+INSERT INTO nena.RoadCenterLine_RoadClasses VALUES 
+	('Primary','Primary roads are limited-access highways that connect to other roads only at interchanges and not at at-grade intersections')
+,	('Secondary','Secondary roads are main arteries that are not limited access, usually in the U.S. highway, state highway, or county highway systems.')
+,	('Local','Generally a paved non-arterial street, road, or byway that usually has a single lane of traffic in each direction.')
+,	('Ramp','A road that allows controlled access from adjacent roads onto a limited access highway, often in the form of a cloverleaf interchange.')
+,	('Service Drive','A road, usually paralleling a limited access highway, that provides access to structures and/or service facilities along the highway')
+,	('Vehicular Trail','An unpaved dirt trail where a four-wheel drive vehicle is required. These vehicular trails are found almost exclusively in very rural areas.')
+,	('Walkway/Pedestrian Trail','A path that is used for walking, being either too narrow for or legally restricted from vehicular traffic.')
+,	('Stairway','A pedestrian passageway from one level to another by a series of steps.')
+,	('Alley','A service road that does not generally have associated addressed structures and is usually unnamed. It is located at the rear of buildings and properties and is used for deliveries.')
+,	('Private','A road within private property that is privately maintained for service, extractive, or other purposes. These roads are often unnamed.')
+,	('Parking Lot','The main travel route for vehicles through a paved parking area. This may include unnamed roads through apartment/condominium/office complexes where pull-in parking spaces line the road.')
+,	('Bike Path or Trail','(Ski, Bike, Walking/Hikding Trail) is generally a path used by human powered modes of transportation.')
+,	('Bridle Path','A path that is used for horses, being either too narrow for or legally restricted from vehicular traffic.')
+,	('Other','Any road or path type that does not fit into the above categories')
+;
+
+
+/* *****************************************************************************
+   nena.RoadCenterLine_OneWays Initial Data
+   Source: Domain of NENA-STA-006.2-2022, Section 5.75, p.68
+   ************************************************************************** */
+--DELETE FROM nena.RoadCenterLine_OneWays;
+INSERT INTO nena.RoadCenterLine_OneWays VALUES 
+	('B', 'Travel in both directions allowed')
+,	('FT','One-way traveling from FROM node to TO node')
+,	('TF','One way traveling from TO node to FROM node')
+; 
+
+
+/* *****************************************************************************
+   nena.SiteStructureAddressPoint_PlaceTypes Initial Data
+   Source: https://www.iana.org/assignments/location-type-registry/location-type-registry.xml
+           per NENA-STA-006.2-2022, Section 5.78, p.69
+   Last Update:  2022-11-05
+   ************************************************************************** */
+--DELETE FROM nena.SiteStructureAddressPoint_PlaceTypes;
+INSERT INTO nena.SiteStructureAddressPoint_PlaceTypes VALUES 
+	('airport','A place from which aircrafts operate, such as an airport or heliport.')
+,	('arena','Enclosed area used for sports events.')
+,	('bank','Business establishment in which money is kept for saving, commercial purposes, is invested, supplied for loans, or exchanged.')
+,	('bar','A bar or saloon.')
+,	('bus-station','Terminal that serves bus passengers, such as a bus depot or bus terminal.')
+,	('cafe','Usually a small and informal establishment that serves various refreshments (such as coffee); coffee shop.')
+,	('classroom','Academic classroom or lecture hall.')
+,	('club','Dance club, nightclub, or discotheque.')
+,	('construction','Construction site.')
+,	('convention-center','Convention center or exhibition hall.')
+,	('government','Government building, such as those used by the legislative, executive, or judicial branches of governments, including court houses, police stations, and military installations.')
+,	('hospital','Hospital, hospice, medical clinic, mental institution, or doctor''s office.')
+,	('hotel','Hotel, motel, inn, or other lodging establishment.')
+,	('industrial','Industrial setting, such as a manufacturing floor or power plant.')
+,	('library','Library or other public place in which literary and artistic materials, such as books, music, periodicals, newspapers, pamphlets, prints, records, and tapes, are kept for reading, reference, or lending.')
+,	('museum','Location where objects of historical, artistic, scientific or cultural interest are stored and exhibited.')
+,	('office','Business setting, such as an office.')
+,	('other','A place without a registered place type representation.')
+,	('outdoors','Outside a building, in or into the open air, such as a park or city streets.')
+,	('parking','A parking lot or parking garage.')
+,	('place-of-worship','A religious site where congregations gather for religious observances, such as a church, chapel, meetinghouse, mosque, shrine, synagogue, or temple.')
+,	('prison','Correctional institution where persons are confined while on trial or for punishment, such as a prison, penitentiary, jail, brig.')
+,	('public','Public area such as a shopping mall, street, park, public building, train station, or airport or in public conveyance such as a bus, train, plane, or ship. This general description encompasses the more precise descriptors ''street'', ''public-transport'', ''airport'' and so on.')
+,	('residence','A private or residential setting, not necessarily the personal residence of the entity, e.g., including a friend''s home.')
+,	('restaurant','Restaurant, coffee shop, or other public dining establishment.')
+,	('school','School or university property, but not necessarily a classroom or library.')
+,	('shopping-area','Shopping mall or shopping area. This area is a large, often enclosed, shopping complex containing various stores, businesses, and restaurants usually accessible by common passageways.')
+,	('stadium','Large, usually open structure for sports events, including a racetrack.')
+,	('store','Place where merchandise is offered for sale, such as a shop.')
+,	('street','A public thoroughfare, such as an avenue, street, alley, lane, or road, including any sidewalks.')
+,	('theater','Theater, lecture hall, auditorium, classroom, movie theater, or similar facility designed for presentations, talks, plays, music performances, and other events involving an audience.')
+,	('train-station','Terminal where trains load or unload passengers or goods; railway station, railroad station, railroad terminal, train depot.')
+,	('unknown','The type of place is unknown.')
+,	('warehouse','Place in which goods or merchandise are stored, such as a storehouse or self-storage facility.')
+,	('water','In, on, or above bodies of water, such as an ocean, lake, river, canal, or other waterway.')
+;
+
+
+/* *****************************************************************************
+   nena.SiteStructureAddressPoint_PlacementMethods Initial Data
+   Source: http://technet.nena.org/nrs/registry/SiteStructureAddressPointPlacementMethod.xml 
+           per NENA-STA-006.2-2022, Section 5.79, p.69
+   Last Update:  2022-11-05
+   ************************************************************************** */
+--DELETE FROM nena.SiteStructureAddressPoint_PlacementMethods;
+INSERT INTO nena.SiteStructureAddressPoint_PlacementMethods VALUES 
+	('Geocoding')
+,	('Parcel')
+,	('Property Access')
+,	('Site')
+,	('Structure')
+,	('Unknown')
 ;
 
 
 /* *****************************************************************************
    nena.ServiceBoundary_URNs Initial Data
+   Source:  TBD based on Working Group Direction
    ************************************************************************** */
+--DELETE FROM nena.ServiceBoundary_URNs;
 INSERT INTO nena.ServiceBoundary_URNs VALUES 
 	('urn:service:sos','The generic ''sos'' service reaches a public safety answering point (PSAP), which in turn dispatches aid appropriate to the emergency.')
 ,	('urn:service:sos.ambulance','This service identifier reaches an ambulance service that provides emergency medical assistance and transportation.')
@@ -676,8 +879,10 @@ INSERT INTO nena.ServiceBoundary_URNs VALUES
 
 /* *****************************************************************************
    nena.LocationMarker_Indicators Initial Data
+   Source:  Domain of NENA-STA-006.2-2022, Section 5.59, p.64
    ************************************************************************** */
-INSERT INTO nena.MilePostIndicators VALUES (
+--DELETE FROM nena.LocationMarker_Indicators;
+INSERT INTO nena.LocationMarker_Indicators VALUES
   ('P', 'Posted')
 , ('L', 'Logical/Calculated')
 ; 
@@ -685,7 +890,9 @@ INSERT INTO nena.MilePostIndicators VALUES (
 
 /* *****************************************************************************
    nena.LocationMarker_Units Initial Data
+   Source:  Example of NENA-STA-006.2-2022, Section 5.64, p.65
    ************************************************************************** */
+--DELETE FROM nena.LocationMarker_Units;
 INSERT INTO nena.LocationMarker_Units VALUES 
 	('miles')
 ,	('yards')
