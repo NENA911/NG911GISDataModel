@@ -121,18 +121,18 @@ print ("Creating Domain Longitude...")
 arcpy.CreateDomain_management(GeodatabaseName, "Longitude", "The angular distance of a location north or south of the equator as defined by the coordinate system, expressed in decimal degrees.", "DOUBLE", "RANGE")
 arcpy.SetValueForRangeDomain_management(GeodatabaseName, "Longitude", -180, +180)
 
-print ("Creating Domain MilePostIndicator...")
-arcpy.CreateDomain_management(GeodatabaseName, "MilePostIndicator", "Indicator of the type of mile post measurement.", "TEXT", "CODED")
+print ("Creating Domain LocationMarkerIndicator...")
+arcpy.CreateDomain_management(GeodatabaseName, "LocationMarkerIndicator", "Indicator of the type of location marker.", "TEXT", "CODED")
 domDict = {"P":"Posted", "L": "Logical / Calculated"}
 for code in domDict:        
-    arcpy.AddCodedValueToDomain_management(GeodatabaseName, "MilePostIndicator", code, domDict[code])
+    arcpy.AddCodedValueToDomain_management(GeodatabaseName, "LocationMarkerIndicator", code, domDict[code])
 domDict = {}
 
-print ("Creating Domain MilePostUnitOfMeasurement...")
-arcpy.CreateDomain_management(GeodatabaseName, "MilePostUnitOfMeasurement", "Unit of measurement used for mile post value.", "TEXT", "CODED")
+print ("Creating Domain LocationMarkerUnitOfMeasurement ...")
+arcpy.CreateDomain_management(GeodatabaseName, "LocationMarkerUnitOfMeasurement ", "Unit of measurement used for mile post value.", "TEXT", "CODED")
 domDict = {"miles":"miles", "nautical miles":"nautical miles", "feet":"feet", "kilometers":"kilometers", "meters":"meters"}
 for code in domDict:        
-    arcpy.AddCodedValueToDomain_management(GeodatabaseName, "MilePostUnitOfMeasurement", code, domDict[code])
+    arcpy.AddCodedValueToDomain_management(GeodatabaseName, "LocationMarkerUnitOfMeasurement ", code, domDict[code])
 domDict = {}
 
 print ("Creating Domain OneWay...")
@@ -1395,12 +1395,12 @@ print ("Adding Fields to Feature Class: " + FeatureClassName)
 arcpy.gp.AddField(FeatureClassName, "DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID", "NON_NULLABLE", "REQUIRED", "")
 arcpy.gp.AddField(FeatureClassName, "DateUpdate", "DATE", "", "", "", "Date Updated", "NON_NULLABLE", "REQUIRED", "")
 arcpy.gp.AddField(FeatureClassName, "NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID", "NON_NULLABLE", "REQUIRED", "")
-arcpy.gp.AddField(FeatureClassName, "LM_Unit", "TEXT", "", "", "15", "Location Marker Unit of Measurement", "NULLABLE", "NON_REQUIRED", "MilePostUnitOfMeasurement")
+arcpy.gp.AddField(FeatureClassName, "LM_Unit", "TEXT", "", "", "15", "Location Marker Unit of Measurement", "NULLABLE", "NON_REQUIRED", "LocationMarkerUnitOfMeasurement ")
 arcpy.gp.AddField(FeatureClassName, "LM_Value", "FLOAT", "", "", "", "Location Marker Measurement Value", "NON_NULLABLE", "REQUIRED", "")
 arcpy.gp.AddField(FeatureClassName, "LM_Rte", "TEXT", "", "", "100", "Location Marker Route Name", "NON_NULLABLE", "REQUIRED", "")
 arcpy.gp.AddField(FeatureClassName, "LM_Label", "TEXT", "", "", "100", "Location Marker Label", "NULLABLE", "NON_REQUIRED", "")
 arcpy.gp.AddField(FeatureClassName, "LM_Type", "TEXT", "", "", "15", "Location Marker Type", "NULLABLE", "NON_REQUIRED", "")
-arcpy.gp.AddField(FeatureClassName, "LM_Ind", "TEXT", "", "", "1", "Location Marker Indicator", "NON_NULLABLE", "REQUIRED", "MilePostIndicator")
+arcpy.gp.AddField(FeatureClassName, "LM_Ind", "TEXT", "", "", "1", "Location Marker Indicator", "NON_NULLABLE", "REQUIRED", "LocationMarkerIndicator")
 #arcpy.ImportMetadata_conversion(MetadataPath + FeatureClassLabel + ".xml", "FROM_ISO_19139", FeatureClassName, "ENABLED")
 # Enable Editor Tracking in UTC.
 arcpy.EnableEditorTracking_management(FeatureClassName, "", "", "", "DateUpdate", "NO_ADD_FIELDS", "UTC")
