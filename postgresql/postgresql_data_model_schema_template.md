@@ -6,26 +6,26 @@ adapted for other platforms.
 
 ## Instructions
 
-Run the following lines of code in the Query tool on the database.
+Copy the SQL script by hovering over the SQL script and click the copy icon in 
+upper right of the code block. Paste the SQL script into a Database Management 
+Tool or into a text editor and save the file as `nena-schema.sql`.
 
-NOTE: The following script uses a SCHEMA "nena". If you chose to use a different 
-domain replace "nena." with "<your schema>." in a text editor.
+Execute this script before executing the 
+[Initial Data Template](postgresql_data_model_initial_data_template.md).
 
-## Notes on Domains
+## Modifications
 
-Domains are based on WA state ArcPy script for ESRI file geodatabase as edited 
-by NENA workgroup.
+The script may be modified to include values specific to your organization. In 
+the saved SQL script, add or remove values as appropriate for your organization.
 
-Domains are implemented in various ways based on their characteristics in some 
-cases a new data type is created with CREATE DOMAIN and a short, fixed list in 
-other cases a table is created with domain values as the primary key to support 
-a foreign key constraint on matching columns some domain tables also have a 
-lookup column to document code values just like  ESRI coded domains in WA 
-state script additionally some domain tables implement pattern matching, 
-ranges or other check constraints and finally individual check constraints on 
-columns are used for minimal situations where only one table is involved.
+*NOTE #1: This script includes an "id" field that is a best practice but not 
+part of the NENA-STA-006.2-2002 standard. The "id" field is commented out but 
+may be implemented by using a text editor or database management tool to perform 
+a Find and Replace of `--id SERIAL  PRIMARY KEY` to `id SERIAL  PRIMARY KEY`.*
 
-
+*NOTE #2: This script uses a SCHEMA of "nena". If you choose to use a different 
+domain, use a text editor or database management tools and perform a Find and 
+Replace of `nena.` to `<your_schema>.`.*
 
 ```sql
 -- #############################################################################
@@ -338,7 +338,7 @@ CREATE TABLE nena.LocationMarkerUnit (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.RoadCenterline;
 CREATE TABLE nena.RoadCenterline (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString',4326)  NOT NULL  
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL
@@ -401,7 +401,7 @@ CREATE TABLE nena.RoadCenterline (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.StreetNameAliasTable;
 CREATE TABLE nena.StreetNameAliasTable (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
 , Effective TIMESTAMPTZ  
@@ -425,7 +425,7 @@ CREATE TABLE nena.StreetNameAliasTable (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.SiteStructureAddressPoint;
 CREATE TABLE nena.SiteStructureAddressPoint (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('Point',4326)  NOT NULL  
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -482,7 +482,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.LandmarkNamePartTable;
 CREATE TABLE nena.LandmarkNamePartTable (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ NOT NULL 
 , Effective TIMESTAMPTZ  
@@ -501,7 +501,7 @@ CREATE TABLE nena.LandmarkNamePartTable (
   *************************************************************************** */
 DROP TABLE IF EXISTS nena.LandmarkNameCompleteAliasTable;
 CREATE TABLE nena.LandmarkNameCompleteAliasTable (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
 , Effective TIMESTAMPTZ 
@@ -530,7 +530,7 @@ CREATE TABLE nena.LandmarkNameCompleteAliasTable (
 
 DROP TABLE IF EXISTS nena.PsapPolygon;
 CREATE TABLE nena.PsapPolygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -549,7 +549,7 @@ CREATE TABLE nena.PsapPolygon (
 
 DROP TABLE IF EXISTS nena.PolicePolygon;
 CREATE TABLE nena.PolicePolygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -568,7 +568,7 @@ CREATE TABLE nena.PolicePolygon (
 
 DROP TABLE IF EXISTS nena.FirePolygon;
 CREATE TABLE nena.FirePolygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -587,7 +587,7 @@ CREATE TABLE nena.FirePolygon (
 
 DROP TABLE IF EXISTS nena.EmsPolygon;
 CREATE TABLE nena.EmsPolygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -611,7 +611,7 @@ CREATE TABLE nena.EmsPolygon (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.ProvisioningPolygon;
 CREATE TABLE nena.ProvisioningPolygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -627,7 +627,7 @@ CREATE TABLE nena.ProvisioningPolygon (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.A1Polygon;
 CREATE TABLE nena.A1Polygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -645,7 +645,7 @@ CREATE TABLE nena.A1Polygon (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.A2Polygon;
 CREATE TABLE nena.A2Polygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -664,7 +664,7 @@ CREATE TABLE nena.A2Polygon (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.A3Polygon;
 CREATE TABLE nena.A3Polygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -685,7 +685,7 @@ CREATE TABLE nena.A3Polygon (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.A4Polygon;
 CREATE TABLE nena.A4Polygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ NOT NULL 
@@ -707,7 +707,7 @@ CREATE TABLE nena.A4Polygon (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.A5Polygon;
 CREATE TABLE nena.A5Polygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POLYGON', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -730,7 +730,7 @@ CREATE TABLE nena.A5Polygon (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.RailroadCenterLine;
 CREATE TABLE nena.RailroadCenterLine (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -751,7 +751,7 @@ CREATE TABLE nena.RailroadCenterLine (
   *************************************************************************** */
 DROP TABLE IF EXISTS nena.HydrologyLine;
 CREATE TABLE nena.HydrologyLine (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -769,7 +769,7 @@ CREATE TABLE nena.HydrologyLine (
   *************************************************************************** */
 DROP TABLE IF EXISTS nena.HydrologyPolygon;
 CREATE TABLE nena.HydrologyPolygon (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('LineString', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -787,7 +787,7 @@ CREATE TABLE nena.HydrologyPolygon (
   *************************************************************************** */
 DROP TABLE IF EXISTS nena.CellSectorPoint;
 CREATE TABLE nena.CellSectorPoint (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POINT', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
@@ -818,7 +818,7 @@ CREATE TABLE nena.CellSectorPoint (
   *************************************************************************** */
 DROP TABLE  IF EXISTS nena.LocationMarkerPoint;
 CREATE TABLE nena.LocationMarkerPoint (
-  id SERIAL  PRIMARY KEY
+  --id SERIAL  PRIMARY KEY
 , geom GEOMETRY ('POINT', 4326)  NOT NULL 
 , DiscrpAgID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , DateUpdate TIMESTAMPTZ  NOT NULL 
