@@ -297,7 +297,7 @@ CREATE TABLE nena.ServiceURI (
    ************************************************************************** */
 DROP TABLE IF EXISTS nena.ServiceURN CASCADE;
 CREATE TABLE nena.ServiceURN (
-	ServiceURN VARCHAR(254) PRIMARY KEY
+	ServiceURN VARCHAR(54) PRIMARY KEY
 ,	ServiceURN_lookup TEXT
 );
 
