@@ -1,13 +1,24 @@
 # NG9-1-1 Data Model PostGIS Initial Data Script
 
 The following SQL script inserts initial data into the NG9-1-1 GIS Data Model. 
-This inital data is not required and may be altered by each organization to 
-meet each organization's unique operating environment.
+This initial data is not required and may be altered by each organization to 
+meet each organization's unique operating environment and values.
 
-NOTE: This script does include a command to delete all values from the tables. 
-This command is commented out but can be reimplemented by copying the SQL 
+## Instructions
+
+Copy the SQL script by hovering over the SQL script and click the copy icon in 
+upper right of the code block. Paste the SQL script into a Database Management 
+Tool or into a text editor and save the file as `nena-initial-data.sql`.
+
+## Modifications
+
+The script may be modified to include values specific to your organization. In 
+the saved SQL script, add or remove values as appropriate for your organization.
+
+*NOTE: This script includes a command to delete all values from the tables. 
+This command is commented out but can be implemented by modifying the SQL 
 script into a text editor or database management tool and performing a Find and 
-Replace of `--DELETE FROM` to `DELETE FROM`.
+Replace of `--DELETE FROM` to `DELETE FROM`.*
 
 ```sql
 /* *****************************************************************************
