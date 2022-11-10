@@ -11,13 +11,13 @@ Replace of `--DELETE FROM` to `DELETE FROM`.
 
 ```sql
 /* *****************************************************************************
-   nena.States Initial Data
+   nena.State Initial Data
    Source: https://www.census.gov/library/reference/code-lists/ansi/ansi-codes-for-states.html
            per NENA-STA-006.2-2022, Section 5.107, p.77
    Last Update:  2022-11-05
    ************************************************************************** */
---DELETE FROM nena.States;
-INSERT INTO nena.States values 
+--DELETE FROM nena.State;
+INSERT INTO nena.State values 
 	('AL','Alabama')
 ,	('AK','Alaska')
 ,	('AS','American Samoa')
@@ -82,11 +82,11 @@ INSERT INTO nena.States values
 
 
 /* *****************************************************************************
-   nena.StreetName_Parities Initial Data
+   nena.StreetNameParity Initial Data
    Source: Domain of NENA-STA-006.2-2022, Section 5.76/77, p.68
    ************************************************************************** */
---DELETE FROM nena.StreetName_Parities;
-INSERT INTO nena.StreetName_Parities VALUES 
+--DELETE FROM nena.StreetNameParity;
+INSERT INTO nena.StreetNameParity VALUES 
 	('O','Odd')
 ,	('E', 'Even')
 ,	('B','Both')
@@ -95,13 +95,13 @@ INSERT INTO nena.StreetName_Parities VALUES
 
 
 /* *****************************************************************************
-   nena.StreetName_Types Initial Data
+   nena.StreetNameType Initial Data
    Source: http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
            per NENA-STA-006.2-2022, Section 5.116, p.80
    Last Update:  2022-11-05
    ************************************************************************** */
---DELETE FROM nena.StreetName_Types;
-INSERT INTO nena.StreetName_Types VALUES 
+--DELETE FROM nena.StreetNameType;
+INSERT INTO nena.StreetNameType VALUES 
     ('Abbey')
 ,	('Access Road')
 ,	('Acres')
@@ -475,13 +475,13 @@ INSERT INTO nena.StreetName_Types VALUES
 
 
 /* *****************************************************************************
-   nena.StreetName_PreTypeSeparators Initial Data
+   nena.StreetNamePreTypeSeparator Initial Data
    Source: http://technet.nena.org/nrs/registry/StreetNamePreTypeSeparators.xml
            per NENA-STA-006.2-2022, Section 5.117, p.80
    Last Update:  2022-11-05
    ************************************************************************** */
---DELETE FROM nena.StreetName_PreTypeSeparators;
-INSERT INTO nena.StreetName_PreTypeSeparators VALUES 
+--DELETE FROM nena.StreetNamePreTypeSeparator;
+INSERT INTO nena.StreetNamePreTypeSeparator VALUES 
 	('of the')
 ,	('at')
 ,	('de')
@@ -498,11 +498,11 @@ INSERT INTO nena.StreetName_PreTypeSeparators VALUES
 
 
 /* *****************************************************************************
-   nena.StreetName_LegacyDirectionals Initial Data
+   nena.StreetNameLegacyDirectional Initial Data
    Source: Domain of NENA-STA-006.2-2022, Section 5.57, p.64
    ************************************************************************** */
---DELETE FROM nena.StreetName_LegacyDirectionals;
-INSERT INTO nena.StreetName_LegacyDirectionals VALUES
+--DELETE FROM nena.StreetNameLegacyDirectional;
+INSERT INTO nena.StreetNameLegacyDirectional VALUES
 	('N','North')
 , 	('S','South')
 , 	('E','East')
@@ -518,14 +518,14 @@ INSERT INTO nena.StreetName_LegacyDirectionals VALUES
 
 
 /* *****************************************************************************
-   nena.StreetName_LegacyTypes Initial Data
+   nena.StreetNameLegacyType Initial Data
    Source: NENA-STA-006.2-2022, Section 5.78, p.69
            https://pe.usps.com/text/pub28/28apc_002.htm is used as a baseline. 
            Additional values may be added to meet local vernacular.
    Last Update:  2022-11-05
    ************************************************************************** */
---DELETE FROM nena.StreetName_LegacyTypes;
-INSERT INTO nena.StreetName_LegacyTypes VALUES 
+--DELETE FROM nena.StreetNameLegacyType;
+INSERT INTO nena.StreetNameLegacyType VALUES 
 	('ALY','ALLEY')
 ,	('ANX','ANEX')
 ,	('ARC','ARCADE')
@@ -732,15 +732,15 @@ INSERT INTO nena.StreetName_LegacyTypes VALUES
 
 
 /* *****************************************************************************
-   nena.RoadCenterLine_RoadClasses Initial Data
+   nena.RoadClass Initial Data
    Source: Domain of NENA-STA-006.2-2022, Section 5.96, p.73
    ISSUE:  Domain specifies the use of 'Walkway/Pedestrian Trail' and 
            'Bike Path or Trail' both of which exceed the 15 character length 
            of the RoadClass field in RoadCenterLines. Change the classes to
            'Walkway' and 'Trail' respectively temporarily.
    ************************************************************************** */
---DELETE FROM nena.RoadCenterLine_RoadClasses;
-INSERT INTO nena.RoadCenterLine_RoadClasses VALUES 
+--DELETE FROM nena.RoadClass;
+INSERT INTO nena.RoadClass VALUES 
 	('Primary','Primary roads are limited-access highways that connect to other roads only at interchanges and not at at-grade intersections')
 ,	('Secondary','Secondary roads are main arteries that are not limited access, usually in the U.S. highway, state highway, or county highway systems.')
 ,	('Local','Generally a paved non-arterial street, road, or byway that usually has a single lane of traffic in each direction.')
@@ -759,11 +759,11 @@ INSERT INTO nena.RoadCenterLine_RoadClasses VALUES
 
 
 /* *****************************************************************************
-   nena.RoadCenterLine_OneWays Initial Data
+   nena.OneWay Initial Data
    Source: Domain of NENA-STA-006.2-2022, Section 5.75, p.68
    ************************************************************************** */
---DELETE FROM nena.RoadCenterLine_OneWays;
-INSERT INTO nena.RoadCenterLine_OneWays VALUES 
+--DELETE FROM nena.OneWay;
+INSERT INTO nena.OneWay VALUES 
 	('B', 'Travel in both directions allowed')
 ,	('FT','One-way traveling from FROM node to TO node')
 ,	('TF','One way traveling from TO node to FROM node')
@@ -771,13 +771,13 @@ INSERT INTO nena.RoadCenterLine_OneWays VALUES
 
 
 /* *****************************************************************************
-   nena.SiteStructureAddressPoint_PlaceTypes Initial Data
+   nena.PlaceType Initial Data
    Source: https://www.iana.org/assignments/location-type-registry/location-type-registry.xml
            per NENA-STA-006.2-2022, Section 5.78, p.69
    Last Update:  2022-11-05
    ************************************************************************** */
---DELETE FROM nena.SiteStructureAddressPoint_PlaceTypes;
-INSERT INTO nena.SiteStructureAddressPoint_PlaceTypes VALUES 
+--DELETE FROM nena.PlaceType;
+INSERT INTO nena.PlaceType VALUES 
 	('airport','A place from which aircrafts operate, such as an airport or heliport.')
 ,	('arena','Enclosed area used for sports events.')
 ,	('bank','Business establishment in which money is kept for saving, commercial purposes, is invested, supplied for loans, or exchanged.')
@@ -817,13 +817,13 @@ INSERT INTO nena.SiteStructureAddressPoint_PlaceTypes VALUES
 
 
 /* *****************************************************************************
-   nena.SiteStructureAddressPoint_PlacementMethods Initial Data
+   nena.PlacementMethod Initial Data
    Source: http://technet.nena.org/nrs/registry/SiteStructureAddressPointPlacementMethod.xml 
            per NENA-STA-006.2-2022, Section 5.79, p.69
    Last Update:  2022-11-05
    ************************************************************************** */
---DELETE FROM nena.SiteStructureAddressPoint_PlacementMethods;
-INSERT INTO nena.SiteStructureAddressPoint_PlacementMethods VALUES 
+--DELETE FROM nena.PlacementMethod;
+INSERT INTO nena.PlacementMethod VALUES 
 	('Geocoding')
 ,	('Parcel')
 ,	('Property Access')
@@ -834,11 +834,11 @@ INSERT INTO nena.SiteStructureAddressPoint_PlacementMethods VALUES
 
 
 /* *****************************************************************************
-   nena.ServiceBoundary_URNs Initial Data
+   nena.ServiceURN Initial Data
    Source:  TBD based on Working Group Direction
    ************************************************************************** */
---DELETE FROM nena.ServiceBoundary_URNs;
-INSERT INTO nena.ServiceBoundary_URNs VALUES 
+--DELETE FROM nena.ServiceURN;
+INSERT INTO nena.ServiceURN VALUES 
 	('urn:service:sos','The generic ''sos'' service reaches a public safety answering point (PSAP), which in turn dispatches aid appropriate to the emergency.')
 ,	('urn:service:sos.ambulance','This service identifier reaches an ambulance service that provides emergency medical assistance and transportation.')
 ,	('urn:service:sos.animal-control','Animal control typically enforces laws and ordinances pertaining to animal control and management, investigates cases of animal abuse, educates the community in responsible pet ownership and wildlife care, and provides for the housing and care of homeless animals, among other animal-related services.')
@@ -878,22 +878,22 @@ INSERT INTO nena.ServiceBoundary_URNs VALUES
 
 
 /* *****************************************************************************
-   nena.LocationMarker_Indicators Initial Data
+   nena.LocationMarkerIndicator Initial Data
    Source:  Domain of NENA-STA-006.2-2022, Section 5.59, p.64
    ************************************************************************** */
---DELETE FROM nena.LocationMarker_Indicators;
-INSERT INTO nena.LocationMarker_Indicators VALUES
+--DELETE FROM nena.LocationMarkerIndicator;
+INSERT INTO nena.LocationMarkerIndicator VALUES
   ('P', 'Posted')
 , ('L', 'Logical/Calculated')
 ; 
 
 
 /* *****************************************************************************
-   nena.LocationMarker_Units Initial Data
+   nena.LocationMarkerUnit Initial Data
    Source:  Example of NENA-STA-006.2-2022, Section 5.64, p.65
    ************************************************************************** */
---DELETE FROM nena.LocationMarker_Units;
-INSERT INTO nena.LocationMarker_Units VALUES 
+--DELETE FROM nena.LocationMarkerUnit;
+INSERT INTO nena.LocationMarkerUnit VALUES 
 	('miles')
 ,	('yards')
 ,	('feet')
