@@ -541,7 +541,7 @@ CREATE TABLE nena.PsapPolygon (
 , State VARCHAR(2)  NULL  REFERENCES nena.State(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
-, ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
+, ServiceURN VARCHAR(54)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
 , ServiceNum VARCHAR(15)
 , AVcard_URI VARCHAR(254)  NOT NULL
 , DsplayName VARCHAR(60)  NOT NULL
@@ -560,7 +560,7 @@ CREATE TABLE nena.PolicePolygon (
 , State VARCHAR(2)  NULL  REFERENCES nena.State(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
-, ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
+, ServiceURN VARCHAR(54)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
 , ServiceNum VARCHAR(15)
 , AVcard_URI VARCHAR(254)  NOT NULL
 , DsplayName VARCHAR(60)  NOT NULL
@@ -579,7 +579,7 @@ CREATE TABLE nena.FirePolygon (
 , State VARCHAR(2)  NULL  REFERENCES nena.State(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
-, ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
+, ServiceURN VARCHAR(54)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
 , ServiceNum VARCHAR(15)
 , AVcard_URI VARCHAR(254)  NOT NULL
 , DsplayName VARCHAR(60)  NOT NULL
@@ -598,7 +598,7 @@ CREATE TABLE nena.EmsPolygon (
 , State VARCHAR(2)  NULL  REFERENCES nena.State(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
-, ServiceURN VARCHAR(50)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
+, ServiceURN VARCHAR(54)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
 , ServiceNum VARCHAR(15)
 , AVcard_URI VARCHAR(254)  NOT NULL
 , DsplayName VARCHAR(60)  NOT NULL
