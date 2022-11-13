@@ -42,13 +42,14 @@ fundamental understanding of relational database installation and management.
   * Earlier versions should be compatible but are not recommended.
 * **[PostGIS](https://postgis.net/install/)**, installable from Stack Builder 
   which is part of most compiled PostgreSQL binaries.
-  * PostGIS versions depend on the version of PostgreSQL
-* **Data Management Tool**
+  * *PostGIS versions depend on the version of PostgreSQL installed.*
+* **Data Management Tool of choice**
   * **[PGAdmin](https://www.pgadmin.org/)** - Web-based PostgreSQL management tool, 
-    typically an option while installing from compiled PostgreSQL binaries.
+    typically an option while installing from compiled PostgreSQL binaries;
   * **PSql** - Command line PostgreSQL management tool, typically an option 
-    install while installing from compiled PostgreSQL binaries.
-  * **[dBeaver](https://dbeaver.io/)** - Universal database management tool.
+    install while installing from compiled PostgreSQL binaries;
+  * **[dBeaver](https://dbeaver.io/)** - Universal database management tool; or,
+  * Database Management Tool of user's choice.
 
 ### Creating the database
 
