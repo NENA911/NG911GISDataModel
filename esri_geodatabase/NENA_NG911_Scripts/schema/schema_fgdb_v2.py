@@ -281,6 +281,7 @@ DOMAINS = [
              "WAYS": "WAYS",
              "WL": "WELL",
              "WLS": "WELLS"
+        }
     }, {
         "domain_name": "Longitude",
         "domain_description": "The angular distance of a location east or west of "
