@@ -34,8 +34,8 @@ GIS platforms.
 ---
 
 ## Folders and Files
-* [archive](archive)
-  * [v1](archive/v1) - Folder containing the version 1 Data Model template and files.
+* [archive](.archive)
+  * [v1](.archive/v1) - Folder containing the version 1 Data Model template and files.
 * [NENA_NG911_Scripts](NENA_NG911_Scripts)
   * [schema](schema) - Folder containing the NENA GIS Data Model schema which is 
     processed by [create_n911_fgdb.py](NENA_NG911_Scripts/create_n911_fgdb.py).
