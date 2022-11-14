@@ -55,6 +55,7 @@ GIS platforms.
 
 * Operating System: Windows 10 (or later)
 * GIS Software: ArcGIS 10.2 (or later) AND/OR ArcGIS Pro 1.x (or later)
+* GIS Software Licensing Level: Standard or Advanced
 
 ### Using the pre-built NG9-1-1 GIS Template
 
