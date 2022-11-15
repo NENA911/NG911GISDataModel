@@ -45,8 +45,12 @@ def main(**params):
 
     # Check the license level is not "Basic" as the CreateRelationshipClass
     # function requires a "Standard or "Advanced" license
-    if install_info['LicenseLevel'] == "Basic":
-        # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/adderror.htm
+    if install_info['Version'].startswith('10.'):
+        if arcpy.ProductInfo() == 'ArcView':
+            arcpy.AddError('This script requires an ArcGIS Desktop licensing level '
+                       'of "Standard" or "Advanced".')
+            exit()
+    elif install_info['LicenseLevel'] == "Basic":
         arcpy.AddError('This script requires an ArcGIS Desktop licensing level '
                        'of "Standard" or "Advanced".')
         exit()
