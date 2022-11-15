@@ -38,10 +38,10 @@ GIS platforms.
   * [v1](.archive/v1) - Folder containing the version 1 Data Model template and files.
 * [NENA_NG911_Scripts](NENA_NG911_Scripts)
   * [schema](schema) - Folder containing the NENA GIS Data Model schema which is 
-    processed by [create_n911_fgdb.py](NENA_NG911_Scripts/create_n911_fgdb.py).
+    processed by [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py).
     * [schema_fgdb_v2.py](NENA_NG911_Scripts/schema_fgdb_v2.py) - Python file 
       containing the NENA GIS Data Model as dictionaries.
-  * [create_n911_fgdb.py](NENA_NG911_Scripts/create_n911_fgdb.py) - Python script 
+  * [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py) - Python script 
     used by the NENA GIS Data Model File geodatabase.
 * [NENA_NG911_Toolbox.tbx](NENA_NG911_Toolbox.tbx) - ArcGIS Toolbox which supports 
   both ArcGIS Desktop 10.8 and ArcGIS Pro.
@@ -56,6 +56,15 @@ GIS platforms.
 * Operating System: Windows 10 (or later)
 * GIS Software: ArcGIS 10.2 (or later) AND/OR ArcGIS Pro 1.x (or later)
 * GIS Software Licensing Level: Standard or Advanced
+
+*Note: This has been only testing in ArcGIS Desktop 10.8.1 and ArcGIS Pro v2.9.x 
+and 3.0.x. We are aware of issues with ArcGIS Desktop 10.5.x where the Create 
+NG911 FGDB tool does not display in the ArcGIS Toolbox.
+
+If you run into issues, run the script, please report a Bug in the Issues, 
+describe the issue that you had, screenshots are great, and please let us 
+know the version and licensing level of ArcGIS Desktop you encountered the issue 
+within.*
 
 ### Using the pre-built NG9-1-1 GIS Template
 
