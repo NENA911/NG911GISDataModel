@@ -59,9 +59,9 @@ GIS platforms.
 
 *Note: This has been only testing in ArcGIS Desktop 10.8.1 and ArcGIS Pro v2.9.x 
 and 3.0.x. We are aware of issues with ArcGIS Desktop 10.5.x where the Create 
-NG911 FGDB tool does not display in the ArcGIS Toolbox.
+NG911 FGDB tool does not display in the ArcGIS Toolbox.*
 
-If you run into issues, run the script, please report a Bug in the Issues, 
+*If you run into issues, run the script, please report a Bug in the Issues, 
 describe the issue that you had, screenshots are great, and please let us 
 know the version and licensing level of ArcGIS Desktop you encountered the issue 
 within.*
