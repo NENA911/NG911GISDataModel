@@ -55,6 +55,7 @@ GIS platforms.
 
 * Operating System: Windows 10 (or later)
 * GIS Software: ArcGIS 10.2 (or later) AND/OR ArcGIS Pro 1.x (or later)
+* GIS Software Licensing Level: Standard or Advanced
 
 ### Using the pre-built NG9-1-1 GIS Template
 
@@ -105,7 +106,7 @@ before proceeding.*
 #### Create NG9-1-1 File Geodatabase Tool
 
 The Create NG9-1-1 File Geodatabase tool uses the same input variables in both 
-ArcGIS Desktop 10.8.x and ArcGIS Pro. In tests, it takes appropriate seven to nine 
+ArcGIS Desktop 10.8.x and ArcGIS Pro. In tests, it takes approximately seven to nine 
 minutes to build out the complete file geodatabase. 
 
 * **Destination Folder** - Select a destination folder for the creation of the file geodatabase.
@@ -161,7 +162,7 @@ The feature class dictionary is based on Esri's ArcPy
 command and the dictionary contains the following keys:
 
 * `out_name`: The name of the feature class to be created.
-* `out_alias`: "Road Centerline",
+* `out_alias`: The alias name of the feature class to be created.
 * `geometry_type`: Specifies the geometry type of the feature class.
 * `has_m`: Specifies whether the feature class contains linear measurement values (m-values).
 * `has_z`: Specifies whether the feature class contains elevation values (z-values).
@@ -178,7 +179,7 @@ The tables dictionary is based on Esri's ArcPy
 command and dictionary contains the following keys:
 
 * `out_name`: The name of the feature class to be created.
-* `out_alias`: "Road Centerline",
+* `out_alias`: The alias name of the feature class to be created.
 * `fields`: Specifies the fields, as a list of lists, to apply to the table.   
   * Each field is added using the following list template <br>
     `[field_name, field_type, field_precision, field_scale, field_length, field_alias, field_is_nullable, field_is_required, field_domain]`.<br> 
@@ -216,6 +217,7 @@ contact information for the leadership of the Data Structures Committee can be f
 ## Contributors
 
 * Jason Horning, ENP
+* Tom Neer
 
 ---
 
