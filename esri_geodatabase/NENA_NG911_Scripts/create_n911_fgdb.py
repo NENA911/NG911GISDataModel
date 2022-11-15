@@ -28,7 +28,10 @@ def main(**params):
     # Get version of ArcPy
     # Used for several functional differences in ArcPy between ArcMap and ArcGIS Pro
     # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/getinstallinfo.htm
-    version_number = arcpy.GetInstallInfo()['Version']
+    # Get the install information to perform checks
+    # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/getinstallinfo.htm
+    install_info = arcpy.GetInstallInfo()
+
 
     # Initialize the Progressor
     # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/setprogressor.htm
@@ -39,6 +42,15 @@ def main(**params):
         max_range=max_steps,
         step_value=1
     )
+
+    # Check the license level is not "Basic" as the CreateRelationshipClass
+    # function requires a "Standard or "Advanced" license
+    if install_info['LicenseLevel'] == "Basic":
+        # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/adderror.htm
+        arcpy.AddError('This script requires an ArcGIS Desktop licensing level '
+                       'of "Standard" or "Advanced".')
+        exit()
+
 
     # =========================================================================
     # Module Primary Code
@@ -148,7 +160,7 @@ def main(**params):
         arcpy.SetProgressorLabel(msg)
         arcpy.AddMessage(msg)
         # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-feature-class.htm
-        if version_number.startswith('10.'):
+        if install_info['Version'].startswith('10.'):
             arcpy.management.CreateFeatureclass(
                 out_path=output_fgdb_path,
                 out_name=fc["out_name"],
@@ -205,7 +217,7 @@ def main(**params):
         arcpy.SetProgressorLabel(msg)
         arcpy.AddMessage(msg)
         # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-table.htm
-        if version_number.startswith('10.'):
+        if install_info['Version'].startswith('10.'):
             arcpy.management.CreateTable(
                 out_path=output_fgdb_path,
                 out_name=table["out_name"]
