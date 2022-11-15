@@ -20,7 +20,7 @@ GIS platforms.
   * [Using the ArcGIS Toolbox](#using-the-arcgis-toolbox)
     * [ArcGIS Desktop 10.8.x Instructions](#arcgis-desktop-108x-instructions)
     * [ArcGIS Pro Instructions](#arcgis-pro-instructions)
-    * [Create NG9-1-1 File Geodatbase Tool](#create-ng9-1-1-file-geodatabase-tool)
+    * [Create NG9-1-1 File Geodatabase Tool](#create-ng9-1-1-file-geodatabase-tool)
 * [Modifying the Python Scripts](#modifying-the-python-scripts)
   * [Domain (DOMAIN) Dictionary Schema](#domain-domain-dictionary-schema)
   * [Feature Class (FEATURE_CLASSES) Dictionary Schema](#feature-class-feature_classes-dictionary-schema)
