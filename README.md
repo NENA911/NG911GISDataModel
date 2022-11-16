@@ -24,6 +24,8 @@ response agency mapping applications for handling and responding to 9-1-1 calls.
 ---
 
 ## Folders and Files
+* [docs](docs) - Folder containing PDF files with the NENA-STA-00G.x GIS Data 
+  Model standards for reference by version.
 * [esri_geodatabase](esri_geodatabase/README.md) - Folder containing instructions, 
   example file geodatabase, ArcGIS Toolbox and associated Python scripts to 
   create the NENA NG9-1-1 Data Model template.
