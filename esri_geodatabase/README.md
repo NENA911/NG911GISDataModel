@@ -85,7 +85,8 @@ If you are interested in creating the NENA GIS Data Model template from the
 supplied ArcGIS Toolbox follow the instructions appropriate to your version 
 of ArcGIS Desktop. 
 
-*NOTE: You must download or clone the Git repository to your local computer 
+*NOTE: You must download the [NENA_NG911_Toolbox.zip](NENA_NG911_Toolbox.zip) 
+and unzip locally or download/clone the Git repository to your local computer 
 before proceeding.*
 
 #### ArcGIS Desktop 10.8.x Instructions
@@ -220,11 +221,11 @@ contact information for the leadership of the Data Structures Committee can be f
 ## Change Log
 
 * v2.0
-    * Updated for [NENA-STA-006.2-2022](https://www.nena.org/page/NG911GISDataModel)
+    * Updated for [NENA-STA-006.2-2022](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.2-2022_ng9-1-1.pdf)
     * Various bug fixes and optimizations
     * See [commit change]() or See [release history]()
 * v1.0
-    * Based on [NENA-STA-006.1.1-2020]()
+    * Based on [NENA-STA-006.1.1-2020](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
     * Initial Release
 
 ---
