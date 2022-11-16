@@ -45,6 +45,12 @@ GIS platforms.
     used by the NENA GIS Data Model File geodatabase.
 * [NENA_NG911_Toolbox.tbx](NENA_NG911_Toolbox.tbx) - ArcGIS Toolbox which supports 
   both ArcGIS Desktop 10.8 and ArcGIS Pro.
+* [NENA_NG911_Toolbox.zip](NENA_NG911_Toolbox.zip) - Zipped archive of the 
+  NENA ArcGIS Toolbox and associated Python scripts which support both 
+  ArcGIS Desktop 10.8 and ArcGIS Pro.
+* [NG911_GIS_Template.zip](NENA_NG911_Toolbox.zip) - Zipped archive of the 
+  NENA GIS Data Model template in Esri File Geodatabase format for 
+  immediate use.
 * [README.md](README.md) - This document.
 
 ---
