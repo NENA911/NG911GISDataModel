@@ -13,7 +13,7 @@ Tool or into a text editor and save the file as `nena-schema.sql`.
 Execute this script before executing the 
 [Initial Data Template](postgresql_data_model_initial_data_template.md).
 
-## Modifications
+## Pre-Deployment Modifications
 
 The script may be modified to include values specific to your organization. In 
 the saved SQL script, add or remove values as appropriate for your organization.

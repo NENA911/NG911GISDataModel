@@ -10,7 +10,7 @@ Copy the SQL script by hovering over the SQL script and click the copy icon in
 upper right of the code block. Paste the SQL script into a Database Management 
 Tool or into a text editor and save the file as `nena-initial-data.sql`.
 
-## Modifications
+## Pre-Deployment Modifications
 
 The script may be modified to include values specific to your organization. In 
 the saved SQL script, add or remove values as appropriate for your organization.

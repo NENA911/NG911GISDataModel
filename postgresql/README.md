@@ -5,6 +5,9 @@ backup, and restore the NG9-1-1 Data Model Template for PostgreSQL/PostiGIS,
 prepared by the NENA Data Model Working Group. This Data Model is designed for 
 an open source PostgreSQL/PostGIS database but can be adapted for other platforms.
 
+*[2022-11-16] NOTE: This documentation is still under development.*
+
+---
 
 ## Table of Contents
 
@@ -16,18 +19,18 @@ an open source PostgreSQL/PostGIS database but can be adapted for other platform
   * [Tuning PostgreSQL](#tuning-postgresql-optional)
 * [Deploying the Data Model Template](#deploying-the-data-model-template)
   * [Data Model Template SQL Script](#data-model-template-sql-script)
-  * [Pre-deployment modifications](#pre-deployment-modifications)
-  * [Executing the GIS Data Model Template SQL Script](#executing-the-gis-data-model-template-sql-script)
+  * [Deploying the Data Model Initial Data](#deploying-the-data-model-initial-data)
 * [Backing up the Database](#backing-up-the-database)
 * [Restoring the Database](#restoring-the-database)
 * [Change Log](#change-log)
 * [Contributors](#contributors)
 
+---
 
 ## Getting Started
 
 The following section covers the creation of the database and database 
-management best practices. With the exception of the database creation, the 
+management best practices. With the exception of the database creation, 
 other topics of this section are recommended, but optional.
 
 This section does not cover the specific installation of any software or 
@@ -53,11 +56,32 @@ fundamental understanding of relational database installation and management.
 
 ### Creating the database
 
+Coming soon...
+
 ### Installing PostGIS extensions
+
+Comming soon...
+
+```sql
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_topology;
+```
+
+```sql
+SELECT POSTGIS_FULL_VERSION();
+```
 
 ### Changing permissions [Optional]
 
+Coming soon...
+
 ### Creating a schema [Optional]
+
+Coming soon...
+
+```sql
+CREATE SCHEMA IF NOT EXISTS nena;
+```
 
 ### Tuning PostgreSQL [Optional]
 
@@ -70,36 +94,46 @@ starting point is to use [PGTune](https://pgtune.leopard.in.ua/). PGTune
 provides the settings that can be manually applied to the `postgresql.conf` 
 file or ALTER commands that can be executed as a SQL script.
 
+---
 
 ## Deploying the Data Model Template
 
 ### Data Model Template SQL Script
 
-### Pre-deployment modifications
+The [NG9-1-1 Data Model PostGIS Template Script](postgresql_data_model_schema_template.md) 
+SQL script is used to create the NG9-1-1 GIS Data Model template in PostgreSQL. 
+This script is designed for PostgreSQL/PostGIS but may be adapted for other 
+platforms.
 
-* How/where to download the repository
-* Any modifications needed to be made to files/folders
+### Deploying the Data Model Initial Data
 
-### Executing the GIS Data Model Template SQL Script
+The [NG9-1-1 Data Model PostGIS Initial Data Script](postgresql_data_model_initial_data_template.md) 
+SQL script inserts initial data into the NG9-1-1 GIS Data Model. 
+This initial data is not required and may be altered by each organization to 
+meet each organization's unique operating environment and values.
 
-* How to install the template
-* Step-by-step bullets
-
+---
 
 ## Backing up the Database
 
+Coming soon...
+
+---
 
 ## Restoring the Database
 
+Coming soon...
+
+---
 
 ## Change Log
 
 * v2.0
-    * Updated for [NENA-STA-006.2-2022](https://www.nena.org/page/NG911GISDataModel)
+    * Updated for [NENA-STA-006.2-2022](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.2-2022_ng9-1-1.pdf)
     * Various bug fixes and optimizations
     * See [commit change]() or See [release history]()
 * v1.0
-    * Based on [NENA-STA-006.1.1-2020]()
+    * Based on [NENA-STA-006.1.1-2020](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
     * Initial Release
 
 
