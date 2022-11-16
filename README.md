@@ -24,20 +24,14 @@ response agency mapping applications for handling and responding to 9-1-1 calls.
 ---
 
 ## Folders and Files
-* [esri_geodatabase](esri_geodatabase/README.md)
-  * **NG911_GIS_20191120.gdb** - Pre-built Esri File Geodatabase containing 
-    the GIS Data Model template.
-  * **esri_date_template_creation.py** - Python script to creation the GIS 
-    Data Model template.
-  * **NG911_GIS_Metadata.xml** - GIS Data Model metadata template.
-  * **README.md** - README for the Esri Geodatabase Data Model template.
-* [postgresql](postgresql/README.md)
-  * ng911_data_model_postgresql_template.md
-  * open_sources_template_process.pdf
-  * README.md
+* [esri_geodatabase](esri_geodatabase/README.md) - Folder containing instructions, 
+  example file geodatabase, ArcGIS Toolbox and associated Python scripts to 
+  create the NENA NG9-1-1 Data Model template.
+* [postgresql](postgresql/README.md) - Folder containing instructions and SQL 
+  scripts for creating the NENA NG9-1-1 Data Model template in PostgreSQL/PostGIS.
 * .gitignore
-* [LICENSE.md](LICENSE.md)
-* README.md
+* [LICENSE.md](LICENSE.md) - License file for the project.
+* [README.md](README.md) - This document.
 
 ---
 
@@ -45,9 +39,17 @@ response agency mapping applications for handling and responding to 9-1-1 calls.
 
 There are two data structures (templates) provided as part of the 
 NG9-1-1 GIS Data Model Templates package; an open source version based on a 
-PostgreSQL/PostGIS database and a version based on the Esri File GeoDatabase.  
-These templates are meant to represent what NG9-1-1 GIS data should look like 
+PostgreSQL/PostGIS database and a version based on the Esri File GeoDatabase. 
+The templates are meant to represent what NG9-1-1 GIS data should look like 
 when it is being exchanged between two parties. 
+
+The current templates include:
+
+* [esri_geodatabase](esri_geodatabase/README.md) - Folder containing a sample 
+  file geodatabase, ArcGIS Toolbox and associated Python scripts to create the 
+  file geodatabase.
+* [postgresql](postgresql/README.md) - Folder containing documentation and SQL 
+  scripts to create a NENA NG9-1-1 GIS Data Model template in PostgreSQL.
 
 While preparing these templates, the Working Group developed two sets of 
 scripts (Python and SQL) to help in creation of the template files.  The 
@@ -58,9 +60,6 @@ been included in this package.  While the scripts may prove useful, the
 Working Group does urge caution in using these scripts directly as it presents 
 some potential for an entity to diverge from, and become incompatible with, 
 the official NENA template files.
-
-* [esri_geodatabase](esri_geodatabase/README.md)
-* [postgresql](postgresql/README.md)
 
 ---
 
