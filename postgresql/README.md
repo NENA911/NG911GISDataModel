@@ -58,14 +58,23 @@ fundamental understanding of relational database installation and management.
 
 Coming soon...
 
+### Creating a schema [Optional]
+
+Coming soon...
+
+```sql
+CREATE SCHEMA IF NOT EXISTS nena;
+```
+
 ### Installing PostGIS extensions
 
 Comming soon...
 
 ```sql
-CREATE EXTENSION postgis;
-CREATE EXTENSION postgis_topology;
+CREATE EXTENSION postgis SCHEMA nena;
 ```
+
+Change SQL into nena schema.
 
 ```sql
 SELECT POSTGIS_FULL_VERSION();
@@ -75,13 +84,7 @@ SELECT POSTGIS_FULL_VERSION();
 
 Coming soon...
 
-### Creating a schema [Optional]
 
-Coming soon...
-
-```sql
-CREATE SCHEMA IF NOT EXISTS nena;
-```
 
 ### Tuning PostgreSQL [Optional]
 
