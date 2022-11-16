@@ -879,7 +879,7 @@ INSERT INTO nena.ServiceURN VALUES
 ,  ('urn:emergency:service:responder.police.stateProvincial', 'State or provincial police office'),
 ,  ('urn:emergency:service:responder.police.tribal', 'Native American police (reservation)'),
 ,  ('urn:emergency:service:responder.police.countyParish', 'County or Parish police (not Sheriff)'),
-,  ('urn:emergency:service:responder.police.sheriff', 'Sheriff's office, when both a police and Sheriff dispatch may be possible'),
+,  ('urn:emergency:service:responder.police.sheriff', 'Sheriff''s office, when both a police and Sheriff dispatch may be possible'),
 ,  ('urn:emergency:service:responder.police.local', 'City, Town, Township, Borough or Village police'),
 ,  ('urn:emergency:service:responder.federal.fbi', 'Federal Bureau of Investigation'),
 ,  ('urn:emergency:service:responder.federal.rcmp', 'Royal Canadian Mounted Police'),
