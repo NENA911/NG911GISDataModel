@@ -50,10 +50,11 @@ def main(**params):
             arcpy.AddError('This script requires an ArcGIS Desktop licensing level '
                        'of "Standard" or "Advanced".')
             exit()
-    elif install_info['LicenseLevel'] == "Basic":
-        arcpy.AddError('This script requires an ArcGIS Desktop licensing level '
-                       'of "Standard" or "Advanced".')
-        exit()
+    else:
+        if install_info['LicenseLevel'] == "Basic":
+            arcpy.AddError('This script requires an ArcGIS Desktop licensing level '
+                           'of "Standard" or "Advanced".')
+            exit()
 
 
     # =========================================================================
