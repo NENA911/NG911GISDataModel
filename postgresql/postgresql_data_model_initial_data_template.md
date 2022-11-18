@@ -918,6 +918,7 @@ INSERT INTO nena.ServiceURN VALUES
 ,  ('urn:emergency:service:serviceagencyLocator.PSAP', 'PSAP')
 ,  ('urn:emergency:service:serviceagencyLocator.SAL', 'Service/Agency Locator')
 ,  ('urn:emergency:service:additionalData', 'Return a URI to an Additional Data structure as defined in NENA-STA-012.2.')
+;
 
 
 /* *****************************************************************************
