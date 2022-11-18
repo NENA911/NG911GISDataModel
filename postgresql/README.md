@@ -55,43 +55,43 @@ fundamental understanding of relational database installation and management.
   * Database Management Tool of user's choice.
 
 ### Creating the database
-* **Open psql
+* Open psql
   * When psql opens the user is prompted for the server, the database, the database 
 port and the username and password.  You can hit enter through each of these except
 for the postgres password which you must provide before hitting Enter.
 
   ![](.imgs/1_server_connection.png)
   
-* **At the prompt, type CREATE DATABASE nena_db; and press enter.  The result should 
+* At the prompt, type CREATE DATABASE nena_db; and press enter.  The result should 
 resemble the image below.
 
   ![](.imgs/2_database_creation.png)
 
-* **At the prompt, type \connect nena_db; and press enter.  This connects you to 
+* At the prompt, type \connect nena_db; and press enter.  This connects you to 
 the newly create database.  The result should resemble the image below.
 
   ![](.imgs/3_database_connection.png)
 
 ### Installing PostGIS extensions
 
-* **At the prompt, type CREATE EXTENSION postgis; and press Enter.  The result 
+* At the prompt, type CREATE EXTENSION postgis; and press Enter.  The result 
 should resemble the image below.
 
   ![](.imgs/4_postgis_extension.png)
 
-If you want to check that the postgis extension was added to your schema, type 
-SELECT POSTGIS_FULL_VERSION(); and hit Enter.
+  * If you want to check that the postgis extension was successfully deployed, type 
+SELECT POSTGIS_FULL_VERSION(); at the prompt and hit Enter.
 
   ![](.imgs/6_postgis_check_one.png)
   
-The result should resemble the image below.  Version numbers will vary depending 
+  * The result should resemble the image below.  Version numbers will vary depending 
 on your environment.
 
   ![](.imgs/7_postgis_check_two.png)
 
-### Creating a schema [Optional]
+### Creating a schema
 
-* **At the prompt, type CREATE SCHEMA nena; and press Enter.  The result should 
+* At the prompt, type CREATE SCHEMA nena; and press Enter.  The result should 
 resemble the image below.
 
   ![](.imgs/5_schema_creation.png)
@@ -125,7 +125,7 @@ SQL script is used to create the NG9-1-1 GIS Data Model template in PostgreSQL.
 This script is designed for PostgreSQL/PostGIS but may be adapted for other 
 platforms.
 
-* ** At the prompt, paste the code from the Data Model Template SQL Script into the psql 
+* At the prompt, paste the code from the Data Model Template SQL Script into the psql 
 shell and hit Enter.  The result should resemble the image below.
 
   ![](.imgs/8_dm_template_script.png)
@@ -137,7 +137,7 @@ SQL script inserts initial data into the NG9-1-1 GIS Data Model.
 This initial data is not required and may be altered by each organization to 
 meet each organization's unique operating environment and values.
 
-* **At the prompt, paste the code from the Data Model Initial Data SQL Script into the psql shell 
+* At the prompt, paste the code from the Data Model Initial Data SQL Script into the psql shell 
 and hit Enter. The result should resemble the image below.
 
   ![](.imgs/9_dm_initial_data_script.png)
