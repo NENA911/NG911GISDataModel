@@ -108,7 +108,7 @@ instructions:
 * When completed the **pgAdmin** server tree will refresh with the newly created 
   database, as illustrated below.
 
-  ![](.imgs/pgadmin_01_create_database_complete.png)
+  ![](.imgs/pgadmin_03_create_database_complete.png)
 
 </details>
 
@@ -156,14 +156,14 @@ instructions:
 The next step is to add the minimum extensions (e.g., `postgis`) required to 
 handle spatial data in PostgreSQL. Optionally, you may install the 
 `postgis_topology` extension using `CREATE EXTENSION postgis_topology;` but it 
-is not required. Expand the section based on your database management tool of 
+is not required and the process is identical. Expand the section based on your database management tool of 
 choice:
 
 <details>
 <summary>psql Instructions</summary>
 
 * At the prompt, type `CREATE EXTENSION postgis;` and press **Enter**.  The 
-result should resemble the image below.
+  result should resemble the image below.
 
   ![](.imgs/4_postgis_extension.png)
 
@@ -180,12 +180,43 @@ result should resemble the image below.
 
 <details>
 <summary>pgAdmin Instructions</summary>
-Coming soon...
+
+* Right-click on the **nena_db** and select **Create** > **Extension...**.
+
+  ![](.imgs/pgadmin_04_create_extension.png)
+
+* In the **Create - Extension** dialog, click the **Name** dropdown and select 
+  `postgis` and then click **Save**.
+
+  ![](.imgs/pgadmin_05_create_extension_dialog.png)
+
+* After saving, **pgAdmin** should expand and select the newly added extension. 
+  Alternatively, you can check that the postgis extension was successfully 
+  deployed, by typing `SELECT POSTGIS_FULL_VERSION();` in SQL script.
+
+  ![](.imgs/pgadmin_06_create_extension_complete.png)
+
 </details>
 
 <details>
 <summary>dBeaver Instructions</summary>
-Coming soon...
+
+* Open a **SQL Script** by right-clicking on the **nena_db** database and 
+  selecting **SQL Editor** > **New SQL script**.
+
+  ![](.imgs/dbeaver_07_open_sql_script.png)
+
+* In the **SQL script**, type `CREATE EXTENSION postgis;` and click 
+  **Execute Script (<kbd>ALT</kbd> X)**.
+
+  ![](.imgs/dbeaver_08_create_extension_script.png)
+
+* To verify the postgis extension was successfully deployed, 
+  type `SELECT POSTGIS_FULL_VERSION();` at the prompt and click 
+  **Execute Script (<kbd>ALT</kbd> X)**.
+
+  ![](.imgs/dbeaver_09_verify_extension_script.png)
+
 </details>
 
 
