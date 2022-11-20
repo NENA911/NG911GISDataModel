@@ -223,10 +223,11 @@ choice:
 
 ### Creating a schema
 
-Creating a schema is an optional step, however, the SQL scripts assume that a 
-`nena` schema has been created. If you plan to use the `public` schema, the SQL 
-scripts will need to be modified. Expand the section based on your database management tool of 
-choice:
+Creating a schema is an optional step, however, the SQL scripts are designed for 
+a `nena` schema. If you plan to use the `public` schema, the SQL scripts 
+that create the tables and initial data will need to be modified. Please 
+see each document's **Modifications** section for further details. Expand 
+the section based on your database management tool of choice:
 
 <details>
 <summary>psql Instructions</summary>
@@ -235,22 +236,54 @@ choice:
   should resemble the image below.
 
   ![](.imgs/5_schema_creation.png)
+
 </details>
 
 <details>
 <summary>pgAdmin Instructions</summary>
-Coming soon...
+
+* Right-click on the **nena_db** and select **Create** > **Schema...**.
+
+  ![](.imgs/pgadmin_07_create_schema.png)
+
+* In the **Create - Schema** dialog, type `nena` the **Name** field and 
+  then click **Save**.
+
+  ![](.imgs/pgadmin_08_create_schema_dialog.png)
+
+* After saving, **pgAdmin** should expand and select the newly added schema.
+
+  ![](.imgs/pgadmin_09_create_schema_complete.png)
+
 </details>
 
 <details>
 <summary>dBeaver Instructions</summary>
-Coming soon...
+
+* In the **Database Navigator**, expand the **nena_db**. Right-click on 
+  **Schemas** and select **Create New Schema**.
+
+  ![](.imgs/dbeaver_10_create_schema.png)
+
+* In the **Create - Schema** dialog, type `nena` the **Schema name** field and 
+  then click **OK**.
+
+  ![](.imgs/dbeaver_11_create_schema_dialog.png)
+
+* After saving, the **Schemas** should expand and highlight the newly added schema.
+
+  ![](.imgs/dbeaver_12_create_schema_complete.png)
+
 </details>
 
 
 ### Changing permissions [Optional]
 
-Coming soon...
+It is considered best practice to not use the `postgres` database account for 
+anything other that initial database creation as it is a "superuser" account. 
+It is recommended once the `nena_db` is created, to create specific database 
+users and roles to the `nena_db`. This process varies greatly between 
+organizations and is outside the scope of this documentation.
 
 
 ### Tuning PostgreSQL [Optional]
