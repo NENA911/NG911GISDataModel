@@ -54,53 +54,172 @@ fundamental understanding of relational database installation and management.
   * **[dBeaver](https://dbeaver.io/)** - Universal database management tool; or,
   * Database Management Tool of user's choice.
 
+
 ### Creating the database
-* Open psql
-  * When psql opens the user is prompted for the server, the database, the database 
-port and the username and password.  You can hit enter through each of these except
-for the postgres password which you must provide before hitting Enter.
+
+The first step is to create a database for the NENA GIS Data Model. The process 
+of creating a PostgreSQL database varies depending on the database management 
+tools you prefer. Expand the instructions for your tool of choice for 
+instructions:
+
+<details>
+<summary>psql Instructions</summary>
+
+* Open **psql** from the command line. On Windows, you may need to change your 
+  directory to the location of **psql** (e.g., 
+  `C:\Program Files\PostgreSQL\<version number>\bin`).
+* When **psql** opens the user is prompted for the server, the database, the 
+  database port and the username and password. You can hit enter through each 
+  of these except for the `postgres` password which you must provide before 
+  hitting **Enter**.
 
   ![](.imgs/1_server_connection.png)
-  
-* At the prompt, type **CREATE DATABASE nena_db;** and press **Enter**.  The result should 
-resemble the image below.
+
+* At the prompt, type `CREATE DATABASE nena_db;` and press **Enter**.  The 
+  result should resemble the image below.
 
   ![](.imgs/2_database_creation.png)
 
-* At the prompt, type **\connect nena_db;** and press **Enter**.  This connects you to 
-the newly create database.  The result should resemble the image below.
+* At the prompt, type `\connect nena_db;` and press **Enter**.  This connects 
+  you to the newly create database.  The result should resemble the image below.
 
   ![](.imgs/3_database_connection.png)
 
+</details>
+
+<details>
+<summary>pgAdmin Instructions</summary>
+
+* Open **pgAdmin** and connect to the PostgreSQL server. *NOTE: This documentation 
+  assumes that **pgAdmin** is installed on the same server with PostgreSQL. If 
+  **pgAdmin** is on another computer, you will need to open ports and create a 
+  connection in **pgAdmin**, which is beyond the scope of this documentation.*
+* Expand the server tree and server, right-click on **Databases** > **Create** >
+  **Database...** to open the **Create Database** dialog.
+
+  ![](.imgs/pgadmin_01_create_database.png)
+
+* Fill in the **Create Database** dialog to create the database. The database is 
+  named `nena_db` but may be named differently. Click **Save** to create the 
+  database.
+
+  ![](.imgs/pgadmin_02_create_database_dialog.png)
+
+* When completed the **pgAdmin** server tree will refresh with the newly created 
+  database, as illustrated below.
+
+  ![](.imgs/pgadmin_01_create_database_complete.png)
+
+</details>
+
+<details>
+<summary>dBeaver Instructions</summary>
+
+* Open **dBeaver** and connect to the PostgreSQL server by right-clicking 
+  in the **Database Navigator** and selecting **Create** > **Connection**.
+
+  ![](.imgs/dbeaver_01_create_connection.png)
+
+* In the **Connect to a database** > **Select your database** dialog, click on 
+  **PostgreSQL**, then click **Next >**.
+
+  ![](.imgs/dbeaver_02_create_connection_select_database.png)
+
+* In the **Connect to a database** > **Connection Settings** dialog, on the 
+  **Main** tab, enter your credentials. Use the **Test Connection** to verify 
+  the connection settings are valid. On the **PostgreSQL** tab, enable the 
+  **Show all databases** setting. Click **Finish**.
+
+  ![](.imgs/dbeaver_03_create_connection_connection_settings.png)
+
+* In the **Database Navigator**, expand your PostgreSQL connection, right-click 
+  on **Databases** and select **Create New Database** to open the 
+  **Create database** dialog.
+
+  ![](.imgs/dbeaver_04_create_database.png)
+
+* Fill in the **Create database** dialog to create the database. The database is 
+  named `nena_db` but may be named differently. Click **OK** to create the 
+  database.
+
+  ![](.imgs/dbeaver_05_create_database_dialog.png)
+
+* When completed the **Database Navigator** will refresh with the newly created 
+  database, as illustrated below.
+
+  ![](.imgs/dbeaver_06_create_database_completed.png)
+</details>
+
+
 ### Installing PostGIS extensions
 
-* At the prompt, type **CREATE EXTENSION postgis;** and press **Enter**.  The result 
-should resemble the image below.
+The next step is to add the minimum extensions (e.g., `postgis`) required to 
+handle spatial data in PostgreSQL. Optionally, you may install the 
+`postgis_topology` extension using `CREATE EXTENSION postgis_topology;` but it 
+is not required. Expand the section based on your database management tool of 
+choice:
+
+<details>
+<summary>psql Instructions</summary>
+
+* At the prompt, type `CREATE EXTENSION postgis;` and press **Enter**.  The 
+result should resemble the image below.
 
   ![](.imgs/4_postgis_extension.png)
 
-  * If you want to check that the postgis extension was successfully deployed, type 
-**SELECT POSTGIS_FULL_VERSION();** at the prompt and press **Enter**.
+* If you want to check that the postgis extension was successfully deployed, 
+  type `SELECT POSTGIS_FULL_VERSION();` at the prompt and press **Enter**.
 
   ![](.imgs/6_postgis_check_one.png)
   
-  * The result should resemble the image below.  Version numbers will vary depending 
-on your environment.
+* The result should resemble the image below.  Version numbers will vary 
+  depending on your environment.
 
   ![](.imgs/7_postgis_check_two.png)
+</details>
+
+<details>
+<summary>pgAdmin Instructions</summary>
+Coming soon...
+</details>
+
+<details>
+<summary>dBeaver Instructions</summary>
+Coming soon...
+</details>
+
+
 
 ### Creating a schema
 
-* At the prompt, type **CREATE SCHEMA nena;** and press **Enter**.  The result should 
-resemble the image below.
+Creating a schema is an optional step, however, the SQL scripts assume that a 
+`nena` schema has been created. If you plan to use the `public` schema, the SQL 
+scripts will need to be modified. Expand the section based on your database management tool of 
+choice:
+
+<details>
+<summary>psql Instructions</summary>
+
+* At the prompt, type `CREATE SCHEMA nena;` and press **Enter**.  The result 
+  should resemble the image below.
 
   ![](.imgs/5_schema_creation.png)
+</details>
+
+<details>
+<summary>pgAdmin Instructions</summary>
+Coming soon...
+</details>
+
+<details>
+<summary>dBeaver Instructions</summary>
+Coming soon...
+</details>
 
 
 ### Changing permissions [Optional]
 
 Coming soon...
-
 
 
 ### Tuning PostgreSQL [Optional]
@@ -112,7 +231,7 @@ out of your database to tune PostgreSQL to your specific server.
 There are a variety of methods to determine the best settings but simple 
 starting point is to use [PGTune](https://pgtune.leopard.in.ua/). PGTune 
 provides the settings that can be manually applied to the `postgresql.conf` 
-file or ALTER commands that can be executed as a SQL script.
+file or `ALTER` commands that can be executed as a SQL script.
 
 ---
 
@@ -156,12 +275,6 @@ Coming soon...
 
 ---
 
-## Deleting the Database
-
-Coming soon...
-
----
-
 ## Change Log
 
 * v2.0
@@ -177,4 +290,5 @@ Coming soon...
 
 * v2.0
   * [Tom Neer](https://github.com/tomneer), Digital Data Services, Inc.
+  * [Jason Horning](https://github.com/jasonhorning), North Dakota Association of Counties
 * v1.0
