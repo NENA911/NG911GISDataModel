@@ -73,17 +73,17 @@ instructions:
   of these except for the `postgres` password which you must provide before 
   hitting **Enter**.
 
-  ![](.imgs/1_server_connection.png)
+  ![](.imgs/psql_01_server_connection.png)
 
 * At the prompt, type `CREATE DATABASE nena_db;` and press **Enter**.  The 
   result should resemble the image below.
 
-  ![](.imgs/2_database_creation.png)
+  ![](.imgs/psql_02_database_creation.png)
 
 * At the prompt, type `\connect nena_db;` and press **Enter**.  This connects 
   you to the newly create database.  The result should resemble the image below.
 
-  ![](.imgs/3_database_connection.png)
+  ![](.imgs/psql_03_database_connection.png)
 
 </details>
 
@@ -165,17 +165,17 @@ choice:
 * At the prompt, type `CREATE EXTENSION postgis;` and press **Enter**.  The 
   result should resemble the image below.
 
-  ![](.imgs/4_postgis_extension.png)
+  ![](.imgs/psql_04_postgis_extension.png)
 
 * If you want to check that the postgis extension was successfully deployed, 
   type `SELECT POSTGIS_FULL_VERSION();` at the prompt and press **Enter**.
 
-  ![](.imgs/6_postgis_check_one.png)
+  ![](.imgs/psql_06_postgis_check_one.png)
   
 * The result should resemble the image below.  Version numbers will vary 
   depending on your environment.
 
-  ![](.imgs/7_postgis_check_two.png)
+  ![](.imgs/psql_07_postgis_check_two.png)
 </details>
 
 <details>
@@ -235,7 +235,7 @@ the section based on your database management tool of choice:
 * At the prompt, type `CREATE SCHEMA nena;` and press **Enter**.  The result 
   should resemble the image below.
 
-  ![](.imgs/5_schema_creation.png)
+  ![](.imgs/psql_05_schema_creation.png)
 
 </details>
 
@@ -311,7 +311,7 @@ platforms.
 * At the prompt, **paste the code from the Data Model Template SQL Script** into the psql 
 shell and hit **Enter**.  The result should resemble the image below.
 
-  ![](.imgs/8_dm_template_script.png)
+  ![](.imgs/psql_08_dm_template_script.png)
 
 ### Deploying the Data Model Initial Data
 
@@ -323,7 +323,7 @@ meet each organization's unique operating environment and values.
 * At the prompt, **paste the code from the Data Model Initial Data SQL Script** into the psql shell 
 and hit **Enter**. The result should resemble the image below.
 
-  ![](.imgs/9_dm_initial_data_script.png)
+  ![](.imgs/psql_09_dm_initial_data_script.png)
 
 ---
 
