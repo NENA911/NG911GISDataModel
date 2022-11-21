@@ -2,30 +2,120 @@
 
 The following SQL script is used to create the NG9-1-1 GIS Data Model template 
 in PostgreSQL. This script is designed for PostgreSQL/PostGIS but may be 
-adapted for other platforms.
+adapted for other database platforms.
+
+---
+
+## Table of Contents
+
+* [Instructions](#instructions)
+* [Pre-Deployment Modifications](#pre-deployment-modifications)
+* [Data Model Template SQL Script](#data-model-template-sql-script)
+
+---
 
 ## Instructions
 
 Copy the SQL script by hovering over the SQL script and click the copy icon in 
-upper right of the code block. Paste the SQL script into a Database Management 
-Tool or into a text editor and save the file as `nena-schema.sql`.
+upper right of the code block [below](#data-model-template-sql-script). The SQL 
+may be used directly or modified by pasting the SQL script into a Database 
+Management Tool or into a text editor and save the file as `nena-schema.sql`.
 
 Execute this script before executing the 
 [Initial Data Template](postgresql_data_model_initial_data_template.md).
+
+<details>
+<summary>Psql Instructions</summary>
+
+* At the prompt, **paste** the SQL code from the 
+  [Data Model Template SQL Script](#data-model-template-sql-script) into the 
+  **psql** shell and press **Enter**.  The result should resemble the image below.
+
+  ![](.imgs/psql_08_dm_template_script.png)
+
+</details>
+
+<details>
+<summary>pgAdmin Instructions</summary>
+
+* Select the **nena_db**, click the **Tools** menu and select **Query Tool**.
+
+  ![](.imgs/pgadmin_10_open_sql_editor.png)
+
+* **Copy** and **paste** the SQL script from the 
+  [Data Model Template SQL Script](#data-model-template-sql-script) into the 
+  **Query Tool** and click the **Execute (▶)** button.
+
+  ![](.imgs/pgadmin_11_run_data_model_sql_script.png)
+
+  [Optionally] If you have saved the SQL script to a `.sql` file, you may 
+  load the SQL script using **Open (📁)** button to load a `.sql` file from disk.
+
+  ![](.imgs/pgadmin_12_open_sql_script_from_disk.png)
+
+* After executing the SQL scripts, the Data Model tables will be under the 
+  `nena` schema.
+
+  ![](.imgs/pgadmin_13_review_data_model_sql_script.png)
+
+</details>
+
+<details>
+<summary>dBeaver Instructions</summary>
+
+* Right-click on the **nena_db** database and select **SQL Editor** > 
+  **New SQL script**.
+
+  ![](.imgs/dbeaver_13_open_sql_editor.png)
+
+* **Copy** and **paste** the SQL script from the 
+  [Data Model Template SQL Script](#data-model-template-sql-script) into the 
+  **SQL Script** window and click the **Execute script (<kbd>Alt</kbd> + X)** button.
+
+  ![](.imgs/dbeaver_14_run_data_model_sql_script.png)
+
+  [Optionally] If you have saved the SQL script to a `.sql` file, you may 
+  load the SQL script right-clicking in the SQL script and selecting **File** > 
+  **Import SQL script**.
+
+  ![](.imgs/dbeaver_15_open_sql_script_from_disk.png)
+
+* After executing the SQL scripts, the Data Model tables will be under the 
+  `nena` schema.
+
+  ![](.imgs/pgadmin_16_review_data_model_sql_script.png)
+
+</details>
+
+---
 
 ## Pre-Deployment Modifications
 
 The script may be modified to include values specific to your organization. In 
 the saved SQL script, add or remove values as appropriate for your organization.
 
-*NOTE #1: This script includes an "id" field that is a best practice but not 
-part of the NENA-STA-006.2-2002 standard. The "id" field is commented out but 
-may be implemented by using a text editor or database management tool to perform 
-a Find and Replace of `  id SERIAL  PRIMARY KEY` to `id SERIAL  PRIMARY KEY`.*
+### Schema Name
 
-*NOTE #2: This script uses a SCHEMA of "nena". If you choose to use a different 
-domain, use a text editor or database management tools and perform a Find and 
-Replace of `nena.` to `<your_schema>.`.*
+This SQL script uses a SCHEMA of "nena". If you choose to use a different schema, 
+use a database management tool or text editor to perform a **Find and Replace** 
+of `nena.` to `<your schema>.`.
+
+### "id" field
+
+This SQL script includes an "id" field as best practice. NENA does not 
+include an "id" field as part of the NENA-STA-006.2-2002 Standard. For the 
+transfer of data between organizations, the NGUID field is sufficient. However, 
+if your organization plans to perform updates on records a row id is required by 
+PostgreSQL to prevent update conflicts. This is similar to the default 
+"OBJECTID" field in Esri databases.
+
+To remove the "id" field, use a database management tool or text editor to 
+perform a **Find and Replace** of `  id SERIAL  PRIMARY KEY
+, geom` to `geom`.
+
+---
+
+## Data Model Template SQL Script
 
 ```sql
 -- #############################################################################
