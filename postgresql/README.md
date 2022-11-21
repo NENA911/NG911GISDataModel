@@ -20,6 +20,7 @@ an open source PostgreSQL/PostGIS database but can be adapted for other platform
 * [Deploying the Data Model Template](#deploying-the-data-model-template)
   * [Data Model Template SQL Script](#deploying-the-data-model-template)
   * [Deploying the Data Model Initial Data](#deploying-the-data-model-initial-data)
+  * [Populating the Data Model](#populating-the-data-model)
 * [Backing up the Database](#backing-up-the-database)
 * [Restoring the Database](#restoring-the-database)
 * [Change Log](#change-log)
@@ -308,17 +309,18 @@ This script is designed for PostgreSQL/PostGIS but may be adapted for other
 platforms. It is intended to run this script first.
 
 
-### Deploying the Data Model Initial Data
+### [Deploying the Data Model Initial Data](postgresql_data_model_initial_data_template)
 
 The [NG9-1-1 Data Model PostGIS Initial Data Script](postgresql_data_model_initial_data_template.md) 
 SQL script inserts initial data into the NG9-1-1 GIS Data Model. 
 This initial data is not required and may be altered by each organization to 
 meet each organization's unique operating environment and values.
 
-* At the prompt, **paste the code from the Data Model Initial Data SQL Script** into the psql shell 
-and hit **Enter**. The result should resemble the image below.
+### Populating the Data Model
 
-  ![](.imgs/psql_09_dm_initial_data_script.png)
+The process to populate these template tables will specific to each organization, 
+and beyond the scope of this guidance. It will likely require the development of 
+custom internal ETL scripts.
 
 ---
 

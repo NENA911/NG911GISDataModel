@@ -4,23 +4,114 @@ The following SQL script inserts initial data into the NG9-1-1 GIS Data Model.
 This initial data is not required and may be altered by each organization to 
 meet each organization's unique operating environment and values.
 
+---
+
+## Table of Contents
+
+* [Instructions](#instructions)
+* [Pre-Deployment Modifications](#pre-deployment-modifications)
+* [Data Model Initial Data SQL Script](#data-model-initial-data-sql-script)
+
+---
+
 ## Instructions
 
 Copy the SQL script by hovering over the SQL script and click the copy icon in 
-upper right of the code block. 
+upper right of the code block [below](#data-model-template-sql-script). The SQL 
+may be used directly or modified by pasting the SQL script into a Database 
+Management Tool or into a text editor and save the file as `nena-initial_data.sql`.
+
+Execute this script after executing the 
+[Initial Data Template](postgresql_data_model_initial_data_template.md).
+
+<details>
+<summary>Psql Instructions</summary>
+
+* At the prompt, **copy** and **paste** the SQL code from the 
+  [Data Model Initial Data SQL Script](#data-model-initial-data-sql-script) 
+  into the **psql** shell and press **Enter**. The result should resemble the image below.
+
+  ![](.imgs/psql_09_dm_initial_data_script.png)
+
+</details>
+
+<details>
+<summary>pgAdmin Instructions</summary>
+
+* Select the **nena_db**, click the **Tools** menu and select **Query Tool**.
+
+  ![](.imgs/pgadmin_10_open_sql_editor.png)
+
+* **Copy** and **paste** the SQL script from the 
+  [Data Model Initial Data SQL Script](#data-model-initial-data-sql-script) 
+  into the **Query Tool** and click the **Execute (▶)** button.
+
+  ![](.imgs/pgadmin_11_run_data_model_sql_script.png)
+
+  [Optionally] If you have saved the SQL script to a `.sql` file, you may 
+  load the SQL script using **Open (📁)** button to load a `.sql` file from disk.
+
+  ![](.imgs/pgadmin_12_open_sql_script_from_disk.png)
+
+* After executing the SQL scripts, the Data Model tables will be under the 
+  `nena` schema.
+
+  ![](.imgs/pgadmin_13_review_data_model_sql_script.png)
+
+</details>
+
+<details>
+<summary>dBeaver Instructions</summary>
+
+* Right-click on the **nena_db** database and select **SQL Editor** > 
+  **New SQL script**.
+
+  ![](.imgs/dbeaver_13_open_sql_editor.png)
+
+* **Copy** and **paste** the SQL script from the 
+  [Data Model Initial Data SQL Script](#data-model-initial-data-sql-script) into the 
+  **SQL Script** window and click the **Execute script (<kbd>Alt</kbd> + X)** button.
+
+  ![](.imgs/dbeaver_14_run_data_model_sql_script.png)
+
+  [Optionally] If you have saved the SQL script to a `.sql` file, you may 
+  load the SQL script right-clicking in the SQL script and selecting **File** > 
+  **Import SQL script**.
+
+  ![](.imgs/dbeaver_15_open_sql_script_from_disk.png)
+
+* After executing the SQL scripts, the Data Model tables will be under the 
+  `nena` schema.
+
+  ![](.imgs/pgadmin_16_review_data_model_sql_script.png)
+
+</details>
+
+---
 
 ## Pre-Deployment Modifications
-
-Paste the SQL script into a Database Management 
-Tool or into a text editor and save the file as `nena-initial-data.sql`.
 
 The script may be modified to include values specific to your organization. In 
 the saved SQL script, add or remove values as appropriate for your organization.
 
-*NOTE: This script includes a command to delete all values from the tables. 
-This command is commented out but can be implemented by modifying the SQL 
-script into a text editor or database management tool and performing a Find and 
-Replace of `--DELETE FROM` to `DELETE FROM`.*
+The script may be modified to include values specific to your organization. In 
+the saved SQL script, add or remove values as appropriate for your organization.
+
+### Schema Name
+
+This SQL script uses a SCHEMA of "nena". If you choose to use a different schema, 
+use a database management tool or text editor to perform a **Find and Replace** 
+of `nena.` to `<your schema>.`.
+
+### DELETE FROM Command
+The SQL script includes a command to delete all values from the tables. This 
+command is commented out but can be implemented by modifying the SQL 
+script into a text editor or database management tool and performing a **Find and 
+Replace** of `--DELETE FROM` to `DELETE FROM`.
+
+---
+
+## Data Model Initial Data SQL Script
 
 ```sql
 /* *****************************************************************************
