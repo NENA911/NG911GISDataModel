@@ -220,7 +220,6 @@ choice:
 </details>
 
 
-
 ### Creating a schema
 
 Creating a schema is an optional step, however, the SQL scripts are designed for 
@@ -301,17 +300,13 @@ file or `ALTER` commands that can be executed as a SQL script.
 
 ## Deploying the Data Model Template
 
-### Data Model Template SQL Script
+### [Data Model Template SQL Script](postgresql_data_model_schema_template.md)
 
 The [NG9-1-1 Data Model PostGIS Template Script](postgresql_data_model_schema_template.md) 
 SQL script is used to create the NG9-1-1 GIS Data Model template in PostgreSQL. 
 This script is designed for PostgreSQL/PostGIS but may be adapted for other 
-platforms.
+platforms. It is intended to run this script first.
 
-* At the prompt, **paste the code from the Data Model Template SQL Script** into the psql 
-shell and hit **Enter**.  The result should resemble the image below.
-
-  ![](.imgs/psql_08_dm_template_script.png)
 
 ### Deploying the Data Model Initial Data
 
