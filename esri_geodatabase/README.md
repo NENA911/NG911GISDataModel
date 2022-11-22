@@ -97,7 +97,7 @@ before proceeding.*
 * When **ArcToolbox** opens, right-click in **ArcToolbox** and select **Add Toolbox...**<br>
   ![](.imgs/arcmap_add_toolbox.png)
 * In the **Add Toolbox" file dialog, navigate to where the Git repository was 
-  downloaded, select **NENA_NG911_Toolbox.tbx**, and click **Open**.<br>
+  downloaded, select **NENA_NG911_Toolbox_for_ArcMap.tbx**, and click **Open**.<br>
   ![](.imgs/arcmap_add_toolbox_file_dialog.png)
 * In **ArcToolbox**, expand the **NENA NG9-1-1 Toolbox**<br>
   ![](.imgs/arcmap_nena_toolbox_added.png)
@@ -112,7 +112,7 @@ before proceeding.*
 * In the **Catalog** pane, right-click on **Toolboxes** and select **Add Toolbox**.<br>
   ![](.imgs/arcgispro_add_toolbox.png)
 * In the **Add Toolbox" file dialog, navigate to where the Git repository was 
-  downloaded, select **NENA_NG911_Toolbox.tbx**, and click **Open**.<br>
+  downloaded, select **NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx**, and click **Open**.<br>
   ![](.imgs/arcgispro_add_toolbox_file_dialog.png)
 * In **ArcGIS Pro** and double-click again on the **NENA_NG911_Toolbox.tbx**<br>
   ![](.imgs/arcgispro_nena_toolbox_added.png)
