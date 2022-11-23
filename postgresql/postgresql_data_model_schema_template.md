@@ -549,7 +549,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , MSAGComm VARCHAR(30)
 , Post_Comm VARCHAR(40)  REFERENCES nena.PostalCommunity(PostalCommunity)
 , Post_Code VARCHAR(7)  REFERENCES nena.PostalCode(PostalCode)
-, Post_CodeExt VARCHAR(4)   
+, PostCodeEx VARCHAR(4)   
 , Building VARCHAR(75)   
 , Floor VARCHAR(75)   
 , Unit VARCHAR(75)   
