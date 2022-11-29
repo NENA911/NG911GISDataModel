@@ -575,6 +575,10 @@ DOMAINS = [
                                      "about how to respond to potential poisoning.",
             "urn:service:sos.police":"The 'police' service refers to the police "
                                      "department or other law enforcement authorities.",
+            "urn:service:sos.police.municipal":"A police force that serves an incorporated "
+                                     "community, city or other local area.",
+            "urn:service:sos.police.national":"A police force that serves an entire "
+                                     "country.",
             "urn:emergency:service:sos.psap":"Route calls to primary PSAP.",
             "urn:emergency:service:sos.level_2_esrp":"Route calls to a second level "
                                                      "ESRP (for an example, a state "
