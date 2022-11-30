@@ -263,20 +263,6 @@ CREATE TABLE nena.StreetNameLegacyDirectional (
 
 
 /* *****************************************************************************
-   TABLE:    nena.StreetNameLegacyType
-   Used By:  RoadCenterLine, SiteStructureAddressPoint
-   Source:   NENA-STA-006.2-2022, Sections 5.58, p.64
-   Notes:    This is limited to USPS Publication 28 main abbreviation lookup and 
-             may be expanded locally.
-   ************************************************************************** */
-DROP TABLE IF EXISTS nena.StreetNameLegacyType CASCADE;
-CREATE TABLE nena.StreetNameLegacyType (
-	Abbreviation  VARCHAR(4) PRIMARY KEY	
-,	Description VARCHAR(20) 
-);
-
-
-/* *****************************************************************************
    TABLE:    nena.PostalCode
    Used By:  RoadCenterLines, SiteStructureAddressPoint
    Source:   NENA-STA-006.2-2022, Section 5.80, p.69
@@ -453,7 +439,7 @@ CREATE TABLE nena.RoadCenterline (
 , St_PosMod VARCHAR(25) 
 , LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetNameLegacyDirectional(Directional)
 , LSt_Name VARCHAR(75)   
-, LSt_Typ VARCHAR(4)  REFERENCES nena.StreetNameLegacyType(Abbreviation)
+, LSt_Typ VARCHAR(4)
 , LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetNameLegacyDirectional(Directional)
 , ESN_L VARCHAR(5)  CHECK ( ESN_L ~* '\w{3,5}' )
 , ESN_R VARCHAR(5)  CHECK ( ESN_R ~* '\w{3,5}' )
@@ -543,7 +529,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , St_PosMod VARCHAR(25)
 , LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetNameLegacyDirectional(Directional)
 , LSt_Name VARCHAR(75)
-, LSt_Typ VARCHAR(4)  REFERENCES nena.StreetNameLegacyType(Abbreviation)   
+, LSt_Typ VARCHAR(4) 
 , LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetNameLegacyDirectional(Directional)
 , ESN VARCHAR(5)
 , MSAGComm VARCHAR(30)
