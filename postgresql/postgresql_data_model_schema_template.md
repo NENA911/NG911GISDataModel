@@ -151,30 +151,30 @@ CHECK ( VALUE IN ('US', 'CA', 'MX') );
 
 
 /* *****************************************************************************
-   TABLE:    nena.State
+   TABLE:    nena.StateOrEquivalentA1
    Used by:  ServiceBoundaryPolygons, A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.107, p.77
    Notes:    If states or equivalents layer exists, then this should be dropped 
              as well local domain will probably be limited so this is best 
              maintained as a table
    ************************************************************************** */
-DROP TABLE IF EXISTS nena.State CASCADE;
-CREATE TABLE nena.State (
+DROP TABLE IF EXISTS nena.StateOrEquivalentA1 CASCADE;
+CREATE TABLE nena.StateOrEquivalentA1 (
 	State VARCHAR(2) PRIMARY KEY
 , 	State_Name VARCHAR(50) NOT NULL 
 );
 
 
 /* *****************************************************************************
-   TABLE:    nena.County
+   TABLE:    nena.CountyOrEquivalentA2
    Used By:  A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.28, p.56
    Notes:    If counties or equivalents boundary layer is created then this should 
              be dropped and the layer should be used as the domain with pk/fk 
              constraint local listing will likely be limited to state or region 
    ************************************************************************** */
-DROP TABLE  IF EXISTS nena.County CASCADE;
-CREATE TABLE nena.County (
+DROP TABLE  IF EXISTS nena.CountyOrEquivalentA2 CASCADE;
+CREATE TABLE nena.CountyOrEquivalentA2 (
 	County VARCHAR(100) PRIMARY KEY
 ); 
 
@@ -259,20 +259,6 @@ DROP TABLE IF EXISTS nena.StreetNameLegacyDirectional CASCADE;
 CREATE TABLE nena.StreetNameLegacyDirectional (
 	Directional VARCHAR(2) PRIMARY KEY
 ,	Directional_lookup VARCHAR(10)
-);
-
-
-/* *****************************************************************************
-   TABLE:    nena.StreetNameLegacyType
-   Used By:  RoadCenterLine, SiteStructureAddressPoint
-   Source:   NENA-STA-006.2-2022, Sections 5.58, p.64
-   Notes:    This is limited to USPS Publication 28 main abbreviation lookup and 
-             may be expanded locally.
-   ************************************************************************** */
-DROP TABLE IF EXISTS nena.StreetNameLegacyType CASCADE;
-CREATE TABLE nena.StreetNameLegacyType (
-	Abbreviation  VARCHAR(4) PRIMARY KEY	
-,	Description VARCHAR(20) 
 );
 
 
@@ -453,7 +439,7 @@ CREATE TABLE nena.RoadCenterline (
 , St_PosMod VARCHAR(25) 
 , LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetNameLegacyDirectional(Directional)
 , LSt_Name VARCHAR(75)   
-, LSt_Typ VARCHAR(4)  REFERENCES nena.StreetNameLegacyType(Abbreviation)
+, LSt_Typ VARCHAR(4)
 , LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetNameLegacyDirectional(Directional)
 , ESN_L VARCHAR(5)  CHECK ( ESN_L ~* '\w{3,5}' )
 , ESN_R VARCHAR(5)  CHECK ( ESN_R ~* '\w{3,5}' )
@@ -543,7 +529,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , St_PosMod VARCHAR(25)
 , LSt_PreDir VARCHAR(2)  REFERENCES nena.StreetNameLegacyDirectional(Directional)
 , LSt_Name VARCHAR(75)
-, LSt_Typ VARCHAR(4)  REFERENCES nena.StreetNameLegacyType(Abbreviation)   
+, LSt_Typ VARCHAR(4) 
 , LSt_PosDir VARCHAR(2)  REFERENCES nena.StreetNameLegacyDirectional(Directional)
 , ESN VARCHAR(5)
 , MSAGComm VARCHAR(30)
