@@ -158,8 +158,8 @@ CHECK ( VALUE IN ('US', 'CA', 'MX') );
              as well local domain will probably be limited so this is best 
              maintained as a table
    ************************************************************************** */
-DROP TABLE IF EXISTS nena.State CASCADE;
-CREATE TABLE nena.State (
+DROP TABLE IF EXISTS nena.StateOrEquivalentA1 CASCADE;
+CREATE TABLE nena.StateOrEquivalentA1 (
 	State VARCHAR(2) PRIMARY KEY
 , 	State_Name VARCHAR(50) NOT NULL 
 );

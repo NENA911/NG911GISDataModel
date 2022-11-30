@@ -120,8 +120,8 @@ Replace** of `--DELETE FROM` to `DELETE FROM`.
            per NENA-STA-006.2-2022, Section 5.107, p.77
    Last Update:  2022-11-05
    ************************************************************************** */
---DELETE FROM nena.State;
-INSERT INTO nena.State values 
+--DELETE FROM nena.StateOrEquivalentA1;
+INSERT INTO nena.StateOrEquivalentA1 values 
    ('AL','Alabama')
 ,  ('AK','Alaska')
 ,  ('AS','American Samoa')
