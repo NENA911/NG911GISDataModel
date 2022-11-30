@@ -716,7 +716,7 @@ INSERT INTO nena.PlaceType VALUES
 INSERT INTO nena.PlacementMethod VALUES 
    ('Geocoding')
 ,  ('Parcel')
-,  ('Property Access')
+,  ('PropertyAccess')
 ,  ('Site')
 ,  ('Structure')
 ,  ('Unknown')
