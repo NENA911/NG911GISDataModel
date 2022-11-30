@@ -151,7 +151,7 @@ CHECK ( VALUE IN ('US', 'CA', 'MX') );
 
 
 /* *****************************************************************************
-   TABLE:    nena.State
+   TABLE:    nena.StateOrEquivalentA1
    Used by:  ServiceBoundaryPolygons, A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.107, p.77
    Notes:    If states or equivalents layer exists, then this should be dropped 
@@ -166,15 +166,15 @@ CREATE TABLE nena.StateOrEquivalentA1 (
 
 
 /* *****************************************************************************
-   TABLE:    nena.County
+   TABLE:    nena.CountyOrEquivalentA2
    Used By:  A1Polygon - A5Polygon, CellSectorPoint
    Source:   NENA-STA-006.2-2022, Section 5.28, p.56
    Notes:    If counties or equivalents boundary layer is created then this should 
              be dropped and the layer should be used as the domain with pk/fk 
              constraint local listing will likely be limited to state or region 
    ************************************************************************** */
-DROP TABLE  IF EXISTS nena.County CASCADE;
-CREATE TABLE nena.County (
+DROP TABLE  IF EXISTS nena.CountyOrEquivalentA2 CASCADE;
+CREATE TABLE nena.CountyOrEquivalentA2 (
 	County VARCHAR(100) PRIMARY KEY
 ); 
 
