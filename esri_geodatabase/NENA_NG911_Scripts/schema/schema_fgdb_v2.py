@@ -2738,7 +2738,7 @@ TABLES = [
             ["Expire", "DATE", "", "", "", "Expiration Date",
              "NULLABLE", "NON_REQUIRED", ""],
             ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID (Primary Key)",
-             "NULLABLE", "NON_REQUIRED", ""],
+             "NON_NULLABLE", "REQUIRED", ""],
             ["SSAP_NGUID", "TEXT", "", "", "254", "Site NENA Globally Unique ID (Foreign Key)",
              "NULLABLE", "NON_REQUIRED", ""],
             ["CLNA_NGUID", "TEXT", "", "", "254", "Complete Landmark Name Alias NENA Globally Unique ID (Foreign Key)",
