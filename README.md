@@ -63,7 +63,8 @@ Working Group does urge caution in using these scripts directly as it presents
 some potential for an entity to diverge from, and become incompatible with, 
 the official NENA template files.
 
-### Domain Use
+### GIS Data Provider Specific Domains
+
 Within the templates there are domains that have no entries. These domains include:
 
 * Additional Code (`AddCode`, `AddCode_L` and `AddCode_R`)
