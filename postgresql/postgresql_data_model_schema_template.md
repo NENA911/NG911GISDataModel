@@ -433,7 +433,7 @@ CREATE TABLE nena.RoadCenterline (
 , St_PreDir nena.StreetNameDirectional
 , St_PreTyp VARCHAR(50)  REFERENCES nena.StreetNameType(StreetNameType)
 , St_PreSep VARCHAR(20)  REFERENCES nena.StreetNamePreTypeSeparator(Separator)
-, St_Name VARCHAR(254)   
+, St_Name VARCHAR(254)  NOT NULL 
 , St_PosTyp VARCHAR(50)  REFERENCES nena.StreetNameType(StreetNameType)
 , St_PosDir nena.StreetNameDirectional
 , St_PosMod VARCHAR(25) 
