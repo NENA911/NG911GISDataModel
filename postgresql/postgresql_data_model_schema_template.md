@@ -795,7 +795,7 @@ CREATE TABLE nena.A5Polygon (
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.County(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
 , Inc_Muni VARCHAR(100)  NOT NULL
-, Uninc_Comm VARCHAR(100) NOT NULL
+, Uninc_Comm VARCHAR(100) 
 , Nbrhd_Comm VARCHAR(100)  NOT NULL  
 );
 
