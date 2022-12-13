@@ -221,7 +221,7 @@ contact information for the leadership of the Data Structures Committee can be f
 
 ## Known Issues
 
-* [Issue #31] - **ArcGIS Pro 2.9.0** - Enabling Editor Tracking on the `DateUpdate` 
+* **ArcGIS Pro 2.9.0** [Issue #31] - Enabling Editor Tracking on the `DateUpdate` 
   field results in an error when creating the NENA template file geodatabase.<br>
   **Recommended Solution** Upgrade to ArcGIS Pro 2.9.5 or later.
 
