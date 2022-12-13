@@ -221,6 +221,14 @@ contact information for the leadership of the Data Structures Committee can be f
 
 ## Known Issues
 
+* **ArcGIS Desktop 10.x** [Issues #33 and #37] - ArcGIS Desktop 10.x is not 
+  enforcing ranged domains correctly. ArcGIS Desktop also does not display an 
+  error but rather folds the value to the closest domain value. Due to the 
+  end-of-life for ArcGIS Desktop 10, it is not excpected the vendor will address 
+  this issue.<br>
+  **Recommended Solution** Upgrade to the latest ArcGIS Pro where ranged domains 
+  are enforced.
+
 * **ArcGIS Pro 2.9.0** [Issue #31] - Enabling Editor Tracking on the `DateUpdate` 
   field results in an error when creating the NENA template file geodatabase.<br>
   **Recommended Solution** Upgrade to ArcGIS Pro 2.9.5 or later.
