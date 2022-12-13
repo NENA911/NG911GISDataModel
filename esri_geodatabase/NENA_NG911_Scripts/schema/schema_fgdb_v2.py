@@ -63,7 +63,7 @@ DOMAINS = [
                               "is the third Landmark Name Part, etc.",
         "field_type": "SHORT",
         "domain_type": "RANGE",
-        "values": [1, 99]
+        "values": [1, 9]
     }, {
         "domain_name": "Latitude",
         "domain_description": "The angular distance of a location north or "
