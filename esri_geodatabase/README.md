@@ -27,6 +27,7 @@ GIS platforms.
   * [Table (TABLES) Dictionary Schema](#table-tables-dictionary-schema)
   * [Relationship (RELATES) Dictionary Schema](#relationship-relates-dictionary-schema)
 * [Help](#help)
+* [Known Issues](#known-issues)
 * [Change Log](#change-log)
 * [Contributors](#contributors)
 * [Acknowledgements](#acknowledgements)
@@ -215,6 +216,12 @@ documentation for more information.
 
 For assistance please visit https://www.nena.org/page/DataStructures where 
 contact information for the leadership of the Data Structures Committee can be found.  
+
+---
+
+## Known Issues
+
+* 
 
 ---
 
