@@ -63,6 +63,42 @@ Working Group does urge caution in using these scripts directly as it presents
 some potential for an entity to diverge from, and become incompatible with, 
 the official NENA template files.
 
+### Domain Use
+Within the templates there are domains that have no entries. These domains include:
+
+* Additional Code (`AddCode`, `AddCode_L` and `AddCode_R`)
+* Discrepancy Agency ID (`DiscrpAgID`) 
+* County or Equivalent (A2) (`County`, `County_L`, and `County_R`)
+* ESN (`ESN`, `ESN_L`, and `ESN_R`)
+* Postal Code (`PostCode`, `PostCode_L`, and `PostCode_R`)
+* Postal Community Name (`PostComm`, `PostComm_L` and `PostComm_R`)
+* Service URI (`ServiceURI`) 
+
+The GIS Data Provider is expected to populate these domains, in accordance with 
+guidelines specified within the NG9-1-1 GIS Data Model standard, based on the 
+needs within their jurisdiction.
+
+For domains that have entries, but do not completely meet the GIS Data Provider's 
+needs, the GIS Data Provider is encouraged to find the proper channel through 
+which those domains can be extended. For example, in the case of the 
+**Legacy Street Name Type** (`LSt_Typ[_L\_R]`) , the owner of those entries is 
+the United States Postal Service; to extend that domain requires a change in 
+[USPS Publication 28 Appendix C1](https://pe.usps.com/text/pub28/28apc_002.htm). 
+In the case of the **Street Name Pre/Post Types**, **Street Name Pre Type Separator** 
+and **Placement Method** domains, those entries are maintained by NENA through the 
+[NENA Registry System](http://technet.nena.org/nrs/registry/_registries.xml) and 
+new entries can be requested through that system. In the case of 
+**Country**, **Place Type** and **Service URN** the GIS Data Provider 
+is encouraged to contact NENA to seek more direction for requesting new entries.
+
+Lastly, there are some domains where extension is not anticipated. Those 
+include domains such as **Location Marker Indicator** (`LM_Ind`), 
+**Location Marker Unit of Measurement** (`LM_Unit`), 
+**Legacy Street Name Pre/Post Directional**, **Street Name Pre/Post Directional**, 
+**One Way**, **Parity**, **Road Class**, **State or Equivalent (A1)** and **Validation**. However, if an GIS Data Provider believes 
+changes are needed for these domains the entity is encouraged to contact NENA 
+to seek more direction for requesting new entries.
+
 ---
 
 ## Owner
