@@ -2643,7 +2643,7 @@ FEATURE_CLASSES = [
         ]
     }, {
         "out_name": "CellSectorPoint",
-        "out_alias": "Cell Sector Point Point",
+        "out_alias": "Cell Sector Point",
         "geometry_type": "POINT",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
