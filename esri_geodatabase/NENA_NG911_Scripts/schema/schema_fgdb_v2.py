@@ -1204,9 +1204,9 @@ FEATURE_CLASSES = [
              "NULLABLE", "NON_REQUIRED", "PlaceType"],
             ["Placement", "TEXT", "", "", "25", "Placement Method",
              "NULLABLE", "NON_REQUIRED", "PlacementMethod"],
-            ["Longitude", "DOUBLE", "", "", "", "Longitude",
+            ["Longitude", "FLOAT", "", "", "", "Longitude",
              "NULLABLE", "NON_REQUIRED", "Longitude"],
-            ["Latitude", "DOUBLE", "", "", "", "Latitude",
+            ["Latitude", "FLOAT", "", "", "", "Latitude",
              "NULLABLE", "NON_REQUIRED", "Latitude"],
             ["Elevation", "SHORT", "", "", "", "Elevation",
              "NULLABLE", "NON_REQUIRED", ""],
@@ -2680,9 +2680,9 @@ FEATURE_CLASSES = [
             "NON_NULLABLE", "REQUIRED", ""],
             ["SSAP_NGUID", "TEXT", "", "", "254", "Site NENA Globally Unique ID",
             "NULLABLE", "NON_REQUIRED", ""],
-            ["Longitude", "DOUBLE", "", "", "", "Longitude",
+            ["Longitude", "FLOAT", "", "", "", "Longitude",
             "NULLABLE", "NON_REQUIRED", "Longitude"],
-            ["Latitude", "DOUBLE", "", "", "", "Latitude",
+            ["Latitude", "FLOAT", "", "", "", "Latitude",
             "NULLABLE", "NON_REQUIRED", "Latitude"],
         ]
     }
