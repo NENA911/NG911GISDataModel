@@ -1208,7 +1208,7 @@ FEATURE_CLASSES = [
              "NULLABLE", "NON_REQUIRED", "Longitude"],
             ["Latitude", "FLOAT", "", "", "", "Latitude",
              "NULLABLE", "NON_REQUIRED", "Latitude"],
-            ["Elevation", "SHORT", "", "", "", "Elevation",
+            ["Elevation", "LONG", "", "", "", "Elevation",
              "NULLABLE", "NON_REQUIRED", ""],
         ]
     }, {
