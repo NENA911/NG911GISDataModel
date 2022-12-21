@@ -69,7 +69,7 @@ DOMAINS = [
         "domain_description": "The angular distance of a location north or "
                               "south of the equator as defined by the "
                               "coordinate system, expressed in decimal degrees.",
-        "field_type": "DOUBLE",
+        "field_type": "FLOAT",
         "domain_type": "RANGE",
         "values": [-90, 90]
     }, {
@@ -77,7 +77,7 @@ DOMAINS = [
         "domain_description": "The angular distance of a location east or west of "
                               "the prime meridian of the coordinate system, "
                               "expressed in decimal degrees.",
-        "field_type": "DOUBLE",
+        "field_type": "FLOAT",
         "domain_type": "RANGE",
         "values": [-180, 180]
     }, {
@@ -1205,9 +1205,9 @@ FEATURE_CLASSES = [
             ["Placement", "TEXT", "", "", "25", "Placement Method",
              "NULLABLE", "NON_REQUIRED", "PlacementMethod"],
             ["Longitude", "FLOAT", "", "", "", "Longitude",
-             "NULLABLE", "NON_REQUIRED", "Longitude"],
+             "NULLABLE", "NON_REQUIRED", ""],
             ["Latitude", "FLOAT", "", "", "", "Latitude",
-             "NULLABLE", "NON_REQUIRED", "Latitude"],
+             "NULLABLE", "NON_REQUIRED", ""],
             ["Elevation", "LONG", "", "", "", "Elevation",
              "NULLABLE", "NON_REQUIRED", ""],
         ]
