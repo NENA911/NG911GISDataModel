@@ -72,10 +72,21 @@ def main(**params):
     #   https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/getinstallinfo.htm
     install_info = arcpy.GetInstallInfo()
 
+    # Parse the FEATURE_CLASSES for primary vs non-primary layers
+    # This differentiates primary Service Boundaries from non-primary Service Boundaries
+    primary = True if params["primary"] == "true" else False
+    primary_layers = []
+    if primary:
+        for layer in FEATURE_CLASSES:
+            if layer["primary"] == primary:
+                primary_layers.append(layer)
+    else:
+        primary_layers = FEATURE_CLASSES
+
     # Initialize the Progressor, if ArcGIS Toolbox
     if params["params_type"] == 'TOOLBOX':
         # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/setprogressor.htm
-        max_steps = 1 + len(DOMAINS) + len(FEATURE_CLASSES) + len(TABLES) + len(RELATES)
+        max_steps = 1 + len(DOMAINS) + len(primary_layers) + len(TABLES) + len(RELATES)
         arcpy.SetProgressor(
             type='step',
             min_range=0,
@@ -297,7 +308,8 @@ def main(**params):
         progress=False
     )
 
-    for fc in FEATURE_CLASSES:
+    for fc in primary_layers:
+
         messages(
             msgs=[
                 'Creating Feature Class: {}...'.format(fc["out_name"])
@@ -525,7 +537,8 @@ if __name__ == '__main__':
         "file_type": 'File Geodatabase (.gdb)',
         "gdb_version": 'CURRENT',
         "spatial_reference": SR_WGS84,
-        "allow_overwrite": "true"
+        "allow_overwrite": "false",
+        "primary": "true"
     }
 
     # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/getparameterastext.htm
@@ -536,6 +549,7 @@ if __name__ == '__main__':
         "file_type": 'File Geodatabase (.gdb)',
         "gdb_version": arcpy.GetParameterAsText(2),
         "spatial_reference": arcpy.GetParameterAsText(3),
-        "allow_overwrite": arcpy.GetParameterAsText(4)
+        "allow_overwrite": arcpy.GetParameterAsText(4),
+        "primary": arcpy.GetParameterAsText(5)
     }
     main(**toolbox_params)

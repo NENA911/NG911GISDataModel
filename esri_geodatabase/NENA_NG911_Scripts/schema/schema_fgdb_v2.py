@@ -1005,6 +1005,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYLINE",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1117,6 +1118,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POINT",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1217,6 +1219,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1251,6 +1254,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1285,6 +1289,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1319,6 +1324,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1353,6 +1359,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1387,6 +1394,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1421,6 +1429,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1455,6 +1464,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1489,6 +1499,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1523,6 +1534,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1557,6 +1569,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1591,6 +1604,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1625,6 +1639,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1659,6 +1674,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1693,6 +1709,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1727,6 +1744,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1761,6 +1779,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1795,6 +1814,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1829,6 +1849,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1863,6 +1884,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1897,6 +1919,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1931,6 +1954,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1965,6 +1989,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -1999,6 +2024,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2033,6 +2059,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2067,6 +2094,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2101,6 +2129,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2135,6 +2164,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2169,6 +2199,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2203,6 +2234,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2237,6 +2269,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2271,6 +2304,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2305,6 +2339,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2339,6 +2374,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2373,6 +2409,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": False,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2407,6 +2444,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2425,6 +2463,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2447,6 +2486,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2471,6 +2511,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2499,6 +2540,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2529,6 +2571,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2561,6 +2604,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYLINE",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2585,6 +2629,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYLINE",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2603,6 +2648,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POLYGON",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2621,6 +2667,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POINT",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
@@ -2647,6 +2694,7 @@ FEATURE_CLASSES = [
         "geometry_type": "POINT",
         "has_m": "DISABLED",
         "has_z": "DISABLED",
+        "primary": True,
         "fields": [
             ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
              "NON_NULLABLE", "REQUIRED", ""],
