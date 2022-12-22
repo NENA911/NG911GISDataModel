@@ -447,10 +447,10 @@ CREATE TABLE nena.RoadCenterline (
 , MSAGComm_R VARCHAR(30)  
 , Country_L nena.Country  NOT NULL  
 , Country_R nena.Country  NOT NULL 
-, State_L VARCHAR(2)  NOT NULL  REFERENCES nena.State(State)
-, State_R VARCHAR(2)  NOT NULL  REFERENCES nena.State(State)
-, County_L VARCHAR(100)  NOT NULL  REFERENCES nena.County(County)
-, County_R VARCHAR(100)  NOT NULL  REFERENCES nena.County(County)
+, State_L VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
+, State_R VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
+, County_L VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
+, County_R VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
 , AddCode_L VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
 , AddCode_R VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
 , IncMuni_L VARCHAR(100)  NOT NULL  
@@ -509,8 +509,8 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.Country  NOT NULL  
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.State(State)
-, County VARCHAR(100)  NOT NULL  REFERENCES nena.County(County)
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
+, County VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
 , AddDataURI VARCHAR(254)
 , Inc_Muni VARCHAR(100)  NOT NULL  
@@ -614,7 +614,7 @@ CREATE TABLE nena.PsapPolygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.Country  NULL  
-, State VARCHAR(2)  NULL  REFERENCES nena.State(State)
+, State VARCHAR(2)  NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
 , ServiceURN VARCHAR(55)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
@@ -633,7 +633,7 @@ CREATE TABLE nena.PolicePolygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.Country  NULL  
-, State VARCHAR(2)  NULL  REFERENCES nena.State(State)
+, State VARCHAR(2)  NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
 , ServiceURN VARCHAR(55)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
@@ -652,7 +652,7 @@ CREATE TABLE nena.FirePolygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.Country  NULL  
-, State VARCHAR(2)  NULL  REFERENCES nena.State(State)
+, State VARCHAR(2)  NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
 , ServiceURN VARCHAR(55)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
@@ -671,7 +671,7 @@ CREATE TABLE nena.EmsPolygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.Country  NULL  
-, State VARCHAR(2)  NULL  REFERENCES nena.State(State)
+, State VARCHAR(2)  NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , Agency_ID VARCHAR(100)  NOT NULL  REFERENCES nena.Agency(AgencyID)
 , ServiceURI VARCHAR(254)  NOT NULL
 , ServiceURN VARCHAR(55)  NOT NULL  REFERENCES nena.ServiceURN(ServiceURN)
@@ -711,7 +711,7 @@ CREATE TABLE nena.A1Polygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.Country  NOT NULL   
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.State(State)
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
 );
 
 
@@ -729,8 +729,8 @@ CREATE TABLE nena.A2Polygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.Country  NOT NULL   
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.State(State)
-, County VARCHAR(100)  NOT NULL   REFERENCES nena.County(County)
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
+, County VARCHAR(100)  NOT NULL   REFERENCES nena.CountyOrEquivalentA2(County)
 );
 
 
@@ -748,8 +748,8 @@ CREATE TABLE nena.A3Polygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.Country  NOT NULL   
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.State(State)
-, County VARCHAR(100)  NOT NULL  REFERENCES nena.County(County)
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
+, County VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
 , Inc_Muni VARCHAR(100)  NOT NULL  
 );
@@ -769,8 +769,8 @@ CREATE TABLE nena.A4Polygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.Country  NOT NULL   
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.State(State)
-, County VARCHAR(100)  NOT NULL  REFERENCES nena.County(County)
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
+, County VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
 , Inc_Muni VARCHAR(100)  NOT NULL
 , Uninc_Comm VARCHAR(100) NOT NULL
@@ -791,8 +791,8 @@ CREATE TABLE nena.A5Polygon (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE 
 , Country nena.Country  NOT NULL   
-, State VARCHAR(2)  NOT NULL  REFERENCES nena.State(State)
-, County VARCHAR(100)  NOT NULL  REFERENCES nena.County(County)
+, State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
+, County VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
 , AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
 , Inc_Muni VARCHAR(100)  NOT NULL
 , Uninc_Comm VARCHAR(100) 
@@ -871,8 +871,8 @@ CREATE TABLE nena.CellSectorPoint (
 , Expire TIMESTAMPTZ
 , NGUID VARCHAR(254)  NOT NULL  UNIQUE
 , Country nena.Country  NOT NULL
-, State VARCHAR(2)  NOT NULL   REFERENCES nena.State(State)
-, County VARCHAR(100)  NOT NULL   REFERENCES nena.County(County)
+, State VARCHAR(2)  NOT NULL   REFERENCES nena.StateOrEquivalentA1(State)
+, County VARCHAR(100)  NOT NULL   REFERENCES nena.CountyOrEquivalentA2(County)
 , Site_ID VARCHAR(10)   
 , Sector_ID VARCHAR(4)  NOT NULL  
 , Switch_ID VARCHAR(10)   
