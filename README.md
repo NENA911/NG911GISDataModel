@@ -4,9 +4,15 @@ This repository defines the
 [Geographic Information Systems (GIS) Data Model](https://www.nena.org/page/NG911GISDataModel), 
 which supports the NENA Next Generation 9-1-1 (NG9-1-1) Core Services (NGCS) of 
 location validation and routing, both geospatial call routing or to the 
-appropriate agency for dispatch. This model also defines several GIS data 
+appropriate agency for dispatch. This model also defines the GIS data 
 layers (layers) used in local Public Safety Answering Point (PSAP) and 
 response agency mapping applications for handling and responding to 9-1-1 calls.
+
+The objective of this repository is to provide a common transport format of 
+NG9-1-1 data layers between GIS Data Providers and the SI. While the following 
+scripts may be used by GIS Data Providers as a template for the management of 
+their own NG9-1-1 data, it is expected that each GIS Data Provider will modify 
+the schema to meet their specific organizations needs and requirements. 
 
 ---
 ## Table of Contents
@@ -45,14 +51,6 @@ PostgreSQL/PostGIS database and a version based on the Esri File GeoDatabase.
 The templates are meant to represent what NG9-1-1 GIS data should look like 
 when it is being exchanged between two parties. 
 
-The current templates include:
-
-* [esri_geodatabase](esri_geodatabase/README.md) - Folder containing a sample 
-  file geodatabase, ArcGIS Toolbox and associated Python scripts to create the 
-  file geodatabase.
-* [postgresql](postgresql/README.md) - Folder containing documentation and SQL 
-  scripts to create a NENA NG9-1-1 GIS Data Model template in PostgreSQL.
-
 While preparing these templates, the Working Group developed two sets of 
 scripts (Python and SQL) to help in creation of the template files.  The 
 scripts were originally intended only to serve as a method to help the 
@@ -62,6 +60,14 @@ been included in this package.  While the scripts may prove useful, the
 Working Group does urge caution in using these scripts directly as it presents 
 some potential for an entity to diverge from, and become incompatible with, 
 the official NENA template files.
+
+The current templates include:
+
+* [esri_geodatabase](esri_geodatabase/README.md) - Folder containing a sample 
+  file geodatabase, ArcGIS Toolbox and associated Python scripts to create the 
+  file geodatabase.
+* [postgresql](postgresql/README.md) - Folder containing documentation and SQL 
+  scripts to create a NENA NG9-1-1 GIS Data Model template in PostgreSQL.
 
 ### GIS Data Provider Specific Domains
 
@@ -99,6 +105,7 @@ include domains such as **Location Marker Indicator** (`LM_Ind`),
 **One Way**, **Parity**, **Road Class**, **State or Equivalent (A1)** and **Validation**. However, if an GIS Data Provider believes 
 changes are needed for these domains the entity is encouraged to contact NENA 
 to seek more direction for requesting new entries.
+
 
 ---
 
