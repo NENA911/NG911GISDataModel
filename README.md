@@ -106,7 +106,7 @@ include domains such as **Location Marker Indicator** (`LM_Ind`),
 changes are needed for these domains the entity is encouraged to contact NENA 
 to seek more direction for requesting new entries.
 
-### Errata
+### Miscellaneous Notes
 
 #### PlaceType Domain
 
