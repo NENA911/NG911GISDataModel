@@ -106,6 +106,17 @@ include domains such as **Location Marker Indicator** (`LM_Ind`),
 changes are needed for these domains the entity is encouraged to contact NENA 
 to seek more direction for requesting new entries.
 
+### Errata
+
+#### PlaceType Domain
+
+The **SiteStructureAddressPoint** layer **PlaceType** domain specifies the 
+values of the IANA [Location Types Registry](https://www.iana.org/assignments/location-type-registry/location-type-registry.xml). 
+The Location Types defined in this registry include vehicles (e.g., "aircraft", 
+"automobile", "bus", "bicycle", etc.). Upon discussion of the working group, it 
+was agreed that it is uncommon to address a vehicle but rather the space the 
+vehicle occupies. Therefore, the vehicle location types were excluded as it is 
+unusal to address a location that moves.
 
 ---
 
