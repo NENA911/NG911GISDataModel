@@ -233,6 +233,13 @@ contact information for the leadership of the Data Structures Committee can be f
   field results in an error when creating the NENA template file geodatabase.<br>
   **Recommended Solution** Upgrade to ArcGIS Pro 2.9.5 or later.
 
+* **Python Script RuntimeError** [Issue #29] - When running as standalone Python 
+  script there are a couple of scenarios where the script will fail and 
+  immediately crash on the `import arcpy` line if the user is not signed in to 
+  ArcGIS Pro or isn't utilizing an offline Pro license. A workaround is provided 
+  in Issue #29, however, it was decided not to include this as it is a vendor issue, 
+  not an issue with the actual Python script.
+
 ---
 
 ## Change Log
