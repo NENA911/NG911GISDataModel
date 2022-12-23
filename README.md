@@ -118,6 +118,11 @@ was agreed that it is uncommon to address a vehicle but rather the space the
 vehicle occupies. Therefore, the vehicle location types were excluded as it is 
 unusal to address a location that moves.
 
+#### LandmarkNameCompleteAliasTable and LandmarkNamePartTable 
+
+In future version of NENA-STA-006 it is expected that the 
+**LandmarkNameCompleteAliasTable** and **LandmarkNamePartTable** will be removed.
+
 ---
 
 ## Owner
