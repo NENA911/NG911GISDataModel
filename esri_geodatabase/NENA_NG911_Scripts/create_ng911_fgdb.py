@@ -13,6 +13,7 @@
 """
 import os
 from sys import exit
+import xml.etree.ElementTree as ET
 import arcpy
 
 from util import CreateLogger
@@ -514,6 +515,57 @@ def main(**params):
             origin_foreign_key=relate["origin_foreign_key"]
         )
 
+    # Create base metadata
+    messages(
+        msgs=[
+            '{}'.format("#" * 80),
+            'Creating File Geodatabase Metadata...',
+            '{}'.format("#" * 80)
+        ],
+        msg_lvl='INFO',
+        msg_type=params["params_type"],
+        log=log,
+        progress=False
+    )
+    fgdb_metadata_file = 'metadata/NG911_GIS_Metadata.xml'
+    if install_info['Version'].startswith('10.'):
+        arcpy.ImportMetadata_conversion(
+            Source_Metadata=fgdb_metadata_file,
+            Import_Type="FROM_ISO_19139",
+            Target_Metadata=output_fgdb_path
+        )
+    else:
+        # Import and parse the ISO 19139 metadata and transform to new
+        # metadata format for ArcGIS Pro
+        tree = ET.parse(fgdb_metadata_file)
+        root = tree.getroot()
+        ns = {
+            "gmd": "http://www.isotc211.org/2005/gmd",
+            "gco": "http://www.isotc211.org/2005/gco"
+        }
+        base_path = "./gmd:identificationInfo/gmd:MD_DataIdentification"
+
+        # Populate the metadata object from fgdb_metadata_file
+        md = arcpy.metadata.Metadata()
+        md.title = root.find(
+            base_path + "/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString",
+            namespaces=ns).text
+        md.tags = root.find(
+            base_path + "/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString",
+            namespaces=ns).text
+        md.summary = root.find(
+            base_path + "/gmd:abstract/gco:CharacterString", namespaces=ns).text
+        md.description = root.find(
+            base_path + "/gmd:purpose/gco:CharacterString", namespaces=ns).text
+        md.credits = root.find(
+            base_path + "/gmd:credit/gco:CharacterString", namespaces=ns).text
+
+        # Assign the Metadata object's content to a target fgdb
+        fgdb = arcpy.metadata.Metadata(output_fgdb_path)
+        if not fgdb.isReadOnly:
+            fgdb.copy(md)
+            fgdb.save()
+
     # =========================================================================
     # Module Cleanup
     # =========================================================================
@@ -538,7 +590,8 @@ if __name__ == '__main__':
         "gdb_version": 'CURRENT',
         "spatial_reference": SR_WGS84,
         "allow_overwrite": "false",
-        "primary": "true"
+        "primary": "true",
+        "include_metadata": "true"
     }
 
     # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/getparameterastext.htm
@@ -550,6 +603,7 @@ if __name__ == '__main__':
         "gdb_version": arcpy.GetParameterAsText(2),
         "spatial_reference": arcpy.GetParameterAsText(3),
         "allow_overwrite": arcpy.GetParameterAsText(4),
-        "primary": arcpy.GetParameterAsText(5)
+        "primary": arcpy.GetParameterAsText(5),
+        "include_metadata": arcpy.GetParameterAsText(6)
     }
     main(**toolbox_params)
