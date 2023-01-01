@@ -268,7 +268,7 @@ leadership of the Data Structures Committee can be found.
   When running as standalone Python script there are a couple of scenarios 
   where the script will fail and immediately crash on the `import arcpy` line 
   if the user is not signed in to ArcGIS Pro or isn't utilizing an offline Pro 
-  license. A workaround is provided in [Issue #29](https://github.com/NENA911/NG911GISDataModel/issues/29), 
+  license. A workaround is provided in Issue [#29](https://github.com/NENA911/NG911GISDataModel/issues/29), 
   however, it was decided not to include this as it is a vendor issue, not an 
   issue with the actual Python script.
 
