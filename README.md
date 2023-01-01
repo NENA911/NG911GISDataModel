@@ -282,7 +282,7 @@ See the full policy [here](https://www.nena.org/general/custom.asp?page=ipr).
 ---
 
 ## License
-Copyright 2019-2022 National Emergency Number Association
+Copyright 2019-2023 National Emergency Number Association
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 use these files except in compliance with the License. You may obtain a copy 
