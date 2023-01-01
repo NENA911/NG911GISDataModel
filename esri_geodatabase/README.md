@@ -1,11 +1,12 @@
 # Esri GeoDatabase Template
 
 The material within this folder contains both a template Esri File Geodatabase
-(FGDB) that may be used directly and an ArcGIS Toolbox with associated Python 
-scripts to generate a new FGDB. The ArcGIS Toolbox was used by the DS-GIS 
+(FGDB) that may be used directly, as a template, and a Python script with 
+associated ArcGIS Toolboxes to generate a new FGDB either using ArcGIS Desktop 
+or Esri Python libraries. The ArcGIS Toolboxes were used by the DS-GIS 
 Template working group to generate the example FGDB.
 
-The NENA GIS Data Model template is designed for organizations who implement the 
+The NENA GIS Data Model template is designed for organizations who utilize the 
 Esri ArcGIS Platform but may also be modified by organizations for use in other 
 GIS platforms.
 
@@ -35,23 +36,31 @@ GIS platforms.
 ---
 
 ## Folders and Files
-* [archive](.archive)
-  * [v1](.archive/v1) - Folder containing the version 1 Data Model template and files.
+* [.imgs](.imgs) - Folder containing documentation images and screen shots.
 * [NENA_NG911_Scripts](NENA_NG911_Scripts)
-  * [schema](schema) - Folder containing the NENA GIS Data Model schema which is 
-    processed by [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py).
-    * [schema_fgdb_v2.py](NENA_NG911_Scripts/schema_fgdb_v2.py) - Python file 
+  * [metadata](NENA_NG911_Scripts/metadata) - Folder containing the metadata 
+    applied to the file geodatabase during creation.
+  * [schema](NENA_NG911_Scripts/schema) - Folder containing the NENA GIS Data 
+    Model schema which is processed by 
+    [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py).
+    * [schema_fgdb_v2.py](NENA_NG911_Scripts/schema/schema_fgdb_v2.py) - Python file 
       containing the NENA GIS Data Model as dictionaries.
+  * [utils](NENA_NG911_Scripts/util) - Folder containing Python libraries utilized
+    by the [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py) script.
+    * [logger.py](NENA_NG911_Scripts/util/logger.py) - Python library that 
+      creations and manages log files for the Python scripts.
   * [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py) - Python script 
-    used by the NENA GIS Data Model File geodatabase.
-* [NENA_NG911_Toolbox.tbx](NENA_NG911_Toolbox.tbx) - ArcGIS Toolbox which supports 
-  both ArcGIS Desktop 10.8 and ArcGIS Pro.
-* [NENA_NG911_Toolbox.zip](NENA_NG911_Toolbox.zip) - Zipped archive of the 
-  NENA ArcGIS Toolbox and associated Python scripts which support both 
-  ArcGIS Desktop 10.8 and ArcGIS Pro.
-* [NG911_GIS_Template.zip](NENA_NG911_Toolbox.zip) - Zipped archive of the 
-  NENA GIS Data Model template in Esri File Geodatabase format for 
-  immediate use.
+    used by the NENA GIS Data Model file geodatabase.
+* [NENA_NG911_Toolbox.zip](NENA_NG911_Toolbox.zip) - Zip archive of the Python 
+  script and associated ArcGIS Toolboxes to generate a new FGDB either using 
+  ArcGIS Desktop.
+* [NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx](NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx) - 
+  ArcGIS Pro Toolbox which runs [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py).
+* [NENA_NG911_Toolbox_for_ArcMap.tbx](NENA_NG911_Toolbox_for_ArcMap.tbx) - 
+  ArcGIS Desktop 10.x Toolbox which runs [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py).
+* [NG911_GIS_Template.gdb.zip](NG911_GIS_Template.gdb.zip) - Zipped archive of 
+  the NENA GIS Data Model template in Esri File Geodatabase format for 
+  immediate use in ArcGIS Desktop.
 * [README.md](README.md) - This document.
 
 ---
@@ -61,14 +70,15 @@ GIS platforms.
 ### Dependencies
 
 * Operating System: Windows 10 (or later)
-* GIS Software: ArcGIS 10.2 (or later) AND/OR ArcGIS Pro 1.x (or later)
+* GIS Software: ArcGIS 10.2 (or later) and/or ArcGIS Pro 2.x (or later)
 * GIS Software Licensing Level: Standard or Advanced
 
-*Note: This has been only testing in ArcGIS Desktop 10.8.1 and ArcGIS Pro v2.9.x 
-and 3.0.x. We are aware of issues with ArcGIS Desktop 10.5.x where the Create 
-NG911 FGDB tool does not display in the ArcGIS Toolbox.*
+*Note: While this script has been tested in versions of ArcGIS Desktop back to 
+ArcGIS 10.2.x, there are some issues that have been documented. Please refer to 
+[Known Issues](#known-issues) for additional information.*
 
-*If you run into issues, run the script, please report a Bug in the Issues, 
+*If you run into issues, run the script, please report a bug in the 
+[Issues](https://github.com/NENA911/NG911GISDataModel/issues), 
 describe the issue that you had, screenshots are great, and please let us 
 know the version and licensing level of ArcGIS Desktop you encountered the issue 
 within.*
@@ -83,14 +93,15 @@ on the target machine and connected to using a suitable GIS application.
 ### Using the ArcGIS Toolbox
 
 If you are interested in creating the NENA GIS Data Model template from the 
-supplied ArcGIS Toolbox follow the instructions appropriate to your version 
+supplied ArcGIS Toolboxes, follow the instructions appropriate to your version 
 of ArcGIS Desktop. 
 
 *NOTE: You must download the [NENA_NG911_Toolbox.zip](NENA_NG911_Toolbox.zip) 
 and unzip locally or download/clone the Git repository to your local computer 
 before proceeding.*
 
-#### ArcGIS Desktop 10.8.x Instructions
+<details>
+<summary>ArcGIS Desktop 10.x Instructions</summary>
 
 * From the **Start** menu, open **ArcMap**
 * Open ArcToolbox by going to **Geoprocessing** > **ArcToolbox**<br>
@@ -106,7 +117,10 @@ before proceeding.*
   ![](.imgs/arcmap_create_fgdb_dialog.png)<br>
   ![](.imgs/arcmap_running_create_fgdb.png)
 
-#### ArcGIS Pro Instructions
+</details>
+
+<details>
+<summary>ArcGIS Pro Instructions</summary>
 
 * From the **Start** menu, open **ArcGIS Pro**
 * Create a new project using the **Catalog** template
@@ -120,25 +134,38 @@ before proceeding.*
 * Double-click **Create NG9-1-1 File Geodatabase (ArcMap)** to run the geoprocessing tool.<br>
   ![](.imgs/arcgispro_create_fgdb_dialog.png.png)
 
+</details
+
 #### Create NG9-1-1 File Geodatabase Tool
 
 The Create NG9-1-1 File Geodatabase tool uses the same input variables in both 
 ArcGIS Desktop 10.8.x and ArcGIS Pro. In tests, it takes approximately seven to nine 
 minutes to build out the complete file geodatabase. 
 
-* **Destination Folder** - Select a destination folder for the creation of the file geodatabase.
-* **File Geodatabase Name** - The name of the output file geodatabase. A file type extension is not required and will be added automatically.
+* **Destination Folder** - Select a destination folder for the creation of the 
+  file geodatabase.
+* **File Geodatabase Name** - The name of the output file geodatabase. A file 
+  type extension is not required and will be added automatically.
 * **GDB Version** - The version for the new geodatabase.
-  * CURRENT - Creates a geodatabase compatible with the currently installed version of ArcGIS.
+  * CURRENT - Creates a geodatabase compatible with the currently installed 
+    version of ArcGIS.
   * 10.0 - Creates a geodatabase compatible with ArcGIS version 10
-* **Spatial Reference** - The spatial reference of the output feature classes. The default is WGS 1984 per NENA-STA-006.2-2002.
-* **Allow Overwrite** - Allows existing file geodatabase in the destination folder to be overwritten if checked. 
+* **Spatial Reference** - The spatial reference of the output feature classes. 
+  The default is WGS 1984 per NENA-STA-006.2-2002.
+* **Allow Overwrite** - Allows existing file geodatabase in the destination 
+  folder to be overwritten if checked. 
+* **Primary Service Boundaries Only** - Create only the primary Service 
+  Boundaries (PsapPolygon, FirePolygon, PolicePolygon, and EmsPolygon) or 
+  all Service Boundaries.
+* **Import Metadata** - Enables (checked) or disables (un-checked) the default 
+  file geodatabase metadata.
+
 
 To monitor the progress in ArcGIS Pro, Click **Run** to run the script. 
 Click **View Details** to see the progress details.<br>
 ![](.imgs/arcgispro_create_fgdb_status.png)
 
-## Modifying the Python Scripts
+## Modifying the Python Script Schema
 
 The `schema_fgdb_v2.py` file contains four dictionaries containing all the 
 information to create domains (DOMAINS), feature classes (FEATURE_CLASSES), 
@@ -214,31 +241,36 @@ documentation for more information.
 
 ## Help
 
-For assistance please visit https://www.nena.org/page/DataStructures where 
-contact information for the leadership of the Data Structures Committee can be found.  
+For assistance not provided within this repositories documentation, please visit 
+https://www.nena.org/page/DataStructures where contact information for the 
+leadership of the Data Structures Committee can be found.  
 
 ---
 
 ## Known Issues
 
-* **ArcGIS Desktop 10.x** [Issues #33 and #37] - ArcGIS Desktop 10.x is not 
-  enforcing ranged domains correctly. ArcGIS Desktop also does not display an 
-  error but rather folds the value to the closest domain value. Due to the 
-  end-of-life for ArcGIS Desktop 10, it is not excpected the vendor will address 
-  this issue.<br>
+* **ArcGIS Desktop 10.x** [Issues [#33](https://github.com/NENA911/NG911GISDataModel/issues/33) 
+  and [#37](https://github.com/NENA911/NG911GISDataModel/issues/37)] - ArcGIS 
+  Desktop 10.x is not enforcing ranged domains correctly. ArcGIS Desktop also 
+  does not display an error but rather folds the value to the closest domain 
+  value. Due to the end-of-life for ArcGIS Desktop 10, it is not expected the 
+  vendor will address this issue.<br>
   **Recommended Solution** Upgrade to the latest ArcGIS Pro where ranged domains 
   are enforced.
 
-* **ArcGIS Pro 2.9.0** [Issue #31] - Enabling Editor Tracking on the `DateUpdate` 
-  field results in an error when creating the NENA template file geodatabase.<br>
-  **Recommended Solution** Upgrade to ArcGIS Pro 2.9.5 or later.
+* **ArcGIS Pro 2.9.0** [Issue [#31](https://github.com/NENA911/NG911GISDataModel/issues/31)] - 
+  Enabling Editor Tracking on the `DateUpdate` field results in an error when 
+  creating the NENA template file geodatabase. This seems to be an issue 
+  specifically with ArcGIS Pro 2.9.0.<br>
+**Recommended Solution** Upgrade to ArcGIS Pro 2.9.5 or later.
 
-* **Python Script RuntimeError** [Issue #29] - When running as standalone Python 
-  script there are a couple of scenarios where the script will fail and 
-  immediately crash on the `import arcpy` line if the user is not signed in to 
-  ArcGIS Pro or isn't utilizing an offline Pro license. A workaround is provided 
-  in Issue #29, however, it was decided not to include this as it is a vendor issue, 
-  not an issue with the actual Python script.
+* **Python Script RuntimeError** [Issue [#29](https://github.com/NENA911/NG911GISDataModel/issues/29)] - 
+  When running as standalone Python script there are a couple of scenarios 
+  where the script will fail and immediately crash on the `import arcpy` line 
+  if the user is not signed in to ArcGIS Pro or isn't utilizing an offline Pro 
+  license. A workaround is provided in [Issue #29](https://github.com/NENA911/NG911GISDataModel/issues/29), 
+  however, it was decided not to include this as it is a vendor issue, not an 
+  issue with the actual Python script.
 
 ---
 
@@ -247,7 +279,8 @@ contact information for the leadership of the Data Structures Committee can be f
 * v2.0
     * Updated for [NENA-STA-006.2-2022](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.2-2022_ng9-1-1.pdf)
     * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
+    * See [commit change](https://github.com/NENA911/NG911GISDataModel/commits/main) 
+      or [release history](https://github.com/NENA911/NG911GISDataModel/releases)
 * v1.0
     * Based on [NENA-STA-006.1.1-2020](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
     * Initial Release
