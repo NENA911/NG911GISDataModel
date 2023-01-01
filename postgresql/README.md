@@ -1,11 +1,9 @@
 # PostgreSQL/PostGIS GIS Data Model Template
 
 This documentation provides the step-by-step instructions to create, deploy, 
-backup, and restore the NG9-1-1 Data Model Template for PostgreSQL/PostiGIS, 
+backup, and restore the NG9-1-1 Data Model Template for PostgreSQL/PostGIS, 
 prepared by the NENA Data Model Working Group. This Data Model is designed for 
 an open source PostgreSQL/PostGIS database but can be adapted for other platforms.
-
-*[2022-11-16] NOTE: This documentation is still under development.*
 
 ---
 
@@ -35,7 +33,8 @@ management best practices. With the exception of the database creation,
 other topics of this section are recommended, but optional.
 
 This section does not cover the specific installation of any software or 
-the database management tool is the choice of the user. 
+the database management tool. It is left to the choice of the user and various
+documentation is provided for the common database management tools. 
 
 ### Dependencies
 
@@ -48,8 +47,8 @@ fundamental understanding of relational database installation and management.
   which is part of most compiled PostgreSQL binaries.
   * *PostGIS versions depend on the version of PostgreSQL installed.*
 * **Data Management Tool of choice**
-  * **[PGAdmin](https://www.pgadmin.org/)** - Web-based PostgreSQL management tool, 
-    typically an option while installing from compiled PostgreSQL binaries;
+  * **[PGAdmin](https://www.pgadmin.org/)** - Web-based PostgreSQL management 
+    tool, typically an option while installing from compiled PostgreSQL binaries;
   * **PSql** - Command line PostgreSQL management tool, typically an option 
     install while installing from compiled PostgreSQL binaries;
   * **[dBeaver](https://dbeaver.io/)** - Universal database management tool; or,
@@ -290,7 +289,7 @@ organizations and is outside the scope of this documentation.
 
 PostgreSQL installs using a base configuration for buffer size, memory usage, 
 and a variety of other settings. It is recommended to get the best performance 
-out of your database to tune PostgreSQL to your specific server.
+out of your database to tune PostgreSQL to your specific server and environment.
 
 There are a variety of methods to determine the best settings but simple 
 starting point is to use [PGTune](https://pgtune.leopard.in.ua/). PGTune 
@@ -341,11 +340,13 @@ Coming soon...
 * v2.0
     * Updated for [NENA-STA-006.2-2022](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.2-2022_ng9-1-1.pdf)
     * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
+    * See [commit change](https://github.com/NENA911/NG911GISDataModel/commits/main) 
+      or [release history](https://github.com/NENA911/NG911GISDataModel/releases)
 * v1.0
     * Based on [NENA-STA-006.1.1-2020](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
     * Initial Release
 
+---
 
 ## Contributors
 

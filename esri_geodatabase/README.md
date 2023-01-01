@@ -289,8 +289,10 @@ leadership of the Data Structures Committee can be found.
 
 ## Contributors
 
-* Jason Horning, ENP
-* Tom Neer
+* v2.0
+  * [Tom Neer](https://github.com/tomneer), Digital Data Services, Inc.
+  * [Jason Horning](https://github.com/jasonhorning), North Dakota Association of Counties
+* v1.0
 
 ---
 
