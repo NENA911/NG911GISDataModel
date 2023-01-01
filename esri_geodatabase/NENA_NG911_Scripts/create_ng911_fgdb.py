@@ -15,6 +15,7 @@ import os
 from sys import exit
 import xml.etree.ElementTree as ET
 import arcpy
+from collections import OrderedDict
 
 from util import CreateLogger
 from schema.schema_fgdb_v2 import DOMAINS, FEATURE_CLASSES, TABLES, RELATES
@@ -238,11 +239,16 @@ def main(**params):
         )
         if domain["values"] is not None:
             if domain["domain_type"] == 'CODED':
-                values = domain["values"]
-                for k in values:
+                # The following lines are a workaround for Issue #62 where
+                # Python prior to v3.6 where dictionaries are not sorted.
+                values = []
+                for key, value in domain["values"].iteritems():
+                    values.append([key, value])
+                values.sort()
+                for value in values:
                     messages(
                         msgs=[
-                            '|---Creating {} domain value'.format(k)
+                            '|---Creating {} domain value'.format(value[0])
                         ],
                         msg_lvl='INFO',
                         msg_type=params["params_type"],
@@ -253,8 +259,8 @@ def main(**params):
                     arcpy.management.AddCodedValueToDomain(
                         in_workspace=output_fgdb_path,
                         domain_name=domain["domain_name"],
-                        code=k,
-                        code_description=values[k]
+                        code=value[0],
+                        code_description=value[1]
                     )
                 messages(
                     msgs=[
