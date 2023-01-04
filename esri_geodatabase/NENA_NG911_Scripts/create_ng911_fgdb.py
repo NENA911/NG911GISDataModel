@@ -15,7 +15,7 @@ import os
 from sys import exit
 import xml.etree.ElementTree as ET
 import arcpy
-from collections import OrderedDict
+from six import iteritems
 
 from util import CreateLogger
 from schema.schema_fgdb_v2 import DOMAINS, FEATURE_CLASSES, TABLES, RELATES
@@ -242,7 +242,7 @@ def main(**params):
                 # The following lines are a workaround for Issue #62 where
                 # Python prior to v3.6 where dictionaries are not sorted.
                 values = []
-                for key, value in domain["values"].iteritems():
+                for key, value in iteritems(domain["values"]):
                     values.append([key, value])
                 values.sort()
                 for value in values:
