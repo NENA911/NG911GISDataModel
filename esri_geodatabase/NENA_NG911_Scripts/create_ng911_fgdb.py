@@ -264,7 +264,7 @@ def main(**params):
                     )
                 messages(
                     msgs=[
-                        '-  Inserted {} coded values into {}.'.format(
+                        '|-  Inserted {} coded values into {}.'.format(
                             len(values), domain["domain_name"])
                     ],
                     msg_lvl='INFO',
@@ -284,7 +284,7 @@ def main(**params):
                 )
                 messages(
                     msgs=[
-                        '-  Set ranged values for {} between {} and {}.'.format(
+                        '|-  Set ranged values for {} between {} and {}.'.format(
                             domain["domain_name"], min_val, max_val)
                     ],
                     msg_lvl='INFO',
@@ -351,7 +351,7 @@ def main(**params):
             )
         messages(
             msgs=[
-                '- Creating {} fields for {}...'.format(len(fc["fields"]), fc["out_name"])
+                '|- Creating {} fields for {}...'.format(len(fc["fields"]), fc["out_name"])
             ],
             msg_lvl='INFO',
             msg_type=params["params_type"],
@@ -400,7 +400,7 @@ def main(**params):
                 )
         messages(
             msgs=[
-                '- Enabling UTC date tracking on DateUpdate field...'
+                '|- Enabling UTC date tracking on DateUpdate field...'
             ],
             msg_lvl='INFO',
             msg_type=params["params_type"],
@@ -454,7 +454,7 @@ def main(**params):
             )
         messages(
             msgs=[
-                '- Creating {} fields for {}...'.format(len(table["fields"]), table["out_name"])
+                '|- Creating {} fields for {}...'.format(len(table["fields"]), table["out_name"])
             ],
             msg_lvl='INFO',
             msg_type=params["params_type"],
@@ -486,7 +486,7 @@ def main(**params):
             )
         messages(
             msgs=[
-                '- Enabling UTC date tracking on DateUpdate field...'
+                '|- Enabling UTC date tracking on DateUpdate field...'
             ],
             msg_lvl='INFO',
             msg_type=params["params_type"],
