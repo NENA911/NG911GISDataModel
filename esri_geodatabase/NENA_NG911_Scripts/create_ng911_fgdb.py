@@ -381,6 +381,23 @@ def main(**params):
                 field_is_required=field[7],
                 field_domain=field[8]
             )
+            default_value = field[9]
+            if default_value is not None:
+                messages(
+                    msgs=[
+                        '|----Adding default value "{}" to {} field...'.format(default_value, field[0])
+                    ],
+                    msg_lvl='INFO',
+                    msg_type=params["params_type"],
+                    log=log,
+                    progress=False
+                )
+                # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/assign-default-to-field.htm
+                arcpy.management.AssignDefaultToField(
+                    in_table=fc["out_name"],
+                    field_name=field[0],
+                    default_value=default_value
+                )
         messages(
             msgs=[
                 '- Enabling UTC date tracking on DateUpdate field...'
