@@ -117,7 +117,7 @@ The Location Types defined in this registry include vehicles (e.g., "aircraft",
 "automobile", "bus", "bicycle", etc.). Upon discussion of the working group, it 
 was agreed that it is uncommon to address a vehicle but rather the space the 
 vehicle occupies. Therefore, the vehicle location types were excluded as it is 
-unusal to address a location that moves.
+unusual to address a location that moves.
 
 #### LandmarkNameCompleteAliasTable and LandmarkNamePartTable 
 
