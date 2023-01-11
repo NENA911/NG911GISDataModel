@@ -12,7 +12,7 @@ response agency mapping applications for handling and responding to 9-1-1 calls.
 The objective of the templates in this repository is to provide a common transport format of 
 NG9-1-1 data layers between GIS Data Providers and the SI. While the following 
 scripts may be used by GIS Data Providers as a template for the management of 
-their own NG9-1-1 data, it is expected that each GIS Data Provider will modify 
+their own NG9-1-1 data, it is expected that each GIS Data Provider will extend 
 the schema to meet their specific organizations needs and requirements. 
 
 ---

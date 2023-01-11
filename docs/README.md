@@ -16,7 +16,7 @@ Additional NENA documentation can be found at
 [NENA Standards & Other Documents](https://www.nena.org/general/custom.asp?page=standards). 
 The following documents are provided for additional reference.
 
-### NENA Information Document for GIS Data Stewardship for Next Generation 9-1-1 (NG9-1-1)
+### [NENA Information Document for GIS Data Stewardship for Next Generation 9-1-1 (NG9-1-1)](https://cdn.ymaws.com/www.nena.org/resource/resmgr/standards/NENA_INF_028.1_2020_GISDataS.pdf)
 
 The NENA Information Document for GIS Data Stewardship for Next Generation 9‑1‑1 
 supports the development of complete, accurate and current GIS datasets to be 
@@ -26,4 +26,7 @@ display locations in context for call handling purposes. Following the
 recommendations presented will result in more accurate, efficient and 
 reliable operation of GIS data dependent services within NG9 1 1 Systems.
 
-- [NENA_INF_028.1_2020_GISDataS.pdf](https://cdn.ymaws.com/www.nena.org/resource/resmgr/standards/NENA_INF_028.1_2020_GISDataS.pdf)
+### [NENA Glossary](https://nenawiki.org/wiki/Category:Glossary)
+
+The **NENA Glossary** includes definition of terms and acronyms that are unique to 9-1-1 
+and emergency services or have specialized usage in NENA documents.
