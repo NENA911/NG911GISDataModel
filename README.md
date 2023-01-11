@@ -117,8 +117,8 @@ values of the IANA [Location Types Registry](https://www.iana.org/assignments/lo
 The Location Types defined in this registry include vehicles (e.g., "aircraft", 
 "automobile", "bus", "bicycle", etc.). Upon discussion of the working group, it 
 was agreed that it is uncommon to address a vehicle but rather the space the 
-vehicle occupies. Therefore, the vehicle location types were excluded from the templates as it is 
-unusual to address a location that moves.
+vehicle occupies. Therefore, the vehicle location types were excluded from the 
+templates as it is unusual to address a location that moves.
 
 #### LandmarkNameCompleteAliasTable and LandmarkNamePartTable 
 
@@ -145,7 +145,7 @@ DS-GIS Template working group.
 All notable changes to NG9-1-1 GIS Data Model Templates will be 
 documented in this file. This project adheres to the 
 [NENA Rules for Code Repositories](https://github.com/babley/NENA-Rules-for-Code-Repositories/blob/main/NENA-ADM-012-2021.md). 
-For a more detailed, Change Log, please visit each packages respective CHANGE_LOG.
+For a more detailed Change Log, please visit each packages respective CHANGE_LOG.
 
 
 ## [1.0 - 2019-11-20](https://github.com/NENA911/NG911GISDataModel/releases/tag/1.0.0)
