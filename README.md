@@ -2,7 +2,7 @@
 
 The 
 [Geographic Information Systems (GIS) Data Model](https://www.nena.org/page/NG911GISDataModel) 
-document, supports the NENA Next Generation 9-1-1 (NG9-1-1) Core Services (NGCS) of 
+document supports the NENA Next Generation 9-1-1 (NG9-1-1) Core Services (NGCS) of 
 location validation and routing, both geospatial call routing or to the 
 appropriate agency for dispatch. This model also defines the GIS data 
 layers (layers) used in local Public Safety Answering Point (PSAP) and 
