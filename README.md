@@ -103,7 +103,8 @@ Lastly, there are some domains where extension is not anticipated. Those
 include domains such as **Location Marker Indicator** (`LM_Ind`), 
 **Location Marker Unit of Measurement** (`LM_Unit`), 
 **Legacy Street Name Pre/Post Directional**, **Street Name Pre/Post Directional**, 
-**One Way**, **Parity**, **Road Class**, **State or Equivalent (A1)** and **Validation**. However, if an GIS Data Provider believes 
+**One Way**, **Parity**, **Road Class**, and **Validation**. 
+However, if an GIS Data Provider believes 
 changes are needed for these domains the entity is encouraged to contact NENA 
 to seek more direction for requesting new entries.
 
@@ -131,7 +132,7 @@ In future version of NENA-STA-006 it is expected that the
 The owner of this repository approves all changes to the repository.
 
 This repository is owned by the 
-[NENA Data Stuctures Committee](https://www.nena.org/page/DataStructures), 
+[NENA Data Structures Committee](https://www.nena.org/page/DataStructures), 
 DS-GIS Template working group.
 
 **Contact:**
