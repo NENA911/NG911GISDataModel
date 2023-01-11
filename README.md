@@ -117,7 +117,7 @@ values of the IANA [Location Types Registry](https://www.iana.org/assignments/lo
 The Location Types defined in this registry include vehicles (e.g., "aircraft", 
 "automobile", "bus", "bicycle", etc.). Upon discussion of the working group, it 
 was agreed that it is uncommon to address a vehicle but rather the space the 
-vehicle occupies. Therefore, the vehicle location types were excluded as it is 
+vehicle occupies. Therefore, the vehicle location types were excluded from the templates as it is 
 unusual to address a location that moves.
 
 #### LandmarkNameCompleteAliasTable and LandmarkNamePartTable 
