@@ -105,7 +105,7 @@ include domains such as **Location Marker Indicator** (`LM_Ind`),
 **Legacy Street Name Pre/Post Directional**, **Street Name Pre/Post Directional**, 
 **One Way**, **Parity**, **Road Class**, and **Validation**. 
 However, if a GIS Data Provider believes 
-changes are needed for these domains; the entity is encouraged to contact NENA 
+changes are needed for these domains, the entity is encouraged to contact NENA 
 to seek more direction for requesting new entries.
 
 ### Miscellaneous Notes
