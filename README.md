@@ -54,10 +54,10 @@ when it is being exchanged between two parties according to the NENA GIS Data Mo
 
 While preparing these templates, the Working Group developed two sets of 
 scripts (Python and SQL) to help in creation of the template files.  The 
-scripts were originally intended only to serve as a method to help the 
+scripts were originally intended to serve only as a method to help the 
 Working Group develop the template files.  However, the Working Group felt 
-that the scripts could also prove useful to the GIS community, so they have 
-been included in this package.  While the scripts may prove useful, the 
+that the scripts could also prove useful to the GIS community, so they are 
+included.  While the scripts may prove useful, the 
 Working Group does urge caution in using these scripts directly as it presents 
 some potential for an entity to diverge from, and become incompatible with, 
 the official NENA template files.
