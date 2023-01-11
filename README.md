@@ -46,11 +46,11 @@ scripts and extend the schema to meet their specific organization's needs and re
 
 ## About
 
-There are two data structures (templates) provided as part of the 
-NG9-1-1 GIS Data Model Templates package; an open source version based on a 
+There are two data structures provided as part of the 
+NG9-1-1 GIS Data Model templates package; an open source version based on a 
 PostgreSQL/PostGIS database and a version based on the Esri File GeoDatabase. 
 The templates are meant to represent what NG9-1-1 GIS data should look like 
-when it is being exchanged between two parties. 
+when it is being exchanged between two parties according to the NENA GIS Data Model Standard. 
 
 While preparing these templates, the Working Group developed two sets of 
 scripts (Python and SQL) to help in creation of the template files.  The 
