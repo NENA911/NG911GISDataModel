@@ -168,7 +168,7 @@ everyone. There are many ways you can contribute to this repository.
 
 * Suggest enhancements or code changes as GitHub issues.
 * Report potential bugs to GitHub issues.
-* Contribute code, as pull requests, to the respository. If you are new
+* Contribute code, as pull requests, to the repository. If you are new
   to GitHub, [Git and GitHub Tutorials #4](https://www.youtube.com/watch?v=nT8KGYVurIU) 
   provides a good overview of creating forks and pulls to contribute.
 
