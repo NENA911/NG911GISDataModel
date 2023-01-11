@@ -104,8 +104,8 @@ include domains such as **Location Marker Indicator** (`LM_Ind`),
 **Location Marker Unit of Measurement** (`LM_Unit`), 
 **Legacy Street Name Pre/Post Directional**, **Street Name Pre/Post Directional**, 
 **One Way**, **Parity**, **Road Class**, and **Validation**. 
-However, if an GIS Data Provider believes 
-changes are needed for these domains the entity is encouraged to contact NENA 
+However, if a GIS Data Provider believes 
+changes are needed for these domains, the entity is encouraged to contact NENA 
 to seek more direction for requesting new entries.
 
 ### Miscellaneous Notes
@@ -180,7 +180,7 @@ everyone. There are many ways you can contribute to this repository.
 4. Create a new feature branch on your local machine.
     * The name of the branch doesn't matter, but as a best practice use a 
       descriptive name like "Updated PrePostStreetName domain".
-5. Write code to add an enhancement or fix the problem.
+5. Write code to add an enhancement or fix a problem.
     * Document your code.
     * Make commits of logical units.
     * Use [clear and descriptive commit messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
@@ -272,7 +272,7 @@ board-approved Ethics & Code of Conduct Policy. See the full policy
 NENA requires an explicit Intellectual Property Rights & Antitrust Policy to 
 conduct its daily work. The objectives of this policy are to:
 
-1. Ensure that Members’ and participating Entities’ IPR are protected;
+1. Ensure that Members' and participating Entities’ IPR are protected;
 2. Promote awareness of IPR issues among NENA Committees so as to permit 
    informed decision-making about the trade-offs associated with technical 
    alternatives encountered in committee work; and
