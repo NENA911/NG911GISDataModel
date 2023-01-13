@@ -222,7 +222,7 @@ DOMAINS = [
                       "public building, train station, or airport or in public "
                       "conveyance such as a bus, train, plane, or ship. This "
                       "general description encompasses the more precise "
-                      "descriptors 'street', 'public-transport', 'ai', and so on.",
+                      "descriptors 'street', 'public-transport', 'airport', and so on.",
             "residence": "A private or residential setting, not necessarily "
                          "the personal residence of the entity, e.g., "
                          "including a friend's home.",
