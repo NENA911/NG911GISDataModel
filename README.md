@@ -147,8 +147,9 @@ documented in this file. This project adheres to the
 [NENA Rules for Code Repositories](https://github.com/babley/NENA-Rules-for-Code-Repositories/blob/main/NENA-ADM-012-2021.md). 
 For a more detailed Change Log, please visit each packages respective CHANGE_LOG.
 
+## [v2.0 (Public Release) - 2023-01-18](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0-public-review)
 
-## [1.0 - 2019-11-20](https://github.com/NENA911/NG911GISDataModel/releases/tag/1.0.0)
+## [v1.0 - 2019-11-20](https://github.com/NENA911/NG911GISDataModel/releases/tag/1.0.0)
 
 - Initial public release
 
