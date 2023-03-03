@@ -451,8 +451,8 @@ CREATE TABLE nena.RoadCenterline (
 , State_R VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , County_L VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
 , County_R VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
-, AddCode_L VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
-, AddCode_R VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
+, AddCode_L VARCHAR(6) 
+, AddCode_R VARCHAR(6) 
 , IncMuni_L VARCHAR(100)  NOT NULL  
 , IncMuni_R VARCHAR(100)  NOT NULL  
 , UnincCom_L VARCHAR(100)   
@@ -511,7 +511,7 @@ CREATE TABLE nena.SiteStructureAddressPoint (
 , Country nena.Country  NOT NULL  
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
-, AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
+, AddCode VARCHAR(6) 
 , AddDataURI VARCHAR(254)
 , Inc_Muni VARCHAR(100)  NOT NULL  
 , Uninc_Comm VARCHAR(100)   
@@ -750,7 +750,7 @@ CREATE TABLE nena.A3Polygon (
 , Country nena.Country  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
-, AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
+, AddCode VARCHAR(6) 
 , Inc_Muni VARCHAR(100)  NOT NULL  
 );
 
@@ -771,7 +771,7 @@ CREATE TABLE nena.A4Polygon (
 , Country nena.Country  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
-, AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
+, AddCode VARCHAR(6) 
 , Inc_Muni VARCHAR(100)  NOT NULL
 , Uninc_Comm VARCHAR(100) NOT NULL
 );
@@ -793,7 +793,7 @@ CREATE TABLE nena.A5Polygon (
 , Country nena.Country  NOT NULL   
 , State VARCHAR(2)  NOT NULL  REFERENCES nena.StateOrEquivalentA1(State)
 , County VARCHAR(100)  NOT NULL  REFERENCES nena.CountyOrEquivalentA2(County)
-, AddCode VARCHAR(6)  REFERENCES nena.AdditionalCode(AddCode)
+, AddCode VARCHAR(6) 
 , Inc_Muni VARCHAR(100)  NOT NULL
 , Uninc_Comm VARCHAR(100) 
 , Nbrhd_Comm VARCHAR(100)  NOT NULL  
