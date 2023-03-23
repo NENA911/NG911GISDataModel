@@ -18,7 +18,7 @@ scripts and extend the schema to meet their specific organization's needs and re
 ---
 ## Announcements
 
-- 2023-03-06 - [v2.0a (Public Review)](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a-public-review) released
+- 2023-03-21 - [v2.0](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0) released
 
 ---
 ## Table of Contents
