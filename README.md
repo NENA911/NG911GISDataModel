@@ -18,7 +18,7 @@ scripts and extend the schema to meet their specific organization's needs and re
 ---
 ## Announcements
 
-- 2023-03-21 - [v2.0](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0) released
+- 2023-05-07 - [v2.0a](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a) released
 
 ---
 ## Table of Contents
@@ -151,6 +151,8 @@ All notable changes to NG9-1-1 GIS Data Model Templates will be
 documented in this file. This project adheres to the 
 [NENA Rules for Code Repositories](https://github.com/babley/NENA-Rules-for-Code-Repositories/blob/main/NENA-ADM-012-2021.md). 
 For a more detailed Change Log, please visit each packages respective CHANGE_LOG.
+
+## [v2.0a - 2023-05-07](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
 
 ## [v2.0 - 2023-03-21](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0)
 
