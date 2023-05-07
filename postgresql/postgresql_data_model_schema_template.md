@@ -465,7 +465,7 @@ CREATE TABLE nena.RoadCenterline (
 , PostComm_R VARCHAR(40)  REFERENCES nena.PostalCommunity(PostalCommunity)
 , RoadClass VARCHAR(15)  REFERENCES nena.RoadClass(RoadClass)
 , OneWay VARCHAR(2)  REFERENCES nena.OneWay(OneWay)
-, SpeedLimit INTEGER CHECK ( 1 <= SpeedLimit AND SpeedLimit <= 100 )
+, SpeedLimit INTEGER CHECK ( 1 <= SpeedLimit AND SpeedLimit <= 999 )
 , Valid_L VARCHAR(1)  CHECK ( Valid_L  in ('Y','N') ) 
 , Valid_R VARCHAR(1)  CHECK ( Valid_R  in ('Y','N') ) 
 );
