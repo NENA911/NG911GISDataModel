@@ -2729,7 +2729,7 @@ FEATURE_CLASSES = [
              "NULLABLE", "NON_REQUIRED", "", None],
             ["CMarket_ID", "TEXT", "", "", "10", "Market ID",
              "NULLABLE", "NON_REQUIRED", "", None],
-            ["CSite_Name", "TEXT", "", "", "10", "Cell Site ID",
+            ["CSite_Name", "TEXT", "", "", "10", "Cell Site Name",
              "NULLABLE", "NON_REQUIRED", "", None],
             ["ESRD_ESRK", "LONG", "", "", "", "ESRD or First ESRK",
              "NULLABLE", "NON_REQUIRED", "", None],
