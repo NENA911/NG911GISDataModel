@@ -1465,7 +1465,7 @@ FEATURE_CLASSES = [
             ["ServiceURN", "TEXT", "", "", "55", "Service URN",
              "NON_NULLABLE", "REQUIRED", "ServiceURN", None],
             ["ServiceNum", "TEXT", "", "", "15", "Service Number",
-             "NULLABLE", "NON_REQUIRED", "", "ServiceURN", "urn:emergency:service:responder.fire.private"],
+             "NULLABLE", "NON_REQUIRED", "ServiceURN", "urn:emergency:service:responder.fire.private"],
             ["AVcard_URI", "TEXT", "", "", "254", "Agency vCard URI",
              "NON_NULLABLE", "REQUIRED", "", None],
             ["DsplayName", "TEXT", "", "", "60", "Display Name",
