@@ -218,7 +218,7 @@ DROP DOMAIN IF EXISTS nena.StreetNameDirectional CASCADE;
 CREATE DOMAIN nena.StreetNameDirectional AS CHARACTER VARYING (10) 
 CHECK ( 
   VALUE IN (
-    'North', 'South', 'East', 'West', 'Northeast', 'Northwest', ' Southeast', 
+    'North', 'South', 'East', 'West', 'Northeast', 'Northwest', 'Southeast', 
     'Southwest', 'Nord', 'Sud', 'Est', 'Ouest', 'Nord-Est', 'Nord-Ouest',
     'Sud-Est', 'Sud-Ouest'
   )
