@@ -6,7 +6,8 @@ The NENA GIS Data Template Standard is based on the following documents and
 provided for reference in the repository.
 
 - NENA-STA-006.3-202Y.pdf - Release v3.0
-- [NENA-STA-006.2-2022.pdf](nena-sta-006.2-2022_ng9-1-1.pdf) - [Release v2.0a](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
+- [NENA-STA-006.2a-2023.pdf](nena-sta-006.2a-2023_ng9-1-1_gis_.pdf) - [Release v2.0a](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
+- [NENA-STA-006.2-2022.pdf](nena-sta-006.2-2022_ng9-1-1.pdf) - [Release v2.0](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0)
 - [NENA-STA-006.1-2020.pdf](nena-sta-006.1.1-2020_ng9-1-1.pdf) - [Release v1.0](https://github.com/NENA911/NG911GISDataModel/releases/tag/1.0.0)
 
 ---
