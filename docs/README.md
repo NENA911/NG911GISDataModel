@@ -5,7 +5,8 @@
 The NENA GIS Data Template Standard is based on the following documents and 
 provided for reference in the repository.
 
-- [NENA-STA-006.2-2022.pdf](nena-sta-006.2-2022_ng9-1-1.pdf) - Release v2.0
+- NENA-STA-006.3-202Y.pdf - Release v3.0
+- [NENA-STA-006.2-2022.pdf](nena-sta-006.2-2022_ng9-1-1.pdf) - [Release v2.0a](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
 - [NENA-STA-006.1-2020.pdf](nena-sta-006.1.1-2020_ng9-1-1.pdf) - [Release v1.0](https://github.com/NENA911/NG911GISDataModel/releases/tag/1.0.0)
 
 ---
@@ -26,7 +27,7 @@ display locations in context for call handling purposes. Following the
 recommendations presented will result in more accurate, efficient and 
 reliable operation of GIS data dependent services within NG9 1 1 Systems.
 
-### [NENA Glossary](https://nenawiki.org/wiki/Category:Glossary)
+### [NENA Knowledge Base Glossary](https://kb.nena.org/wiki/Category:Glossary)
 
-The **NENA Glossary** includes definition of terms and acronyms that are unique to 9-1-1 
+The **NENA Knowledge Base Glossary** includes definition of terms and acronyms that are unique to 9-1-1 
 and emergency services or have specialized usage in NENA documents.
