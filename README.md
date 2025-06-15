@@ -18,6 +18,7 @@ scripts and extend the schema to meet their specific organization's needs and re
 ---
 ## Announcements
 
+- 2025-06-20 - v3.0 Public Review Release
 - 2023-05-07 - [v2.0a](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a) released
 
 ---
@@ -36,13 +37,12 @@ scripts and extend the schema to meet their specific organization's needs and re
 ---
 
 ## Folders and Files
-* [docs](docs) - Folder containing PDF files with the NENA-STA-00G.x GIS Data 
+* [docs](docs) - Folder containing PDF files with the NENA-STA-00X.x GIS Data 
   Model standards for reference by version.
 * [esri_geodatabase](esri_geodatabase/README.md) - Folder containing instructions, 
   example file geodatabase, ArcGIS Toolbox and associated Python scripts to 
   create the NENA NG9-1-1 Data Model template.
-* [postgresql](postgresql/README.md) - Folder containing instructions and SQL 
-  scripts for creating the NENA NG9-1-1 Data Model template in PostgreSQL/PostGIS.
+* [relationaldatamodel](relationaldatamodel/README.md) - Folder containing information regarding the relational data model, introduced in v3.0.
 * .gitignore
 * [LICENSE.md](LICENSE.md) - License file for the project.
 * [README.md](README.md) - This document.
@@ -51,29 +51,28 @@ scripts and extend the schema to meet their specific organization's needs and re
 
 ## About
 
-There are two data structures provided as part of the 
-NG9-1-1 GIS Data Model templates package; an open source version based on a 
-PostgreSQL/PostGIS database and a version based on the Esri File GeoDatabase. 
-The templates are meant to represent what NG9-1-1 GIS data should look like 
-when it is being exchanged between two parties according to the NENA GIS Data Model Standard. 
+In Version 3 of NG9-1-1 GIS Data Model a major structural change introduced 
+the addition of a relational data structure to the previous flat-file data 
+structure in previous versions of the GIS Data templates. 
 
-While preparing these templates, the Working Group developed two sets of 
-scripts (Python and SQL) to help in creation of the template files.  The 
-scripts were originally intended to serve only as a method to help the 
-Working Group develop the template files.  However, the Working Group felt 
-that the scripts could also prove useful to the GIS community, so they are 
-included.  While the scripts may prove useful, the 
-Working Group does urge caution in using these scripts directly as it presents 
-some potential for an entity to diverge from, and become incompatible with, 
-the official NENA template files.
+There are three data structures provided as part of the NG9-1-1 GIS data model 
+template package; an open source version based on the GeoPackage specification, 
+a version based on the Esri File Geodatabase, and a relational data structure. 
+The templates are meant to represent what NG9-1-1 GIS data should look like when 
+it is being exchange between two parties or to the SI (Spatial Interface) 
+according to the NENA GIS Data Model Standard (NENA-STA-006.3-202Y).
 
-The current templates include:
+While preparing these templates, the Data Model Templates Working Subgroup 
+developed a set of scripts to assist in the creation of the template files. The 
+scripts were originally intended to server only as a method to help develop 
+the template files. However, it was felt the scripts could also prove useful to 
+GIS community, so they are included for reference purposes only.
 
-* [esri_geodatabase](esri_geodatabase/README.md) - Folder containing a sample 
-  file geodatabase, ArcGIS Toolbox and associated Python scripts to create the 
-  file geodatabase.
-* [postgresql](postgresql/README.md) - Folder containing documentation and SQL 
-  scripts to create a NENA NG9-1-1 GIS Data Model template in PostgreSQL.
+It is IMPORTANT to note that the NENA GIS Data Model templates are ONLY meant 
+for the interchange of data between organizations and the SI (Spatial Interface). 
+While they may be utilized for NG9-1-1 data management, it is expected that each 
+GIS Data Provider will utilize ETL (Extract-Transform-Load) processes to migrate 
+their organizations data into the NENA GIS Data Model.
 
 ### GIS Data Provider Specific Domains
 
@@ -125,11 +124,6 @@ was agreed that it is uncommon to address a vehicle but rather the space the
 vehicle occupies. Therefore, the vehicle location types were excluded from the 
 templates as it is unusual to address a location that moves.
 
-#### LandmarkNameCompleteAliasTable and LandmarkNamePartTable 
-
-In future version of NENA-STA-006 it is expected that the 
-**LandmarkNameCompleteAliasTable** and **LandmarkNamePartTable** will be removed.
-
 ---
 
 ## Owner
@@ -151,6 +145,8 @@ All notable changes to NG9-1-1 GIS Data Model Templates will be
 documented in this file. This project adheres to the 
 [NENA Rules for Code Repositories](https://github.com/babley/NENA-Rules-for-Code-Repositories/blob/main/NENA-ADM-012-2021.md). 
 For a more detailed Change Log, please visit each packages respective CHANGE_LOG.
+
+## v3.0 - 202Y
 
 ## [v2.0a - 2023-05-07](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
 
@@ -291,7 +287,7 @@ See the full policy [here](https://www.nena.org/general/custom.asp?page=ipr).
 ---
 
 ## License
-Copyright 2019-2023 National Emergency Number Association
+Copyright 2019-2025 National Emergency Number Association
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 use these files except in compliance with the License. You may obtain a copy 
