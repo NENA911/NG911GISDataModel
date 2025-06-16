@@ -42,7 +42,7 @@ scripts and extend the schema to meet their specific organization's needs and re
 * [esri_geodatabase](esri_geodatabase/README.md) - Folder containing instructions, 
   example file geodatabase, ArcGIS Toolbox and associated Python scripts to 
   create the NENA NG9-1-1 Data Model template.
-* [relationaldatamodel](relationaldatamodel/README.md) - Folder containing information regarding the relational data model, introduced in v3.0.
+* [relationaldatamodel](relational_template/README.md) - Folder containing information regarding the relational data model, introduced in v3.0.
 * .gitignore
 * [LICENSE.md](LICENSE.md) - License file for the project.
 * [README.md](README.md) - This document.
