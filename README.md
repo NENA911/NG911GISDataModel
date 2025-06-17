@@ -39,7 +39,7 @@ scripts and extend the schema to meet their specific organization's needs and re
 ## Folders and Files
 * [docs](docs/README.md) - Folder containing PDF files with the NENA-STA-00X.x GIS Data 
   Model standards for reference by version.
-* [flatfile_templates](flatfile_templates/README.md) - Folder containing the pre-built flat-file templates, schema, and vendor code repositories.
+* [flatfile_templates](flatfile_templates) - Folder containing the pre-built flat-file templates, schema, and vendor code repositories.
   * [prebuilt_templates](flatfile_templates/prebuilt_templates/README.md) - Folder containing the pre-built flat-file templates.
   * [schema](flatfile_templates/schema/README.md) - Folder containing the schema definitions
   * [vendor_arcgispro](flatfile_templates/vendor_arcgispro/README.md) - Folder containing example code to create the flat-file templates in Esri ArcGIS Pro.
