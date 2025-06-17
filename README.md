@@ -18,7 +18,7 @@ scripts and extend the schema to meet their specific organization's needs and re
 ---
 ## Announcements
 
-- 2025-06-20 - v3.0 Public Review Release
+- 2025-06-27 - v3.0 Public Review Release
 - 2023-05-07 - [v2.0a](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a) released
 
 ---
@@ -37,12 +37,14 @@ scripts and extend the schema to meet their specific organization's needs and re
 ---
 
 ## Folders and Files
-* [docs](docs) - Folder containing PDF files with the NENA-STA-00X.x GIS Data 
+* [docs](docs/README.md) - Folder containing PDF files with the NENA-STA-00X.x GIS Data 
   Model standards for reference by version.
-* [esri_geodatabase](esri_geodatabase/README.md) - Folder containing instructions, 
-  example file geodatabase, ArcGIS Toolbox and associated Python scripts to 
-  create the NENA NG9-1-1 Data Model template.
-* [relationaldatamodel](relational_templates/README.md) - Folder containing information regarding the relational data model, introduced in v3.0.
+* [flatfile_templates](flatfile_templates/README.md) - Folder containing the pre-built flat-file templates, schema, and vendor code repositories.
+  * [prebuilt_templates](flatfile_templates/prebuilt_templates/README.md) - Folder containing the pre-built flat-file templates.
+  * [schema](flatfile_templates/schema/README.md) - Folder containing the schema definitions
+  * [vendor_arcgispro](flatfile_templates/vendor_arcgispro/README.md) - Folder containing example code to create the flat-file templates in Esri ArcGIS Pro.
+  * [vendor_qgis](flatfile_templates/vendor_qgis/README.md) - Folder for future example code to create the flat-file templates in QGIS.
+* [relational_templates](relational_templates/README.md) - Folder containing information regarding the relational data model, introduced in v3.0.
 * .gitignore
 * [LICENSE.md](LICENSE.md) - License file for the project.
 * [README.md](README.md) - This document.
@@ -146,7 +148,7 @@ documented in this file. This project adheres to the
 [NENA Rules for Code Repositories](https://github.com/babley/NENA-Rules-for-Code-Repositories/blob/main/NENA-ADM-012-2021.md). 
 For a more detailed Change Log, please visit each packages respective CHANGE_LOG.
 
-## v3.0 - 202Y
+## v3.0 Public Review - 2025-06-27
 
 ## [v2.0a - 2023-05-07](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
 
@@ -287,7 +289,7 @@ See the full policy [here](https://www.nena.org/general/custom.asp?page=ipr).
 ---
 
 ## License
-Copyright 2019-2025 National Emergency Number Association
+Copyright © National Emergency Number Association. All rights reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 use these files except in compliance with the License. You may obtain a copy 
@@ -299,3 +301,23 @@ distributed under the License are distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the 
 License for the specific language governing permissions and limitations 
 under the License.
+
+---
+
+## Contributors
+
+* v3.0
+  * [Tom Neer](https://github.com/tomneer), Digital Data Services, Inc.
+  * Matt Gerike, Virginia Department of Emergency Management
+  * Robb Harris, GISP, ENP, Esri Canada
+* v2.0
+  * [Tom Neer](https://github.com/tomneer), Digital Data Services, Inc.
+  * [Jason Horning](https://github.com/jasonhorning), North Dakota Association of Counties
+* v1.0
+
+---
+
+# Acknowledgements
+
+Trademarks provided under license from Esri. 
+Other companies and products mentioned are trademarks of their respective owners. 

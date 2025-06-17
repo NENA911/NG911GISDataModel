@@ -9,7 +9,7 @@
 | Author:    NENA Data Structures Committee, DS-GIS Template Working Group
 |
 | Created:   2022-11-05
-| Modified:  2022-11-13
+| Modified:  2025-06-17
 """
 import os
 from sys import exit
@@ -18,7 +18,8 @@ import arcpy
 from six import iteritems
 
 from util import CreateLogger
-from schema.schema_fgdb_v2 import DOMAINS, FEATURE_CLASSES, TABLES, RELATES
+from flatfile_templates.schema.v2.schema_fgdb_v2 import (
+    DOMAINS, FEATURE_CLASSES, TABLES, RELATES)
 
 # ==============================================================================
 # Constants
@@ -240,7 +241,7 @@ def main(**params):
         if domain["values"] is not None:
             if domain["domain_type"] == 'CODED':
                 # The following lines are a workaround for Issue #62 where
-                # Python prior to v3.6 where dictionaries are not sorted.
+                # Python prior to v3.0.6 where dictionaries are not sorted.
                 values = []
                 for key, value in iteritems(domain["values"]):
                     values.append([key, value])
@@ -276,7 +277,7 @@ def main(**params):
                 min_val = domain["values"][0]
                 max_val = domain["values"][1]
                 # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/set-value-for-range-domain.htm
-                arcpy.arcpy.management.SetValueForRangeDomain(
+                arcpy.management.SetValueForRangeDomain(
                     in_workspace=output_fgdb_path,
                     domain_name=domain["domain_name"],
                     min_value=min_val,
@@ -398,6 +399,7 @@ def main(**params):
                     field_name=field[0],
                     default_value=default_value
                 )
+        """ Commented out due to apparent bug in ArcGIS Pro 3.5.1
         messages(
             msgs=[
                 '|- Enabling UTC date tracking on DateUpdate field...'
@@ -411,8 +413,9 @@ def main(**params):
         arcpy.management.EnableEditorTracking(
             in_dataset=fc["out_name"],
             last_edit_date_field="DateUpdate",
-            record_dates_in='UTC'
+            record_dates_in="UTC"
         )
+        """
 
     # Create NENA Tables
     messages(
@@ -484,6 +487,7 @@ def main(**params):
                 field_is_required=field[7],
                 field_domain=field[8]
             )
+        """ Commented out due to apparent bug in ArcGIS Pro 3.5.1
         messages(
             msgs=[
                 '|- Enabling UTC date tracking on DateUpdate field...'
@@ -497,8 +501,9 @@ def main(**params):
         arcpy.management.EnableEditorTracking(
             in_dataset=table["out_name"],
             last_edit_date_field="DateUpdate",
-            record_dates_in='UTC'
+            record_dates_in="UTC"
         )
+        """
 
     # Create NENA Relationship Classes
     messages(
@@ -608,7 +613,7 @@ if __name__ == '__main__':
     console_params = {
         "params_type": 'CONSOLE',      # Do not change this parameter
         "output_folder": temp,
-        "output_name": 'ng911',
+        "output_name": 'NG911_GISDataModelTemplate_v2.0a',
         "file_type": 'File Geodatabase (.gdb)',
         "gdb_version": 'CURRENT',
         "spatial_reference": SR_WGS84,

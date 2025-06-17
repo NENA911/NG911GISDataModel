@@ -1,0 +1,1911 @@
+# ==============================================================================
+# Section: 4 GIS Data Model Layers
+# Purpose: GIS data layer names shown below are represented in the GIS Data
+#     Layers Registry in NENA-STA-010 and are meant to provide
+#     consistent naming conventions for GIS data layers across all NENA
+#     documents. It should be noted that the GIS Data Layers registry is
+#     an Internet Assigned Numbers Authority (IANA) registry, and the
+#     registry itself is always the most up to date source of GIS Data
+#     Layer names. The IANA registry should be referenced directly for
+#     the recommended GIS Data Layer names as there may be alignment
+#     issues with the current published version of NENA-STA-010. Please
+#     see Section 3.7 GIS Data Format for more information on local layer
+#     naming conventions.
+# ==============================================================================
+
+# ==============================================================================
+# Domains used in NENA-STA-006.3-2025
+# Domains last updated: 2025-01-27
+#   PlaceType: https://www.iana.org/assignments/location-type-registry/location-type-registry.xml
+#   PlacementMethod: http://technet.nena.org/nrs/registry/SiteStructureAddressPointPlacementMethod.xml
+#   ServiceURN: http://technet.nena.org/nrs/registry/_registries.xml & https://www.rfc-editor.org/rfc/rfc5031
+#   StreetNameType: http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
+#   http://technet.nena.org/nrs/registry/StreetNamePreTypeSeparators.xml
+#   ServiceURN Responder - https://cdn.ymaws.com/www.nena.org/resource/resmgr/standards/NENA-STA-010.3e-2021_i3_Stan.pdf Section
+# ==============================================================================
+DOMAINS = [
+  {
+    "domain_name": "AdditionalCode",
+    "domain_description": "A case-sensitive alphanumeric code of up to six characters used to disambiguate addresses in Canada.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": None
+  }, {
+    "domain_name": "AgencyID",
+    "domain_description": "A Domain Name System (DNS) domain name which is used to uniquely identify an agency.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": None
+  }, {
+    "domain_name": "AddressNumber",
+    "domain_description": "The numeric identifier of a location along a thoroughfare or within a defined community.",
+    "field_type": "LONG",
+    "domain_type": "RANGE",
+    "values": [0, 999999]
+  }, {
+    "domain_name": "AdministrativeLevels0",
+    "domain_description": "The name of a country represented by its two-letter ISO 3166-1 English country alpha-2 code elements in UPPER CASE letters. ",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "US": "United States",
+      "CA": "Canada",
+      "MX": "Mexico"
+    }
+  }, {
+    "domain_name": "AdministrativeLevels1",
+    "domain_description": "The name of a state or state equivalent, represented by the two-letter abbreviation given in USPS Publication 28, Appendix B.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "AB": "Alberta",
+      "AL": "Alabama",
+      "AK": "Alaska",
+      "AS": "American Samoa",
+      "AZ": "Arizona",
+      "AR": "Arkansas",
+      "BC": "British Columbia",
+      "CA": "California",
+      "CO": "Colorado",
+      "CT": "Connecticut",
+      "DE": "Delaware",
+      "DC": "District of Columbia",
+      "FM": "Federated States of Micronesia",
+      "FL": "Florida",
+      "GA": "Georgia",
+      "GU": "Guam",
+      "HI": "Hawaii",
+      "ID": "Idaho",
+      "IL": "Illinois",
+      "IN": "Indiana",
+      "IA": "Iowa",
+      "KS": "Kansas",
+      "KY": "Kentucky",
+      "LA": "Louisiana",
+      "MB": "Manitoba",
+      "ME": "Maine",
+      "MH": "Marshall Islands",
+      "MD": "Maryland",
+      "MA": "Massachusetts",
+      "MI": "Michigan",
+      "MN": "Minnesota",
+      "MS": "Mississippi",
+      "MO": "Missouri",
+      "MT": "Montana",
+      "NB": "New Brunswick",
+      "NE": "Nebraska",
+      "NL": "Newfoundland and Labrador",
+      "NS": "Nova Scotia",
+      "NV": "Nevada",
+      "NH": "New Hampshire",
+      "NJ": "New Jersey",
+      "NM": "New Mexico",
+      "NY": "New York",
+      "NC": "North Carolina",
+      "ND": "North Dakota",
+      "MP": "Northern Mariana Islands",
+      "NT": "Northwest Territories",
+      "NU": "Nunavut",
+      "OH": "Ohio",
+      "OK": "Oklahoma",
+      "ON": "Ontario",
+      "OR": "Oregon",
+      "PE": "Prince Edward Island",
+      "PW": "Palau",
+      "PA": "Pennsylvania",
+      "PR": "Puerto Rico",
+      "QC": "Quebec",
+      "RI": "Rhode Island",
+      "SC": "South Carolina",
+      "SD": "South Dakota",
+      "SK": "Saskatchewan",
+      "TN": "Tennessee",
+      "TX": "Texas",
+      "UT": "Utah",
+      "VT": "Vermont",
+      "UM": "United States Minor Outlying Islands",
+      "VI": "Virgin Islands",
+      "VA": "Virginia",
+      "WA": "Washington",
+      "WV": "West Virginia",
+      "WI": "Wisconsin",
+      "WY": "Wyoming",
+      "YT": "Yukon"
+    }
+  }, {
+    "domain_name": "AdministrativeLevels2",
+    "domain_description": "The name of a County or County-equivalent where the address is located. The Domain is restricted to the exact listed values as published in ANSI INCITS 31:2009, including casing and use of abbreviations.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": None
+  }, {
+    "domain_name": "AdministrativeLevels3",
+    "domain_description": "The name of the secondary division of a state, province, or territory. In Canada, where no Administrative Level 2 exists, it can be the name of the primary division of the province or territory.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": None
+  }, {
+    "domain_name": "ESN",
+    "domain_description": "A 3-5 character alphanumeric string that represents an Emergency Service Zone (ESZ).",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": None
+  }, {
+    "domain_name": "Latitude",
+    "domain_description": "The angular distance of a location north or south of the equator as defined by the coordinate system, expressed in decimal degrees.",
+    "field_type": "DOUBLE",
+    "domain_type": "RANGE",
+    "values": [-90.0, 90.0]
+  }, {
+    "domain_name": "Longitude",
+    "domain_description": "The angular distance of a location east or west of the prime meridian of the coordinate system, expressed in decimal degrees.",
+    "field_type": "DOUBLE",
+    "domain_type": "RANGE",
+    "values": [-180.0, 180.0]
+  }, {
+    "domain_name": "LegacyStreetNameDirectional",
+    "domain_description": "The street direction as it currently exists in the MSAG.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "N": "North/Nord",
+      "S": "South/Sud",
+      "E": "East/Est",
+      "W": "West",
+      "NE": "Northeast/Nord-Est",
+      "NW": "Northwest",
+      "SE": "Southeast/Sud-Est",
+      "SW": "Southwest",
+      "O": "Ouest",
+      "NO": "Nord-Ouest",
+      "SO": "Sud-Ouest"
+    }
+  }, {
+    "domain_name": "MarkerIndicator",
+    "domain_description": "Indicator of the type of location marker.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "P": "Posted",
+      "L": "Logical / Calculated"
+    }
+  }, {
+    "domain_name": "MarkerUnitOfMeasurement",
+    "domain_description": "Indicator of the type of location marker.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "miles": "miles",
+      "nautical miles": "nautical miles",
+      "feet": "feet",
+      "kilometers": "kilometers",
+      "meters": "meters"
+    }
+  }, {
+    "domain_name": "OneWay",
+    "domain_description": "The direction of traffic movement along a road in relation to the FROM node and TO node of the line segment representing the road in the GIS data.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "B": "Both",
+      "FT": "One-way - FROM node to TO node",
+      "TF": "One-way - TO node to FROM node"
+    }
+  }, {
+    "domain_name": "Parity",
+    "domain_description": "The even or odd property of the address number on the corresponding side of the road segment relative to the FROM Node.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "O": "Odd",
+      "E": "Even",
+      "B": "Both",
+      "Z": "Address Range 0-0"
+    }
+  }, {
+    "domain_name": "PlacementMethodPoint",
+    "domain_description": "The methodology used for placement of the address point.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "ExteriorAccess": "Exterior Access",
+      "Geocoding": "Geocoding",
+      "InteriorAccess": "Interior Access",
+      "InteriorCentroid": "Interior Centroid",
+      "Parcel": "Parcel",
+      "PropertyAccess": "Property Access",
+      "Site": "Site",
+      "Structure": "Structure",
+      "Unknown": "Unknown"
+    }
+  }, {
+    "domain_name": "PlacementMethodPolygon",
+    "domain_description": "The methodology used for placement of the address polygon.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "Interior": "Interior",
+      "Parcel": "Parcel",
+      "Site": "Site",
+      "Structure": "Structure",
+      "Other": "Other"
+    }
+  },{
+    "domain_name": "PlaceType",
+    "domain_description": "The type of feature identified by the address.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "airport": "Airport",
+      "arena": "Arena",
+      "bank": "Bank",
+      "bar": "Bar or saloon",
+      "bus-station": "Bus station or terminal",
+      "cafe": "Cafe",
+      "campground": "Campground",
+      "care-facility": "Care Facility",
+      "classroom": "Classroom",
+      "club": "Club, dance club, nightclub, or discotheque.",
+      "construction": "Construction site.",
+      "convention-center": "Convention center or exhibition hall.",
+      "detached-unit": "Detached Unit",
+      "fire-station": "Fire Station",
+      "government": "Government building",
+      "hospital": "Hospital, medical clinic, or doctor's office.",
+      "hotel": "Hotel, motel, inn, or other lodging.",
+      "industrial": "Industrial setting",
+      "landmark-address": "Landmark address",
+      "library": "Library",
+      "municipal-garage": "Municipal garage",
+      "museum": "Museum",
+      "office": "Office or business",
+      "other": "Other",
+      "outdoors": "Outdoor facility, such as a park or city streets.",
+      "parking": "Parking lot garage.",
+      "phone-box": "Phone or call box",
+      "place-of-worship": "Place of Worship",
+      "post-office": "Post Office",
+      "prison": "Prison or correctional facility",
+      "public": "Public area",
+      "residence": "Residence",
+      "restaurant": "Restaurant",
+      "school": "School or university property",
+      "shopping-area": "Shopping mall or shopping area.",
+      "stadium": "Stadium",
+      "store": "Store",
+      "street": "Street",
+      "theater": "Theater, lecture hall, auditorium",
+      "toll-booth": "Toll-booth",
+      "town-hall": "Town Hall",
+      "train-station": "Train station",
+      "utility-box": "Utility box",
+      "unknown": "Unknown.",
+      "warehouse": "Warehouse",
+      "waste-transfer-facility": "Waste Transfer Facility",
+      "water": "Water",
+      "youth-camp": "Youth Camp"
+    }
+  }, {
+    "domain_name": "PostalCode",
+    "domain_description": "A system of 5-digit (US) or 7-character codes (Canada) that identify the individual USPS or Canadian Post Office or metropolitan area delivery station associated with an address.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": None
+  }, {
+    "domain_name": "PostalCommunityName",
+    "domain_description": "A city name for the Postal Code of an address. ",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": None
+  }, {
+    "domain_name": "RoadClass",
+    "domain_description": "The general description of the type of road.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "Primary": "Primary roads",
+      "Secondary": "Secondary roads",
+      "Local": "Local roads",
+      "Ramp": "Ramp",
+      "Service Drive": "Service Drive",
+      "Walkway/Pedestrian Trail": "Walkway/Pedestrian Trail",
+      "Stairway": "Stairway",
+      "Alley": "Alley",
+      "Private": "Private (service vehicles, logging, oil fields, ranches, etc.)",
+      "Parking Lot": "Parking Lot",
+      "Bike Path or Trail": "Bike Path or Trail",
+      "Bridle Path": "Bridle Path",
+      "Other": "Other"
+    }
+  }, {
+    "domain_name": "ServiceURI",
+    "domain_description": "URI for call routing. This attribute is contained in the "
+               "service boundary layers and will define the Service URI "
+               "of the service.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": None
+  }, {
+    "domain_name": "ServiceURNSOS",
+    "domain_description": "The URN used to select the service for which a route is desired.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "urn:emergency:service:sos.psap": "PSAP",
+      "urn:emergency:service:sos.level_2_esrp": "Level 2 ESRP",
+      "urn:emergency:service:sos.level_3_esrp": "Level 3 ESRP",
+      "urn:emergency:service:sos.call_taker": "Call Taker",
+    }
+  }, {
+    "domain_name": "ServiceURNResponder",
+    "domain_description": "The URN used to select the service for which a route is desired.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+        "urn:emergency:service:responder.coast_guard": "Coast Guard Station",
+        "urn:emergency:service:responder.ems": "Emergency Medical Service",
+        "urn:emergency:service:responder.fire": "Fire Department",
+        "urn:emergency:service:responder.mountain_rescue": "Mountain Rescue Service",
+        "urn:emergency:service:responder.poison_control": "Poison Control Center",
+        "urn:emergency:service:responder.police": "Police Agency",
+
+        "urn:emergency:service:responder.ems.air": "EMS - Air",
+        "urn:emergency:service:responder.ems.tribal": "EMS - Native American",
+        "urn:emergency:service:responder.ems.countyParish": "EMS - County or Parish",
+        "urn:emergency:service:responder.ems.local": "EMS - City, Town, Township, Borough or Village",
+        "urn:emergency:service:responder.ems.private": "EMS - Contracted Ambulance Service",
+        "urn:emergency:service:responder.ems.military": "EMS - Military",
+
+        "urn:emergency:service:responder.fire.airport": "Fire - Airport Fire Service",
+        "urn:emergency:service:responder.fire.forest": "Fire - Forest Fire Service",
+        "urn:emergency:service:responder.fire.military": "Fire - Military",
+        "urn:emergency:service:responder.fire.private": "Fire - Private Fire Service",
+
+        "urn:emergency:service:responder.police.countyParish": "Police - County or Parish (not Sheriff)",
+        "urn:emergency:service:responder.police.federal": "Police - Federal",
+        "urn:emergency:service:responder.police.local": "Police - City, Town, Township, Borough or Village",
+        "urn:emergency:service:responder.police.tribal": "Police - Native American",
+        "urn:emergency:service:responder.police.stateProvincial": "Police - State/Provincial",
+        "urn:emergency:service:responder.police.sheriff": "Police - Sheriff's Office",
+        "urn:emergency:service:responder.police.campus": "Police - Campus (Educational Institution)",
+        "urn:emergency:service:responder.police.private": "Police - Private (Non-governmental)",
+        "urn:emergency:service:responder.police.airport": "Police - Airport Authority",
+        "urn:emergency:service:responder.police.housing": "Police - Housing Authority",
+        "urn:emergency:service:responder.police.park": "Police - Park",
+        "urn:emergency:service:responder.police.military": "Police - Military",
+
+        "urn:emergency:service:responder.police.federal.atf": "Police Federal - Bureau of Alcohol, Tobacco, Fire Arms and Explosives",
+        "urn:emergency:service:responder.police.federal.cbp": "Police Federal - Customs and Border Protection",
+        "urn:emergency:service:responder.police.federal.dss": "Police Federal - Diplomatic Security Service",
+        "urn:emergency:service:responder.police.federal.dea": "Police Federal - Drug Enforcement Agency",
+        "urn:emergency:service:responder.police.federal.fbi": "Police Federal - Federal Bureau of Investigation",
+        "urn:emergency:service:responder.police.federal.fps": "Police Federal - Federal Protective Service",
+        "urn:emergency:service:responder.police.federal.ice": "Police Federal - Immigration and Customs Enforcement",
+        "urn:emergency:service:responder.police.federal.marshal": "Police Federal - Marshals Service",
+        "urn:emergency:service:responder.police.federal.rcmp": "Police Federal - Royal Canadian Mounted Police",
+        "urn:emergency:service:responder.police.federal.pp": "Police Federal - U.S. Park Police",
+        "urn:emergency:service:responder.police.federal.usss": "Police Federal - U.S. Secret Service",
+
+        "urn:emergency:service:responder.psap": "Responder PSAP",
+    }
+  }, {
+    "domain_name": "SpeedLimit",
+    "domain_description": "Posted Speed Limit in MPH in US or Km/h in Canada",
+    "field_type": "LONG",
+    "domain_type": "RANGE",
+    "values": [0, 999]
+  }, {
+    "domain_name": "StreetNameDirectional",
+    "domain_description": "A word preceding or following the Street Name element that indicates the direction taken by the road from an arbitrary starting point or line, or the sector where it is located.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "North": "North",
+      "South": "South",
+      "East": "East",
+      "West": "West",
+      "Northeast": "Northeast",
+      "Northwest": "Northwest",
+      "Southeast": "Southeast",
+      "Southwest": "Southwest",
+      "Nord": "Nord",
+      "Sud": "Sud",
+      "Est": "Est",
+      "Ouest": "Ouest",
+      "Nord-Est": "Nord-Est",
+      "Nord-Ouest": "Nord-Ouest",
+      "Sud-Est": "Sud-Est",
+      "Sud-Ouest": "Sud-Ouest"
+    }
+  }, {
+    "domain_name": "StreetNameType",
+    "domain_description": "A word or phrase that precedes or follows the Street Name element and identifies a type of thoroughfare in a complete street name.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "Abbey": "Abbey",
+      "Access": "Access",
+      "Access Road": "Access Road",
+      "Acres": "Acres",
+      "Airport": "Airport",
+      "Alcove": "Alcove",
+      "Alle": "Alle",
+      "Alley": "Alley",
+      "Annex": "Annex",
+      "Approach": "Approach",
+      "Arc": "Arc",
+      "Arcade": "Arcade",
+      "Arch": "Arch",
+      "Avenida": "Avenida",
+      "Avenue": "Avenue",
+      "Avenue Circle": "Avenue Circle",
+      "Avenue Court": "Avenue Court",
+      "Avenue Loop": "Avenue Loop",
+      "Avenue Path": "Avenue Path",
+      "Avenue Place": "Avenue Place",
+      "Avenue Way": "Avenue Way",
+      "Bank": "Bank",
+      "Bay": "Bay",
+      "Bayou": "Bayou",
+      "Bayway": "Bayway",
+      "Beach": "Beach",
+      "Bend": "Bend",
+      "Bluff": "Bluff",
+      "Bluffs": "Bluffs",
+      "Bottom": "Bottom",
+      "Boardwalk": "Boardwalk",
+      "Boulevard": "Boulevard",
+      "Branch": "Branch",
+      "Bridge": "Bridge",
+      "Brook": "Brook",
+      "Brooks": "Brooks",
+      "Bureau of Indian Affairs Route": "Bureau of Indian Affairs Route",
+      "Burg": "Burg",
+      "Burgs": "Burgs",
+      "Bypass": "Bypass",
+      "Calle": "Calle",
+      "Callejon": "Callejon",
+      "Camino": "Camino",
+      "Camp": "Camp",
+      "Canyon": "Canyon",
+      "Cape": "Cape",
+      "Cartway": "Cartway",
+      "Causeway": "Causeway",
+      "Center": "Center",
+      "Centers": "Centers",
+      "Centre": "Centre",
+      "Channel": "Channel",
+      "Chase": "Chase",
+      "Chemin": "Chemin",
+      "Circle": "Circle",
+      "Circles": "Circles",
+      "Circus": "Circus",
+      "Cliff": "Cliff",
+      "Cliffs": "Cliffs",
+      "Close": "Close",
+      "Club": "Club",
+      "Cluster": "Cluster",
+      "Coast Highway": "Coast Highway",
+      "Common": "Common",
+      "Commons": "Commons",
+      "Concession Road": "Concession Road",
+      "Concourse": "Concourse",
+      "Connect": "Connect",
+      "Connector": "Connector",
+      "Corner": "Corner",
+      "Corners": "Corners",
+      "Corridor": "Corridor",
+      "Corso": "Corso",
+      "Corte": "Corte",
+      "County Forest Road": "County Forest Road",
+      "County Highway": "County Highway",
+      "County Road": "County Road",
+      "County Route": "County Route",
+      "County State Aid Highway": "County State Aid Highway",
+      "Cours": "Cours",
+      "Course": "Course",
+      "Court": "Court",
+      "Courts": "Courts",
+      "Cove": "Cove",
+      "Coves": "Coves",
+      "Creek": "Creek",
+      "Crescent": "Crescent",
+      "Crest": "Crest",
+      "Cross": "Cross",
+      "Crossing": "Crossing",
+      "Crossings": "Crossings",
+      "Crossover": "Crossover",
+      "Crossroad": "Crossroad",
+      "Crossroads": "Crossroads",
+      "Crossway": "Crossway",
+      "Curve": "Curve",
+      "Custer County Road": "Custer County Road",
+      "Cutoff": "Cutoff",
+      "Cutting": "Cutting",
+      "Dale": "Dale",
+      "Dam": "Dam",
+      "Dawson County Road": "Dawson County Road",
+      "Dell": "Dell",
+      "Divide": "Divide",
+      "Dock": "Dock",
+      "Down": "Down",
+      "Downs": "Downs",
+      "Draw": "Draw",
+      "Drift": "Drift",
+      "Drive": "Drive",
+      "Drives": "Drives",
+      "Driveway": "Driveway",
+      "Dugway": "Dugway",
+      "Echo": "Echo",
+      "Edge": "Edge",
+      "End": "End",
+      "Entrance": "Entrance",
+      "Entry": "Entry",
+      "Esplanade": "Esplanade",
+      "Estate": "Estate",
+      "Estates": "Estates",
+      "Exchange": "Exchange",
+      "Exit": "Exit",
+      "Expressway": "Expressway",
+      "Extension": "Extension",
+      "Extensions": "Extensions",
+      "Fall": "Fall",
+      "Falls": "Falls",
+      "Fare": "Fare",
+      "Farm": "Farm",
+      "Farm to Market": "Farm to Market",
+      "Federal-Aid Secondary Highway": "Federal-Aid Secondary Highway",
+      "Ferry": "Ferry",
+      "Field": "Field",
+      "Fields": "Fields",
+      "Flat": "Flat",
+      "Flats": "Flats",
+      "Flowage": "Flowage",
+      "Flyway": "Flyway",
+      "Ford": "Ford",
+      "Fords": "Fords",
+      "Forest": "Forest",
+      "Forest Highway": "Forest Highway",
+      "Forest Road": "Forest Road",
+      "Forge": "Forge",
+      "Forges": "Forges",
+      "Fork": "Fork",
+      "Forks": "Forks",
+      "Fort": "Fort",
+      "Freeway": "Freeway",
+      "Front": "Front",
+      "Frontage Road": "Frontage Road",
+      "Gables": "Gables",
+      "Garden": "Garden",
+      "Gardens": "Gardens",
+      "Garth": "Garth",
+      "Gate": "Gate",
+      "Gates": "Gates",
+      "Gateway": "Gateway",
+      "Glade": "Glade",
+      "Glen": "Glen",
+      "Glens": "Glens",
+      "Gorge": "Gorge",
+      "Grade": "Grade",
+      "Green": "Green",
+      "Greens": "Greens",
+      "Greenway": "Greenway",
+      "Grove": "Grove",
+      "Groves": "Groves",
+      "Harbor": "Harbor",
+      "Harbors": "Harbors",
+      "Harbour": "Harbour",
+      "Haul Road": "Haul Road",
+      "Haven": "Haven",
+      "Heath": "Heath",
+      "Heights": "Heights",
+      "Hideaway": "Hideaway",
+      "Highway": "Highway",
+      "Hill": "Hill",
+      "Hills": "Hills",
+      "Hollow": "Hollow",
+      "Horn": "Horn",
+      "Horseshoe": "Horseshoe",
+      "Indian Service Road": "Indian Service Road",
+      "Inlet": "Inlet",
+      "Interstate": "Interstate",
+      "Interval": "Interval",
+      "Island": "Island",
+      "Islands": "Islands",
+      "Isle": "Isle",
+      "Isles": "Isles",
+      "J-Turn": "J-Turn",
+      "Junction": "Junction",
+      "Junctions": "Junctions",
+      "Keep": "Keep",
+      "Key": "Key",
+      "Keys": "Keys",
+      "Knoll": "Knoll",
+      "Knolls": "Knolls",
+      "Lair": "Lair",
+      "Lake": "Lake",
+      "Lakes": "Lakes",
+      "Land": "Land",
+      "Landing": "Landing",
+      "Lane": "Lane",
+      "Lane Circle": "Lane Circle",
+      "Lane Court": "Lane Court",
+      "Lane Road": "Lane Road",
+      "Lateral": "Lateral",
+      "Ledge": "Ledge",
+      "Light": "Light",
+      "Lights": "Lights",
+      "Line": "Line",
+      "Loaf": "Loaf",
+      "Lock": "Lock",
+      "Locks": "Locks",
+      "Lodge": "Lodge",
+      "Lookout": "Lookout",
+      "Loop": "Loop",
+      "Loop Road": "Loop Road",
+      "Lugar": "Lugar",
+      "Mall": "Mall",
+      "Manor": "Manor",
+      "Manors": "Manors",
+      "Market": "Market",
+      "Meadow": "Meadow",
+      "Meadows": "Meadows",
+      "Mews": "Mews",
+      "Mill": "Mill",
+      "Mills": "Mills",
+      "Mission": "Mission",
+      "Montana Highway": "Montana Highway",
+      "Motorway": "Motorway",
+      "Mount": "Mount",
+      "Mountain": "Mountain",
+      "Mountains": "Mountains",
+      "Narrows": "Narrows",
+      "National Forest Development Road": "National Forest Development Road",
+      "Neck": "Neck",
+      "Nook": "Nook",
+      "North Carolina Highway": "North Carolina Highway",
+      "Oaks": "Oaks",
+      "Old County Road": "Old County Road",
+      "Orchard": "Orchard",
+      "Oval": "Oval",
+      "Overlook": "Overlook",
+      "Overpass": "Overpass",
+      "Ovi": "Ovi",
+      "Park": "Park",
+      "Parke": "Parke",
+      "Parks": "Parks",
+      "Parkway": "Parkway",
+      "Parkways": "Parkways",
+      "Paseo": "Paseo",
+      "Pass": "Pass",
+      "Passage": "Passage",
+      "Path": "Path",
+      "Pathway": "Pathway",
+      "Piazza": "Piazza",
+      "Pike": "Pike",
+      "Pine": "Pine",
+      "Pines": "Pines",
+      "Place": "Place",
+      "Placita": "Placita",
+      "Plain": "Plain",
+      "Plains": "Plains",
+      "Platz": "Platz",
+      "Plaza": "Plaza",
+      "Point": "Point",
+      "Pointe": "Pointe",
+      "Points": "Points",
+      "Port": "Port",
+      "Ports": "Ports",
+      "Prairie": "Prairie",
+      "Private Road": "Private Road",
+      "Promenade": "Promenade",
+      "Public Access": "Public Access",
+      "Quarter": "Quarter",
+      "Quay": "Quay",
+      "Ramp": "Ramp",
+      "Radial": "Radial",
+      "Ranch": "Ranch",
+      "Rancho": "Rancho",
+      "Rapid": "Rapid",
+      "Rapids": "Rapids",
+      "Reach": "Reach",
+      "Recreational Road": "Recreational Road",
+      "Rest": "Rest",
+      "Retreat": "Retreat",
+      "Ridge": "Ridge",
+      "Ridges": "Ridges",
+      "Rise": "Rise",
+      "River": "River",
+      "River Road": "River Road",
+      "Road": "Road",
+      "Roads": "Roads",
+      "Round": "Round",
+      "Route": "Route",
+      "Row": "Row",
+      "Rue": "Rue",
+      "Run": "Run",
+      "Runne": "Runne",
+      "Runway": "Runway",
+      "Shoal": "Shoal",
+      "Shoals": "Shoals",
+      "Shore": "Shore",
+      "Shores": "Shores",
+      "Sideroad": "Sideroad",
+      "Skies": "Skies",
+      "Skyway": "Skyway",
+      "Slip": "Slip",
+      "Spring": "Spring",
+      "Springs": "Springs",
+      "Spur": "Spur",
+      "Spurs": "Spurs",
+      "Square": "Square",
+      "Squares": "Squares",
+      "State Highway": "State Highway",
+      "State Park Road": "State Park Road",
+      "State Parkway": "State Parkway",
+      "State Road": "State Road",
+      "State Route": "State Route",
+      "State Secondary": "State Secondary",
+      "State Spur": "State Spur",
+      "Station": "Station",
+      "Strand": "Strand",
+      "Strasse": "Strasse",
+      "Stravenue": "Stravenue",
+      "Stream": "Stream",
+      "Street": "Street",
+      "Streets": "Streets",
+      "Street Circle": "Street Circle",
+      "Street Court": "Street Court",
+      "Street Loop": "Street Loop",
+      "Street Path": "Street Path",
+      "Street Place": "Street Place",
+      "Street Way": "Street Way",
+      "Strip": "Strip",
+      "Summit": "Summit",
+      "Taxiway": "Taxiway",
+      "Terminal": "Terminal",
+      "Tern": "Tern",
+      "Terrace": "Terrace",
+      "Throughway": "Throughway",
+      "Thruway": "Thruway",
+      "Timber Road": "Timber Road",
+      "Townline": "Townline",
+      "Town Road": "Town Road",
+      "Township Road": "Township Road",
+      "Trace": "Trace",
+      "Track": "Track",
+      "Trafficway": "Trafficway",
+      "Trail": "Trail",
+      "Trailer": "Trailer",
+      "Triangle": "Triangle",
+      "Truck Trail": "Truck Trail",
+      "Tunnel": "Tunnel",
+      "Turn": "Turn",
+      "Turnpike": "Turnpike",
+      "United States Forest Service Road": "United States Forest Service Road",
+      "United States Highway": "United States Highway",
+      "Underpass": "Underpass",
+      "Union": "Union",
+      "Unions": "Unions",
+      "Uunye": "Uunye",
+      "Valley": "Valley",
+      "Valleys": "Valleys",
+      "Via": "Via",
+      "Viaduct": "Viaduct",
+      "View": "View",
+      "Views": "Views",
+      "Villa": "Villa",
+      "Village": "Village",
+      "Villages": "Villages",
+      "Ville": "Ville",
+      "Vista": "Vista",
+      "Vog": "Vog",
+      "Waddy": "Waddy",
+      "Walk": "Walk",
+      "Walks": "Walks",
+      "Wall": "Wall",
+      "Way": "Way",
+      "Ways": "Ways",
+      "Weeg": "Weeg",
+      "Well": "Well",
+      "Wells": "Wells",
+      "Woods": "Woods",
+      "Wye": "Wye",
+      "Wynd": "Wynd"
+    }
+  }, {
+    "domain_name": "StreetNamePreTypeSeparator",
+    "domain_description": "A preposition or prepositional phrase between the Street Name Pre Type and the Street Name.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "of the": "of the",
+      "at": "at",
+      "de": "de",
+      "de la": "de la",
+      "del": "del",
+      "de las": "de las",
+      "des": "des",
+      "in the": "in the",
+      "to the": "to the",
+      "of": "of",
+      "on the": "on the",
+      "to": "to"
+    }
+  }, {
+    "domain_name": "Validation",
+    "domain_description": "Indicates if the address range on the corresponding side of the road segment should be used for civic location validation.",
+    "field_type": "TEXT",
+    "domain_type": "CODED",
+    "values": {
+      "Y": "Yes",
+      "N": "No"
+    }
+  }
+]
+
+# ==============================================================================
+# Feature Classes defined in NENA-STA-006.3-2025
+# ==============================================================================
+
+FEATURE_CLASSES = [
+  {
+    "out_name": "RoadCenterLine",
+    "out_alias": "Road Centerlines",
+    "section": "4.1.1",
+    "geometry_type": "POLYLINE",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["AdNumPre_L", "TEXT", "", "", "15", "Left Address Number Prefix",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AdNumPre_R", "TEXT", "", "", "15", "Right Address Number Prefix",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["FromAddr_L", "LONG", "", "", "", "Left FROM Address Number",
+       "NON_NULLABLE", "REQUIRED", "AddressNumber", None],
+      ["ToAddr_L", "LONG", "", "", "", "Left TO Address Number",
+       "NON_NULLABLE", "REQUIRED", "AddressNumber", None],
+      ["FromAddr_R", "LONG", "", "", "", "Right FROM Address Number",
+       "NON_NULLABLE", "REQUIRED", "AddressNumber", None],
+      ["ToAddr_R", "LONG", "", "", "", "Right TO Address Number",
+       "NON_NULLABLE", "REQUIRED", "AddressNumber", None],
+      ["Parity_L", "TEXT", "", "", "1", "Parity Left",
+       "NON_NULLABLE", "REQUIRED", "Parity", None],
+      ["Parity_R", "TEXT", "", "", "1", "Parity Right",
+       "NON_NULLABLE", "REQUIRED", "Parity", None],
+      ["St_PreMod", "TEXT", "", "", "25", "Street Name Pre Modifier",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["St_PreDir", "TEXT", "", "", "10", "Street Name Pre Directional",
+       "NULLABLE", "NON_REQUIRED", "StreetNameDirectional", None],
+      ["St_PreTyp", "TEXT", "", "", "50", "Street Name Pre Type",
+       "NULLABLE", "NON_REQUIRED", "StreetNameType", None],
+      ["St_PreSep", "TEXT", "", "", "20", "Street Name Pre Type Separator",
+       "NULLABLE", "NON_REQUIRED", "StreetNamePreTypeSeparator", None],
+      ["St_Name", "TEXT", "", "", "254", "Street Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["St_PosTyp", "TEXT", "", "", "50", "Street Name Post Type",
+       "NULLABLE", "NON_REQUIRED", "StreetNameType", None],
+      ["St_PosDir", "TEXT", "", "", "10", "Street Name Post Directional",
+       "NULLABLE", "NON_REQUIRED", "StreetNameDirectional", None],
+      ["St_PosMod", "TEXT", "", "", "25", "Street Name Post Modifier",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Dir_Travel", "TEXT", "", "", "10", "Direction of Travel",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_PreDir", "TEXT", "", "", "2", "Legacy Street Name Pre Directional",
+       "NULLABLE", "NON_REQUIRED", "LegacyStreetNameDirectional", None],
+      ["LSt_Name", "TEXT", "", "", "75", "Legacy Street Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_Typ", "TEXT", "", "", "4", "Legacy Street Name Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_PosDir", "TEXT", "", "", "2", "Legacy Street Name Post Directional",
+       "NULLABLE", "NON_REQUIRED", "LegacyStreetNameDirectional", None],
+      ["ESN_L", "TEXT", "", "", "5", "ESN Left",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["ESN_R", "TEXT", "", "", "5", "ESN Right",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["MSAGComm_L", "TEXT", "", "", "30", "MSAG Community Name Left",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["MSAGComm_R", "TEXT", "", "", "30", "MSAG Community Name Right",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LCntyID_L", "TEXT", "", "", "5", "Legacy County ID Left",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LCntyID_R", "TEXT", "", "", "5", "Legacy County ID Right",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Country_L", "TEXT", "", "", "2", "Country Left",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["Country_R", "TEXT", "", "", "2", "Country Right",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["A1_L", "TEXT", "", "", "2", "Administrative Level 1 Left",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+      ["A1_R", "TEXT", "", "", "2", "Administrative Level 1 Right",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+      ["A2_L", "TEXT", "", "", "254", "Administrative Level 2 Left",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels2", None],
+      ["A2_R", "TEXT", "", "", "254", "Administrative Level 2 Right",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels2", None],
+      ["AddCode_L", "TEXT", "", "", "6", "Additional Code Left",
+       "NULLABLE", "NON_REQUIRED", "AdditionalCode", None],
+      ["AddCode_R", "TEXT", "", "", "6", "Additional Code Right",
+       "NULLABLE", "NON_REQUIRED", "AdditionalCode", None],
+      ["A3_L", "TEXT", "", "", "254", "Administrative Level 3 Left",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels3", None],
+      ["A3_R", "TEXT", "", "", "254", "Administrative Level 3 Right",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels3", None],
+      ["A4_L", "TEXT", "", "", "254", "Administrative Level 4 Left",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["A4_R", "TEXT", "", "", "254", "Administrative Level 4 Right",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["A5_L", "TEXT", "", "", "254", "Administrative Level 5 Left",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["A5_R", "TEXT", "", "", "254", "Administrative Level 5 Right",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["PostCode_L", "TEXT", "", "", "7", "Postal Code Left",
+       "NULLABLE", "NON_REQUIRED", "PostalCode", None],
+      ["PostCode_R", "TEXT", "", "", "7", "Postal Code Right",
+       "NULLABLE", "NON_REQUIRED", "PostalCode", None],
+      ["PostComm_L", "TEXT", "", "", "40", "Postal Community Name Left",
+       "NULLABLE", "NON_REQUIRED", "PostalCommunityName", None],
+      ["PostComm_R", "TEXT", "", "", "40", "Postal Community Name Right",
+       "NULLABLE", "NON_REQUIRED", "PostalCommunityName", None],
+      ["RoadClass", "TEXT", "", "", "24", "Road Class",
+       "NULLABLE", "NON_REQUIRED", "RoadClass", None],
+      ["OneWay", "TEXT", "", "", "2", "One-Way",
+       "NULLABLE", "NON_REQUIRED", "OneWay", None],
+      ["SpeedLimit", "LONG", "", "", "", "Speed Limit",
+       "NULLABLE", "NON_REQUIRED", "SpeedLimit", None],
+      ["Valid_L", "TEXT", "", "", "1", "Validation Left",
+       "NULLABLE", "NON_REQUIRED", "Validation", None],
+      ["Valid_R", "TEXT", "", "", "1", "Validation Right",
+       "NULLABLE", "NON_REQUIRED", "Validation", None],
+    ],
+    "metadata": {
+      "description": """
+Roads data is maintained as a line layer for representing the centerline of a real-world roadway. This dataset is referred to as the RoadCenterLine layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry Registry and in NENA documents going forward. GIS road centerline arc node topology is associated with attribute data containing information on street names, address ranges, jurisdictional boundaries, and other attributes. The RoadCenterLine layer is an integral part of any public safety GIS due to its versatility and use for:
+
+•	Querying and geocoding of civic addresses based on dual (left/right) address ranges
+•	Tactical map display
+•	Map and attribute viewing
+•	Map production
+•	Location and driving directions
+•	Integration of network topology to allow vehicle routing, drive time analysis
+•	Integration of spatially related attributes for advanced applications including those focused on public safety, asset management, planning, utilities, and public works
+
+Unnamed centerlines MUST have the Street Name field populated.
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "transportation", "road centerlines"
+      ]
+    }
+  }, {
+    "out_name": "SiteStructureAddressPoint",
+    "out_alias": "Site/Structure Address Points",
+    "section": "4.2.1",
+    "geometry_type": "POINT",
+    "has_m": "DISABLED",
+    "has_z": "ENABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Country", "TEXT", "", "", "2", "Country",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["A1", "TEXT", "", "", "2", "Administrative Level 1",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+      ["A2", "TEXT", "", "", "254", "Administrative Level 2",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels2", None],
+      ["AddCode", "TEXT", "", "", "6", "Additional Code",
+       "NULLABLE", "NON_REQUIRED", "AdditionalCode", None],
+      ["A3", "TEXT", "", "", "254", "Administrative Level 3",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels3", None],
+      ["A4", "TEXT", "", "", "254", "Administrative Level 4",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["A5", "TEXT", "", "", "254", "Administrative Level 5",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AddNum_Pre", "TEXT", "", "", "15", "Address Number Prefix",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Add_Number", "LONG", "", "", "", "Address Number",
+       "NULLABLE", "NON_REQUIRED", "AddressNumber", None],
+      ["AddNum_Suf", "TEXT", "", "", "15", "Address Number Suffix",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AddNum_Cmp", "TEXT", "", "", "42", "Address Number Complete",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["DistMarker", "TEXT", "", "", "150", "Distance Marker",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["St_PreMod", "TEXT", "", "", "25", "Street Name Pre Modifier",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["St_PreDir", "TEXT", "", "", "10", "Street Name Pre Directional",
+       "NULLABLE", "NON_REQUIRED", "StreetNameDirectional", None],
+      ["St_PreTyp", "TEXT", "", "", "50", "Street Name Pre Type",
+       "NULLABLE", "NON_REQUIRED", "StreetNameType", None],
+      ["St_PreSep", "TEXT", "", "", "20", "Street Name Pre Type Separator",
+       "NULLABLE", "NON_REQUIRED", "StreetNamePreTypeSeparator", None],
+      ["St_Name", "TEXT", "", "", "254", "Street Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["St_PosTyp", "TEXT", "", "", "50", "Street Name Post Type",
+       "NULLABLE", "NON_REQUIRED", "StreetNameType", None],
+      ["St_PosDir", "TEXT", "", "", "10", "Street Name Post Directional",
+       "NULLABLE", "NON_REQUIRED", "StreetNameDirectional", None],
+      ["St_PosMod", "TEXT", "", "", "25", "Street Name Post Modifier",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Dir_Travel", "TEXT", "", "", "10", "Direction of Travel",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_PreDir", "TEXT", "", "", "2", "Legacy Street Name Pre Directional",
+       "NULLABLE", "NON_REQUIRED", "LegacyStreetNameDirectional", None],
+      ["LSt_Name", "TEXT", "", "", "75", "Legacy Street Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_Typ", "TEXT", "", "", "4", "Legacy Street Name Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_PosDir", "TEXT", "", "", "2", "Legacy Street Name Post Directional",
+       "NULLABLE", "NON_REQUIRED", "LegacyStreetNameDirectional", None],
+      ["ESN", "TEXT", "", "", "5", "ESN",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["MSAGComm", "TEXT", "", "", "30", "MSAG Community Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LCountyID", "TEXT", "", "", "5", "Legacy County ID",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Post_Comm", "TEXT", "", "", "40", "Postal Community Name",
+       "NULLABLE", "NON_REQUIRED", "PostalCommunityName", None],
+      ["Post_Code", "TEXT", "", "", "7", "Postal Code",
+       "NULLABLE", "NON_REQUIRED", "PostalCode", None],
+      ["PostCodeEx", "TEXT", "", "", "4", "Postal Code Extension",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Site", "TEXT", "", "", "254", "Site",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["SubSite", "TEXT", "", "", "254", "SubSite",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Structure", "TEXT", "", "", "75", "Structure",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Floor", "TEXT", "", "", "75", "Floor Label",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["FloorIndex", "LONG", "", "", "", "Floor Index",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Wing", "TEXT", "", "", "75", "Wing",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Unit", "TEXT", "", "", "75", "Unit",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["UnitPreType", "TEXT", "", "", "75", "Unit Pre Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["UnitValue", "TEXT", "", "", "75", "Unit Value",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Section", "TEXT", "", "", "75", "Section",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Row", "TEXT", "", "", "75", "Row",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Room", "TEXT", "", "", "75", "Room",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Seat", "TEXT", "", "", "75", "Seat",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LocMarker", "TEXT", "", "", "100", "Location Marker",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Addtl_Loc", "TEXT", "", "", "225", "Additional Location Information",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AddDataURI", "TEXT", "", "", "254", "Additional Data URI",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Place_Type", "TEXT", "", "", "50", "Place Type",
+       "NULLABLE", "NON_REQUIRED", "PlaceType", None],
+      ["Placement", "TEXT", "", "", "25", "Placement Method",
+       "NULLABLE", "NON_REQUIRED", "PlacementMethodPoint", None],
+      ["Longitude", "DOUBLE", "11", "7", "", "Longitude",
+       "NULLABLE", "NON_REQUIRED", "Longitude", None],
+      ["Latitude", "DOUBLE", "10", "7", "", "Latitude",
+       "NULLABLE", "NON_REQUIRED", "Latitude", None],
+      ["Elevation", "DOUBLE", "9", "3", "", "Elevation",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Altitude", "DOUBLE", "9", "3", "", "Altitude",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Height", "DOUBLE", "9", "3", "", "Height",
+       "NULLABLE", "NON_REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+Site/Structure Addresses data is maintained as a point layer that supports 3D for representing the location of a site, a structure, an interior space, or access to a site, structure, or an interior space. This dataset is referred to as the SiteStructureAddressPoint layer in in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.  While the SiteStructureAddressPoint layer is required, there is no requirement for the completeness of these data. It is understood that it will take time and resources to develop complete and accurate Site/Structure Addresses data.
+
+Site/Structure Addresses data can be used to locate sites that otherwise may not geocode correctly using the road centerline data. It can also be used to locate areas of unusual addressing (i.e., odd addresses on the even side of the road centerlines and vice versa), and other areas where the data is available. Some addressable locations may be problematic near boundaries.
+
+The Address Number, Street Name, and Administrative Levels 1-5 attributes in the SiteStructureAddressPoint layer SHOULD be consistent with the address number range, street name, and left/right Administrative Level attribute combinations found in the RoadCenterLine layer.
+
+While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Addresses data described in this Standard.
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "address", "situs"
+      ]
+    }
+  }, {
+    "out_name": "SiteStructureAddressPolygon",
+    "out_alias": "Site/Structure Address Polygons",
+    "section": "4.2.2",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Country", "TEXT", "", "", "2", "Country",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["A1", "TEXT", "", "", "2", "Administrative Level 1",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+      ["A2", "TEXT", "", "", "254", "Administrative Level 2",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels2", None],
+      ["AddCode", "TEXT", "", "", "6", "Additional Code",
+       "NULLABLE", "NON_REQUIRED", "AdditionalCode", None],
+      ["A3", "TEXT", "", "", "254", "Administrative Level 3",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels3", None],
+      ["A4", "TEXT", "", "", "254", "Administrative Level 4",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["A5", "TEXT", "", "", "254", "Administrative Level 5",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AddNum_Pre", "TEXT", "", "", "15", "Address Number Prefix",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Add_Number", "LONG", "", "", "", "Address Number",
+       "NULLABLE", "NON_REQUIRED", "AddressNumber", None],
+      ["AddNum_Suf", "TEXT", "", "", "15", "Address Number Suffix",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AddNum_Cmp", "TEXT", "", "", "42", "Address Number Complete",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["DistMarker", "TEXT", "", "", "150", "Distance Marker",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["St_PreMod", "TEXT", "", "", "25", "Street Name Pre Modifier",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["St_PreDir", "TEXT", "", "", "10", "Street Name Pre Directional",
+       "NULLABLE", "NON_REQUIRED", "StreetNameDirectional", None],
+      ["St_PreTyp", "TEXT", "", "", "50", "Street Name Pre Type",
+       "NULLABLE", "NON_REQUIRED", "StreetNameType", None],
+      ["St_PreSep", "TEXT", "", "", "20", "Street Name Pre Type Separator",
+       "NULLABLE", "NON_REQUIRED", "StreetNamePreTypeSeparator", None],
+      ["St_Name", "TEXT", "", "", "254", "Street Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["St_PosTyp", "TEXT", "", "", "50", "Street Name Post Type",
+       "NULLABLE", "NON_REQUIRED", "StreetNameType", None],
+      ["St_PosDir", "TEXT", "", "", "10", "Street Name Post Directional",
+       "NULLABLE", "NON_REQUIRED", "StreetNameDirectional", None],
+      ["St_PosMod", "TEXT", "", "", "25", "Street Name Post Modifier",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Dir_Travel", "TEXT", "", "", "10", "Direction of Travel",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_PreDir", "TEXT", "", "", "2", "Legacy Street Name Pre Directional",
+       "NULLABLE", "NON_REQUIRED", "LegacyStreetNameDirectional", None],
+      ["LSt_Name", "TEXT", "", "", "75", "Legacy Street Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_Typ", "TEXT", "", "", "4", "Legacy Street Name Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LSt_PosDir", "TEXT", "", "", "2", "Legacy Street Name Post Directional",
+       "NULLABLE", "NON_REQUIRED", "LegacyStreetNameDirectional", None],
+      ["ESN", "TEXT", "", "", "5", "ESN",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["MSAGComm", "TEXT", "", "", "30", "MSAG Community Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LCountyID", "TEXT", "", "", "5", "Legacy County ID",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Post_Comm", "TEXT", "", "", "40", "Postal Community Name",
+       "NULLABLE", "NON_REQUIRED", "PostalCommunityName", None],
+      ["Post_Code", "TEXT", "", "", "7", "Postal Code",
+       "NULLABLE", "NON_REQUIRED", "PostalCode", None],
+      ["PostCodeEx", "TEXT", "", "", "4", "Postal Code Extension",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Site", "TEXT", "", "", "254", "Site",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["SubSite", "TEXT", "", "", "254", "SubSite",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Structure", "TEXT", "", "", "75", "Structure",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Floor", "TEXT", "", "", "75", "Floor Label",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["FloorIndex", "LONG", "", "", "", "Floor Index",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Wing", "TEXT", "", "", "75", "Wing",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Unit", "TEXT", "", "", "75", "Unit",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["UnitPreType", "TEXT", "", "", "75", "Unit Pre Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["UnitValue", "TEXT", "", "", "75", "Unit Value",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Section", "TEXT", "", "", "75", "Section",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Row", "TEXT", "", "", "75", "Row",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Room", "TEXT", "", "", "75", "Room",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Seat", "TEXT", "", "", "75", "Seat",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LocMarker", "TEXT", "", "", "100", "Location Marker",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Addtl_Loc", "TEXT", "", "", "225", "Additional Location Information",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AddDataURI", "TEXT", "", "", "254", "Additional Data URI",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Place_Type", "TEXT", "", "", "50", "Place Type",
+       "NULLABLE", "NON_REQUIRED", "PlaceType", None],
+      ["Placement", "TEXT", "", "", "25", "Placement Method",
+       "NULLABLE", "NON_REQUIRED", "PlacementMethodPolygon", None],
+    ],
+    "metadata": {
+      "description": """
+Site/Structure Addresses data is maintained as a polygon layer to represent the extent of addressable areas such as outdoor sites, structures, or interior spaces. This dataset is referred to as the SiteStructureAddressPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. It is understood that it will take time and resources to fully develop complete and accurate Site/Structure Addresses data.
+
+Site/Structure Address Polygon data can be used to more effectively convert geodetic locations into civic locations than Site/Structure Address Point data. This is because the polygon represents the extent of the space whereas the point provides no information as to its extent. Gaps and overlaps between SiteStructureAddressPolygon features MAY exist and are permissible (e.g., a room on a floor within a building may be represented as three overlapping SiteStructureAddressPolygon features).
+
+The SiteStructureAddressPolygon feature attribution SHOULD be consistent with the attribution of related SiteStructureAddressPoint or RoadCenterLine features where they exist.
+
+While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Address Polygon data described in this Standard.
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "address", "situs"
+      ]
+    }
+  }, {
+    "out_name": "PsapPolygon",
+    "out_alias": "PSAP Polygon",
+    "section": "",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Agency_ID", "TEXT", "", "", "100", "Agency Identifier",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURI", "TEXT", "", "", "254", "Service URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURN", "TEXT", "", "", "100", "Service URN",
+       "NON_NULLABLE", "REQUIRED", "ServiceURNSOS", "urn:emergency:service:sos.psap"],
+      ["ServiceNum", "TEXT", "", "", "15", "Service Number",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AVcard_URI", "TEXT", "", "", "254", "Agency vCard URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["DsplayName", "TEXT", "", "", "60", "Display Name",
+       "NON_NULLABLE", "REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+In an NG9 1 1 deployment, the initial routing of a 9 1 1 call cannot happen without Primary PSAP boundaries. It is the most critical layer and MUST be provided. Its data structure is the same as all service boundary layers defined in this section. All polygons in this layer MUST have a Service URN of urn:service:sos.
+
+The PsapPolygon layer may have one or many PSAP Boundaries contained in the layer. Each PSAP Boundary defines the geographic area of a PSAP that has primary responsibilities for an emergency request. This layer is used by the ECRF to perform a geographic query to determine the PSAP to which an emergency request is routed. An emergency request is routed using the NG9 1 1 Core Services based upon the geographic location of the request, provided by either a civic address, geographic coordinate, or geodetic shapes as defined in NENA-STA-010.
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "service boundary", "psap"
+      ]
+    }
+  }, {
+    "out_name": "PolicePolygon",
+    "out_alias": "Police Polygon",
+    "geometry_type": "POLYGON",
+    "section": "",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Agency_ID", "TEXT", "", "", "100", "Agency Identifier",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURI", "TEXT", "", "", "254", "Service URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURN", "TEXT", "", "", "100", "Service URN",
+       "NON_NULLABLE", "REQUIRED", "ServiceURNResponder", "urn:emergency:service:responder.police"],
+      ["ServiceNum", "TEXT", "", "", "15", "Service Number",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AVcard_URI", "TEXT", "", "", "254", "Agency vCard URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["DsplayName", "TEXT", "", "", "60", "Display Name",
+       "NON_NULLABLE", "REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+In an NG9 1 1 deployment, the selective transfer of 9 1 1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9 1 1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation. 
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "service boundary", "police"
+      ]
+    }
+  }, {
+    "out_name": "FirePolygon",
+    "out_alias": "Fire Polygon",
+    "section": "",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Agency_ID", "TEXT", "", "", "100", "Agency Identifier",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURI", "TEXT", "", "", "254", "Service URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURN", "TEXT", "", "", "100", "Service URN",
+       "NON_NULLABLE", "REQUIRED", "ServiceURNResponder", "urn:emergency:service:responder.fire"],
+      ["ServiceNum", "TEXT", "", "", "15", "Service Number",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AVcard_URI", "TEXT", "", "", "254", "Agency vCard URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["DsplayName", "TEXT", "", "", "60", "Display Name",
+       "NON_NULLABLE", "REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+In an NG9 1 1 deployment, the selective transfer of 9 1 1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9 1 1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation. 
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "service boundary", "fire"
+      ]
+    }
+  }, {
+    "out_name": "EmsPolygon",
+    "out_alias": "EMS Polygon",
+    "section": "",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Agency_ID", "TEXT", "", "", "100", "Agency Identifier",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURI", "TEXT", "", "", "254", "Service URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURN", "TEXT", "", "", "100", "Service URN",
+       "NON_NULLABLE", "REQUIRED", "ServiceURNResponder", "urn:emergency:service:responder.ems"],
+      ["ServiceNum", "TEXT", "", "", "15", "Service Number",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AVcard_URI", "TEXT", "", "", "254", "Agency vCard URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["DsplayName", "TEXT", "", "", "60", "Display Name",
+       "NON_NULLABLE", "REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+In an NG9 1 1 deployment, the selective transfer of 9 1 1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9 1 1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation. 
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "service boundary", "ems"
+      ]
+    }
+  }, {
+    "out_name": "ServiceBoundaryPolygon",
+    "out_alias": "Service Boundary Polygon",
+    "section": "",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": False,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Agency_ID", "TEXT", "", "", "100", "Agency Identifier",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURI", "TEXT", "", "", "254", "Service URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["ServiceURN", "TEXT", "", "", "100", "Service URN",
+       "NON_NULLABLE", "REQUIRED", "ServiceURNResponder", None],
+      ["ServiceNum", "TEXT", "", "", "15", "Service Number",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["AVcard_URI", "TEXT", "", "", "254", "Agency vCard URI",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["DsplayName", "TEXT", "", "", "60", "Display Name",
+       "NON_NULLABLE", "REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+In an NG9 1 1 deployment, the transfer of 9 1 1 calls uses service boundary layers, all with the same data structure. These agencies may be served by a call center, dispatch center, or other terms.
+
+Other service boundary layers, which may be maintained as separate or combined, MAY include, but are not limited to:
+•	Poison Control
+•	Forest Service
+•	Coast Guard
+•	Animal Control
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "service boundary", "other"
+      ]
+    }
+  }, {
+    "out_name": "ProvisioningPolygon",
+    "out_alias": "Provisioning Boundaries",
+    "section": "4.4",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": False,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+Provisioning Boundaries data is maintained as a polygon layer for representing the area of GIS data provisioning responsibility, with no unintentional gaps or overlaps. This dataset is commonly referred to as the ProvisioningPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. The Provisioning Boundary MUST align with data from all adjoining GIS Data Providers.
+
+A Provisioning Boundary can take on a variety of shapes; for example, it may represent the extent of a city, the extent of a county, a region with multiple cities and counties, or possibly the extent of all areas served by a particular PSAP.
+
+When provisioning data for an ECRF and LVF through the SI, a GIS Data Provider MUST only include GIS data within their Provisioning Boundary and MUST ensure the data includes coverage for the entire extent of their Provisioning Boundary. The Spatial Interface Operator will utilize the ProvisioningPolygon layer to ensure that these requirements are met.
+
+Note: The 9 1 1 Authority is ultimately responsible for the GIS data within the area they provide service for.
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "provisioning boundary", "other"
+      ]
+    }
+  }, {
+    "out_name": "A1Polygon",
+    "out_alias": "Administrative Level 1 (A1) Polygons",
+    "section": "4.5.1",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Country", "TEXT", "", "", "2", "Country",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["A1", "TEXT", "", "", "2", "Administrative Level 1",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+    ],
+    "metadata": {
+      "description": """
+Administrative Level 1 data, formerly States or Equivalents (A1) data, is maintained as a polygon layer for representing the geographic area of a state, province, territory, or other top level subdivision of the larger country corresponding to the PIDF LO A1 element. This dataset is referred to as the A1Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "administrative unit", "state", "province"
+      ]
+    }
+  }, {
+    "out_name": "A2Polygon",
+    "out_alias": "Administrative Level 2 (A2) Polygons",
+    "section": "4.5.2",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Country", "TEXT", "", "", "2", "Country",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["A1", "TEXT", "", "", "2", "Administrative Level 1",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+      ["A2", "TEXT", "", "", "254", "Administrative Level 2",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels2", None],
+      ["AddCode", "TEXT", "", "", "6", "Additional Code",
+       "NULLABLE", "NON_REQUIRED", "AdditionalCode", None],
+    ],
+    "metadata": {
+      "description": """
+Administrative Level 2 data, formerly Counties or Equivalents (A2) data, is maintained as a polygon layer. It typically represents the geographic area of a county, parish, regional district, or other similar level division corresponding to the PIDF LO A2 element. The presence of A2 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A2Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. 
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "administrative unit", "county", "parish"
+      ]
+    }
+  }, {
+    "out_name": "A3Polygon",
+    "out_alias": "Administrative Level 3 (A3) Polygons",
+    "section": "4.5.3",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Country", "TEXT", "", "", "2", "Country",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["A1", "TEXT", "", "", "2", "Administrative Level 1",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+      ["A2", "TEXT", "", "", "254", "Administrative Level 2",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels2", None],
+      ["AddCode", "TEXT", "", "", "6", "Additional Code",
+       "NULLABLE", "NON_REQUIRED", "AdditionalCode", None],
+      ["A3", "TEXT", "", "", "254", "Administrative Level 3",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels3", None],
+    ],
+    "metadata": {
+      "description": """
+Administrative Level 3 data, formerly Incorporated Municipalities (A3) data, is maintained as a polygon layer. It typically represents the geographic area of a city, town, village, or other similar level division corresponding to the PIDF LO A3 element. The presence of A3 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A3Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. 
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "administrative unit", "city", "town", "village"
+      ]
+    }
+  }, {
+    "out_name": "A4Polygon",
+    "out_alias": "Administrative Level 4 (A4) Polygons",
+    "section": "4.5.4",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Country", "TEXT", "", "", "2", "Country",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["A1", "TEXT", "", "", "2", "Administrative Level 1",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+      ["A2", "TEXT", "", "", "254", "Administrative Level 2",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels2", None],
+      ["AddCode", "TEXT", "", "", "6", "Additional Code",
+       "NULLABLE", "NON_REQUIRED", "AdditionalCode", None],
+      ["A3", "TEXT", "", "", "254", "Administrative Level 3",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels3", None],
+      ["A4", "TEXT", "", "", "254", "Administrative Level 4",
+       "NON_NULLABLE", "REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+Administrative Level 4 data, formerly Unincorporated Communities (A4) data, is maintained as a polygon layer. It typically represents the geographic area of an unincorporated community, borough, ward, or other similar level division corresponding to the PIDF LO A4 element. The presence of A4 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A4Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. 
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "administrative unit", "borough", "ward"
+      ]
+    }
+  }, {
+    "out_name": "A5Polygon",
+    "out_alias": "Administrative Level 5 (A5) Polygons",
+    "section": "4.5.5",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Effective", "DATE", "", "", "", "Effective Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["Expire", "DATE", "", "", "", "Expiration Date",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["Country", "TEXT", "", "", "2", "Country",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels0", None],
+      ["A1", "TEXT", "", "", "2", "Administrative Level 1",
+       "NON_NULLABLE", "REQUIRED", "AdministrativeLevels1", None],
+      ["A2", "TEXT", "", "", "254", "Administrative Level 2",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels2", None],
+      ["A3", "TEXT", "", "", "254", "Administrative Level 3",
+       "NULLABLE", "NON_REQUIRED", "AdministrativeLevels3", None],
+      ["A4", "TEXT", "", "", "254", "Administrative Level 4",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["A5", "TEXT", "", "", "254", "Administrative Level 5",
+       "NON_NULLABLE", "REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+Administrative Level 5 data, formerly Neighborhood Communities (A5) data, is maintained as a polygon layer. It typically represents the geographic area of a neighborhood, commercial area, or other similar level division corresponding to the PIDF LO A5 element. The presence of A5 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A5Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. 
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "administrative unit", "neighborhood", "commercial area", "subdivision"
+      ]
+    }
+  }, {
+    "out_name": "RailroadCenterLine",
+    "out_alias": "Railroad CenterLine",
+    "section": "4.6",
+    "geometry_type": "POLYLINE",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["RLOwn", "TEXT", "", "", "100", "Rail Line Owner",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["RLOp", "TEXT", "", "", "100", "Rail Line Operator",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["RLName", "TEXT", "", "", "100", "Rail Line Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["RMPL", "DOUBLE", "7", "3", "", "Rail Mile Post Low",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["RMPH", "DOUBLE", "7", "3", "", "Rail Mile Post High",
+       "NULLABLE", "NON_REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+Railroads data is maintained as a line layer for representing the centerline of a real world rail line. This dataset is referred to as the RailroadCenterLine layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Federal Railroad Administration’s Rail Lines database is in Appendix A of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Railway Network database is in Appendix B of NENA-STA-006.
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "transporation", "railroad", "rail"
+      ]
+    }
+  }, {
+    "out_name": "HydrologyLine",
+    "out_alias": "Hydrology Lines",
+    "section": "4.7.1",
+    "geometry_type": "POLYLINE",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["HS_Type", "TEXT", "", "", "100", "Hydrology Segment Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["HS_Name", "TEXT", "", "", "100", "Hydrology Segment Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+Hydrology data is maintained as a line layer for representing creeks, streams, rivers, and other linear water features. This dataset is referred to as the HydrologyLine layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D of NENA-STA-006.
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "hydrology", "creek", "stream", "river"
+      ]
+    }
+  }, {
+    "out_name": "HydrologyPolygon",
+    "out_alias": "Hydrology Polygons",
+    "section": "4.7.2",
+    "geometry_type": "POLYGON",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["HP_Type", "TEXT", "", "", "100", "Hydrology Polygon Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["HP_Name", "TEXT", "", "", "100", "Hydrology Polygon Name",
+       "NULLABLE", "NON_REQUIRED", "", None],
+    ],
+    "metadata": {
+      "description": """
+Hydrology data is maintained as a polygon layer for representing areal water body features. This dataset is referred to as the HydrologyPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D of NENA-STA-006.
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "hydrology", "lake", "pond", "reservoir"
+      ]
+    }
+  }, {
+    "out_name": "DistanceMarkerPoint",
+    "out_alias": "Distance Markers",
+    "section": "4.8",
+    "geometry_type": "POINT",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["DM_Unit", "TEXT", "", "", "15", "Distance Marker Unit of Measurement",
+       "NULLABLE", "NON_REQUIRED", "MarkerUnitOfMeasurement", None],
+      ["DM_Value", "DOUBLE", "", "", "", "Distance Marker Measurement Value",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["DM_Rte", "TEXT", "", "", "100", "Distance Marker Route Name",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["DM_Type", "TEXT", "", "", "15", "Distance Marker Route Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["DM_Ind", "TEXT", "", "", "1", "Distance Marker Indicator",
+       "NON_NULLABLE", "REQUIRED", "MarkerIndicator", None],
+      ["DM_Label", "TEXT", "", "", "100", "Distance Marker Label",
+       "NULLABLE", "NON_REQUIRED", "", "", None],
+    ],
+    "metadata": {
+      "description": """
+Distance Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Distance Markers data MUST be included in the SiteStructureAddressPoint layer. Distance Markers may represent a numeric measurement of a point along a route, such as a mile marker. This dataset is referred to as the DistanceMarkerPoint layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.  
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "mile marker", "route marker"
+      ]
+    }
+  }, {
+    "out_name": "LocationMarkerPoint",
+    "out_alias": "Location Markers",
+    "section": "4.9",
+    "geometry_type": "POINT",
+    "has_m": "DISABLED",
+    "has_z": "DISABLED",
+    "primary": True,
+    "fields": [
+      ["DiscrpAgID", "TEXT", "", "", "100", "Discrepancy Agency ID",
+       "NON_NULLABLE", "REQUIRED", "AgencyID", None],
+      ["DateUpdate", "DATE", "", "", "", "Date Updated",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["NGUID", "TEXT", "", "", "254", "NENA Globally Unique ID",
+       "NON_NULLABLE", "REQUIRED", "", None],
+      ["LM_Label", "TEXT", "", "", "100", "Location Marker Label",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LM_Type", "TEXT", "", "", "15", "Location Marker Type",
+       "NULLABLE", "NON_REQUIRED", "", None],
+      ["LM_Ind", "TEXT", "", "", "1", "Location Marker Indicator",
+       "NON_NULLABLE", "REQUIRED", "MarkerIndicator", None],
+    ],
+    "metadata": {
+      "description": """
+Location Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Location Markers data MUST be included in the SiteStructureAddressPoint layer. Location Markers may represent locations such as an alarm box, a utility pole, a callbox, trail intersection, buoy, channel marker, or other similar feature. This dataset is referred to as the LocationMarkerPoint layer in in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. 
+      """,
+      "keywords": [
+        "ng9-1-1", "ng911", "alarm box", "utility pole", "callbox",
+        "trail intersection", "bouy", "channel marker"
+      ]
+    }
+  }
+]
+
+# ==============================================================================
+# Tables defined in NENA-STA-006.3-2025
+# NOTE: All tables were removed in v3. See earlier version for formatting.
+# ==============================================================================
+TABLES = []
+
+# ==============================================================================
+# Relationships defined in NENA-STA-006.3-2025
+# NOTE: All relationship were removed in v3. See earlier version for formatting.
+# ==============================================================================
+RELATES = []

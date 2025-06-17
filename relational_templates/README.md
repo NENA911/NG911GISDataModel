@@ -31,16 +31,3 @@ the schema.
 * v1.0
     * Based on [NENA-STA-006.1.1-2020](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
     * Initial Release
-
----
-
-## Contributors
-
-* v3.0
-  * [Tom Neer](https://github.com/tomneer), Digital Data Services, Inc.
-  * Matt Gerike, Virginia Department of Emergency Management
-  * Robb Harris, GISP, ENP, Esri Canada
-* v2.0
-  * [Tom Neer](https://github.com/tomneer), Digital Data Services, Inc.
-  * [Jason Horning](https://github.com/jasonhorning), North Dakota Association of Counties
-* v1.0

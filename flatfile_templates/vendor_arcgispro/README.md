@@ -1,4 +1,6 @@
-# Esri GeoDatabase Template
+# Esri GeoDatabase Template Code
+
+**NOTE**: This document has not been updated yet for the v3.0 release.
 
 The material within this folder contains both a template Esri File Geodatabase
 (FGDB) that may be used directly, as a template, and a Python script with 
@@ -37,27 +39,27 @@ GIS platforms.
 
 ## Folders and Files
 * [.imgs](.imgs) - Folder containing documentation images and screen shots.
-* [NENA_NG911_Scripts](NENA_NG911_Scripts)
-  * [metadata](NENA_NG911_Scripts/metadata) - Folder containing the metadata 
+* [NENA_NG911_Scripts](../../esri_geodatabase/NENA_NG911_Scripts)
+  * [metadata](../../esri_geodatabase/NENA_NG911_Scripts/metadata) - Folder containing the metadata 
     applied to the file geodatabase during creation.
-  * [schema](NENA_NG911_Scripts/schema) - Folder containing the NENA GIS Data 
+  * [schema](../../esri_geodatabase/NENA_NG911_Scripts/schema) - Folder containing the NENA GIS Data 
     Model schema which is processed by 
-    [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py).
-    * [schema_fgdb_v2.py](NENA_NG911_Scripts/schema/schema_fgdb_v2.py) - Python file 
+    [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py).
+    * [schema_fgdb_v2.py](../../esri_geodatabase/NENA_NG911_Scripts/schema/schema_fgdb_v2.py) - Python file 
       containing the NENA GIS Data Model as dictionaries.
-  * [utils](NENA_NG911_Scripts/util) - Folder containing Python libraries utilized
-    by the [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py) script.
-    * [logger.py](NENA_NG911_Scripts/util/logger.py) - Python library that 
+  * [utils](../../esri_geodatabase/NENA_NG911_Scripts/util) - Folder containing Python libraries utilized
+    by the [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py) script.
+    * [logger.py](../../esri_geodatabase/NENA_NG911_Scripts/util/logger.py) - Python library that 
       creations and manages log files for the Python scripts.
-  * [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py) - Python script 
+  * [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py) - Python script 
     used by the NENA GIS Data Model file geodatabase.
-* [NENA_NG911_Toolbox.zip](NENA_NG911_Toolbox.zip) - Zip archive of the Python 
+* [NENA_NG911_Toolbox.zip](../../esri_geodatabase/NENA_NG911_Toolbox.zip) - Zip archive of the Python 
   script and associated ArcGIS Toolboxes to generate a new FGDB either using 
   ArcGIS Desktop.
-* [NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx](NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx) - 
-  ArcGIS Pro Toolbox which runs [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py).
-* [NENA_NG911_Toolbox_for_ArcMap.tbx](NENA_NG911_Toolbox_for_ArcMap.tbx) - 
-  ArcGIS Desktop 10.x Toolbox which runs [create_n911_fgdb.py](NENA_NG911_Scripts/create_ng911_fgdb.py).
+* [NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx](v2.0/toolboxes/NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx) - 
+  ArcGIS Pro Toolbox which runs [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py).
+* [NENA_NG911_Toolbox_for_ArcMap.tbx](v2.0/toolboxes/NENA_NG911_Toolbox_for_ArcMap.tbx) - 
+  ArcGIS Desktop 10.x Toolbox which runs [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py).
 * [NG911_GIS_Template.gdb.zip](NG911_GIS_Template.gdb.zip) - Zipped archive of 
   the NENA GIS Data Model template in Esri File Geodatabase format for 
   immediate use in ArcGIS Desktop.
@@ -96,7 +98,7 @@ If you are interested in creating the NENA GIS Data Model template from the
 supplied ArcGIS Toolboxes, follow the instructions appropriate to your version 
 of ArcGIS Desktop. 
 
-*NOTE: You must download the [NENA_NG911_Toolbox.zip](NENA_NG911_Toolbox.zip) 
+*NOTE: You must download the [NENA_NG911_Toolbox.zip](../../esri_geodatabase/NENA_NG911_Toolbox.zip) 
 and unzip locally or download/clone the Git repository to your local computer 
 before proceeding.*
 
@@ -134,7 +136,7 @@ before proceeding.*
 * Double-click **Create NG9-1-1 File Geodatabase (ArcMap)** to run the geoprocessing tool.<br>
   ![](.imgs/arcgispro_create_fgdb_dialog.png.png)
 
-</details
+</details>
 
 #### Create NG9-1-1 File Geodatabase Tool
 
