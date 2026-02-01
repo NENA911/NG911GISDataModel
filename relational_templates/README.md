@@ -9,6 +9,7 @@ Due to various SQL dialects, the relational database model is currently represen
 ---
 
 * [Folders and Files](#folders-and-files)
+* [Data Type Mapping](#data-type-mapping)
 * [Help](#help)
 * [Known Issues](#known-issues)
 * [Change Log](#change-log)
@@ -24,6 +25,23 @@ Due to various SQL dialects, the relational database model is currently represen
     * [.imgs](schema/v3.0/.imgs) - Folder containing documentation images and screen shots.
     * [README.md](schema/v3.0/README.md) - README file for v3.0 release.
 * [README.md](README.md) - This document.
+
+---
+
+## Data Type Mapping
+
+The following table provides an example of cross‑platform data type equivalency for reference purposes only.
+
+| NG9-1-1      | Relational Data Model | PostgreSQL        | MS SQL Server        | Esri FGDB | geoPackage |
+|--------------|-----------------------|-------------------|----------------------|-----------|------------|
+| TEXT(Length) | NVARCHAR(n)           | VARCHAR(n)        | VARCHAR(n)           | TEXT(n)   | TEXT       |
+| DATETIME     | DATETIME              | TIMESTAMPZ        | DATETIMEOFFSET       | DATE      | DATETIME   |
+| INTEGER      | INT                   | INTEGER           | INTEGER              | LONG      | INTEGER    |
+| REAL(p,s)    | NUMERIC(p,s)          | NUMERIC(p,s)      | NUMERIC(p,s)         | DOUBLE    | REAL       | 
+| Not Defined  | BIGINT                | BIGSERIAL/BIGINT  | BIGINT               | OBJECTID  | INTEGER    | 
+| Not Defined  | GEOMETRY(POINT)       | GEOMETRY(POINT)   | GEOMETRY::POINT      | POINT     | POINT      | 
+| Not Defined  | GEOMETRY(LINESTRING)  | GEOMETRY(LINE)    | GEOMETRY::LINESTRING | POLYLINE  | LINESTRING | 
+| Not Defined  | GEOMETRY(POLGYON)     | GEOMETRY(POLYGON) | GEOMETRY::POLYGON    | POLYGON   | POLYGON    | 
 
 ---
 
