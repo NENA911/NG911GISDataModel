@@ -1,6 +1,6 @@
 # Esri GeoDatabase Template Code
 
-**NOTE**: This document has not been updated yet for the v3.0 release.
+**NOTE**: This version is deprecated with the v3.0 release.
 
 The material within this folder contains both a template Esri File Geodatabase
 (FGDB) that may be used directly, as a template, and a Python script with 
