@@ -16,20 +16,17 @@ their own NG9-1-1 data, it is expected that each GIS Data Provider will adapt th
 scripts and extend the schema to meet their specific organization's needs and requirements. 
 
 ---
-## Announcements
 
-- 2025-06-27 - v3.0 Public Review Release
-- 2023-05-07 - [v2.0a](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a) released
-
----
 ## Table of Contents
 
 * [Folders and Files](#folders-and-files)
-* [About](#about)
+* [Usage](#usage)
 * [Owner](#owner)
 * [Version History](#version-history)
 * [Issues](#issues)
 * [Contributing](#contributing)
+* [Associated Documents](#associated-documents)
+* [Other References](#other-references)
 * [NENA Ethics & Code of Conduct Policy](#nena-ethics--code-of-conduct-policy)
 * [NENA Intellectual Property Rights & Antitrust Policy](#nena-intellectual-property-rights--antitrust-policy)
 * [License](#license)
@@ -52,7 +49,7 @@ scripts and extend the schema to meet their specific organization's needs and re
 
 ---
 
-## About
+## Usage
 
 In Version 3 of NG9-1-1 GIS Data Model a major structural change introduced 
 the addition of a relational data structure to the previous flat-file data 
@@ -205,70 +202,38 @@ terms of the [Apache License 2.0](LICENSE.md).
 
 ---
 
+## Associated Documents
+
+- **NENA Standard for NG9-1-1 GIS Data Model**
+  - NENA-STA-006.3-YYYY
+  - [NENA-STA-006.2a-2023](docs/nena-sta-006.2a-2023_ng9-1-1.pdf)
+  - [NENA-STA-006.2-2022](docs/nena-sta-006.2-2022_ng9-1-1.pdf)
+  - [NENA-STA-006.1.1-2020](docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
+  - NENA-STA-006.1-2018
+
+---
+
+## Other References
+
+- [NENA Knowledge Base Glossary](https://kb.nena.org/wiki/Category:Glossary)
+- [NENA Information Document for GIS Data Stewardship for Next Generation 9-1-1 (NG9-1-1)](https://cdn.ymaws.com/www.nena.org/resource/resmgr/standards/NENA_INF_028.1_2020_GISDataS.pdf)
+- [NENA Standards & Other Documents](https://www.nena.org/general/custom.asp?page=standards)
+  - NENA-STA-004 - NENA Next Generation 9-1-1 United States Civic Location Data Exchange Format (CLDXF-US) Standard
+  - NENA-STA-008 - NENA Registry System (NRS) Standard
+  - NENA-STA-010 - NENA i3 Standard for Next Generation 9-1-1
+  - NENA-STA-015 - NENA Standard Data Formats for E9-1-1 Data Exchange & GIS Mapping
+  - NENA-STA-029 - NENA Next Generation 9-1-1 (NG9-1-1) Canadian Civic Location Data Exchange Format (CLDXF-CA) Standard
+  - NENA-REQ-003 - NENA Requirements for 3D GIS for E9-1-1 and NG9-1-1
+  - NENA-INF-014 - NENA Information Document for Development of Site/Structure Address Point GIS Data for 9-1-1
+  - NENA-INF-028 - NENA Information Document for GIS Data Stewardship for NG9-1-1
+  - NENA-INF-046 - NENA GIS Data Transition Information Document
+
+---
+
 ## NENA Ethics & Code of Conduct Policy
 
-To work in 9-1-1 is to be part of one of the most important institutions in 
-America and across the globe. Since the first 9-1-1 call was placed in 
-February 1968, untold millions of lives have been saved because of 9-1-1 
-professionals’ dedication to public safety and service. NENA: The 9-1-1 
-Association – comprised of its members, board, staff, volunteers, and event 
-participants – is a community for all who are devoted to carrying this legacy 
-forward and setting the standard for excellence in the industry. To do so, 
-NENA strives to exemplify and embody the core values of respect, integrity, 
-commitment, and cooperation.
-
-Each association member, volunteer, and event attendee shall:
-
-1. Represent the association honestly and professionally and refuse to 
-   surrender any responsibility to special-interest or partisan political groups;
-2. Avoid any conflict of interest or impropriety which could result from her or 
-   his position, and refrain from using her or his status as an association 
-   member for personal gain or publicity;
-3. Take no public or private action that might compromise the actions, mission, 
-   reputation, or integrity of NENA, and respect the confidentiality of 
-   confidential information obtained in the representation of the association;
-4. Only exercise that authority which is lawful;
-5. Abide by the bylaws, policies, and procedures of the association;
-6. Foster an environment of cooperation and collaboration that engenders trust, 
-   openness and confidence – one where diverse perspectives and views are 
-   encouraged and valued;
-7. Encourage the free expression, through proper channels and means, of 
-   opinions held by others;
-8. Faithfully and diligently perform all duties properly assigned;
-9. Disclose and refuse any gift, loan, reward, or promise of future employment 
-   offered in exchange for a commitment to vote or take any other action 
-   affecting association business;
-10. Follow all accounting rules and financial controls imposed by the association;
-11. Follow all laws relative to the ethical conduct of a not-for-profit 
-    corporation;
-12. Conduct herself or himself in a fair, honest, responsible, trustworthy and 
-    unbiased manner;
-13. Conduct the business of the association without respect of persons, keeping 
-    deliberations and actions free from bias, prejudice, harassment, and 
-    discrimination on the basis of race, color, sex, sexual orientation, gender 
-    identity, religion, disability, age, political affiliation, genetic 
-    information, veteran status, ancestry, or national or ethnic origin.
-14. Remain professional and respectful to others in both word and deed at all 
-    times;
-15. Be protective of NENA, its brands, services, and reputation in all 
-    communications;
-16. Be committed to excelling in her or his role and support her or his peers’ 
-    efforts to do the same; and
-17. Share the association’s goals of improving 9-1-1 and the 9-1-1 industry; 
-    facilitating growth, change, and innovation; developing leaders; driving 
-    diversity; and creating community.
-
-Individuals determined by the CEO, the Board of Directors, or its designee, to 
-have violated the terms of this policy may, at NENA’s sole discretion, be 
-subject to the application of measures that may include notification of the 
-person’s agency or employer, forfeiture of event attendance, or revocation of 
-membership. Should the NENA Board, or its designee, determine to remove an 
-attendee from a NENA event or revoke membership, then it shall provide the 
-affected person with an opportunity to respond to NENA’s concerns or allegations.
-
-The above has been edited for clarity and is an abridged version of the 
-board-approved Ethics & Code of Conduct Policy. See the full policy 
-[here](https://cdn.ymaws.com/www.nena.org/resource/resmgr/membership/Ethics_and_Code_of_Conduct_2.pdf).
+By contributing to this repository, you agree to adhere to NENA's Ethics and Code of Conduct Policy available 
+[here](https://www.nena.org/page/codeofconduct).
 
 ---
 
@@ -290,17 +255,18 @@ See the full policy [here](https://www.nena.org/general/custom.asp?page=ipr).
 ---
 
 ## License
-Copyright © National Emergency Number Association. All rights reserved.
+Copyright © 2018-2026 National Emergency Number Association. All rights reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 use these files except in compliance with the License. You may obtain a copy 
 of the License at http://www.apache.org/licenses/LICENSE-2.0. A copy of the 
 License is available in the repository's [LICENSE](LICENSE.md) file.
 
-Unless required by applicable law or agreed to in writing the tools 
+Unless required by applicable law or agreed to in writing, software 
 distributed under the License are distributed on an "AS IS" BASIS, WITHOUT 
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the 
-License for the specific language governing permissions and limitations 
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+
+See the License for the specific language governing permissions and limitations 
 under the License.
 
 ---
