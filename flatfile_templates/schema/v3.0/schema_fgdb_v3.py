@@ -15,13 +15,12 @@
 
 # ==============================================================================
 # Domains used in NENA-STA-006.3-2025
-# Domains last updated: 2025-01-27
+# Domains last updated: 2026-02-07
 #   PlaceType: https://www.iana.org/assignments/location-type-registry/location-type-registry.xml
 #   PlacementMethod: http://technet.nena.org/nrs/registry/SiteStructureAddressPointPlacementMethod.xml
-#   ServiceURN: http://technet.nena.org/nrs/registry/_registries.xml & https://www.rfc-editor.org/rfc/rfc5031
 #   StreetNameType: http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
-#   http://technet.nena.org/nrs/registry/StreetNamePreTypeSeparators.xml
-#   ServiceURN Responder - https://cdn.ymaws.com/www.nena.org/resource/resmgr/standards/NENA-STA-010.3e-2021_i3_Stan.pdf Section
+#   StreetNamePreTypeSeparator: http://technet.nena.org/nrs/registry/StreetNamePreTypeSeparators.xml
+#   ServiceURNs - Update when IANA Service URNs are published.
 # ==============================================================================
 DOMAINS = [
   {
