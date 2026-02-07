@@ -1,6 +1,14 @@
 # Esri GeoDatabase Template Code
 
-**NOTE**: This version is deprecated with the v3.0 release.
+**IMPORTANT NOTE**: 
+
+This version is deprecated with the v3.0 release and has not been 
+tested. 
+
+Due to the reorganization of the repo, it is expected the example code 
+WILL NOT run without repathing to new folder locations.
+
+---
 
 The material within this folder contains both a template Esri File Geodatabase
 (FGDB) that may be used directly, as a template, and a Python script with 
@@ -38,7 +46,7 @@ GIS platforms.
 ---
 
 ## Folders and Files
-* [.imgs](.imgs) - Folder containing documentation images and screen shots.
+* [.imgs](../.imgs) - Folder containing documentation images and screen shots.
 * [NENA_NG911_Scripts](../../esri_geodatabase/NENA_NG911_Scripts)
   * [metadata](../../esri_geodatabase/NENA_NG911_Scripts/metadata) - Folder containing the metadata 
     applied to the file geodatabase during creation.
@@ -56,9 +64,9 @@ GIS platforms.
 * [NENA_NG911_Toolbox.zip](../../esri_geodatabase/NENA_NG911_Toolbox.zip) - Zip archive of the Python 
   script and associated ArcGIS Toolboxes to generate a new FGDB either using 
   ArcGIS Desktop.
-* [NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx](v2.0/toolboxes/NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx) - 
+* [NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx](toolboxes/NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx) - 
   ArcGIS Pro Toolbox which runs [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py).
-* [NENA_NG911_Toolbox_for_ArcMap.tbx](v2.0/toolboxes/NENA_NG911_Toolbox_for_ArcMap.tbx) - 
+* [NENA_NG911_Toolbox_for_ArcMap.tbx](toolboxes/NENA_NG911_Toolbox_for_ArcMap.tbx) - 
   ArcGIS Desktop 10.x Toolbox which runs [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py).
 * [NG911_GIS_Template.gdb.zip](NG911_GIS_Template.gdb.zip) - Zipped archive of 
   the NENA GIS Data Model template in Esri File Geodatabase format for 
@@ -107,17 +115,17 @@ before proceeding.*
 
 * From the **Start** menu, open **ArcMap**
 * Open ArcToolbox by going to **Geoprocessing** > **ArcToolbox**<br>
-  ![](.imgs/arcmap_open_toolbox.png)
+  ![](../.imgs/arcmap_open_toolbox.png)
 * When **ArcToolbox** opens, right-click in **ArcToolbox** and select **Add Toolbox...**<br>
-  ![](.imgs/arcmap_add_toolbox.png)
+  ![](../.imgs/arcmap_add_toolbox.png)
 * In the **Add Toolbox" file dialog, navigate to where the Git repository was 
   downloaded, select **NENA_NG911_Toolbox_for_ArcMap.tbx**, and click **Open**.<br>
-  ![](.imgs/arcmap_add_toolbox_file_dialog.png)
+  ![](../.imgs/arcmap_add_toolbox_file_dialog.png)
 * In **ArcToolbox**, expand the **NENA NG9-1-1 Toolbox**<br>
-  ![](.imgs/arcmap_nena_toolbox_added.png)
+  ![](../.imgs/arcmap_nena_toolbox_added.png)
 * Double-click **Create NG9-1-1 File Geodatabase (ArcMap)** to run the geoprocessing tool.<br>
-  ![](.imgs/arcmap_create_fgdb_dialog.png)<br>
-  ![](.imgs/arcmap_running_create_fgdb.png)
+  ![](../.imgs/arcmap_create_fgdb_dialog.png)<br>
+  ![](../.imgs/arcmap_running_create_fgdb.png)
 
 </details>
 
@@ -127,14 +135,14 @@ before proceeding.*
 * From the **Start** menu, open **ArcGIS Pro**
 * Create a new project using the **Catalog** template
 * In the **Catalog** pane, right-click on **Toolboxes** and select **Add Toolbox**.<br>
-  ![](.imgs/arcgispro_add_toolbox.png)
+  ![](../.imgs/arcgispro_add_toolbox.png)
 * In the **Add Toolbox" file dialog, navigate to where the Git repository was 
   downloaded, select **NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx**, and click **Open**.<br>
-  ![](.imgs/arcgispro_add_toolbox_file_dialog.png)
+  ![](../.imgs/arcgispro_add_toolbox_file_dialog.png)
 * In **ArcGIS Pro** and double-click again on the **NENA_NG911_Toolbox.tbx**<br>
-  ![](.imgs/arcgispro_nena_toolbox_added.png)
+  ![](../.imgs/arcgispro_nena_toolbox_added.png)
 * Double-click **Create NG9-1-1 File Geodatabase (ArcMap)** to run the geoprocessing tool.<br>
-  ![](.imgs/arcgispro_create_fgdb_dialog.png.png)
+  ![](../.imgs/arcgispro_create_fgdb_dialog.png.png)
 
 </details>
 
@@ -165,7 +173,7 @@ minutes to build out the complete file geodatabase.
 
 To monitor the progress in ArcGIS Pro, Click **Run** to run the script. 
 Click **View Details** to see the progress details.<br>
-![](.imgs/arcgispro_create_fgdb_status.png)
+![](../.imgs/arcgispro_create_fgdb_status.png)
 
 ## Modifying the Python Script Schema
 
