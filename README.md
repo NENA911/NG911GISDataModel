@@ -46,6 +46,7 @@ scripts and extend the schema to meet their specific organization's needs and re
   * [vendor_qgis](flatfile_templates/vendor_qgis/README.md) - Folder for future example code to create the flat-file templates in QGIS.
 * [relational_templates](relational_templates/README.md) - Folder containing information regarding the relational data model, introduced in v3.0.
 * .gitignore
+* [CHANGELOG.md](CHANGELOG.md) - All notable changes to this project will be documented in this file.
 * [LICENSE.md](LICENSE.md) - License file for the project.
 * [README.md](README.md) - This document.
 
@@ -66,7 +67,7 @@ according to the NENA GIS Data Model Standard (NENA-STA-006.3-202Y).
 
 While preparing these templates, the Data Model Templates Working Subgroup 
 developed a set of scripts to assist in the creation of the template files. The 
-scripts were originally intended to server only as a method to help develop 
+scripts were originally intended to serve only as a method to help develop 
 the template files. However, it was felt the scripts could also prove useful to 
 GIS community, so they are included for reference purposes only.
 
@@ -74,7 +75,7 @@ It is IMPORTANT to note that the NENA GIS Data Model templates are ONLY meant
 for the interchange of data between organizations and the SI (Spatial Interface). 
 While they may be utilized for NG9-1-1 data management, it is expected that each 
 GIS Data Provider will utilize ETL (Extract-Transform-Load) processes to migrate 
-their organizations data into the NENA GIS Data Model.
+their organization-unique data into the NENA GIS Data Model.
 
 ### GIS Data Provider Specific Domains
 
