@@ -5,11 +5,12 @@ sub-folders by version. The schemas are defined as JSON dictionaries in
 Python files to support code integration within this repository. Usage in 
 other programming languages should only require minor modifications.
 
-These schemas are directly tied to their associated NENA document
-(NENA-STA-006.x-YYYY). They are only updated when the associated document is 
-released.
+> **IMPORTANT!** 
+> 
+>NENA NG9-1-1 GIS Data Model schemas are directly associated to their associated NENA document (NENA-STA-006.x-YYYY). They are ONLY updated when the associated document is released.
+> 
+> **Domains are only accurate at time of publication.** Some domains rely on external resources that can be updated separately. URLs are provided to the sources for these domains in the comments of the schema.
 
-**Domains are only accurate at time of publication.**
 
 ---
 
