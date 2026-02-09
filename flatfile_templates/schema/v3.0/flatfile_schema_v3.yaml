@@ -1,0 +1,4404 @@
+# ==============================================================================
+# Section: 4 GIS Data Model Layers
+# Purpose: GIS data layer names shown below are meant to provide consistent 
+#          naming conventions for GIS data layers across all NENA documents. 
+#          This document populates the GIS Data Layers registry with the 
+#          initial values for GIS Layer Name and Layer Indicator (see Section 
+#          7.1 “GIS Data Layers” Registry). NENA-STA-010.3.1 populates the 
+#          responder registries with the initial values for GIS Layer Name 
+#          and Layer Indicator. It should be noted that the GIS Data Layers 
+#          registry and the responder registries are Internet Assigned Numbers 
+#          Authority (IANA) registries. IANA registries are always the most 
+#          up-to-date source of layer names, and the IANA registries should be 
+#          referenced directly for the recommended layer names. Please see 
+#          Section 3.7 GIS Data Format for more information on local layer 
+#          naming conventions.
+#
+#          Note that any of the layers defined in this document can be 
+#          provisioned into any of the NGCS functional elements using GIS data 
+#          to function. Their use outside of the above is not defined in 
+#          this document.
+# ==============================================================================
+
+# ==============================================================================
+# Domains used in NENA-STA-006.3-2026
+# Domains last updated: 2026-02-07
+#   PlaceType: https://www.iana.org/assignments/location-type-registry/location-type-registry.xml
+#   PlacementMethod: http://technet.nena.org/nrs/registry/SiteStructureAddressPointPlacementMethod.xml
+#   StreetNameType: http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
+#   StreetNamePreTypeSeparator: http://technet.nena.org/nrs/registry/StreetNamePreTypeSeparators.xml
+#   ServiceURNs - Update when IANA Service URNs are published.
+# ==============================================================================
+
+domains:
+  - domain_name: 'AdditionalCode'
+    domain_description: |
+      A case-sensitive alphanumeric code of up to six characters used to disambiguate addresses in Canada.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'AgencyID'
+    domain_description: |
+      A Domain Name System (DNS) domain name which is used to uniquely identify an agency.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'AddressNumber'
+    domain_description: |
+      The numeric identifier of a location along a thoroughfare or within a defined community.
+    field_type: 'INTEGER'
+    domain_type: 'RANGE'
+    values:
+      min: 0
+      max: 999999
+  - domain_name: 'AdministrativeLevels0'
+    domain_description: |
+      The name of a country represented by its two-letter ISO 3166-1 English country alpha-2 code elements in UPPER CASE letters.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'US': 'United States'
+      'CA': 'Canada'
+      'MX': 'Mexico'
+  - domain_name: 'AdministrativeLevels1'
+    domain_description: |
+      The name of a state or state equivalent, represented by the two-letter abbreviation given in USPS Publication 28, Appendix B.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'AB': 'Alberta'
+      'AL': 'Alabama'
+      'AK': 'Alaska'
+      'AS': 'American Samoa'
+      'AZ': 'Arizona'
+      'AR': 'Arkansas'
+      'BC': 'British Columbia'
+      'CA': 'California'
+      'CO': 'Colorado'
+      'CT': 'Connecticut'
+      'DE': 'Delaware'
+      'DC': 'District of Columbia'
+      'FM': 'Federated States of Micronesia'
+      'FL': 'Florida'
+      'GA': 'Georgia'
+      'GU': 'Guam'
+      'HI': 'Hawaii'
+      'ID': 'Idaho'
+      'IL': 'Illinois'
+      'IN': 'Indiana'
+      'IA': 'Iowa'
+      'KS': 'Kansas'
+      'KY': 'Kentucky'
+      'LA': 'Louisiana'
+      'MB': 'Manitoba'
+      'ME': 'Maine'
+      'MH': 'Marshall Islands'
+      'MD': 'Maryland'
+      'MA': 'Massachusetts'
+      'MI': 'Michigan'
+      'MN': 'Minnesota'
+      'MS': 'Mississippi'
+      'MO': 'Missouri'
+      'MT': 'Montana'
+      'NB': 'New Brunswick'
+      'NE': 'Nebraska'
+      'NL': 'Newfoundland and Labrador'
+      'NS': 'Nova Scotia'
+      'NV': 'Nevada'
+      'NH': 'New Hampshire'
+      'NJ': 'New Jersey'
+      'NM': 'New Mexico'
+      'NY': 'New York'
+      'NC': 'North Carolina'
+      'ND': 'North Dakota'
+      'MP': 'Northern Mariana Islands'
+      'NT': 'Northwest Territories'
+      'NU': 'Nunavut'
+      'OH': 'Ohio'
+      'OK': 'Oklahoma'
+      'ON': 'Ontario'
+      'OR': 'Oregon'
+      'PE': 'Prince Edward Island'
+      'PW': 'Palau'
+      'PA': 'Pennsylvania'
+      'PR': 'Puerto Rico'
+      'QC': 'Quebec'
+      'RI': 'Rhode Island'
+      'SC': 'South Carolina'
+      'SD': 'South Dakota'
+      'SK': 'Saskatchewan'
+      'TN': 'Tennessee'
+      'TX': 'Texas'
+      'UT': 'Utah'
+      'VT': 'Vermont'
+      'UM': 'United States Minor Outlying Islands'
+      'VI': 'Virgin Islands'
+      'VA': 'Virginia'
+      'WA': 'Washington'
+      'WV': 'West Virginia'
+      'WI': 'Wisconsin'
+      'WY': 'Wyoming'
+      'YT': 'Yukon'
+  - domain_name: 'AdministrativeLevels2'
+    domain_description: |
+      The name of a County or County-equivalent where the address is located. The Domain is restricted to the exact listed values as published in ANSI INCITS 31:2009, including casing and use of abbreviations.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'AdministrativeLevels3'
+    domain_description: |
+      The name of the secondary division of a state, province, or territory. In Canada, where no Administrative Level 2 exists, it can be the name of the primary division of the province or territory.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'DistanceMarkerIndicator'
+    domain_description: |
+      Indicator of the type of distance marker.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'P': 'Posted'
+      'L': 'Logical / Calculated'
+  - domain_name: 'DistanceMarkerUnitOfMeasurement'
+    domain_description: |
+      Unit of measurement used for the distance marker.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'miles': 'miles'
+      'nautical miles': 'nautical miles'
+      'feet': 'feet'
+      'kilometers': 'kilometers'
+      'meters': 'meters'
+  - domain_name: 'ESN'
+    domain_description: |
+      A 3-5 character alphanumeric string that represents an Emergency Service Zone (ESZ).
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'Latitude'
+    domain_description: |
+      The angular distance of a location north or south of the equator as defined by the coordinate system, expressed in decimal degrees.
+    field_type: 'REAL'
+    domain_type: 'RANGE'
+    values:
+      min: -90.0
+      max: 90.0
+  - domain_name: 'Longitude'
+    domain_description: |
+      The angular distance of a location east or west of the prime meridian of the coordinate system, expressed in decimal degrees..
+    field_type: 'REAL'
+    domain_type: 'RANGE'
+    values:
+      min: -180.0
+      max: 180.0
+  - domain_name: 'LegacyStreetNameDirectional'
+    domain_description: |
+      The street direction as it currently exists in the MSAG.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'N': 'North/Nord'
+      'S': 'South/Sud'
+      'E': 'East/Est'
+      'W': 'West'
+      'NE': 'Northeast/Nord-Est'
+      'NW': 'Northwest'
+      'SE': 'Southeast/Sud-Est'
+      'SW': 'Southwest'
+      'O': 'Ouest'
+      'NO': 'Nord-Ouest'
+      'SO': 'Sud-Ouest'
+  - domain_name: 'OneWay'
+    domain_description: |
+      The direction of traffic movement along a road in relation to the FROM node and TO node of the line segment representing the road in the GIS data.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'B': 'Both'
+      'FT': 'One-way - FROM node to TO node'
+      'TF': 'One-way - TO node to FROM node'
+  - domain_name: 'Parity'
+    domain_description: |
+      The even or odd property of the address number on the corresponding side of the road segment relative to the FROM Node.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'O': 'Odd'
+      'E': 'Even'
+      'B': 'Both'
+      'Z': 'Address Range 0-0'
+  - domain_name: 'PlacementMethodPoint'
+    domain_description: |
+      The methodology used for placement of the address point.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'ExteriorAccess': 'Exterior Access'
+      'Geocoding': 'Geocoding'
+      'InteriorAccess': 'Interior Access'
+      'InteriorCentroid': 'Interior Centroid'
+      'Parcel': 'Parcel'
+      'PropertyAccess': 'Property Access'
+      'Site': 'Site'
+      'Structure': 'Structure'
+      'Unknown': 'Unknown'
+  - domain_name: 'PlacementMethodPolygon'
+    domain_description: |
+      The methodology used for placement of the address polygon.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'Interior': 'Interior'
+      'Parcel': 'Parcel'
+      'Site': 'Site'
+      'Structure': 'Structure'
+      'Other': 'Other'
+  - domain_name: 'PlaceType'
+    domain_description: |
+      The type of feature identified by the address.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'airport': 'Airport'
+      'arena': 'Arena'
+      'bank': 'Bank'
+      'bar': 'Bar or saloon'
+      'bus-station': 'Bus station or terminal'
+      'cafe': 'Cafe'
+      'campground': 'Campground'
+      'care-facility': 'Care Facility'
+      'classroom': 'Classroom'
+      'club': 'Club dance club nightclub or discotheque.'
+      'construction': 'Construction site.'
+      'convention-center': 'Convention center or exhibition hall.'
+      'detached-unit': 'Detached Unit'
+      'fire-station': 'Fire Station'
+      'government': 'Government building'
+      'hospital': "Hospital medical clinic or doctor's office."
+      'hotel': 'Hotel motel inn or other lodging.'
+      'industrial': 'Industrial setting'
+      'landmark-address': 'Landmark address'
+      'library': 'Library'
+      'municipal-garage': 'Municipal garage'
+      'museum': 'Museum'
+      'office': 'Office or business'
+      'other': 'Other'
+      'outdoors': 'Outdoor facility such as a park or city streets.'
+      'parking': 'Parking lot garage.'
+      'phone-box': 'Phone or call box'
+      'place-of-worship': 'Place of Worship'
+      'post-office': 'Post Office'
+      'prison': 'Prison or correctional facility'
+      'public': 'Public area'
+      'residence': 'Residence'
+      'restaurant': 'Restaurant'
+      'school': 'School or university property'
+      'shopping-area': 'Shopping mall or shopping area.'
+      'stadium': 'Stadium'
+      'store': 'Store'
+      'street': 'Street'
+      'theater': 'Theater lecture hall auditorium'
+      'toll-booth': 'Toll-booth'
+      'town-hall': 'Town Hall'
+      'train-station': 'Train station'
+      'utility-box': 'Utility box'
+      'unknown': 'Unknown.'
+      'warehouse': 'Warehouse'
+      'waste-transfer-facility': 'Waste Transfer Facility'
+      'water': 'Water'
+      'youth-camp': 'Youth Camp'
+  - domain_name: 'PostalCode'
+    domain_description: |
+      A system of 5-digit (US) or 7-character codes (Canada) that identify the individual USPS or Canadian Post Office or metropolitan area delivery station associated with an address.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'PostalCommunityName'
+    domain_description: |
+      A city name for the Postal Code of an address. 
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'RoadClass'
+    domain_description: |
+      The general description of the type of road.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'Primary': 'Primary roads'
+      'Secondary': 'Secondary roads'
+      'Local': 'Local roads'
+      'Ramp': 'Ramp'
+      'Service Drive': 'Service Drive'
+      'Walkway/Pedestrian Trail': 'Walkway/Pedestrian Trail'
+      'Stairway': 'Stairway'
+      'Alley': 'Alley'
+      'Private': 'Private (service vehicles logging oil fields ranches etc.)'
+      'Parking Lot': 'Parking Lot'
+      'Bike Path or Trail': 'Bike Path or Trail'
+      'Bridle Path': 'Bridle Path'
+      'Other': 'Other'
+  - domain_name: 'ServiceURI'
+    domain_description: |
+      URI for call routing. This attribute is contained in the service boundary layers and will define the Service URI of the service.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'ServiceURNSOS'
+    domain_description: |
+      The URN used to select the service for which a route is desired.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'urn:emergency:service:sos.psap': 'PSAP'
+      'urn:emergency:service:sos.level_2_esrp': 'Level 2 ESRP'
+      'urn:emergency:service:sos.level_3_esrp': 'Level 3 ESRP'
+      'urn:emergency:service:sos.call_taker': 'Call Taker'
+  - domain_name: 'ServiceURNResponder'
+    domain_description: |
+      The URN used to select the service for which a route is desired.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'urn:emergency:service:responder.coast_guard': 'Coast Guard Station'
+      'urn:emergency:service:responder.ems': 'Emergency Medical Service'
+      'urn:emergency:service:responder.fire': 'Fire Department'
+      'urn:emergency:service:responder.mountain_rescue': 'Mountain Rescue Service'
+      'urn:emergency:service:responder.poison_control': 'Poison Control Center'
+      'urn:emergency:service:responder.police': 'Police Agency'
+      'urn:emergency:service:responder.ems.air': 'EMS - Air'
+      'urn:emergency:service:responder.ems.tribal': 'EMS - Native American'
+      'urn:emergency:service:responder.ems.countyParish': 'EMS - County or Parish'
+      'urn:emergency:service:responder.ems.local': 'EMS - City Town Township Borough or Village'
+      'urn:emergency:service:responder.ems.private': 'EMS - Contracted Ambulance Service'
+      'urn:emergency:service:responder.ems.military': 'EMS - Military'
+      'urn:emergency:service:responder.fire.airport': 'Fire - Airport Fire Service'
+      'urn:emergency:service:responder.fire.forest': 'Fire - Forest Fire Service'
+      'urn:emergency:service:responder.fire.military': 'Fire - Military'
+      'urn:emergency:service:responder.fire.private': 'Fire - Private Fire Service'
+      'urn:emergency:service:responder.police.countyParish': 'Police - County or Parish (not Sheriff)'
+      'urn:emergency:service:responder.police.federal': 'Police - Federal'
+      'urn:emergency:service:responder.police.local': 'Police - City Town Township Borough or Village'
+      'urn:emergency:service:responder.police.tribal': 'Police - Native American'
+      'urn:emergency:service:responder.police.stateProvincial': 'Police - State/Provincial'
+      'urn:emergency:service:responder.police.sheriff': "Police - Sheriff's Office"
+      'urn:emergency:service:responder.police.campus': 'Police - Campus (Educational Institution)'
+      'urn:emergency:service:responder.police.private': 'Police - Private (Non-governmental)'
+      'urn:emergency:service:responder.police.airport': 'Police - Airport Authority'
+      'urn:emergency:service:responder.police.housing': 'Police - Housing Authority'
+      'urn:emergency:service:responder.police.park': 'Police - Park'
+      'urn:emergency:service:responder.police.military': 'Police - Military'
+      'urn:emergency:service:responder.police.federal.atf': 'Police Federal - Bureau of Alcohol Tobacco Fire Arms and Explosives'
+      'urn:emergency:service:responder.police.federal.cbp': 'Police Federal - Customs and Border Protection'
+      'urn:emergency:service:responder.police.federal.dss': 'Police Federal - Diplomatic Security Service'
+      'urn:emergency:service:responder.police.federal.dea': 'Police Federal - Drug Enforcement Agency'
+      'urn:emergency:service:responder.police.federal.fbi': 'Police Federal - Federal Bureau of Investigation'
+      'urn:emergency:service:responder.police.federal.fps': 'Police Federal - Federal Protective Service'
+      'urn:emergency:service:responder.police.federal.ice': 'Police Federal - Immigration and Customs Enforcement'
+      'urn:emergency:service:responder.police.federal.marshal': 'Police Federal - Marshals Service'
+      'urn:emergency:service:responder.police.federal.rcmp': 'Police Federal - Royal Canadian Mounted Police'
+      'urn:emergency:service:responder.police.federal.pp': 'Police Federal - U.S. Park Police'
+      'urn:emergency:service:responder.police.federal.usss': 'Police Federal - U.S. Secret Service'
+      'urn:emergency:service:responder.psap': 'Responder PSAP'
+  - domain_name: 'SpeedLimit'
+    domain_description: |
+      Posted Speed Limit in MPH in US or Km/h in Canada
+    field_type: 'INTEGER'
+    domain_type: 'RANGE'
+    values:
+      min: 0
+      max: 999
+  - domain_name: 'StreetNameDirectional'
+    domain_description: |
+      A word preceding or following the Street Name element that indicates the direction taken by the road from an arbitrary starting point or line, or the sector where it is located.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'North': 'North'
+      'South': 'South'
+      'East': 'East'
+      'West': 'West'
+      'Northeast': 'Northeast'
+      'Northwest': 'Northwest'
+      'Southeast': 'Southeast'
+      'Southwest': 'Southwest'
+      'Nord': 'Nord'
+      'Sud': 'Sud'
+      'Est': 'Est'
+      'Ouest': 'Ouest'
+      'Nord-Est': 'Nord-Est'
+      'Nord-Ouest': 'Nord-Ouest'
+      'Sud-Est': 'Sud-Est'
+      'Sud-Ouest': 'Sud-Ouest'
+  - domain_name: 'StreetNameType'
+    domain_description: |
+      A word or phrase that precedes or follows the Street Name element and identifies a type of thoroughfare in a complete street name.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'Abbey': 'Abbey'
+      'Access': 'Access'
+      'Access Road': 'Access Road'
+      'Acres': 'Acres'
+      'Airport': 'Airport'
+      'Alcove': 'Alcove'
+      'Alle': 'Alle'
+      'Alley': 'Alley'
+      'Annex': 'Annex'
+      'Approach': 'Approach'
+      'Arc': 'Arc'
+      'Arcade': 'Arcade'
+      'Arch': 'Arch'
+      'Avenida': 'Avenida'
+      'Avenue': 'Avenue'
+      'Avenue Circle': 'Avenue Circle'
+      'Avenue Court': 'Avenue Court'
+      'Avenue Loop': 'Avenue Loop'
+      'Avenue Path': 'Avenue Path'
+      'Avenue Place': 'Avenue Place'
+      'Avenue Way': 'Avenue Way'
+      'Bank': 'Bank'
+      'Bay': 'Bay'
+      'Bayou': 'Bayou'
+      'Bayway': 'Bayway'
+      'Beach': 'Beach'
+      'Bend': 'Bend'
+      'Bluff': 'Bluff'
+      'Bluffs': 'Bluffs'
+      'Bottom': 'Bottom'
+      'Boardwalk': 'Boardwalk'
+      'Boulevard': 'Boulevard'
+      'Branch': 'Branch'
+      'Bridge': 'Bridge'
+      'Brook': 'Brook'
+      'Brooks': 'Brooks'
+      'Bureau of Indian Affairs Route': 'Bureau of Indian Affairs Route'
+      'Burg': 'Burg'
+      'Burgs': 'Burgs'
+      'Bypass': 'Bypass'
+      'Calle': 'Calle'
+      'Callejon': 'Callejon'
+      'Camino': 'Camino'
+      'Camp': 'Camp'
+      'Canyon': 'Canyon'
+      'Cape': 'Cape'
+      'Cartway': 'Cartway'
+      'Causeway': 'Causeway'
+      'Center': 'Center'
+      'Centers': 'Centers'
+      'Centre': 'Centre'
+      'Channel': 'Channel'
+      'Chase': 'Chase'
+      'Chemin': 'Chemin'
+      'Circle': 'Circle'
+      'Circles': 'Circles'
+      'Circus': 'Circus'
+      'Cliff': 'Cliff'
+      'Cliffs': 'Cliffs'
+      'Close': 'Close'
+      'Club': 'Club'
+      'Cluster': 'Cluster'
+      'Coast Highway': 'Coast Highway'
+      'Common': 'Common'
+      'Commons': 'Commons'
+      'Concession Road': 'Concession Road'
+      'Concourse': 'Concourse'
+      'Connect': 'Connect'
+      'Connector': 'Connector'
+      'Corner': 'Corner'
+      'Corners': 'Corners'
+      'Corridor': 'Corridor'
+      'Corso': 'Corso'
+      'Corte': 'Corte'
+      'County Forest Road': 'County Forest Road'
+      'County Highway': 'County Highway'
+      'County Road': 'County Road'
+      'County Route': 'County Route'
+      'County State Aid Highway': 'County State Aid Highway'
+      'Cours': 'Cours'
+      'Course': 'Course'
+      'Court': 'Court'
+      'Courts': 'Courts'
+      'Cove': 'Cove'
+      'Coves': 'Coves'
+      'Creek': 'Creek'
+      'Crescent': 'Crescent'
+      'Crest': 'Crest'
+      'Cross': 'Cross'
+      'Crossing': 'Crossing'
+      'Crossings': 'Crossings'
+      'Crossover': 'Crossover'
+      'Crossroad': 'Crossroad'
+      'Crossroads': 'Crossroads'
+      'Crossway': 'Crossway'
+      'Curve': 'Curve'
+      'Custer County Road': 'Custer County Road'
+      'Cutoff': 'Cutoff'
+      'Cutting': 'Cutting'
+      'Dale': 'Dale'
+      'Dam': 'Dam'
+      'Dawson County Road': 'Dawson County Road'
+      'Dell': 'Dell'
+      'Divide': 'Divide'
+      'Dock': 'Dock'
+      'Down': 'Down'
+      'Downs': 'Downs'
+      'Draw': 'Draw'
+      'Drift': 'Drift'
+      'Drive': 'Drive'
+      'Drives': 'Drives'
+      'Driveway': 'Driveway'
+      'Dugway': 'Dugway'
+      'Echo': 'Echo'
+      'Edge': 'Edge'
+      'End': 'End'
+      'Entrance': 'Entrance'
+      'Entry': 'Entry'
+      'Esplanade': 'Esplanade'
+      'Estate': 'Estate'
+      'Estates': 'Estates'
+      'Exchange': 'Exchange'
+      'Exit': 'Exit'
+      'Expressway': 'Expressway'
+      'Extension': 'Extension'
+      'Extensions': 'Extensions'
+      'Fall': 'Fall'
+      'Falls': 'Falls'
+      'Fare': 'Fare'
+      'Farm': 'Farm'
+      'Farm to Market': 'Farm to Market'
+      'Federal-Aid Secondary Highway': 'Federal-Aid Secondary Highway'
+      'Ferry': 'Ferry'
+      'Field': 'Field'
+      'Fields': 'Fields'
+      'Flat': 'Flat'
+      'Flats': 'Flats'
+      'Flowage': 'Flowage'
+      'Flyway': 'Flyway'
+      'Ford': 'Ford'
+      'Fords': 'Fords'
+      'Forest': 'Forest'
+      'Forest Highway': 'Forest Highway'
+      'Forest Road': 'Forest Road'
+      'Forge': 'Forge'
+      'Forges': 'Forges'
+      'Fork': 'Fork'
+      'Forks': 'Forks'
+      'Fort': 'Fort'
+      'Freeway': 'Freeway'
+      'Front': 'Front'
+      'Frontage Road': 'Frontage Road'
+      'Gables': 'Gables'
+      'Garden': 'Garden'
+      'Gardens': 'Gardens'
+      'Garth': 'Garth'
+      'Gate': 'Gate'
+      'Gates': 'Gates'
+      'Gateway': 'Gateway'
+      'Glade': 'Glade'
+      'Glen': 'Glen'
+      'Glens': 'Glens'
+      'Gorge': 'Gorge'
+      'Grade': 'Grade'
+      'Green': 'Green'
+      'Greens': 'Greens'
+      'Greenway': 'Greenway'
+      'Grove': 'Grove'
+      'Groves': 'Groves'
+      'Harbor': 'Harbor'
+      'Harbors': 'Harbors'
+      'Harbour': 'Harbour'
+      'Haul Road': 'Haul Road'
+      'Haven': 'Haven'
+      'Heath': 'Heath'
+      'Heights': 'Heights'
+      'Hideaway': 'Hideaway'
+      'Highway': 'Highway'
+      'Hill': 'Hill'
+      'Hills': 'Hills'
+      'Hollow': 'Hollow'
+      'Horn': 'Horn'
+      'Horseshoe': 'Horseshoe'
+      'Indian Service Road': 'Indian Service Road'
+      'Inlet': 'Inlet'
+      'Interstate': 'Interstate'
+      'Interval': 'Interval'
+      'Island': 'Island'
+      'Islands': 'Islands'
+      'Isle': 'Isle'
+      'Isles': 'Isles'
+      'J-Turn': 'J-Turn'
+      'Junction': 'Junction'
+      'Junctions': 'Junctions'
+      'Keep': 'Keep'
+      'Key': 'Key'
+      'Keys': 'Keys'
+      'Knoll': 'Knoll'
+      'Knolls': 'Knolls'
+      'Lair': 'Lair'
+      'Lake': 'Lake'
+      'Lakes': 'Lakes'
+      'Land': 'Land'
+      'Landing': 'Landing'
+      'Lane': 'Lane'
+      'Lane Circle': 'Lane Circle'
+      'Lane Court': 'Lane Court'
+      'Lane Road': 'Lane Road'
+      'Lateral': 'Lateral'
+      'Ledge': 'Ledge'
+      'Light': 'Light'
+      'Lights': 'Lights'
+      'Line': 'Line'
+      'Loaf': 'Loaf'
+      'Lock': 'Lock'
+      'Locks': 'Locks'
+      'Lodge': 'Lodge'
+      'Lookout': 'Lookout'
+      'Loop': 'Loop'
+      'Loop Road': 'Loop Road'
+      'Lugar': 'Lugar'
+      'Mall': 'Mall'
+      'Manor': 'Manor'
+      'Manors': 'Manors'
+      'Market': 'Market'
+      'Meadow': 'Meadow'
+      'Meadows': 'Meadows'
+      'Mews': 'Mews'
+      'Mill': 'Mill'
+      'Mills': 'Mills'
+      'Mission': 'Mission'
+      'Montana Highway': 'Montana Highway'
+      'Motorway': 'Motorway'
+      'Mount': 'Mount'
+      'Mountain': 'Mountain'
+      'Mountains': 'Mountains'
+      'Narrows': 'Narrows'
+      'National Forest Development Road': 'National Forest Development Road'
+      'Neck': 'Neck'
+      'Nook': 'Nook'
+      'North Carolina Highway': 'North Carolina Highway'
+      'Oaks': 'Oaks'
+      'Old County Road': 'Old County Road'
+      'Orchard': 'Orchard'
+      'Oval': 'Oval'
+      'Overlook': 'Overlook'
+      'Overpass': 'Overpass'
+      'Ovi': 'Ovi'
+      'Park': 'Park'
+      'Parke': 'Parke'
+      'Parks': 'Parks'
+      'Parkway': 'Parkway'
+      'Parkways': 'Parkways'
+      'Paseo': 'Paseo'
+      'Pass': 'Pass'
+      'Passage': 'Passage'
+      'Path': 'Path'
+      'Pathway': 'Pathway'
+      'Piazza': 'Piazza'
+      'Pike': 'Pike'
+      'Pine': 'Pine'
+      'Pines': 'Pines'
+      'Place': 'Place'
+      'Placita': 'Placita'
+      'Plain': 'Plain'
+      'Plains': 'Plains'
+      'Platz': 'Platz'
+      'Plaza': 'Plaza'
+      'Point': 'Point'
+      'Pointe': 'Pointe'
+      'Points': 'Points'
+      'Port': 'Port'
+      'Ports': 'Ports'
+      'Prairie': 'Prairie'
+      'Private Road': 'Private Road'
+      'Promenade': 'Promenade'
+      'Public Access': 'Public Access'
+      'Quarter': 'Quarter'
+      'Quay': 'Quay'
+      'Ramp': 'Ramp'
+      'Radial': 'Radial'
+      'Ranch': 'Ranch'
+      'Rancho': 'Rancho'
+      'Rapid': 'Rapid'
+      'Rapids': 'Rapids'
+      'Reach': 'Reach'
+      'Recreational Road': 'Recreational Road'
+      'Rest': 'Rest'
+      'Retreat': 'Retreat'
+      'Ridge': 'Ridge'
+      'Ridges': 'Ridges'
+      'Rise': 'Rise'
+      'River': 'River'
+      'River Road': 'River Road'
+      'Road': 'Road'
+      'Roads': 'Roads'
+      'Round': 'Round'
+      'Route': 'Route'
+      'Row': 'Row'
+      'Rue': 'Rue'
+      'Run': 'Run'
+      'Runne': 'Runne'
+      'Runway': 'Runway'
+      'Shoal': 'Shoal'
+      'Shoals': 'Shoals'
+      'Shore': 'Shore'
+      'Shores': 'Shores'
+      'Sideroad': 'Sideroad'
+      'Skies': 'Skies'
+      'Skyway': 'Skyway'
+      'Slip': 'Slip'
+      'Spring': 'Spring'
+      'Springs': 'Springs'
+      'Spur': 'Spur'
+      'Spurs': 'Spurs'
+      'Square': 'Square'
+      'Squares': 'Squares'
+      'State Highway': 'State Highway'
+      'State Park Road': 'State Park Road'
+      'State Parkway': 'State Parkway'
+      'State Road': 'State Road'
+      'State Route': 'State Route'
+      'State Secondary': 'State Secondary'
+      'State Spur': 'State Spur'
+      'Station': 'Station'
+      'Strand': 'Strand'
+      'Strasse': 'Strasse'
+      'Stravenue': 'Stravenue'
+      'Stream': 'Stream'
+      'Street': 'Street'
+      'Streets': 'Streets'
+      'Street Circle': 'Street Circle'
+      'Street Court': 'Street Court'
+      'Street Loop': 'Street Loop'
+      'Street Path': 'Street Path'
+      'Street Place': 'Street Place'
+      'Street Way': 'Street Way'
+      'Strip': 'Strip'
+      'Summit': 'Summit'
+      'Taxiway': 'Taxiway'
+      'Terminal': 'Terminal'
+      'Tern': 'Tern'
+      'Terrace': 'Terrace'
+      'Throughway': 'Throughway'
+      'Thruway': 'Thruway'
+      'Timber Road': 'Timber Road'
+      'Townline': 'Townline'
+      'Town Road': 'Town Road'
+      'Township Road': 'Township Road'
+      'Trace': 'Trace'
+      'Track': 'Track'
+      'Trafficway': 'Trafficway'
+      'Trail': 'Trail'
+      'Trailer': 'Trailer'
+      'Triangle': 'Triangle'
+      'Truck Trail': 'Truck Trail'
+      'Tunnel': 'Tunnel'
+      'Turn': 'Turn'
+      'Turnpike': 'Turnpike'
+      'United States Forest Service Road': 'United States Forest Service Road'
+      'United States Highway': 'United States Highway'
+      'Underpass': 'Underpass'
+      'Union': 'Union'
+      'Unions': 'Unions'
+      'Uunye': 'Uunye'
+      'Valley': 'Valley'
+      'Valleys': 'Valleys'
+      'Via': 'Via'
+      'Viaduct': 'Viaduct'
+      'View': 'View'
+      'Views': 'Views'
+      'Villa': 'Villa'
+      'Village': 'Village'
+      'Villages': 'Villages'
+      'Ville': 'Ville'
+      'Vista': 'Vista'
+      'Vog': 'Vog'
+      'Waddy': 'Waddy'
+      'Walk': 'Walk'
+      'Walks': 'Walks'
+      'Wall': 'Wall'
+      'Way': 'Way'
+      'Ways': 'Ways'
+      'Weeg': 'Weeg'
+      'Well': 'Well'
+      'Wells': 'Wells'
+      'Woods': 'Woods'
+      'Wye': 'Wye'
+      'Wynd': 'Wynd'
+  - domain_name: 'StreetNamePreTypeSeparator'
+    domain_description: |
+      A preposition or prepositional phrase between the Street Name Pre Type and the Street Name.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'of the': 'of the'
+      'at': 'at'
+      'de': 'de'
+      'de la': 'de la'
+      'del': 'del'
+      'de las': 'de las'
+      'des': 'des'
+      'in the': 'in the'
+      'to the': 'to the'
+      'of': 'of'
+      'on the': 'on the'
+      'to': 'to'
+  - domain_name: 'Validation'
+    domain_description: |
+      Indicates if the address range on the corresponding side of the road segment should be used for civic location validation.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'Y': 'Yes'
+      'N': 'No'
+
+# ==============================================================================
+# Feature Classes defined in NENA-STA-006.3-2026
+#
+#feature_classes:
+#  - name: The name of the feature class to be created.
+#    alias: The alias name of the feature class to be created.
+#    section: The defining section in NENA-STA-006x
+#    geometry_type: Specifies the geometry type of the feature class.
+#    has_m: Specifies whether the feature class contains linear measurement values (m-values).
+#    has_z: Specifies whether the feature class contains elevation values (z-values).
+#    primary: true
+#    country_specific_field_removals: Specifies fields to be removed for country specific operation.
+#      - CA: []
+#      - US: []
+#    fields: Specifies the fields to apply to the feature class
+#      - field_name: The name of the field.
+#        field_alias: The alias name of the field.
+#        field_type: The data type of the field.
+#        field_precision: If NUMERIC, the precision of the field.
+#        field_scale: If NUMERIC, the scale of the field.
+#        field_length: If TEXT field, the character length of the field.
+#        field_is_nullalbe: Is the field nullable?
+#        field_is_required: Is the field required?
+#        field_domain: Name of field domain, if applicable.
+#        field_default: Default value of field, if applicable.
+#    metadata:
+#      -description: The description of the feature class.
+#      -keywords: A list of metadata keywords.
+# ==============================================================================
+
+feature_classes:
+  - name: 'RoadCenterline'
+    alias: 'Road CenterLines'
+    section: 4.1.1
+    geometry_type: 'POLYLINE'
+    has_m: false
+    has_z: true
+    primary: true
+    country_specific_field_removals:
+      - CA: []
+      - US: ['AddCode_L', 'AddCode_R']
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+      - field_name: 'AdNumPre_L'
+        field_alias: 'Left Address Number Prefix'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'AdNumPre_R'
+        field_alias: 'Right Address Number Prefix'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'FromAddr_L'
+        field_alias: 'Left FROM Address Number'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AddressNumber'
+      - field_name: 'ToAddr_L'
+        field_alias: 'Left TO Address Number'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AddressNumber'
+      - field_name: 'FromAddr_R'
+        field_alias: 'Right FROM Address Number'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AddressNumber'
+      - field_name: 'ToAddr_R'
+        field_alias: 'Right TO Address Number'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AddressNumber'
+      - field_name: 'Parity_L'
+        field_alias: 'Parity Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 1
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'Parity'
+      - field_name: 'Parity_R'
+        field_alias: 'Parity Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 1
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'Parity'
+      - field_name: 'St_PreMod'
+        field_alias: 'Street Name Pre Modifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 25
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'St_PreDir'
+        field_alias: 'Street Name Pre Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameDirectional'
+      - field_name: 'St_PreTyp'
+        field_alias: 'Street Name Pre Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 50
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameType'
+      - field_name: 'St_PreSep'
+        field_alias: 'Street Name Pre Type Separator'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 20
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNamePreTypeSeparator'
+      - field_name: 'St_Name'
+        field_alias: 'Street Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'St_PosTyp'
+        field_alias: 'Street Name Post Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 50
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameType'
+      - field_name: 'St_PosDir'
+        field_alias: 'Street Name Post Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameDirectional'
+      - field_name: 'St_PosMod'
+        field_alias: 'Street Name Post Modifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 25
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'Dir_Travel'
+        field_alias: 'Direction of Travel'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'LSt_PreDir'
+        field_alias: 'Legacy Street Name Pre Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'LegacyStreetNameDirectional'
+      - field_name: 'LSt_Name'
+        field_alias: 'Legacy Street Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'LSt_Typ'
+        field_alias: 'Legacy Street Name Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 4
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'LSt_PosDir'
+        field_alias: 'Legacy Street Name Post Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'LegacyStreetNameDirectional'
+      - field_name: 'ESN_L'
+        field_alias: 'ESN Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 5
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'ESN_R'
+        field_alias: 'ESN Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 5
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'MSAGComm_L'
+        field_alias: 'MSAG Community Name Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 30
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'MSAGComm_R'
+        field_alias: 'MSAG Community Name Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 30
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'LCntyID_L'
+        field_alias: 'Legacy County ID Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 5
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'LCntyID_R'
+        field_alias: 'Legacy County ID Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 5
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'Country_L'
+        field_alias: 'Country Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+      - field_name: 'Country_R'
+        field_alias: 'Country Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+      - field_name: 'A1_L'
+        field_alias: 'Administrative Level 1 Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+      - field_name: 'A1_R'
+        field_alias: 'Administrative Level 1 Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+      - field_name: 'A2_L'
+        field_alias: 'Administrative Level 2 Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdministrativeLevels2'
+      - field_name: 'A2_R'
+        field_alias: 'Administrative Level 2 Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdministrativeLevels2'
+      - field_name: 'AddCode_L'
+        field_alias: 'Additional Code Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 6
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdditionalCode'
+      - field_name: 'AddCode_R'
+        field_alias: 'Additional Code Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 6
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdditionalCode'
+      - field_name: 'A3_L'
+        field_alias: 'Administrative Level 3 Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdministrativeLevels3'
+      - field_name: 'A3_R'
+        field_alias: 'Administrative Level 3 Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdministrativeLevels3'
+      - field_name: 'A4_L'
+        field_alias: 'Administrative Level 4 Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'A4_R'
+        field_alias: 'Administrative Level 4 Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'A5_L'
+        field_alias: 'Administrative Level 5 Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'A5_R'
+        field_alias: 'Administrative Level 5 Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+      - field_name: 'PostCode_L'
+        field_alias: 'Postal Code Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 7
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PostalCode'
+      - field_name: 'PostCode_R'
+        field_alias: 'Postal Code Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 7
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PostalCode'
+      - field_name: 'PostComm_L'
+        field_alias: 'Postal Community Name Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 40
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PostalCommunityName'
+      - field_name: 'PostComm_R'
+        field_alias: 'Postal Community Name Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 40
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PostalCommunityName'
+      - field_name: 'RoadClass'
+        field_alias: 'Road Class'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 24
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'RoadClass'
+      - field_name: 'OneWay'
+        field_alias: 'One-Way'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'OneWay'
+      - field_name: 'SpeedLimit'
+        field_alias: 'Speed Limit'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'SpeedLimit'
+      - field_name: 'Valid_L'
+        field_alias: 'Validation Left'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 1
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'Validation'
+      - field_name: 'Valid_R'
+        field_alias: 'Validation Right'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 1
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'Validation'
+    metadata:
+      -descriptions: |
+        Roads data is maintained as a line layer for representing the centerline of a roadway. This dataset is referred to as the RoadCenterLine layer in the GIS Data Layers and Indicators registry in Section 7.1 “GIS Data Layers” Registry “GIS Layers and Indicators” Registry and in NENA documents going forward. GIS road centerline arc node topology is associated with attribute data containing information on street names, address ranges, jurisdictional boundaries, and other attributes. The RoadCenterLine layer is an integral part of any public safety GIS due to its versatility and use for:
+        
+        •	Querying and geocoding of civic addresses based on dual (left/right) address ranges
+        •	Tactical map display
+        •	Map and attribute viewing
+        •	Map production
+        •	Location and driving directions
+        •	Integration of network topology to allow vehicle routing, drive time analysis
+        •	Integration of spatially related attributes for advanced applications including those focused on public safety, asset management, planning, utilities, and public works
+        
+        All Road Centerlines MUST have the Street Name field populated, even if unnamed.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'transportation'
+        - 'road centerlines'
+  - name: 'SiteStructureAddressPoint'
+    alias: 'Site/Structure Address Points'
+    section: 4.2.1
+    geometry_type: 'POINT'
+    has_m: false
+    has_z: true
+    primary: true
+    country_specific_field_removals:
+      - CA: ['PostCodeEx', 'UnitPreType', 'UnitValue']
+      - US: ['AddCode', 'Unit']
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Country'
+        field_alias: 'Country'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+        field_default: ''
+      - field_name: 'A1'
+        field_alias: 'Administrative Level 1'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+        field_default: ''
+      - field_name: 'A2'
+        field_alias: 'Administrative Level 2'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdministrativeLevels2'
+        field_default: ''
+      - field_name: 'AddCode'
+        field_alias: 'Additional Code'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 6
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdditionalCode'
+        field_default: ''
+      - field_name: 'A3'
+        field_alias: 'Administrative Level 3'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdministrativeLevels3'
+        field_default: ''
+      - field_name: 'A4'
+        field_alias: 'Administrative Level 4'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'A5'
+        field_alias: 'Administrative Level 5'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AddNum_Pre'
+        field_alias: 'Address Number Prefix'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Add_Number'
+        field_alias: 'Address Number'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AddressNumber'
+        field_default: ''
+      - field_name: 'AddNum_Suf'
+        field_alias: 'Address Number Suffix'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AddNum_Cmp'
+        field_alias: 'Address Number Complete'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 42
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DistMarker'
+        field_alias: 'Distance Marker'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 150
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'St_PreMod'
+        field_alias: 'Street Name Pre Modifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 25
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'St_PreDir'
+        field_alias: 'Street Name Pre Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameDirectional'
+        field_default: ''
+      - field_name: 'St_PreTyp'
+        field_alias: 'Street Name Pre Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 50
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameType'
+        field_default: ''
+      - field_name: 'St_PreSep'
+        field_alias: 'Street Name Pre Type Separator'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 20
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNamePreTypeSeparator'
+        field_default: ''
+      - field_name: 'St_Name'
+        field_alias: 'Street Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'St_PosTyp'
+        field_alias: 'Street Name Post Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 50
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameType'
+        field_default: ''
+      - field_name: 'St_PosDir'
+        field_alias: 'Street Name Post Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameDirectional'
+        field_default: ''
+      - field_name: 'St_PosMod'
+        field_alias: 'Street Name Post Modifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 25
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Dir_Travel'
+        field_alias: 'Direction of Travel'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LSt_PreDir'
+        field_alias: 'Legacy Street Name Pre Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'LegacyStreetNameDirectional'
+        field_default: ''
+      - field_name: 'LSt_Name'
+        field_alias: 'Legacy Street Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LSt_Typ'
+        field_alias: 'Legacy Street Name Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 4
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LSt_PosDir'
+        field_alias: 'Legacy Street Name Post Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'LegacyStreetNameDirectional'
+        field_default: ''
+      - field_name: 'ESN'
+        field_alias: 'ESN'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 5
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'MSAGComm'
+        field_alias: 'MSAG Community Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 30
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LCountyID'
+        field_alias: 'Legacy County ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 5
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Post_Comm'
+        field_alias: 'Postal Community Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 40
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PostalCommunityName'
+        field_default: ''
+      - field_name: 'Post_Code'
+        field_alias: 'Postal Code'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 7
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PostalCode'
+        field_default: ''
+      - field_name: 'PostCodeEx'
+        field_alias: 'Postal Code Extension'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 4
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Site'
+        field_alias: 'Site'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'SubSite'
+        field_alias: 'SubSite'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Structure'
+        field_alias: 'Structure'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Floor'
+        field_alias: 'Floor Label'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'FloorIndex'
+        field_alias: 'Floor Index'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Wing'
+        field_alias: 'Wing'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Unit'
+        field_alias: 'Unit'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'UnitPreType'
+        field_alias: 'Unit Pre Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'UnitValue'
+        field_alias: 'Unit Value'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Section'
+        field_alias: 'Section'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Row'
+        field_alias: 'Row'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Room'
+        field_alias: 'Room'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Seat'
+        field_alias: 'Seat'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LocMarker'
+        field_alias: 'Location Marker'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Addtl_Loc'
+        field_alias: 'Additional Location Information'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 225
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AddDataURI'
+        field_alias: 'Additional Data URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Place_Type'
+        field_alias: 'Place Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 50
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PlaceType'
+        field_default: ''
+      - field_name: 'Placement'
+        field_alias: 'Placement Method'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 25
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PlacementMethodPoint'
+        field_default: ''
+      - field_name: 'Longitude'
+        field_alias: 'Longitude'
+        field_type: 'REAL'
+        field_precision: 11
+        field_scale: 7
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'Longitude'
+        field_default: ''
+      - field_name: 'Latitude'
+        field_alias: 'Latitude'
+        field_type: 'REAL'
+        field_precision: 10
+        field_scale: 7
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'Latitude'
+        field_default: ''
+      - field_name: 'Elevation'
+        field_alias: 'Elevation'
+        field_type: 'REAL'
+        field_precision: 9
+        field_scale: 3
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Altitude'
+        field_alias: 'Altitude'
+        field_type: 'REAL'
+        field_precision: 9
+        field_scale: 3
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Height'
+        field_alias: 'Height'
+        field_type: 'REAL'
+        field_precision: 9
+        field_scale: 3
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Site/Structure Addresses data is maintained as a point layer that supports 3D for representing the location of a site, a structure, an interior space, or access to a site, structure, or an interior space. This dataset is referred to as the SiteStructureAddressPoint layer in in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.  While the SiteStructureAddressPoint layer is required, there is no requirement for the completeness of these data. It is understood that it will take time and resources to develop complete and accurate Site/Structure Addresses data.
+
+        Site/Structure Addresses data can be used to locate sites that otherwise may not geocode correctly using the road centerline data. It can also be used to locate areas of unusual addressing (i.e., odd addresses on the even side of the road centerlines and vice versa), and other areas where the data is available. Some addressable locations may be problematic near boundaries.
+
+        The Address Number, Street Name, and Administrative Levels 1-5 attributes in the SiteStructureAddressPoint layer SHOULD be consistent with the address number range, street name, and left/right Administrative Level attribute combinations found in the RoadCenterLine layer.
+
+        While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Addresses data described in this Standard.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'address'
+        - 'situs'
+  - name: 'SiteStructureAddressPolygon'
+    alias: 'Site/Structure Address Polygons'
+    section: 4.2.2
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ 'PostCodeEx', 'UnitPreType', 'UnitValue' ]
+      - US: [ 'AddCode', 'Unit' ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Country'
+        field_alias: 'Country'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+        field_default: ''
+      - field_name: 'A1'
+        field_alias: 'Administrative Level 1'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+        field_default: ''
+      - field_name: 'A2'
+        field_alias: 'Administrative Level 2'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdministrativeLevels2'
+        field_default: ''
+      - field_name: 'AddCode'
+        field_alias: 'Additional Code'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 6
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdditionalCode'
+        field_default: ''
+      - field_name: 'A3'
+        field_alias: 'Administrative Level 3'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdministrativeLevels3'
+        field_default: ''
+      - field_name: 'A4'
+        field_alias: 'Administrative Level 4'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'A5'
+        field_alias: 'Administrative Level 5'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AddNum_Pre'
+        field_alias: 'Address Number Prefix'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Add_Number'
+        field_alias: 'Address Number'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AddressNumber'
+        field_default: ''
+      - field_name: 'AddNum_Suf'
+        field_alias: 'Address Number Suffix'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AddNum_Cmp'
+        field_alias: 'Address Number Complete'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 42
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DistMarker'
+        field_alias: 'Distance Marker'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 150
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'St_PreMod'
+        field_alias: 'Street Name Pre Modifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 25
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'St_PreDir'
+        field_alias: 'Street Name Pre Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameDirectional'
+        field_default: ''
+      - field_name: 'St_PreTyp'
+        field_alias: 'Street Name Pre Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 50
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameType'
+        field_default: ''
+      - field_name: 'St_PreSep'
+        field_alias: 'Street Name Pre Type Separator'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 20
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNamePreTypeSeparator'
+        field_default: ''
+      - field_name: 'St_Name'
+        field_alias: 'Street Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'St_PosTyp'
+        field_alias: 'Street Name Post Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 50
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameType'
+        field_default: ''
+      - field_name: 'St_PosDir'
+        field_alias: 'Street Name Post Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'StreetNameDirectional'
+        field_default: ''
+      - field_name: 'St_PosMod'
+        field_alias: 'Street Name Post Modifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 25
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Dir_Travel'
+        field_alias: 'Direction of Travel'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 10
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LSt_PreDir'
+        field_alias: 'Legacy Street Name Pre Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'LegacyStreetNameDirectional'
+        field_default: ''
+      - field_name: 'LSt_Name'
+        field_alias: 'Legacy Street Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LSt_Typ'
+        field_alias: 'Legacy Street Name Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 4
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LSt_PosDir'
+        field_alias: 'Legacy Street Name Post Directional'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'LegacyStreetNameDirectional'
+        field_default: ''
+      - field_name: 'ESN'
+        field_alias: 'ESN'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 5
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'MSAGComm'
+        field_alias: 'MSAG Community Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 30
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LCountyID'
+        field_alias: 'Legacy County ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 5
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Post_Comm'
+        field_alias: 'Postal Community Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 40
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PostalCommunityName'
+        field_default: ''
+      - field_name: 'Post_Code'
+        field_alias: 'Postal Code'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 7
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PostalCode'
+        field_default: ''
+      - field_name: 'PostCodeEx'
+        field_alias: 'Postal Code Extension'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 4
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Site'
+        field_alias: 'Site'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'SubSite'
+        field_alias: 'SubSite'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Structure'
+        field_alias: 'Structure'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Floor'
+        field_alias: 'Floor Label'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'FloorIndex'
+        field_alias: 'Floor Index'
+        field_type: 'INTEGER'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Wing'
+        field_alias: 'Wing'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Unit'
+        field_alias: 'Unit'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'UnitPreType'
+        field_alias: 'Unit Pre Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'UnitValue'
+        field_alias: 'Unit Value'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Section'
+        field_alias: 'Section'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Row'
+        field_alias: 'Row'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Room'
+        field_alias: 'Room'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Seat'
+        field_alias: 'Seat'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 75
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LocMarker'
+        field_alias: 'Location Marker'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Addtl_Loc'
+        field_alias: 'Additional Location Information'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 225
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AddDataURI'
+        field_alias: 'Additional Data URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Place_Type'
+        field_alias: 'Place Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 50
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PlaceType'
+        field_default: ''
+      - field_name: 'Placement'
+        field_alias: 'Placement Method'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 25
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'PlacementMethodPoint'
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Site/Structure Addresses data is maintained as a polygon layer to represent the extent of addressable areas such as outdoor sites, structures, or interior spaces. This dataset is referred to as the SiteStructureAddressPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. It is understood that it will take time and resources to fully develop complete and accurate Site/Structure Addresses data.
+        
+        Site/Structure Address Polygon data can be used to more effectively convert geodetic locations into civic locations than Site/Structure Address Point data. This is because the polygon represents the extent of the space whereas the point provides no information as to its extent. Gaps and overlaps between SiteStructureAddressPolygon features MAY exist and are permissible (e.g., a room on a floor within a building may be represented as three overlapping SiteStructureAddressPolygon features).
+        
+        The SiteStructureAddressPolygon feature attribution SHOULD be consistent with the attribution of related SiteStructureAddressPoint or RoadCenterLine features where they exist.
+        
+        While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Address Polygon data described in this Standard.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'address'
+        - 'situs'
+  - name: 'PsapPolygon'
+    alias: 'PSAP Polygon'
+    section: 4.3.1
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: []
+      - US: []
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Agency_ID'
+        field_alias: 'Agency Identifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURI'
+        field_alias: 'Service URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURN'
+        field_alias: 'Service URN'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'ServiceURNSOS'
+        field_default: 'urn:emergency:service:sos.psap'
+      - field_name: 'ServiceNum'
+        field_alias: 'Service Number'
+        field_type: ''
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AVcard_URI'
+        field_alias: 'Agency vCard URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DsplayName'
+        field_alias: 'Display Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 60
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        In an NG9 1 1 deployment, the initial routing of a 9 1 1 call cannot happen without Primary PSAP boundaries. It is the most critical layer and MUST be provided. Its data structure is the same as all service boundary layers defined in this section. All polygons in this layer MUST have a Service URN of urn:service:sos.
+
+        The PsapPolygon layer may have one or many PSAP Boundaries contained in the layer. Each PSAP Boundary defines the geographic area of a PSAP that has primary responsibilities for an emergency request. This layer is used by the ECRF to perform a geographic query to determine the PSAP to which an emergency request is routed. An emergency request is routed using the NG9 1 1 Core Services based upon the geographic location of the request, provided by either a civic address, geographic coordinate, or geodetic shapes as defined in NENA-STA-010.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'service boundary'
+        - 'psap'
+  - name: 'PolicePolygon'
+    alias: 'Police Polygon'
+    section: 4.3.2
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Agency_ID'
+        field_alias: 'Agency Identifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURI'
+        field_alias: 'Service URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURN'
+        field_alias: 'Service URN'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'ServiceURNResponder'
+        field_default: 'urn:emergency:service:responder.police'
+      - field_name: 'ServiceNum'
+        field_alias: 'Service Number'
+        field_type: ''
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AVcard_URI'
+        field_alias: 'Agency vCard URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DsplayName'
+        field_alias: 'Display Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 60
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        In an NG9 1 1 deployment, the selective transfer of 9 1 1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+        The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9 1 1 deployment. Primary Emergency Services MUST include the following:
+
+        •	Police
+        •	Fire
+        •	Emergency Medical Services
+
+        Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+        *Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'service boundary'
+        - 'police'
+  - name: 'FirePolygon'
+    alias: 'Fire Polygon'
+    section: 4.3.2
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Agency_ID'
+        field_alias: 'Agency Identifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURI'
+        field_alias: 'Service URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURN'
+        field_alias: 'Service URN'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'ServiceURNResponder'
+        field_default: 'urn:emergency:service:responder.fire'
+      - field_name: 'ServiceNum'
+        field_alias: 'Service Number'
+        field_type: ''
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AVcard_URI'
+        field_alias: 'Agency vCard URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DsplayName'
+        field_alias: 'Display Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 60
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        In an NG9 1 1 deployment, the selective transfer of 9 1 1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+        The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9 1 1 deployment. Primary Emergency Services MUST include the following:
+
+        •	Police
+        •	Fire
+        •	Emergency Medical Services
+
+        Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+        *Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'service boundary'
+        - 'fire'
+  - name: 'EmsPolygon'
+    alias: 'EMS Polygon'
+    section: 4.3.2
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Agency_ID'
+        field_alias: 'Agency Identifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURI'
+        field_alias: 'Service URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURN'
+        field_alias: 'Service URN'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'ServiceURNResponder'
+        field_default: 'urn:emergency:service:responder.ems'
+      - field_name: 'ServiceNum'
+        field_alias: 'Service Number'
+        field_type: ''
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AVcard_URI'
+        field_alias: 'Agency vCard URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DsplayName'
+        field_alias: 'Display Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 60
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        In an NG9 1 1 deployment, the selective transfer of 9 1 1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+        The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9 1 1 deployment. Primary Emergency Services MUST include the following:
+
+        •	Police
+        •	Fire
+        •	Emergency Medical Services
+
+        Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+        *Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'service boundary'
+        - 'ems'
+  - name: 'ServiceBoundaryPolygon'
+    alias: 'Service Boundary Polygon'
+    section: 4.3.3
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: false
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Agency_ID'
+        field_alias: 'Agency Identifier'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURI'
+        field_alias: 'Service URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'ServiceURN'
+        field_alias: 'Service URN'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'ServiceURNResponder'
+        field_default: ''
+      - field_name: 'ServiceNum'
+        field_alias: 'Service Number'
+        field_type: ''
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'AVcard_URI'
+        field_alias: 'Agency vCard URI'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DsplayName'
+        field_alias: 'Display Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 60
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        In an NG9 1 1 deployment, the transfer of 9 1 1 calls uses service boundary layers, all with the same data structure. These agencies may be served by a call center, dispatch center, or other terms.
+        
+        Other service boundary layers, which may be maintained as separate or combined, MAY include, but are not limited to:
+        
+          •	Poison Control
+          •	Forest Service
+          •	Coast Guard
+          •	Animal Control
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'service boundary'
+        - 'other'
+  - name: 'ProvisioningPolygon'
+    alias: 'Provisioning Boundaries'
+    section: 4.4
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Provisioning Boundaries data is maintained as a polygon layer for representing the area of GIS data provisioning responsibility, with no unintentional gaps or overlaps. This dataset is commonly referred to as the ProvisioningPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. The Provisioning Boundary MUST align with data from all adjoining GIS Data Providers.
+
+        A Provisioning Boundary can take on a variety of shapes; for example, it may represent the extent of a city, the extent of a county, a region with multiple cities and counties, or possibly the extent of all areas served by a particular PSAP.
+
+        When provisioning data for an ECRF and LVF through the SI, a GIS Data Provider MUST only include GIS data within their Provisioning Boundary and MUST ensure the data includes coverage for the entire extent of their Provisioning Boundary. The Spatial Interface Operator will utilize the ProvisioningPolygon layer to ensure that these requirements are met.
+
+        Note: The 9 1 1 Authority is ultimately responsible for the GIS data within the area they provide service for.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'provisioning boundary'
+  - name: 'A1Polygon'
+    alias: 'Administrative Level 1 (A1) Polygons'
+    section: 4.5.1
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Country'
+        field_alias: 'Country'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+        field_default: ''
+      - field_name: 'A1'
+        field_alias: 'Administrative Level 1'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Administrative Level 1 data, formerly States or Equivalents (A1) data, is maintained as a polygon layer for representing the geographic area of a state, province, territory, or other top level subdivision of the larger country corresponding to the PIDF LO A1 element. This dataset is referred to as the A1Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'administrative unit'
+        - 'state'
+        - 'province'
+  - name: 'A2Polygon'
+    alias: 'Administrative Level 2 (A2) Polygons'
+    section: 4.5.2
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: ['AddCode']
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Country'
+        field_alias: 'Country'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+        field_default: ''
+      - field_name: 'A1'
+        field_alias: 'Administrative Level 1'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+        field_default: ''
+      - field_name: 'A2'
+        field_alias: 'Administrative Level 2'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels2'
+        field_default: ''
+      - field_name: 'AddCode'
+        field_alias: 'Additional Code'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 6
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdditionalCode'
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Administrative Level 2 data, formerly Counties or Equivalents (A2) data, is maintained as a polygon layer. It typically represents the geographic area of a county, parish, regional district, or other similar level division corresponding to the PIDF LO A2 element. The presence of A2 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A2Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'administrative unit'
+        - 'county'
+        - 'parish'
+  - name: 'A3Polygon'
+    alias: 'Administrative Level 3 (A3) Polygons'
+    section: 4.5.3
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ 'AddCode' ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Country'
+        field_alias: 'Country'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+        field_default: ''
+      - field_name: 'A1'
+        field_alias: 'Administrative Level 1'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+        field_default: ''
+      - field_name: 'A2'
+        field_alias: 'Administrative Level 2'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels2'
+        field_default: ''
+      - field_name: 'AddCode'
+        field_alias: 'Additional Code'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 6
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdditionalCode'
+        field_default: ''
+      - field_name: 'A3'
+        field_alias: 'Administrative Level 3'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels3'
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Administrative Level 3 data, formerly Incorporated Municipalities (A3) data, is maintained as a polygon layer. It typically represents the geographic area of a city, town, village, or other similar level division corresponding to the PIDF LO A3 element. The presence of A3 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A3Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'administrative unit'
+        - 'city'
+        - 'town'
+        - 'village'
+  - name: 'A4Polygon'
+    alias: 'Administrative Level 4 (A4) Polygons'
+    section: 4.5.4
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ 'AddCode' ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Country'
+        field_alias: 'Country'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+        field_default: ''
+      - field_name: 'A1'
+        field_alias: 'Administrative Level 1'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+        field_default: ''
+      - field_name: 'A2'
+        field_alias: 'Administrative Level 2'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels2'
+        field_default: ''
+      - field_name: 'AddCode'
+        field_alias: 'Additional Code'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 6
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdditionalCode'
+        field_default: ''
+      - field_name: 'A3'
+        field_alias: 'Administrative Level 3'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels3'
+        field_default: ''
+      - field_name: 'A4'
+        field_alias: 'Administrative Level 4'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Administrative Level 4 data, formerly Unincorporated Communities (A4) data, is maintained as a polygon layer. It typically represents the geographic area of an unincorporated community, borough, ward, or other similar level division corresponding to the PIDF LO A4 element. The presence of A4 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A4Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'administrative unit'
+        - 'borough'
+        - 'ward'
+  - name: 'A5Polygon'
+    alias: 'Administrative Level 5 (A5) Polygons'
+    section: 4.5.5
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ 'AddCode' ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Effective'
+        field_alias: 'Effective Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Expire'
+        field_alias: 'Expiration Date'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'Country'
+        field_alias: 'Country'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels0'
+        field_default: ''
+      - field_name: 'A1'
+        field_alias: 'Administrative Level 1'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels1'
+        field_default: ''
+      - field_name: 'A2'
+        field_alias: 'Administrative Level 2'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 2
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels2'
+        field_default: ''
+      - field_name: 'AddCode'
+        field_alias: 'Additional Code'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 6
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'AdditionalCode'
+        field_default: ''
+      - field_name: 'A3'
+        field_alias: 'Administrative Level 3'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AdministrativeLevels3'
+        field_default: ''
+      - field_name: 'A4'
+        field_alias: 'Administrative Level 4'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'A5'
+        field_alias: 'Administrative Level 5'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Administrative Level 5 data, formerly Neighborhood Communities (A5) data, is maintained as a polygon layer. It typically represents the geographic area of a neighborhood, commercial area, or other similar level division corresponding to the PIDF LO A5 element. The presence of A5 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A5Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'administrative unit'
+        - 'neighborhood'
+        - 'commercial area'
+        - 'subdivision'
+  - name: 'RailroadCenterLine'
+    alias: 'Railroad CenterLine'
+    section: 4.6
+    geometry_type: 'POLYLINE'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'RLOwn'
+        field_alias: 'Rail Line Owner'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'RLOp'
+        field_alias: 'Rail Line Operator'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'RLName'
+        field_alias: 'Rail Line Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'RMPL'
+        field_alias: 'Rail Mile Post Low'
+        field_type: 'REAL'
+        field_precision: 7
+        field_scale: 3
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'RMPH'
+        field_alias: 'Rail Mile Post High'
+        field_type: 'REAL'
+        field_precision: 7
+        field_scale: 3
+        field_length:
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Railroads data is maintained as a line layer for representing the centerline of a real world rail line. This dataset is referred to as the RailroadCenterLine layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Federal Railroad Administration’s Rail Lines database is in Appendix A of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Railway Network database is in Appendix B of NENA-STA-006.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'transporation'
+        - 'railroad'
+        - 'rail'
+  - name: 'HydrologyLine'
+    alias: 'Hydrology Lines'
+    section: 4.7.1
+    geometry_type: 'POLYLINE'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'HS_Type'
+        field_alias: 'Hydrology Segment Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'HS_Name'
+        field_alias: 'Hydrology Segment Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Hydrology data is maintained as a line layer for representing creeks, streams, rivers, and other linear water features. This dataset is referred to as the HydrologyLine layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D of NENA-STA-006.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'hydrology'
+        - 'creek'
+        - 'stream'
+        - 'river'
+  - name: 'HydrologyPolygon'
+    alias: 'Hydrology Polygons'
+    section: 4.7.2
+    geometry_type: 'POLYGON'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'HP_Type'
+        field_alias: 'Hydrology Polygon Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'HP_Name'
+        field_alias: 'Hydrology Polygon Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Hydrology data is maintained as a polygon layer for representing areal water body features. This dataset is referred to as the HydrologyPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D of NENA-STA-006.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'hydrology'
+        - 'lake'
+        - 'pond'
+        - 'reservoir'
+  - name: 'DistanceMarkerPoint'
+    alias: 'Distance Markers'
+    section: 4.8
+    geometry_type: 'POINT'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DM_Unit'
+        field_alias: 'Distance Marker Unit of Measurement'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: 'MarkerUnitOfMeasurement'
+        field_default: ''
+      - field_name: 'DM_Value'
+        field_alias: 'Distance Marker Measurement Value'
+        field_type: 'REAL'
+        field_precision: 9
+        field_scale: 3
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DM_Rte'
+        field_alias: 'Distance Marker Route Name'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DM_Type'
+        field_alias: 'Distance Marker Route Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'DM_Ind'
+        field_alias: 'Distance Marker Indicator'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 1
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'MarkerIndicator'
+        field_default: ''
+      - field_name: 'DM_Label'
+        field_alias: 'Distance Marker Label'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: ''
+        field_alias: ''
+        field_type: ''
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Distance Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Distance Markers data MUST be included in the SiteStructureAddressPoint layer. Distance Markers may represent a numeric measurement of a point along a route, such as a mile marker. This dataset is referred to as the DistanceMarkerPoint layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'mile marker'
+        - 'route marker'
+  - name: 'LocationMarkerPoint'
+    alias: 'Location Markers'
+    section: 4.9
+    geometry_type: 'POINT'
+    has_m: false
+    has_z: false
+    primary: true
+    country_specific_field_removals:
+      - CA: [ ]
+      - US: [ ]
+    fields:
+      - field_name: 'DiscrpAgID'
+        field_alias: 'Discrepancy Agency ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'AgencyID'
+        field_default: ''
+      - field_name: 'DateUpdate'
+        field_alias: 'Date Updated'
+        field_type: 'DATETIME'
+        field_precision:
+        field_scale:
+        field_length:
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'NGUID'
+        field_alias: 'NENA Globally Unique ID'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 254
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LM_Label'
+        field_alias: 'Location Marker Label'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 100
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LM_Type'
+        field_alias: 'Location Marker Type'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 15
+        field_is_nullalbe: true
+        field_is_required: false
+        field_domain: ''
+        field_default: ''
+      - field_name: 'LM_Ind'
+        field_alias: 'Location Marker Indicator'
+        field_type: 'TEXT'
+        field_precision:
+        field_scale:
+        field_length: 1
+        field_is_nullalbe: false
+        field_is_required: true
+        field_domain: 'LocationMarkerIndicator'
+        field_default: ''
+    metadata:
+      -descriptions: |
+        Location Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Location Markers data MUST be included in the SiteStructureAddressPoint layer. Location Markers may represent locations such as an alarm box, a utility pole, a callbox, trail intersection, buoy, channel marker, or other similar feature. This dataset is referred to as the LocationMarkerPoint layer in in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
+      -keywords:
+        - 'nena'
+        - 'ng9-1-1'
+        - 'ng911'
+        - 'alarm box'
+        - 'utility pole'
+        - 'callbox'
+        - 'trail intersection'
+        - 'buoy'
+        - 'channel marker'
