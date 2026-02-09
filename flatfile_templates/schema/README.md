@@ -19,7 +19,7 @@ other programming languages should only require minor modifications.
   * [schema_fgdb_v2.py](v2.0a/schema_fgdb_v2.py) - Python file containing the NENA NG9-1-1 GIS Data Model as JSON dictionaries.
 * [v3.0](v3.0) - Folder containing the NENA NG9-1-1 GIS Data Model v3 schema.
   * [nena_sta_006_v3.py](v3.0/nena_sta_006_v3.py) - Python file containing the field definitions from **Section: 5 Detailed Description of Field Names and associated attribute data** and the **GIS Data Layers Registry**. 
-  * [schema_fgdb_v3.py](v3.0/schema_fgdb_v3.py) - Python file containing the layer definitions from **Section: 4 GIS Data Model Layers**.
+  * [flatfile_schema_v3.yaml](v3.0/flatfile_schema_v3.yaml) - Python file containing the layer definitions from **Section: 4 GIS Data Model Layers**.
 
 ---
 
