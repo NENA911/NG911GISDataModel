@@ -2894,3 +2894,7 @@ GIS_DATA_LAYERS_REGISTRY = {
     "EmsMilitaryPolygon": "EmsMil",
     "EmsAirPolygon": "EmsAir",
 }
+
+import yaml
+yaml_string = yaml.dump(FIELDS, sort_keys=False)
+print(yaml_string)
