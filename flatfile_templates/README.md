@@ -15,9 +15,6 @@ This structure provides a clean foundation for contributors, tool developers, an
 
 * [Folders and Files](#folders-and-files)
 * [Help](#help)
-* [Known Issues](#known-issues)
-* [Change Log](#change-log)
-* [Contributors](#contributors)
 * [Acknowledgements](#acknowledgements)
 
 ---
@@ -47,20 +44,6 @@ For assistance not provided within this repositories documentation, please visit
 
 ---
 
-## Known Issues
-
----
-
-## Change Log
-
-* v3.0
-    * Initial release
-
----
-
 ## Acknowledgements
 
-* v3.0
-  * Relational Data Model Sub-Working Group
-
-Other companies and products mentioned are trademarks of their respective owners. 
+Trademarks provided under license from Esri. Other companies and products mentioned are trademarks of their respective owners. 
