@@ -15,9 +15,7 @@ by GIS Data Providers as a template for the management of
 their own NG9-1-1 data, it is expected that each GIS Data Provider will adapt the 
 scripts and extend the schema to meet their specific organization's needs and requirements. 
 
-With the v3.0 release, this repository has undergone a major refactor to support two parallel approaches to template generation: the long‑standing “flat‑file” model and a new relational data model. This restructuring was driven by the need to maintain backward compatibility with existing workflows while enabling more robust, normalized database implementations aligned with modern NG9‑1‑1 data management practices.
-
-To make these paths clear and maintainable, the repository is now organized into two primary template directories:
+With the v3.0 release, this repository has undergone a major refactor to support two parallel approaches to template generation: the long‑standing “flat‑file” model and a new relational data model. This restructuring was driven by the need to maintain backward compatibility with existing workflows while enabling more robust, normalized database implementations aligned with modern NG9‑1‑1 data management practices. To make these paths clear and maintainable, the repository is now organized into two primary template directories:
 
 - [flatfile_templates](flatfile_templates) – Traditional, single‑table templates designed for desktop GIS applications and workflows that rely on the classic flat‑file representation of the NENA NG9-1-1 GIS Data Model.
 - [relational_templates](relational_templates) – A new, normalized relational schema that reflects the logical structure of the NENA NG9‑1‑1 GIS Data Model and supports more advanced enterprise database implementations.
@@ -47,10 +45,11 @@ This dual‑template structure ensures that implementers, tool developers, and p
   Model standards for reference by version.
 * [flatfile_templates](flatfile_templates) - Folder containing the pre-built flat-file templates, schema, and vendor code repositories.
   * [prebuilt_templates](flatfile_templates/prebuilt_templates/README.md) - Folder containing the pre-built flat-file templates.
-  * [schema](flatfile_templates/schema/README.md) - Folder containing the schema definitions
+  * [schema](flatfile_templates/schema/README.md) - Folder containing the schema definitions by version
   * [vendor_arcgispro](flatfile_templates/vendor_arcgispro/v2.0a/README.md) - Folder containing example code to create the flat-file templates in Esri ArcGIS Pro.
   * [vendor_qgis](flatfile_templates/vendor_qgis/README.md) - Folder for future example code to create the flat-file templates in QGIS.
 * [relational_templates](relational_templates/README.md) - Folder containing information regarding the relational data model, introduced in v3.0.
+  * [schema](relational_templates/schema) - Folder containing the schema definitions by version
 * .gitignore
 * [CHANGELOG.md](CHANGELOG.md) - All notable changes to this project will be documented in this file.
 * [LICENSE.md](LICENSE.md) - License file for the project.
@@ -155,13 +154,13 @@ documented in this file. This project adheres to the
 [NENA Rules for Code Repositories](https://github.com/babley/NENA-Rules-for-Code-Repositories/blob/main/NENA-ADM-012-2021.md). 
 For a more detailed Change Log, please visit each packages respective CHANGE_LOG.
 
-## v3.0 Public Review - 2025-06-27
+### v3.0 - YYYY-MM-DD
 
-## [v2.0a - 2023-05-07](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
+### [v2.0a - 2023-05-07](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
 
-## [v2.0 - 2023-03-21](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0)
+### [v2.0 - 2023-03-21](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0)
 
-## [v1.0 - 2019-11-20](https://github.com/NENA911/NG911GISDataModel/releases/tag/1.0.0)
+### [v1.0 - 2019-11-20](https://github.com/NENA911/NG911GISDataModel/releases/tag/1.0.0)
 
 
 ---
