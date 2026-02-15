@@ -11,8 +11,6 @@ Due to various SQL dialects, the relational database model is currently represen
 * [Folders and Files](#folders-and-files)
 * [Data Type Mapping](#data-type-mapping)
 * [Help](#help)
-* [Known Issues](#known-issues)
-* [Change Log](#change-log)
 * [Contributors](#contributors)
 * [Acknowledgements](#acknowledgements)
 
@@ -50,6 +48,13 @@ The relational data model is a logical data model, not a physical data model and
 ## Help
 
 For assistance not provided within this repositories documentation, please visit https://www.nena.org/page/DataStructures where contact information for the leadership of the Data Structures Committee can be found.
+
+---
+
+## Contributors
+
+* v3.0
+  * Relational Data Model Sub-Working Group
 
 ---
 
