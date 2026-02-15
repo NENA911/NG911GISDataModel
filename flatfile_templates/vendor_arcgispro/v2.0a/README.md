@@ -6,7 +6,7 @@ This version is deprecated with the v3.0 release and has not been
 tested. 
 
 Due to the reorganization of the repo, it is expected the example code 
-WILL NOT run without repathing to new folder locations.
+WILL NOT run without repathing code references to new folder locations.
 
 ---
 
@@ -46,31 +46,18 @@ GIS platforms.
 ---
 
 ## Folders and Files
-* [.imgs](../.imgs) - Folder containing documentation images and screen shots.
-* [NENA_NG911_Scripts](../../esri_geodatabase/NENA_NG911_Scripts)
-  * [metadata](../../esri_geodatabase/NENA_NG911_Scripts/metadata) - Folder containing the metadata 
-    applied to the file geodatabase during creation.
-  * [schema](../../esri_geodatabase/NENA_NG911_Scripts/schema) - Folder containing the NENA GIS Data 
-    Model schema which is processed by 
-    [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py).
-    * [schema_fgdb_v2.py](../../esri_geodatabase/NENA_NG911_Scripts/schema/schema_fgdb_v2.py) - Python file 
-      containing the NENA GIS Data Model as dictionaries.
-  * [utils](../../esri_geodatabase/NENA_NG911_Scripts/util) - Folder containing Python libraries utilized
-    by the [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py) script.
-    * [logger.py](../../esri_geodatabase/NENA_NG911_Scripts/util/logger.py) - Python library that 
-      creations and manages log files for the Python scripts.
-  * [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py) - Python script 
-    used by the NENA GIS Data Model file geodatabase.
-* [NENA_NG911_Toolbox.zip](../../esri_geodatabase/NENA_NG911_Toolbox.zip) - Zip archive of the Python 
-  script and associated ArcGIS Toolboxes to generate a new FGDB either using 
-  ArcGIS Desktop.
-* [NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx](toolboxes/NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx) - 
-  ArcGIS Pro Toolbox which runs [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py).
-* [NENA_NG911_Toolbox_for_ArcMap.tbx](toolboxes/NENA_NG911_Toolbox_for_ArcMap.tbx) - 
-  ArcGIS Desktop 10.x Toolbox which runs [create_n911_fgdb.py](../../esri_geodatabase/NENA_NG911_Scripts/create_ng911_fgdb.py).
-* [NG911_GIS_Template.gdb.zip](NG911_GIS_Template.gdb.zip) - Zipped archive of 
-  the NENA GIS Data Model template in Esri File Geodatabase format for 
-  immediate use in ArcGIS Desktop.
+
+* [metadata](metadata) - Folder containing the metadata applied to the file geodatabase during creation.
+  * [NG911_GIS_Metadata.xml](metadata/NG911_GIS_Metadata.xml): Metadata template file used to apply metadata to file geodatabases.
+* [toolboxes](toolboxes)
+  * [NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx](toolboxes/NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx) - 
+      ArcGIS Pro Toolbox which runs [create_n911_fgdb.py](create_ng911_fgdb.py).
+  * [NENA_NG911_Toolbox_for_ArcMap.tbx](toolboxes/NENA_NG911_Toolbox_for_ArcMap.tbx) - 
+    ArcGIS Desktop 10.x Toolbox which runs [create_n911_fgdb.py](create_ng911_fgdb.py).
+* [utils](util) - Folder containing Python libraries utilized by the [create_n911_fgdb.py](create_ng911_fgdb.py) script.
+  * [logger.py](util/logger.py) - Python library that 
+    creations and manages log files for the Python scripts.
+* [create_n911_fgdb.py](create_ng911_fgdb.py) - Python script used to create a NENA GIS Data Model file geodatabase.
 * [README.md](README.md) - This document.
 
 ---
@@ -286,14 +273,16 @@ leadership of the Data Structures Committee can be found.
 
 ## Change Log
 
+* v3.0
+  * Folder structure refactors for v3 release
 * v2.0
-    * Updated for [NENA-STA-006.2-2022](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.2-2022_ng9-1-1.pdf)
-    * Various bug fixes and optimizations
-    * See [commit change](https://github.com/NENA911/NG911GISDataModel/commits/main) 
-      or [release history](https://github.com/NENA911/NG911GISDataModel/releases)
+  * Updated for [NENA-STA-006.2-2022](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.2-2022_ng9-1-1.pdf)
+  * Various bug fixes and optimizations
+  * See [commit change](https://github.com/NENA911/NG911GISDataModel/commits/main) 
+    or [release history](https://github.com/NENA911/NG911GISDataModel/releases)
 * v1.0
-    * Based on [NENA-STA-006.1.1-2020](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
-    * Initial Release
+  * Based on [NENA-STA-006.1.1-2020](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
+  * Initial Release
 
 ---
 
