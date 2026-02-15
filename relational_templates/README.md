@@ -30,35 +30,26 @@ Due to various SQL dialects, the relational database model is currently represen
 
 ## Data Type Mapping
 
-The following table provides an example of cross‑platform data type equivalency for reference purposes only.
+The relational data model is a logical data model, not a physical data model and will require mapping data types to database specific datatypes. The following table provides an example of cross‑platform data type equivalency for reference purposes only.
 
-| NG9-1-1      | Relational Data Model | PostgreSQL        | MS SQL Server        | Esri FGDB | geoPackage |
+| NENA-STA-006 | Relational Data Model | PostgreSQL        | MS SQL Server        | Esri FGDB | geoPackage |
 |--------------|-----------------------|-------------------|----------------------|-----------|------------|
-| TEXT(Length) | NVARCHAR(n)           | VARCHAR(n)        | VARCHAR(n)           | TEXT(n)   | TEXT       |
+| TEXT(Length) | TEXT(n)               | VARCHAR(n)        | VARCHAR(n)           | TEXT(n)   | TEXT       |
 | DATETIME     | DATETIME              | TIMESTAMPZ        | DATETIMEOFFSET       | DATE      | DATETIME   |
-| INTEGER      | INT                   | INTEGER           | INTEGER              | LONG      | INTEGER    |
-| REAL(p,s)    | NUMERIC(p,s)          | NUMERIC(p,s)      | NUMERIC(p,s)         | DOUBLE    | REAL       | 
-| Not Defined  | BIGINT                | BIGSERIAL/BIGINT  | BIGINT               | OBJECTID  | INTEGER    | 
+| INTEGER      | INTEGER               | INTEGER           | INTEGER              | LONG      | INTEGER    |
+| REAL(p,s)    | REAL(p,s)             | NUMERIC(p,s)      | NUMERIC(p,s)         | DOUBLE    | REAL       | 
+| Not Defined  | BIGINT<sup>1</sup>    | BIGSERIAL/BIGINT  | BIGINT               | OBJECTID  | INTEGER    | 
 | Not Defined  | GEOMETRY(POINT)       | GEOMETRY(POINT)   | GEOMETRY::POINT      | POINT     | POINT      | 
 | Not Defined  | GEOMETRY(LINESTRING)  | GEOMETRY(LINE)    | GEOMETRY::LINESTRING | POLYLINE  | LINESTRING | 
 | Not Defined  | GEOMETRY(POLGYON)     | GEOMETRY(POLYGON) | GEOMETRY::POLYGON    | POLYGON   | POLYGON    | 
+
+<sup>1</sup> The BIGINT data type is used to identify primary and foreign key fields. When a BIGINT is used as a primary key, it should implement a sequencer or increment function. It is recommended BIGINT data types are defined as 8-byte integers. 
 
 ---
 
 ## Help
 
-For assistance not provided within this repositories documentation, please visit https://www.nena.org/page/DataStructures where contact information for the leadership of the Data Structures Committee can be found.  
-
----
-
-## Known Issues
-
----
-
-## Change Log
-
-* v3.0
-    * Initial release
+For assistance not provided within this repositories documentation, please visit https://www.nena.org/page/DataStructures where contact information for the leadership of the Data Structures Committee can be found.
 
 ---
 
