@@ -46,7 +46,7 @@ This dual‑template structure ensures that implementers, tool developers, and p
 * [flatfile_templates](flatfile_templates) - Folder containing the pre-built flat-file templates, schema, and vendor code repositories.
   * [prebuilt_templates](flatfile_templates/prebuilt_templates/README.md) - Folder containing the pre-built flat-file templates.
   * [schema](flatfile_templates/schema/README.md) - Folder containing the schema definitions by version
-  * [vendor_arcgispro](flatfile_templates/vendor_arcgispro/v2.0a/README.md) - Folder containing example code to create the flat-file templates in Esri ArcGIS Pro.
+  * [vendor_arcgispro](flatfile_templates/vendor_arcgispro/) - Folder containing example code to create the flat-file templates in Esri ArcGIS Pro.
   * [vendor_qgis](flatfile_templates/vendor_qgis/README.md) - Folder for future example code to create the flat-file templates in QGIS.
 * [relational_templates](relational_templates/README.md) - Folder containing information regarding the relational data model, introduced in v3.0.
   * [schema](relational_templates/schema) - Folder containing the schema definitions by version
