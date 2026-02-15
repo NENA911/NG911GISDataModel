@@ -257,7 +257,6 @@
 <!-- == Shape Colors == -->
 <!-- == Desktop == -->
 <rect x='0' y='0' width='3154' height='2162' rx='10' ry='10' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
-<rect x='1' y='1' width='3152' height='2160' rx='10' ry='10' style='fill:url(#layoutBgEval);' />
 
 <!-- == Legend == -->
 <g transform='translate(10,10)'>
@@ -266,7 +265,7 @@
 Zoom with CTRL+whell mouse button, pan by dragging the diagram with the right-mouse button</title><use x='349' y='28' href='#bulb' width='24' height='24'/></g>
   <g><title>DbSchema Database Designer</title><use x='20' y='40' href='#logo'/></g>  <text x='20' y='30' class='legendTitle' >NENA NG9-1-1 Relational Data Model Template</text> 
   <text x='57' y='47' class='legendSubTitle'><tspan>Read schema comments as mouse-over tooltips</tspan></text>
-  <a href='https://dbschema.com'><text x='57' y='61' class='legendSubTitle'><tspan>DbSchema.com © 2026-01-29 Wise Coders<title>DbSchema.com © 2026-01-29 Wise Coders</title></tspan></text></a> 
+  <a href='https://dbschema.com'><text x='57' y='61' class='legendSubTitle'><tspan>DbSchema.com © 2026-02-15 Wise Coders<title>DbSchema.com © 2026-02-15 Wise Coders</title></tspan></text></a> 
 </g>
 
 <g transform='translate(0,110)'>
@@ -1027,7 +1026,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Distance Marker Unit of Measure ID</title><text id='ng911&#46;DM&#95;Unit&#46;ID' x='2987' y='389' onmouseover="hghl(['DistanceMarker_fk_DistanceMarker_has_Unit','ng911.DistanceMarker.DM_Unit'])" onmouseout="uhghl(['DistanceMarker_fk_DistanceMarker_has_Unit','ng911.DistanceMarker.DM_Unit'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.DM_Unit.ID'><g><title>&#x1F517;  Referred by DistanceMarker ( DM_Unit -&gt; ID ) </title><use x='3064' y='375' href='#ref'/></g></a>
   <use x='2965' y='395' href='#nn'/><a href='#ng911.DM_Unit.DM_Unit'><g><title>&#10697;  DM_Unit
-     * nvarchar(15)
+     * text(15)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Distance Marker Unit of Measure</title><text id='ng911&#46;DM&#95;Unit&#46;DM&#95;Unit' x='2987' y='408'>DM&#95;Unit</text></g></a>
 <text x='3074' y='404' text-anchor='end' class='colType'>t</text>
@@ -1045,7 +1044,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Distance Marker Route ID</title><text id='ng911&#46;DM&#95;Route&#46;ID' x='2987' y='503' onmouseover="hghl(['DistanceMarker_fk_DistanceMarker_has_Route','ng911.DistanceMarker.DM_Route_ID'])" onmouseout="uhghl(['DistanceMarker_fk_DistanceMarker_has_Route','ng911.DistanceMarker.DM_Route_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.DM_Route.ID'><g><title>&#x1F517;  Referred by DistanceMarker ( DM_Route_ID -&gt; ID ) </title><use x='3064' y='489' href='#ref'/></g></a>
   <use x='2965' y='509' href='#nn'/><a href='#ng911.DM_Route.DM_Rte'><g><title>&#10697;  DM_Rte
-     * nvarchar(50)
+     * text(50)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Distance Marker Route Name</title><text id='ng911&#46;DM&#95;Route&#46;DM&#95;Rte' x='2987' y='522'>DM&#95;Rte</text></g></a>
 <text x='3074' y='518' text-anchor='end' class='colType'>t</text>
@@ -1063,7 +1062,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Distance Marker Route Type ID</title><text id='ng911&#46;RouteTyp&#46;ID' x='2987' y='617' onmouseover="hghl(['DistanceMarker_fk_DistanceMarker_has_RouteTyp','ng911.DistanceMarker.DM_Type_ID'])" onmouseout="uhghl(['DistanceMarker_fk_DistanceMarker_has_RouteTyp','ng911.DistanceMarker.DM_Type_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.RouteTyp.ID'><g><title>&#x1F517;  Referred by DistanceMarker ( DM_Type_ID -&gt; ID ) </title><use x='3064' y='603' href='#ref'/></g></a>
   <use x='2965' y='623' href='#nn'/><a href='#ng911.RouteTyp.DM_Type'><g><title>&#10697;  DM_Type
-     * nvarchar(50)
+     * text(50)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Distance Marker Route Type</title><text id='ng911&#46;RouteTyp&#46;DM&#95;Type' x='2987' y='636'>DM&#95;Type</text></g></a>
 <text x='3074' y='632' text-anchor='end' class='colType'>t</text>
@@ -1081,7 +1080,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Hydrology Segment Type ID</title><text id='ng911&#46;HydrologySegTyp&#46;ID' x='2968' y='826' onmouseover="hghl(['HydrologyLine_fk_HydrologyLine_has_HydrologySegTyp','ng911.HydrologyLine.HS_Type_ID'])" onmouseout="uhghl(['HydrologyLine_fk_HydrologyLine_has_HydrologySegTyp','ng911.HydrologyLine.HS_Type_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.HydrologySegTyp.ID'><g><title>&#x1F517;  Referred by HydrologyLine ( HS_Type_ID -&gt; ID ) </title><use x='3083' y='812' href='#ref'/></g></a>
   <a href='#ng911.HydrologySegTyp.HS_Type'><g><title>&#10697;  HS_Type
-     nvarchar(100)
+     text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Hydrology Segment Type Name</title><text id='ng911&#46;HydrologySegTyp&#46;HS&#95;Type' x='2968' y='845'>HS&#95;Type</text></g></a>
 <text x='3093' y='841' text-anchor='end' class='colType'>t</text>
@@ -1099,7 +1098,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Hydrology Segment Name ID</title><text id='ng911&#46;HydrologySegNam&#46;ID' x='2968' y='940' onmouseover="hghl(['HydrologyLine_fk_HydrologyLine_has_HydrologySegNam','ng911.HydrologyLine.HS_Name_ID'])" onmouseout="uhghl(['HydrologyLine_fk_HydrologyLine_has_HydrologySegNam','ng911.HydrologyLine.HS_Name_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.HydrologySegNam.ID'><g><title>&#x1F517;  Referred by HydrologyLine ( HS_Name_ID -&gt; ID ) </title><use x='3083' y='926' href='#ref'/></g></a>
   <use x='2946' y='946' href='#nn'/><a href='#ng911.HydrologySegNam.HS_Name'><g><title>&#10697;  HS_Name
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Hydrology Segment Name</title><text id='ng911&#46;HydrologySegNam&#46;HS&#95;Name' x='2968' y='959'>HS&#95;Name</text></g></a>
 <text x='3093' y='955' text-anchor='end' class='colType'>t</text>
@@ -1117,7 +1116,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Hydrology Polygon Type ID</title><text id='ng911&#46;HydrologyPolyTyp&#46;ID' x='2968' y='1073' onmouseover="hghl(['HydrologyPolygon_fk_HydrologyPolygon_has_HydrologyPolyTyp','ng911.HydrologyPolygon.HP_Type_ID'])" onmouseout="uhghl(['HydrologyPolygon_fk_HydrologyPolygon_has_HydrologyPolyTyp','ng911.HydrologyPolygon.HP_Type_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.HydrologyPolyTyp.ID'><g><title>&#x1F517;  Referred by HydrologyPolygon ( HP_Type_ID -&gt; ID ) </title><use x='3083' y='1059' href='#ref'/></g></a>
   <use x='2946' y='1079' href='#nn'/><a href='#ng911.HydrologyPolyTyp.HP_Type'><g><title>&#10697;  HP_Type
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Hydrology Polygon Type Name</title><text id='ng911&#46;HydrologyPolyTyp&#46;HP&#95;Type' x='2968' y='1092'>HP&#95;Type</text></g></a>
 <text x='3093' y='1088' text-anchor='end' class='colType'>t</text>
@@ -1135,7 +1134,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Hydrology Polygon Name ID</title><text id='ng911&#46;HydrologyPolyNam&#46;ID' x='2968' y='1187' onmouseover="hghl(['HydrologyPolygon_fk_HydrologyPolygon_has_HydrologyPolyNam','ng911.HydrologyPolygon.HP_Name_ID'])" onmouseout="uhghl(['HydrologyPolygon_fk_HydrologyPolygon_has_HydrologyPolyNam','ng911.HydrologyPolygon.HP_Name_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.HydrologyPolyNam.ID'><g><title>&#x1F517;  Referred by HydrologyPolygon ( HP_Name_ID -&gt; ID ) </title><use x='3083' y='1173' href='#ref'/></g></a>
   <use x='2946' y='1193' href='#nn'/><a href='#ng911.HydrologyPolyNam.HS_Name'><g><title>&#10697;  HS_Name
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Hydrology Polygon Name</title><text id='ng911&#46;HydrologyPolyNam&#46;HS&#95;Name' x='2968' y='1206'>HS&#95;Name</text></g></a>
 <text x='3093' y='1202' text-anchor='end' class='colType'>t</text>
@@ -1165,7 +1164,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Date Updated</title><text id='ng911&#46;DistanceMarker&#46;DateUpdate' x='2721' y='446'>DateUpdate</text></g></a>
 <text x='2827' y='442' text-anchor='end' class='colType'>t</text>  <use x='2699' y='452' href='#nn'/><a href='#ng911.DistanceMarker.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;DistanceMarker&#46;NGUID' x='2721' y='465'>NGUID</text></g></a>
 <text x='2827' y='461' text-anchor='end' class='colType'>t</text>  <use x='2699' y='471' href='#nn'/><g><title>&#x1F511;  Pk pk_template_1 ( ID, DiscrpAg_ID, DM_Unit, DM_Route_ID, DM_Type_ID ) </title><use x='2700' y='470' href='#pk'/></g><a href='#ng911.DistanceMarker.DM_Unit'><g><title>&#10697;  DM_Unit
@@ -1175,7 +1174,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Distance Marker Unit of Measurement</title><text id='ng911&#46;DistanceMarker&#46;DM&#95;Unit' x='2721' y='484' onmouseover="hghl(['DistanceMarker_fk_DistanceMarker_has_Unit','ng911.DM_Unit.ID'])" onmouseout="uhghl(['DistanceMarker_fk_DistanceMarker_has_Unit','ng911.DM_Unit.ID'])" class='colPk'>DM&#95;Unit</text></g></a>
 <a href='#ng911.DistanceMarker.DM_Unit'><g><title>&#x1F517;  References DM_Unit ( DM_Unit -&gt; ID ) </title><use x='2817' y='470' href='#fk'/></g></a>
   <use x='2699' y='490' href='#nn'/><a href='#ng911.DistanceMarker.DM_Value'><g><title>&#10697;  DM_Value
-     * numeric(9,3)
+     * real(9,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Distance Marker Measurement Value</title><text id='ng911&#46;DistanceMarker&#46;DM&#95;Value' x='2721' y='503'>DM&#95;Value</text></g></a>
 <text x='2827' y='499' text-anchor='end' class='colType'>&#35;</text>  <use x='2699' y='509' href='#nn'/><g><title>&#x1F511;  Pk pk_template_1 ( ID, DiscrpAg_ID, DM_Unit, DM_Route_ID, DM_Type_ID ) </title><use x='2700' y='508' href='#pk'/></g><a href='#ng911.DistanceMarker.DM_Route_ID'><g><title>&#10697;  DM_Route_ID
@@ -1191,11 +1190,11 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Distance Marker Route Type ID</title><text id='ng911&#46;DistanceMarker&#46;DM&#95;Type&#95;ID' x='2721' y='541' onmouseover="hghl(['DistanceMarker_fk_DistanceMarker_has_RouteTyp','ng911.RouteTyp.ID'])" onmouseout="uhghl(['DistanceMarker_fk_DistanceMarker_has_RouteTyp','ng911.RouteTyp.ID'])" class='colPk'>DM&#95;Type&#95;ID</text></g></a>
 <a href='#ng911.DistanceMarker.DM_Type_ID'><g><title>&#x1F517;  References RouteTyp ( DM_Type_ID -&gt; ID ) </title><use x='2817' y='527' href='#fk'/></g></a>
   <use x='2699' y='547' href='#nn'/><a href='#ng911.DistanceMarker.DM_Ind'><g><title>&#10697;  DM_Ind
-     * nvarchar(1)
+     * text(1)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Distance Marker Indicator</title><text id='ng911&#46;DistanceMarker&#46;DM&#95;Ind' x='2721' y='560'>DM&#95;Ind</text></g></a>
 <text x='2827' y='556' text-anchor='end' class='colType'>t</text>  <a href='#ng911.DistanceMarker.DM_Label'><g><title>&#10697;  DM_Label
-     nvarchar(100)
+     text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Distance Marker Label</title><text id='ng911&#46;DistanceMarker&#46;DM&#95;Label' x='2721' y='579'>DM&#95;Label</text></g></a>
 <text x='2827' y='575' text-anchor='end' class='colType'>t</text>
@@ -1225,11 +1224,11 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Date Updated</title><text id='ng911&#46;LocationMarker&#46;DateUpdate' x='2721' y='199'>DateUpdate</text></g></a>
 <text x='2827' y='195' text-anchor='end' class='colType'>t</text>  <use x='2699' y='205' href='#nn'/><a href='#ng911.LocationMarker.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;LocationMarker&#46;NGUID' x='2721' y='218'>NGUID</text></g></a>
 <text x='2827' y='214' text-anchor='end' class='colType'>t</text>  <use x='2699' y='224' href='#nn'/><a href='#ng911.LocationMarker.LM_Label'><g><title>&#10697;  LM_Label
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Location Marker Label</title><text id='ng911&#46;LocationMarker&#46;LM&#95;Label' x='2721' y='237'>LM&#95;Label</text></g></a>
 <text x='2827' y='233' text-anchor='end' class='colType'>t</text>  <use x='2699' y='243' href='#nn'/><g><title>&#x1F511;  Pk pk_LocationMarker ( ID, DiscrpAg_ID, LM_Type_ID ) </title><use x='2700' y='242' href='#pk'/></g><a href='#ng911.LocationMarker.LM_Type_ID'><g><title>&#10697;  LM_Type_ID
@@ -1239,7 +1238,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Location Marker Type ID</title><text id='ng911&#46;LocationMarker&#46;LM&#95;Type&#95;ID' x='2721' y='256' onmouseover="hghl(['LocationMarker_fk_LocationMarker_has_MarkerTyp','ng911.MarkerTyp.ID'])" onmouseout="uhghl(['LocationMarker_fk_LocationMarker_has_MarkerTyp','ng911.MarkerTyp.ID'])" class='colPk'>LM&#95;Type&#95;ID</text></g></a>
 <a href='#ng911.LocationMarker.LM_Type_ID'><g><title>&#x1F517;  References MarkerTyp ( LM_Type_ID -&gt; ID ) </title><use x='2817' y='242' href='#fk'/></g></a>
   <use x='2699' y='262' href='#nn'/><a href='#ng911.LocationMarker.LM_Ind'><g><title>&#10697;  LM_Ind
-     * nvarchar(1)
+     * text(1)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Location Marker Indicator</title><text id='ng911&#46;LocationMarker&#46;LM&#95;Ind' x='2721' y='275'>LM&#95;Ind</text></g></a>
 <text x='2827' y='271' text-anchor='end' class='colType'>t</text>
@@ -1257,7 +1256,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Location Marker Type ID</title><text id='ng911&#46;MarkerTyp&#46;ID' x='2987' y='142' onmouseover="hghl(['LocationMarker_fk_LocationMarker_has_MarkerTyp','ng911.LocationMarker.LM_Type_ID'])" onmouseout="uhghl(['LocationMarker_fk_LocationMarker_has_MarkerTyp','ng911.LocationMarker.LM_Type_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.MarkerTyp.ID'><g><title>&#x1F517;  Referred by LocationMarker ( LM_Type_ID -&gt; ID ) </title><use x='3064' y='128' href='#ref'/></g></a>
   <use x='2965' y='148' href='#nn'/><a href='#ng911.MarkerTyp.LM_Type'><g><title>&#10697;  LM_Type
-     * nvarchar(50)
+     * text(50)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Location Marker Type</title><text id='ng911&#46;MarkerTyp&#46;LM&#95;Type' x='2987' y='161'>LM&#95;Type</text></g></a>
 <text x='3074' y='157' text-anchor='end' class='colType'>t</text>
@@ -1287,7 +1286,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Date Updated</title><text id='ng911&#46;HydrologyLine&#46;DateUpdate' x='2721' y='883'>DateUpdate</text></g></a>
 <text x='2827' y='879' text-anchor='end' class='colType'>t</text>  <use x='2699' y='889' href='#nn'/><a href='#ng911.HydrologyLine.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;HydrologyLine&#46;NGUID' x='2721' y='902'>NGUID</text></g></a>
 <text x='2827' y='898' text-anchor='end' class='colType'>t</text>  <use x='2699' y='908' href='#nn'/><g><title>&#x1F511;  Pk pk_HydrologyLine ( ID, DiscrpAg_ID, HS_Type_ID, HS_Name_ID ) </title><use x='2700' y='907' href='#pk'/></g><a href='#ng911.HydrologyLine.HS_Type_ID'><g><title>&#10697;  HS_Type_ID
@@ -1329,7 +1328,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Date Updated</title><text id='ng911&#46;HydrologyPolygon&#46;DateUpdate' x='2721' y='1130'>DateUpdate</text></g></a>
 <text x='2846' y='1126' text-anchor='end' class='colType'>t</text>  <use x='2699' y='1136' href='#nn'/><a href='#ng911.HydrologyPolygon.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;HydrologyPolygon&#46;NGUID' x='2721' y='1149'>NGUID</text></g></a>
 <text x='2846' y='1145' text-anchor='end' class='colType'>t</text>  <use x='2699' y='1155' href='#nn'/><g><title>&#x1F511;  Pk pk_HydrologyPolygon ( ID, DiscrpAg_ID, HP_Type_ID, HP_Name_ID ) </title><use x='2700' y='1154' href='#pk'/></g><a href='#ng911.HydrologyPolygon.HP_Type_ID'><g><title>&#10697;  HP_Type_ID
@@ -1359,7 +1358,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Rail Line Owner ID</title><text id='ng911&#46;RLOwn&#46;ID' x='2987' y='1377' onmouseover="hghl(['RailroadCenterLine_fk_RailroadCenterLine_has_RLOwn','ng911.RailroadCenterLine.RLOwn_ID'])" onmouseout="uhghl(['RailroadCenterLine_fk_RailroadCenterLine_has_RLOwn','ng911.RailroadCenterLine.RLOwn_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.RLOwn.ID'><g><title>&#x1F517;  Referred by RailroadCenterLine ( RLOwn_ID -&gt; ID ) </title><use x='3045' y='1363' href='#ref'/></g></a>
   <use x='2965' y='1383' href='#nn'/><a href='#ng911.RLOwn.RLOwn'><g><title>&#10697;  RLOwn
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Rail Line Owner</title><text id='ng911&#46;RLOwn&#46;RLOwn' x='2987' y='1396'>RLOwn</text></g></a>
 <text x='3055' y='1392' text-anchor='end' class='colType'>t</text>
@@ -1377,7 +1376,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Rail Line Operator ID</title><text id='ng911&#46;RLOp&#46;ID' x='2987' y='1472' onmouseover="hghl(['RailroadCenterLine_fk_RailroadCenterLine_has_RLOp','ng911.RailroadCenterLine.RLOp_ID'])" onmouseout="uhghl(['RailroadCenterLine_fk_RailroadCenterLine_has_RLOp','ng911.RailroadCenterLine.RLOp_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.RLOp.ID'><g><title>&#x1F517;  Referred by RailroadCenterLine ( RLOp_ID -&gt; ID ) </title><use x='3045' y='1458' href='#ref'/></g></a>
   <use x='2965' y='1478' href='#nn'/><a href='#ng911.RLOp.RLOp'><g><title>&#10697;  RLOp
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Rail Line Operator</title><text id='ng911&#46;RLOp&#46;RLOp' x='2987' y='1491'>RLOp</text></g></a>
 <text x='3055' y='1487' text-anchor='end' class='colType'>t</text>
@@ -1395,7 +1394,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Rail Line Name ID</title><text id='ng911&#46;RLNam&#46;ID' x='2987' y='1586' onmouseover="hghl(['RailroadCenterLine_fk_RailroadCenterLine_has_RLNam','ng911.RailroadCenterLine.RLName_ID'])" onmouseout="uhghl(['RailroadCenterLine_fk_RailroadCenterLine_has_RLNam','ng911.RailroadCenterLine.RLName_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.RLNam.ID'><g><title>&#x1F517;  Referred by RailroadCenterLine ( RLName_ID -&gt; ID ) </title><use x='3064' y='1572' href='#ref'/></g></a>
   <use x='2965' y='1592' href='#nn'/><a href='#ng911.RLNam.RLName'><g><title>&#10697;  RLName
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Rail Line Name</title><text id='ng911&#46;RLNam&#46;RLName' x='2987' y='1605'>RLName</text></g></a>
 <text x='3074' y='1601' text-anchor='end' class='colType'>t</text>
@@ -1425,7 +1424,7 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Date Updated</title><text id='ng911&#46;RailroadCenterLine&#46;DateUpdate' x='2721' y='1434'>DateUpdate</text></g></a>
 <text x='2846' y='1430' text-anchor='end' class='colType'>t</text>  <use x='2699' y='1440' href='#nn'/><a href='#ng911.RailroadCenterLine.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;RailroadCenterLine&#46;NGUID' x='2721' y='1453'>NGUID</text></g></a>
 <text x='2846' y='1449' text-anchor='end' class='colType'>t</text>  <use x='2699' y='1459' href='#nn'/><g><title>&#x1F511;  Pk pk_RailroadCenterLine ( ID, DiscrpAg_ID, RLOwn_ID, RLOp_ID, RLName_ID ) </title><use x='2700' y='1458' href='#pk'/></g><a href='#ng911.RailroadCenterLine.RLOwn_ID'><g><title>&#10697;  RLOwn_ID
@@ -1447,11 +1446,11 @@ AdPt ref PlacementMethod ( Placement_ID -&gt; ID )</title></path>
       Rail Line Name ID</title><text id='ng911&#46;RailroadCenterLine&#46;RLName&#95;ID' x='2721' y='1510' onmouseover="hghl(['RailroadCenterLine_fk_RailroadCenterLine_has_RLNam','ng911.RLNam.ID'])" onmouseout="uhghl(['RailroadCenterLine_fk_RailroadCenterLine_has_RLNam','ng911.RLNam.ID'])" class='colPk'>RLName&#95;ID</text></g></a>
 <a href='#ng911.RailroadCenterLine.RLName_ID'><g><title>&#x1F517;  References RLNam ( RLName_ID -&gt; ID ) </title><use x='2836' y='1496' href='#fk'/></g></a>
   <a href='#ng911.RailroadCenterLine.RMPL'><g><title>&#10697;  RMPL
-     numeric(7,3)
+     real(7,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Rail Mile Post Low</title><text id='ng911&#46;RailroadCenterLine&#46;RMPL' x='2721' y='1529'>RMPL</text></g></a>
 <text x='2846' y='1525' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.RailroadCenterLine.RMPH'><g><title>&#10697;  RMPH
-     numeric(7,3)
+     real(7,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Rail Mile Post High</title><text id='ng911&#46;RailroadCenterLine&#46;RMPH' x='2721' y='1548'>RMPH</text></g></a>
 <text x='2846' y='1544' text-anchor='end' class='colType'>&#35;</text>
@@ -1495,7 +1494,7 @@ Referred by A5Boundary ( A3Boundary_ID -&gt; ID ) </title><use x='2247' y='1173'
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;A3Boundary&#46;Expire' x='2132' y='1282'>Expire</text></g></a>
 <text x='2257' y='1278' text-anchor='end' class='colType'>t</text>  <use x='2110' y='1288' href='#nn'/><a href='#ng911.A3Boundary.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;A3Boundary&#46;NGUID' x='2132' y='1301'>NGUID</text></g></a>
 <text x='2257' y='1297' text-anchor='end' class='colType'>t</text>  <use x='2110' y='1307' href='#nn'/><g><title>&#x1F511;  Pk pk_A3Boundary ( ID, DiscrpAg_ID, A1Boundary_ID, A2Boundary_ID ) </title><use x='2111' y='1306' href='#pk'/></g><a href='#ng911.A3Boundary.A1Boundary_ID'><g><title>&#10697;  A1Boundary_ID
@@ -1511,11 +1510,11 @@ Referred by A5Boundary ( A3Boundary_ID -&gt; ID ) </title><use x='2247' y='1173'
       A2 Boundary ID</title><text id='ng911&#46;A3Boundary&#46;A2Boundary&#95;ID' x='2132' y='1339' onmouseover="hghl(['A3Boundary_fk_A3Boundary_has_A2Boundary','ng911.A2Boundary.ID'])" onmouseout="uhghl(['A3Boundary_fk_A3Boundary_has_A2Boundary','ng911.A2Boundary.ID'])" class='colPk'>A2Boundary&#95;ID</text></g></a>
 <a href='#ng911.A3Boundary.A2Boundary_ID'><g><title>&#x1F517;  References A2Boundary ( A2Boundary_ID -&gt; ID ) </title><use x='2247' y='1325' href='#fk'/></g></a>
   <a href='#ng911.A3Boundary.AddCode'><g><title>&#10697;  AddCode
-     nvarchar(6)
+     text(6)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Additional Code</title><text id='ng911&#46;A3Boundary&#46;AddCode' x='2132' y='1358'>AddCode</text></g></a>
 <text x='2257' y='1354' text-anchor='end' class='colType'>t</text>  <use x='2110' y='1364' href='#nn'/><a href='#ng911.A3Boundary.A3'><g><title>&#10697;  A3
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Administrative Level 3</title><text id='ng911&#46;A3Boundary&#46;A3' x='2132' y='1377'>A3</text></g></a>
 <text x='2257' y='1373' text-anchor='end' class='colType'>t</text>
@@ -1561,7 +1560,7 @@ Referred by A5Boundary ( A2Boundary_ID -&gt; ID ) </title><use x='2551' y='1173'
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;A2Boundary&#46;Expire' x='2436' y='1282'>Expire</text></g></a>
 <text x='2561' y='1278' text-anchor='end' class='colType'>t</text>  <use x='2414' y='1288' href='#nn'/><a href='#ng911.A2Boundary.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;A2Boundary&#46;NGUID' x='2436' y='1301'>NGUID</text></g></a>
 <text x='2561' y='1297' text-anchor='end' class='colType'>t</text>  <use x='2414' y='1307' href='#nn'/><g><title>&#x1F511;  Pk pk_A2Boundary ( ID, DiscrpAg_ID, A1Boundary_ID ) </title><use x='2415' y='1306' href='#pk'/></g><a href='#ng911.A2Boundary.A1Boundary_ID'><g><title>&#10697;  A1Boundary_ID
@@ -1571,11 +1570,11 @@ Referred by A5Boundary ( A2Boundary_ID -&gt; ID ) </title><use x='2551' y='1173'
       A1 Boundary ID</title><text id='ng911&#46;A2Boundary&#46;A1Boundary&#95;ID' x='2436' y='1320' onmouseover="hghl(['A2Boundary_fk_A2Boundary_has_A1Boundary','ng911.A1Boundary.ID'])" onmouseout="uhghl(['A2Boundary_fk_A2Boundary_has_A1Boundary','ng911.A1Boundary.ID'])" class='colPk'>A1Boundary&#95;ID</text></g></a>
 <a href='#ng911.A2Boundary.A1Boundary_ID'><g><title>&#x1F517;  References A1Boundary ( A1Boundary_ID -&gt; ID ) </title><use x='2551' y='1306' href='#fk'/></g></a>
   <use x='2414' y='1326' href='#nn'/><a href='#ng911.A2Boundary.A2'><g><title>&#10697;  A2
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Administrative Level 2</title><text id='ng911&#46;A2Boundary&#46;A2' x='2436' y='1339'>A2</text></g></a>
 <text x='2561' y='1335' text-anchor='end' class='colType'>t</text>  <a href='#ng911.A2Boundary.AddCode'><g><title>&#10697;  AddCode
-     nvarchar(6)
+     text(6)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Additional Code</title><text id='ng911&#46;A2Boundary&#46;AddCode' x='2436' y='1358'>AddCode</text></g></a>
 <text x='2561' y='1354' text-anchor='end' class='colType'>t</text>
@@ -1623,11 +1622,11 @@ Referred by A5Boundary ( A1Boundary_ID -&gt; ID ) </title><use x='2532' y='1591'
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;A1Boundary&#46;Expire' x='2436' y='1700'>Expire</text></g></a>
 <text x='2542' y='1696' text-anchor='end' class='colType'>t</text>  <use x='2414' y='1706' href='#nn'/><a href='#ng911.A1Boundary.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;A1Boundary&#46;NGUID' x='2436' y='1719'>NGUID</text></g></a>
 <text x='2542' y='1715' text-anchor='end' class='colType'>t</text>  <use x='2414' y='1725' href='#nn'/><a href='#ng911.A1Boundary.A1'><g><title>&#10697;  A1
-     * nvarchar(2)
+     * text(2)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Administrative Level 1</title><text id='ng911&#46;A1Boundary&#46;A1' x='2436' y='1738'>A1</text></g></a>
 <text x='2542' y='1734' text-anchor='end' class='colType'>t</text>
@@ -1701,7 +1700,7 @@ Referred by AdPt ( MSAGComm_ID -&gt; ID )
 Referred by StSeg ( MSAGComm_R_ID -&gt; ID ) 
 Referred by StSeg ( MSAGComm_L_ID -&gt; ID ) </title><use x='1069' y='451' href='#ref'/></g></a>
   <use x='932' y='471' href='#nn'/><a href='#ng911.MSAGCommunity.MSAGComm'><g><title>&#10697;  MSAGComm
-     * varchar(25)
+     * text(25)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       MSAG Community Name</title><text id='ng911&#46;MSAGCommunity&#46;MSAGComm' x='954' y='484'>MSAGComm</text></g></a>
 <text x='1079' y='480' text-anchor='end' class='colType'>t</text>
@@ -1725,7 +1724,7 @@ Referred by AdPt ( LCounty_ID -&gt; ID )
 Referred by StSeg ( LCounty_R_ID -&gt; ID ) 
 Referred by StSeg ( LCounty_L_ID -&gt; ID ) </title><use x='1050' y='565' href='#ref'/></g></a>
   <use x='951' y='585' href='#nn'/><a href='#ng911.LCounty.LCountyID'><g><title>&#10697;  LCountyID
-     * varchar(5)
+     * text(5)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Legacy County ID</title><text id='ng911&#46;LCounty&#46;LCountyID' x='973' y='598'>LCountyID</text></g></a>
 <text x='1060' y='594' text-anchor='end' class='colType'>t</text>
@@ -1749,7 +1748,7 @@ Referred by AdPt ( Post_Comm_ID -&gt; ID )
 Referred by StSeg ( PostalComm_R_ID -&gt; ID ) 
 Referred by StSeg ( PostalComm_L_ID -&gt; ID ) </title><use x='1050' y='679' href='#ref'/></g></a>
   <use x='932' y='699' href='#nn'/><a href='#ng911.PostalCommunity.PostalComm'><g><title>&#10697;  PostalComm
-     * nvarchar(25)
+     * text(25)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Postal Community Name</title><text id='ng911&#46;PostalCommunity&#46;PostalComm' x='954' y='712'>PostalComm</text></g></a>
 <text x='1060' y='708' text-anchor='end' class='colType'>t</text>
@@ -1773,7 +1772,7 @@ Referred by AdPt ( Post_Code_ID -&gt; ID )
 Referred by StSeg ( PostalCode_R_ID -&gt; ID ) 
 Referred by StSeg ( PostalCode_L_ID -&gt; ID ) </title><use x='1031' y='793' href='#ref'/></g></a>
   <use x='951' y='813' href='#nn'/><a href='#ng911.PostalCode.PC'><g><title>&#10697;  PC
-     * nvarchar(7)
+     * text(7)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Postal Code</title><text id='ng911&#46;PostalCode&#46;PC' x='973' y='826'>PC</text></g></a>
 <text x='1041' y='822' text-anchor='end' class='colType'>t</text>
@@ -1793,7 +1792,7 @@ Referred by StSeg ( PostalCode_L_ID -&gt; ID ) </title><use x='1031' y='793' hre
 <a href='#ng911.PlacementMethod.ID'><g><title>&#x1F517;  Referred by AdPoly ( Placement_ID -&gt; ID ) 
 Referred by AdPt ( Placement_ID -&gt; ID ) </title><use x='347' y='964' href='#ref'/></g></a>
   <use x='210' y='984' href='#nn'/><a href='#ng911.PlacementMethod.Placement'><g><title>&#10697;  Placement
-     * nvarchar(50)
+     * text(50)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Placement Method</title><text id='ng911&#46;PlacementMethod&#46;Placement' x='232' y='997'>Placement</text></g></a>
 <text x='357' y='993' text-anchor='end' class='colType'>t</text>
@@ -1813,7 +1812,7 @@ Referred by AdPt ( Placement_ID -&gt; ID ) </title><use x='347' y='964' href='#r
 <a href='#ng911.PlaceTyp.ID'><g><title>&#x1F517;  Referred by AdPoly ( Place_Type_ID -&gt; ID ) 
 Referred by AdPt ( Place_Type_ID -&gt; ID ) </title><use x='176' y='907' href='#ref'/></g></a>
   <use x='58' y='927' href='#nn'/><a href='#ng911.PlaceTyp.Place_Type'><g><title>&#10697;  Place_Type
-     * nvarchar(50)
+     * text(50)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Place Type</title><text id='ng911&#46;PlaceTyp&#46;Place&#95;Type' x='80' y='940'>Place&#95;Type</text></g></a>
 <text x='186' y='936' text-anchor='end' class='colType'>t</text>
@@ -1833,7 +1832,7 @@ Referred by AdPt ( Place_Type_ID -&gt; ID ) </title><use x='176' y='907' href='#
 <a href='#ng911.Wing.ID'><g><title>&#x1F517;  Referred by AdPoly ( Wing_ID -&gt; ID ) 
 Referred by AdPt ( Wing_ID -&gt; ID ) </title><use x='309' y='812' href='#ref'/></g></a>
   <a href='#ng911.Wing.Wing'><g><title>&#10697;  Wing
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Wing</title><text id='ng911&#46;Wing&#46;Wing' x='251' y='845'>Wing</text></g></a>
 <text x='319' y='841' text-anchor='end' class='colType'>t</text>
@@ -1853,11 +1852,11 @@ Referred by AdPt ( Wing_ID -&gt; ID ) </title><use x='309' y='812' href='#ref'/>
 <a href='#ng911.Floor.ID'><g><title>&#x1F517;  Referred by AdPoly ( Floor_ID -&gt; ID ) 
 Referred by AdPt ( Floor_ID -&gt; ID ) </title><use x='176' y='736' href='#ref'/></g></a>
   <a href='#ng911.Floor.Floor'><g><title>&#10697;  Floor
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Floor Label</title><text id='ng911&#46;Floor&#46;Floor' x='80' y='769'>Floor</text></g></a>
 <text x='186' y='765' text-anchor='end' class='colType'>t</text>  <a href='#ng911.Floor.FloorIndex'><g><title>&#10697;  FloorIndex
-     int
+     integer
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Floor Index</title><text id='ng911&#46;Floor&#46;FloorIndex' x='80' y='788'>FloorIndex</text></g></a>
 <text x='186' y='784' text-anchor='end' class='colType'>&#35;</text>
@@ -1877,7 +1876,7 @@ Referred by AdPt ( Floor_ID -&gt; ID ) </title><use x='176' y='736' href='#ref'/
 <a href='#ng911.Subsite.ID'><g><title>&#x1F517;  Referred by AdPoly ( SubSite_ID -&gt; ID ) 
 Referred by AdPt ( SubSite_ID -&gt; ID ) </title><use x='290' y='660' href='#ref'/></g></a>
   <use x='229' y='680' href='#nn'/><a href='#ng911.Subsite.Site'><g><title>&#10697;  Site
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Site Name</title><text id='ng911&#46;Subsite&#46;Site' x='251' y='693'>Site</text></g></a>
 <text x='300' y='689' text-anchor='end' class='colType'>t</text>
@@ -1897,7 +1896,7 @@ Referred by AdPt ( SubSite_ID -&gt; ID ) </title><use x='290' y='660' href='#ref
 <a href='#ng911.Site.ID'><g><title>&#x1F517;  Referred by AdPoly ( Site_ID -&gt; ID ) 
 Referred by AdPt ( Site_ID -&gt; ID ) </title><use x='157' y='584' href='#ref'/></g></a>
   <use x='96' y='604' href='#nn'/><a href='#ng911.Site.Site'><g><title>&#10697;  Site
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Site Name</title><text id='ng911&#46;Site&#46;Site' x='118' y='617'>Site</text></g></a>
 <text x='167' y='613' text-anchor='end' class='colType'>t</text>
@@ -1917,19 +1916,19 @@ Referred by AdPt ( Site_ID -&gt; ID ) </title><use x='157' y='584' href='#ref'/>
 <a href='#ng911.CompleteAdNum.ID'><g><title>&#x1F517;  Referred by AdPoly ( CompleteAdNum_ID -&gt; ID ) 
 Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href='#ref'/></g></a>
   <a href='#ng911.CompleteAdNum.AddNum_Pre'><g><title>&#10697;  AddNum_Pre
-     nvarchar(15)
+     text(15)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Address Number Prefix</title><text id='ng911&#46;CompleteAdNum&#46;AddNum&#95;Pre' x='194' y='446'>AddNum&#95;Pre</text></g></a>
 <text x='319' y='442' text-anchor='end' class='colType'>t</text>  <a href='#ng911.CompleteAdNum.Add_Number'><g><title>&#10697;  Add_Number
-     int
+     integer
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Address Number</title><text id='ng911&#46;CompleteAdNum&#46;Add&#95;Number' x='194' y='465'>Add&#95;Number</text></g></a>
 <text x='319' y='461' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.CompleteAdNum.AddNum_Suf'><g><title>&#10697;  AddNum_Suf
-     nvarchar(15)
+     text(15)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Adress Number Suffix</title><text id='ng911&#46;CompleteAdNum&#46;AddNum&#95;Suf' x='194' y='484'>AddNum&#95;Suf</text></g></a>
 <text x='319' y='480' text-anchor='end' class='colType'>t</text>  <a href='#ng911.CompleteAdNum.AddNum_Cmp'><g><title>&#10697;  AddNum_Cmp
-     nvarchar(42)
+     text(42)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Address Number Complete</title><text id='ng911&#46;CompleteAdNum&#46;AddNum&#95;Cmp' x='194' y='503'>AddNum&#95;Cmp</text></g></a>
 <text x='319' y='499' text-anchor='end' class='colType'>t</text>
@@ -1947,7 +1946,7 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
       Legacy Street Name Type ID</title><text id='ng911&#46;LSt&#95;Typ&#46;ID' x='80' y='1339' onmouseover="hghl(['CompleteLStNam_fk_CompleteLStNam_has_LSt_Typ','ng911.CompleteLStNam.LSt_Typ_ID'])" onmouseout="uhghl(['CompleteLStNam_fk_CompleteLStNam_has_LSt_Typ','ng911.CompleteLStNam.LSt_Typ_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.LSt_Typ.ID'><g><title>&#x1F517;  Referred by CompleteLStNam ( LSt_Typ_ID -&gt; ID ) </title><use x='157' y='1325' href='#ref'/></g></a>
   <use x='58' y='1345' href='#nn'/><a href='#ng911.LSt_Typ.LSt_Type'><g><title>&#10697;  LSt_Type
-     * varchar(4)
+     * text(4)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Legacy Street Name Type</title><text id='ng911&#46;LSt&#95;Typ&#46;LSt&#95;Type' x='80' y='1358'>LSt&#95;Type</text></g></a>
 <text x='167' y='1354' text-anchor='end' class='colType'>t</text>
@@ -1965,7 +1964,7 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
       Legacy Street Name Post Directional ID</title><text id='ng911&#46;LSt&#95;PosDir&#46;ID' x='175' y='1472' onmouseover="hghl(['CompleteLStNam_fk_CompleteLStNam_has_LSt_PosDir','ng911.CompleteLStNam.LSt_PosDir_ID'])" onmouseout="uhghl(['CompleteLStNam_fk_CompleteLStNam_has_LSt_PosDir','ng911.CompleteLStNam.LSt_PosDir_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.LSt_PosDir.ID'><g><title>&#x1F517;  Referred by CompleteLStNam ( LSt_PosDir_ID -&gt; ID ) </title><use x='271' y='1458' href='#ref'/></g></a>
   <a href='#ng911.LSt_PosDir.LSt_PostDir'><g><title>&#10697;  LSt_PostDir
-     varchar(2)
+     text(2)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Legacy Street Name Post Directional</title><text id='ng911&#46;LSt&#95;PosDir&#46;LSt&#95;PostDir' x='175' y='1491'>LSt&#95;PostDir</text></g></a>
 <text x='281' y='1487' text-anchor='end' class='colType'>t</text>
@@ -1983,7 +1982,7 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
       Legacy Street Name Pre Directional ID</title><text id='ng911&#46;LSt&#95;PreDir&#46;ID' x='327' y='1339' onmouseover="hghl(['CompleteLStNam_fk_CompleteLStNam_has_LSt_PreDir','ng911.CompleteLStNam.LSt_PreDir_ID'])" onmouseout="uhghl(['CompleteLStNam_fk_CompleteLStNam_has_LSt_PreDir','ng911.CompleteLStNam.LSt_PreDir_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.LSt_PreDir.ID'><g><title>&#x1F517;  Referred by CompleteLStNam ( LSt_PreDir_ID -&gt; ID ) </title><use x='404' y='1325' href='#ref'/></g></a>
   <use x='305' y='1345' href='#nn'/><a href='#ng911.LSt_PreDir.LSt_PreDir'><g><title>&#10697;  LSt_PreDir
-     * varchar(2)
+     * text(2)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Legacy Street Name Pre Directional</title><text id='ng911&#46;LSt&#95;PreDir&#46;LSt&#95;PreDir' x='327' y='1358'>LSt&#95;PreDir</text></g></a>
 <text x='414' y='1354' text-anchor='end' class='colType'>t</text>
@@ -2021,7 +2020,7 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;StSeg&#46;Expire' x='1353' y='427'>Expire</text></g></a>
 <text x='1497' y='423' text-anchor='end' class='colType'>t</text>  <use x='1331' y='433' href='#nn'/><a href='#ng911.StSeg.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;StSeg&#46;NGUID' x='1353' y='446'>NGUID</text></g></a>
 <text x='1497' y='442' text-anchor='end' class='colType'>t</text>  <use x='1331' y='452' href='#nn'/><g><title>&#x1F511;  Pk pk_template ( ID, DiscrpAg_ID, CompleteStNam_ID, AliasSet_ID, RdClass_ID, PostalComm_R_ID, PostalComm_L_ID, PostalCode_R_ID, PostalCode_L_ID, A1toA5CodeR_ID, A1toA5CodeL_ID, LCounty_R_ID, LCounty_L_ID, MSAGComm_R_ID, MSAGComm_L_ID ) </title><use x='1332' y='451' href='#pk'/></g><a href='#ng911.StSeg.CompleteStNam_ID'><g><title>&#10697;  CompleteStNam_ID
@@ -2037,35 +2036,35 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
       Alias Set ID</title><text id='ng911&#46;StSeg&#46;AliasSet&#95;ID' x='1353' y='484' onmouseover="hghl(['StSeg_fk_StSeg_has_AliasSet','ng911.AliasSet.ID'])" onmouseout="uhghl(['StSeg_fk_StSeg_has_AliasSet','ng911.AliasSet.ID'])" class='colPk'>AliasSet&#95;ID</text></g></a>
 <a href='#ng911.StSeg.AliasSet_ID'><g><title>&#x1F517;  References AliasSet ( AliasSet_ID -&gt; ID ) </title><use x='1487' y='470' href='#fk'/></g></a>
   <a href='#ng911.StSeg.AdNumPre_L'><g><title>&#10697;  AdNumPre_L
-     nvarchar(15)
+     text(15)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Left Address Number Prefix</title><text id='ng911&#46;StSeg&#46;AdNumPre&#95;L' x='1353' y='503'>AdNumPre&#95;L</text></g></a>
 <text x='1497' y='499' text-anchor='end' class='colType'>t</text>  <a href='#ng911.StSeg.AdNumPre_R'><g><title>&#10697;  AdNumPre_R
-     nvarchar(15)
+     text(15)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Right Address Number Prefix</title><text id='ng911&#46;StSeg&#46;AdNumPre&#95;R' x='1353' y='522'>AdNumPre&#95;R</text></g></a>
 <text x='1497' y='518' text-anchor='end' class='colType'>t</text>  <use x='1331' y='528' href='#nn'/><a href='#ng911.StSeg.FromAddr_L'><g><title>&#10697;  FromAddr_L
-     * int
+     * integer
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Left FROM Address Number</title><text id='ng911&#46;StSeg&#46;FromAddr&#95;L' x='1353' y='541'>FromAddr&#95;L</text></g></a>
 <text x='1497' y='537' text-anchor='end' class='colType'>&#35;</text>  <use x='1331' y='547' href='#nn'/><a href='#ng911.StSeg.ToAddr_L'><g><title>&#10697;  ToAddr_L
-     * int
+     * integer
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Left TO Address Number</title><text id='ng911&#46;StSeg&#46;ToAddr&#95;L' x='1353' y='560'>ToAddr&#95;L</text></g></a>
 <text x='1497' y='556' text-anchor='end' class='colType'>&#35;</text>  <use x='1331' y='566' href='#nn'/><a href='#ng911.StSeg.FromAddr_R'><g><title>&#10697;  FromAddr_R
-     * int
+     * integer
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Right FROM Address Number</title><text id='ng911&#46;StSeg&#46;FromAddr&#95;R' x='1353' y='579'>FromAddr&#95;R</text></g></a>
 <text x='1497' y='575' text-anchor='end' class='colType'>&#35;</text>  <use x='1331' y='585' href='#nn'/><a href='#ng911.StSeg.ToAddr_R'><g><title>&#10697;  ToAddr_R
-     * int
+     * integer
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Right TO Address Number</title><text id='ng911&#46;StSeg&#46;ToAddr&#95;R' x='1353' y='598'>ToAddr&#95;R</text></g></a>
 <text x='1497' y='594' text-anchor='end' class='colType'>&#35;</text>  <use x='1331' y='604' href='#nn'/><a href='#ng911.StSeg.Parity_L'><g><title>&#10697;  Parity_L
-     * nvarchar(1)
+     * text(1)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Parity Left</title><text id='ng911&#46;StSeg&#46;Parity&#95;L' x='1353' y='617'>Parity&#95;L</text></g></a>
 <text x='1497' y='613' text-anchor='end' class='colType'>t</text>  <use x='1331' y='623' href='#nn'/><a href='#ng911.StSeg.Parity_R'><g><title>&#10697;  Parity_R
-     * nvarchar(1)
+     * text(1)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Parity Right</title><text id='ng911&#46;StSeg&#46;Parity&#95;R' x='1353' y='636'>Parity&#95;R</text></g></a>
 <text x='1497' y='632' text-anchor='end' class='colType'>t</text>  <use x='1331' y='642' href='#nn'/><g><title>&#x1F511;  Pk pk_template ( ID, DiscrpAg_ID, CompleteStNam_ID, AliasSet_ID, RdClass_ID, PostalComm_R_ID, PostalComm_L_ID, PostalCode_R_ID, PostalCode_L_ID, A1toA5CodeR_ID, A1toA5CodeL_ID, LCounty_R_ID, LCounty_L_ID, MSAGComm_R_ID, MSAGComm_L_ID ) </title><use x='1332' y='641' href='#pk'/></g><a href='#ng911.StSeg.MSAGComm_L_ID'><g><title>&#10697;  MSAGComm_L_ID
@@ -2093,11 +2092,11 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
       Legacy County ID Right</title><text id='ng911&#46;StSeg&#46;LCounty&#95;R&#95;ID' x='1353' y='712' onmouseover="hghl(['StSeg_fk_StSeg_has_LCountyR','ng911.LCounty.ID'])" onmouseout="uhghl(['StSeg_fk_StSeg_has_LCountyR','ng911.LCounty.ID'])" class='colPk'>LCounty&#95;R&#95;ID</text></g></a>
 <a href='#ng911.StSeg.LCounty_R_ID'><g><title>&#x1F517;  References LCounty ( LCounty_R_ID -&gt; ID ) </title><use x='1487' y='698' href='#fk'/></g></a>
   <use x='1331' y='718' href='#nn'/><a href='#ng911.StSeg.Country_L'><g><title>&#10697;  Country_L
-     * nvarchar(2)
+     * text(2)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Country Left</title><text id='ng911&#46;StSeg&#46;Country&#95;L' x='1353' y='731'>Country&#95;L</text></g></a>
 <text x='1497' y='727' text-anchor='end' class='colType'>t</text>  <use x='1331' y='737' href='#nn'/><a href='#ng911.StSeg.Country_R'><g><title>&#10697;  Country_R
-     * nvarchar(2)
+     * text(2)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Country Right</title><text id='ng911&#46;StSeg&#46;Country&#95;R' x='1353' y='750'>Country&#95;R</text></g></a>
 <text x='1497' y='746' text-anchor='end' class='colType'>t</text>  <use x='1331' y='756' href='#nn'/><g><title>&#x1F511;  Pk pk_template ( ID, DiscrpAg_ID, CompleteStNam_ID, AliasSet_ID, RdClass_ID, PostalComm_R_ID, PostalComm_L_ID, PostalCode_R_ID, PostalCode_L_ID, A1toA5CodeR_ID, A1toA5CodeL_ID, LCounty_R_ID, LCounty_L_ID, MSAGComm_R_ID, MSAGComm_L_ID ) </title><use x='1332' y='755' href='#pk'/></g><a href='#ng911.StSeg.A1toA5CodeL_ID'><g><title>&#10697;  A1toA5CodeL_ID
@@ -2143,19 +2142,19 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
       Road Class ID</title><text id='ng911&#46;StSeg&#46;RdClass&#95;ID' x='1353' y='883' onmouseover="hghl(['StSeg_fk_StSeg_has_RdClass','ng911.RdClass.ID'])" onmouseout="uhghl(['StSeg_fk_StSeg_has_RdClass','ng911.RdClass.ID'])" class='colPk'>RdClass&#95;ID</text></g></a>
 <a href='#ng911.StSeg.RdClass_ID'><g><title>&#x1F517;  References RdClass ( RdClass_ID -&gt; ID ) </title><use x='1487' y='869' href='#fk'/></g></a>
   <a href='#ng911.StSeg.OneWay'><g><title>&#10697;  OneWay
-     nvarchar(2)
+     text(2)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       One-way</title><text id='ng911&#46;StSeg&#46;OneWay' x='1353' y='902'>OneWay</text></g></a>
 <text x='1497' y='898' text-anchor='end' class='colType'>t</text>  <a href='#ng911.StSeg.SpeedLimit'><g><title>&#10697;  SpeedLimit
-     int
+     integer
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Speed Limit</title><text id='ng911&#46;StSeg&#46;SpeedLimit' x='1353' y='921'>SpeedLimit</text></g></a>
 <text x='1497' y='917' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.StSeg.Valid_L'><g><title>&#10697;  Valid_L
-     nvarchar(1)
+     text(1)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Validation Left</title><text id='ng911&#46;StSeg&#46;Valid&#95;L' x='1353' y='940'>Valid&#95;L</text></g></a>
 <text x='1497' y='936' text-anchor='end' class='colType'>t</text>  <a href='#ng911.StSeg.Valid_R'><g><title>&#10697;  Valid_R
-     nvarchar(1)
+     text(1)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Validation Right</title><text id='ng911&#46;StSeg&#46;Valid&#95;R' x='1353' y='959'>Valid&#95;R</text></g></a>
 <text x='1497' y='955' text-anchor='end' class='colType'>t</text>
@@ -2173,7 +2172,7 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
       Road Class ID</title><text id='ng911&#46;RdClass&#46;ID' x='1619' y='902' onmouseover="hghl(['StSeg_fk_StSeg_has_RdClass','ng911.StSeg.RdClass_ID'])" onmouseout="uhghl(['StSeg_fk_StSeg_has_RdClass','ng911.StSeg.RdClass_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.RdClass.ID'><g><title>&#x1F517;  Referred by StSeg ( RdClass_ID -&gt; ID ) </title><use x='1696' y='888' href='#ref'/></g></a>
   <a href='#ng911.RdClass.RoadClass'><g><title>&#10697;  RoadClass
-     nvarchar(24)
+     text(24)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Road Class</title><text id='ng911&#46;RdClass&#46;RoadClass' x='1619' y='921'>RoadClass</text></g></a>
 <text x='1706' y='917' text-anchor='end' class='colType'>t</text>
@@ -2213,7 +2212,7 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;A5Boundary&#46;Expire' x='2132' y='1700'>Expire</text></g></a>
 <text x='2257' y='1696' text-anchor='end' class='colType'>t</text>  <use x='2110' y='1706' href='#nn'/><a href='#ng911.A5Boundary.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;A5Boundary&#46;NGUID' x='2132' y='1719'>NGUID</text></g></a>
 <text x='2257' y='1715' text-anchor='end' class='colType'>t</text>  <use x='2110' y='1725' href='#nn'/><g><title>&#x1F511;  Pk pk_A5Boundary ( ID, DiscrpAg_ID, A1Boundary_ID, A2Boundary_ID, A3Boundary_ID, A4Boundary_ID ) </title><use x='2111' y='1724' href='#pk'/></g><a href='#ng911.A5Boundary.A1Boundary_ID'><g><title>&#10697;  A1Boundary_ID
@@ -2241,7 +2240,7 @@ Referred by AdPt ( CompleteAdNum_ID -&gt; ID ) </title><use x='309' y='413' href
       A4 Boundary ID</title><text id='ng911&#46;A5Boundary&#46;A4Boundary&#95;ID' x='2132' y='1795' onmouseover="hghl(['A5Boundary_fk_A5Boundary_has_A4Boundary','ng911.A4Boundary.ID'])" onmouseout="uhghl(['A5Boundary_fk_A5Boundary_has_A4Boundary','ng911.A4Boundary.ID'])" class='colPk'>A4Boundary&#95;ID</text></g></a>
 <a href='#ng911.A5Boundary.A4Boundary_ID'><g><title>&#x1F517;  References A4Boundary ( A4Boundary_ID -&gt; ID ) </title><use x='2247' y='1781' href='#fk'/></g></a>
   <use x='2110' y='1801' href='#nn'/><a href='#ng911.A5Boundary.A5'><g><title>&#10697;  A5
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Administrative Level 5</title><text id='ng911&#46;A5Boundary&#46;A5' x='2132' y='1814'>A5</text></g></a>
 <text x='2257' y='1810' text-anchor='end' class='colType'>t</text>
@@ -2283,7 +2282,7 @@ Referred by A5Boundary ( A4Boundary_ID -&gt; ID ) </title><use x='1943' y='1591'
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;A4Boundary&#46;Expire' x='1828' y='1700'>Expire</text></g></a>
 <text x='1953' y='1696' text-anchor='end' class='colType'>t</text>  <use x='1806' y='1706' href='#nn'/><a href='#ng911.A4Boundary.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;A4Boundary&#46;NGUID' x='1828' y='1719'>NGUID</text></g></a>
 <text x='1953' y='1715' text-anchor='end' class='colType'>t</text>  <use x='1806' y='1725' href='#nn'/><g><title>&#x1F511;  Pk pk_A4Boundary ( ID, DiscrpAg_ID, A1Boundary_ID, A2Boundary_ID, A3Boundary_ID ) </title><use x='1807' y='1724' href='#pk'/></g><a href='#ng911.A4Boundary.A1Boundary_ID'><g><title>&#10697;  A1Boundary_ID
@@ -2305,11 +2304,11 @@ Referred by A5Boundary ( A4Boundary_ID -&gt; ID ) </title><use x='1943' y='1591'
       A3 Boundary ID</title><text id='ng911&#46;A4Boundary&#46;A3Boundary&#95;ID' x='1828' y='1776' onmouseover="hghl(['A4Boundary_fk_A4Boundary_has_A3Boundary','ng911.A3Boundary.ID'])" onmouseout="uhghl(['A4Boundary_fk_A4Boundary_has_A3Boundary','ng911.A3Boundary.ID'])" class='colPk'>A3Boundary&#95;ID</text></g></a>
 <a href='#ng911.A4Boundary.A3Boundary_ID'><g><title>&#x1F517;  References A3Boundary ( A3Boundary_ID -&gt; ID ) </title><use x='1943' y='1762' href='#fk'/></g></a>
   <a href='#ng911.A4Boundary.AddCode'><g><title>&#10697;  AddCode
-     nvarchar(6)
+     text(6)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Additional Code</title><text id='ng911&#46;A4Boundary&#46;AddCode' x='1828' y='1795'>AddCode</text></g></a>
 <text x='1953' y='1791' text-anchor='end' class='colType'>t</text>  <use x='1806' y='1801' href='#nn'/><a href='#ng911.A4Boundary.A4'><g><title>&#10697;  A4
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Administrative Level 4</title><text id='ng911&#46;A4Boundary&#46;A4' x='1828' y='1814'>A4</text></g></a>
 <text x='1953' y='1810' text-anchor='end' class='colType'>t</text>
@@ -2353,7 +2352,7 @@ Referred by RailroadCenterLine ( DiscrpAg_ID -&gt; ID )
 Referred by ServiceBoundary ( DiscrpAg_ID -&gt; ID ) 
 Referred by StSeg ( DiscrpAg_ID -&gt; ID ) </title><use x='2304' y='755' href='#ref'/></g></a>
   <use x='2186' y='775' href='#nn'/><g><title>&#x1F50D;  Unq unq_DiscrpAgID ( DiscrpAgID ) </title><use x='2187' y='774' href='#unq'/></g><a href='#ng911.DiscrpAg.DiscrpAgID'><g><title>&#10697;  DiscrpAgID
-     * nvarchar(100)
+     * text(100)
  &#8601; A1Boundary( DiscrpAg_ID )
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Discrepancy Agency ID</title><text id='ng911&#46;DiscrpAg&#46;DiscrpAgID' x='2208' y='788' onmouseover="hghl(['A1Boundary_fk_A1Boundary_has_DiscrpAg','ng911.A1Boundary.DiscrpAg_ID'])" onmouseout="uhghl(['A1Boundary_fk_A1Boundary_has_DiscrpAg','ng911.A1Boundary.DiscrpAg_ID'])">DiscrpAgID</text></g></a>
@@ -2393,7 +2392,7 @@ Referred by StSeg ( DiscrpAg_ID -&gt; ID ) </title><use x='2304' y='755' href='#
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;ProvBoundary&#46;Expire' x='1790' y='351'>Expire</text></g></a>
 <text x='1896' y='347' text-anchor='end' class='colType'>t</text>  <use x='1768' y='357' href='#nn'/><a href='#ng911.ProvBoundary.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;ProvBoundary&#46;NGUID' x='1790' y='370'>NGUID</text></g></a>
 <text x='1896' y='366' text-anchor='end' class='colType'>t</text>
@@ -2429,15 +2428,15 @@ Referred by StSeg ( DiscrpAg_ID -&gt; ID ) </title><use x='2304' y='755' href='#
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;ServiceBoundary&#46;Expire' x='1980' y='351'>Expire</text></g></a>
 <text x='2105' y='347' text-anchor='end' class='colType'>t</text>  <use x='1958' y='357' href='#nn'/><a href='#ng911.ServiceBoundary.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;ServiceBoundary&#46;NGUID' x='1980' y='370'>NGUID</text></g></a>
 <text x='2105' y='366' text-anchor='end' class='colType'>t</text>  <use x='1958' y='376' href='#nn'/><a href='#ng911.ServiceBoundary.Agency_ID'><g><title>&#10697;  Agency_ID
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Agency Identifier</title><text id='ng911&#46;ServiceBoundary&#46;Agency&#95;ID' x='1980' y='389'>Agency&#95;ID</text></g></a>
 <text x='2105' y='385' text-anchor='end' class='colType'>t</text>  <use x='1958' y='395' href='#nn'/><a href='#ng911.ServiceBoundary.ServiceURI'><g><title>&#10697;  ServiceURI
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Service URI</title><text id='ng911&#46;ServiceBoundary&#46;ServiceURI' x='1980' y='408'>ServiceURI</text></g></a>
 <text x='2105' y='404' text-anchor='end' class='colType'>t</text>  <use x='1958' y='414' href='#nn'/><g><title>&#x1F511;  Pk pk_ServiceBoundary ( ID, ServiceURN_ID, DiscrpAg_ID ) </title><use x='1959' y='413' href='#pk'/></g><a href='#ng911.ServiceBoundary.ServiceURN_ID'><g><title>&#10697;  ServiceURN_ID
@@ -2447,15 +2446,15 @@ Referred by StSeg ( DiscrpAg_ID -&gt; ID ) </title><use x='2304' y='755' href='#
       Service URN ID</title><text id='ng911&#46;ServiceBoundary&#46;ServiceURN&#95;ID' x='1980' y='427' onmouseover="hghl(['ServiceBoundary_fk_ServiceBoundary_has_ServiceURN','ng911.ServiceURN.ID'])" onmouseout="uhghl(['ServiceBoundary_fk_ServiceBoundary_has_ServiceURN','ng911.ServiceURN.ID'])" class='colPk'>ServiceURN&#95;ID</text></g></a>
 <a href='#ng911.ServiceBoundary.ServiceURN_ID'><g><title>&#x1F517;  References ServiceURN ( ServiceURN_ID -&gt; ID ) </title><use x='2095' y='413' href='#fk'/></g></a>
   <a href='#ng911.ServiceBoundary.ServiceNum'><g><title>&#10697;  ServiceNum
-     nvarchar(15)
+     text(15)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Service Number</title><text id='ng911&#46;ServiceBoundary&#46;ServiceNum' x='1980' y='446'>ServiceNum</text></g></a>
 <text x='2105' y='442' text-anchor='end' class='colType'>t</text>  <use x='1958' y='452' href='#nn'/><a href='#ng911.ServiceBoundary.AVcard_URI'><g><title>&#10697;  AVcard_URI
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Agency vCard URI</title><text id='ng911&#46;ServiceBoundary&#46;AVcard&#95;URI' x='1980' y='465'>AVcard&#95;URI</text></g></a>
 <text x='2105' y='461' text-anchor='end' class='colType'>t</text>  <use x='1958' y='471' href='#nn'/><a href='#ng911.ServiceBoundary.DsplayNam'><g><title>&#10697;  DsplayNam
-     * nvarchar(60)
+     * text(60)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Display Name</title><text id='ng911&#46;ServiceBoundary&#46;DsplayNam' x='1980' y='484'>DsplayNam</text></g></a>
 <text x='2105' y='480' text-anchor='end' class='colType'>t</text>
@@ -2473,7 +2472,7 @@ Referred by StSeg ( DiscrpAg_ID -&gt; ID ) </title><use x='2304' y='755' href='#
       Service URN ID</title><text id='ng911&#46;ServiceURN&#46;ID' x='2151' y='313' onmouseover="hghl(['ServiceBoundary_fk_ServiceBoundary_has_ServiceURN','ng911.ServiceBoundary.ServiceURN_ID'])" onmouseout="uhghl(['ServiceBoundary_fk_ServiceBoundary_has_ServiceURN','ng911.ServiceBoundary.ServiceURN_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.ServiceURN.ID'><g><title>&#x1F517;  Referred by ServiceBoundary ( ServiceURN_ID -&gt; ID ) </title><use x='2247' y='299' href='#ref'/></g></a>
   <use x='2129' y='319' href='#nn'/><a href='#ng911.ServiceURN.ServiceURN'><g><title>&#10697;  ServiceURN
-     * nvarchar(100)
+     * text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Service URN</title><text id='ng911&#46;ServiceURN&#46;ServiceURN' x='2151' y='332'>ServiceURN</text></g></a>
 <text x='2257' y='328' text-anchor='end' class='colType'>t</text>
@@ -2497,11 +2496,11 @@ Referred by AdPt ( CompleteStNam_ID -&gt; ID )
 Referred by Alias ( CompleteStNam_ID -&gt; ID ) 
 Referred by StSeg ( CompleteStNam_ID -&gt; ID ) </title><use x='1202' y='1363' href='#ref'/></g></a>
   <a href='#ng911.CompleteStNam.St_PreMod'><g><title>&#10697;  St_PreMod
-     nvarchar(25)
+     text(25)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Street Name Pre Modifier</title><text id='ng911&#46;CompleteStNam&#46;St&#95;PreMod' x='1106' y='1396'>St&#95;PreMod</text></g></a>
 <text x='1212' y='1392' text-anchor='end' class='colType'>t</text>  <a href='#ng911.CompleteStNam.St_PreDir'><g><title>&#10697;  St_PreDir
-     nvarchar(10)
+     text(10)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Street Name Pre Directional</title><text id='ng911&#46;CompleteStNam&#46;St&#95;PreDir' x='1106' y='1415'>St&#95;PreDir</text></g></a>
 <text x='1212' y='1411' text-anchor='end' class='colType'>t</text>  <use x='1084' y='1421' href='#nn'/><g><title>&#x1F511;  Pk pk_CompleteStNam ( ID, St_PreTyp_ID, St_PosTyp_ID, St_PreSep_ID ) </title><use x='1085' y='1420' href='#pk'/></g><a href='#ng911.CompleteStNam.St_PreTyp_ID'><g><title>&#10697;  St_PreTyp_ID
@@ -2517,7 +2516,7 @@ Referred by StSeg ( CompleteStNam_ID -&gt; ID ) </title><use x='1202' y='1363' h
       Street Name Pre Type Separator ID</title><text id='ng911&#46;CompleteStNam&#46;St&#95;PreSep&#95;ID' x='1106' y='1453' onmouseover="hghl(['CompleteStNam_fk_CompleteStNam_has_StNamTypSep','ng911.StNamTypSep.ID'])" onmouseout="uhghl(['CompleteStNam_fk_CompleteStNam_has_StNamTypSep','ng911.StNamTypSep.ID'])" class='colPk'>St&#95;PreSep&#95;ID</text></g></a>
 <a href='#ng911.CompleteStNam.St_PreSep_ID'><g><title>&#x1F517;  References StNamTypSep ( St_PreSep_ID -&gt; ID ) </title><use x='1202' y='1439' href='#fk'/></g></a>
   <use x='1084' y='1459' href='#nn'/><a href='#ng911.CompleteStNam.St_Nam'><g><title>&#10697;  St_Nam
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Street Name</title><text id='ng911&#46;CompleteStNam&#46;St&#95;Nam' x='1106' y='1472'>St&#95;Nam</text></g></a>
 <text x='1212' y='1468' text-anchor='end' class='colType'>t</text>  <use x='1084' y='1478' href='#nn'/><g><title>&#x1F511;  Pk pk_CompleteStNam ( ID, St_PreTyp_ID, St_PosTyp_ID, St_PreSep_ID ) </title><use x='1085' y='1477' href='#pk'/></g><a href='#ng911.CompleteStNam.St_PosTyp_ID'><g><title>&#10697;  St_PosTyp_ID
@@ -2531,7 +2530,7 @@ Referred by StSeg ( CompleteStNam_ID -&gt; ID ) </title><use x='1202' y='1363' h
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Street Name Post Directional</title><text id='ng911&#46;CompleteStNam&#46;St&#95;PosDir' x='1106' y='1510'>St&#95;PosDir</text></g></a>
 <text x='1212' y='1506' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.CompleteStNam.St_PosMod'><g><title>&#10697;  St_PosMod
-     nvarchar(25)
+     text(25)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Street Name Post Modifier</title><text id='ng911&#46;CompleteStNam&#46;St&#95;PosMod' x='1106' y='1529'>St&#95;PosMod</text></g></a>
 <text x='1212' y='1525' text-anchor='end' class='colType'>t</text>
@@ -2549,7 +2548,7 @@ Referred by StSeg ( CompleteStNam_ID -&gt; ID ) </title><use x='1202' y='1363' h
       Street Name Type Separator ID</title><text id='ng911&#46;StNamTypSep&#46;ID' x='1296' y='1434' onmouseover="hghl(['CompleteStNam_fk_CompleteStNam_has_StNamTypSep','ng911.CompleteStNam.St_PreSep_ID'])" onmouseout="uhghl(['CompleteStNam_fk_CompleteStNam_has_StNamTypSep','ng911.CompleteStNam.St_PreSep_ID'])" class='colPk'>ID</text></g></a>
 <a href='#ng911.StNamTypSep.ID'><g><title>&#x1F517;  Referred by CompleteStNam ( St_PreSep_ID -&gt; ID ) </title><use x='1411' y='1420' href='#ref'/></g></a>
   <use x='1274' y='1440' href='#nn'/><a href='#ng911.StNamTypSep.StNameTypSep'><g><title>&#10697;  StNameTypSep
-     * nvarchar(20)
+     * text(20)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Street Name Type Separator Value</title><text id='ng911&#46;StNamTypSep&#46;StNameTypSep' x='1296' y='1453'>StNameTypSep</text></g></a>
 <text x='1421' y='1449' text-anchor='end' class='colType'>t</text>
@@ -2569,7 +2568,7 @@ Referred by StSeg ( CompleteStNam_ID -&gt; ID ) </title><use x='1202' y='1363' h
 <a href='#ng911.StNamTyp.ID'><g><title>&#x1F517;  Referred by CompleteStNam ( St_PreTyp_ID -&gt; ID ) 
 Referred by CompleteStNam ( St_PosTyp_ID -&gt; ID ) </title><use x='1012' y='1439' href='#ref'/></g></a>
   <use x='894' y='1459' href='#nn'/><a href='#ng911.StNamTyp.StNameTyp'><g><title>&#10697;  StNameTyp
-     * nvarchar(50)
+     * text(50)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Street Name Type Value</title><text id='ng911&#46;StNamTyp&#46;StNameTyp' x='916' y='1472'>StNameTyp</text></g></a>
 <text x='1022' y='1468' text-anchor='end' class='colType'>t</text>
@@ -2607,7 +2606,7 @@ Referred by CompleteStNam ( St_PosTyp_ID -&gt; ID ) </title><use x='1012' y='143
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;AdPoly&#46;Expire' x='555' y='1282'>Expire</text></g></a>
 <text x='718' y='1278' text-anchor='end' class='colType'>t</text>  <use x='533' y='1288' href='#nn'/><a href='#ng911.AdPoly.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;AdPoly&#46;NGUID' x='555' y='1301'>NGUID</text></g></a>
 <text x='718' y='1297' text-anchor='end' class='colType'>t</text>  <use x='533' y='1307' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPoly ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='1306' href='#pk'/></g><a href='#ng911.AdPoly.CompleteStNam_ID'><g><title>&#10697;  CompleteStNam_ID
@@ -2639,7 +2638,7 @@ Referred by CompleteStNam ( St_PosTyp_ID -&gt; ID ) </title><use x='1012' y='143
       Complete Legacy Street Name ID</title><text id='ng911&#46;AdPoly&#46;CompleteLStNam&#95;ID' x='555' y='1396' onmouseover="hghl(['AdPoly_fk_AdPoly_has_CompleteLStNam','ng911.CompleteLStNam.ID'])" onmouseout="uhghl(['AdPoly_fk_AdPoly_has_CompleteLStNam','ng911.CompleteLStNam.ID'])" class='colPk'>CompleteLStNam&#95;ID</text></g></a>
 <a href='#ng911.AdPoly.CompleteLStNam_ID'><g><title>&#x1F517;  References CompleteLStNam ( CompleteLStNam_ID -&gt; ID ) </title><use x='708' y='1382' href='#fk'/></g></a>
   <a href='#ng911.AdPoly.ESN'><g><title>&#10697;  ESN
-     varchar(5)
+     text(5)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       ESN</title><text id='ng911&#46;AdPoly&#46;ESN' x='555' y='1415'>ESN</text></g></a>
 <text x='718' y='1411' text-anchor='end' class='colType'>t</text>  <use x='533' y='1421' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPoly ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='1420' href='#pk'/></g><a href='#ng911.AdPoly.MSAGComm_ID'><g><title>&#10697;  MSAGComm_ID
@@ -2667,7 +2666,7 @@ Referred by CompleteStNam ( St_PosTyp_ID -&gt; ID ) </title><use x='1012' y='143
       Postal Code ID</title><text id='ng911&#46;AdPoly&#46;Post&#95;Code&#95;ID' x='555' y='1491' onmouseover="hghl(['AdPoly_fk_AdPoly_has_PostalCode','ng911.PostalCode.ID'])" onmouseout="uhghl(['AdPoly_fk_AdPoly_has_PostalCode','ng911.PostalCode.ID'])" class='colPk'>Post&#95;Code&#95;ID</text></g></a>
 <a href='#ng911.AdPoly.Post_Code_ID'><g><title>&#x1F517;  References PostalCode ( Post_Code_ID -&gt; ID ) </title><use x='708' y='1477' href='#fk'/></g></a>
   <a href='#ng911.AdPoly.PostCodeEx'><g><title>&#10697;  PostCodeEx
-     nvarchar(4)
+     text(4)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Postal Code Extension</title><text id='ng911&#46;AdPoly&#46;PostCodeEx' x='555' y='1510'>PostCodeEx</text></g></a>
 <text x='718' y='1506' text-anchor='end' class='colType'>t</text>  <use x='533' y='1516' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPoly ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='1515' href='#pk'/></g><a href='#ng911.AdPoly.Site_ID'><g><title>&#10697;  Site_ID
@@ -2683,7 +2682,7 @@ Referred by CompleteStNam ( St_PosTyp_ID -&gt; ID ) </title><use x='1012' y='143
       Subsite ID</title><text id='ng911&#46;AdPoly&#46;SubSite&#95;ID' x='555' y='1548' onmouseover="hghl(['AdPoly_fk_AdPoly_has_Subsite','ng911.Subsite.ID'])" onmouseout="uhghl(['AdPoly_fk_AdPoly_has_Subsite','ng911.Subsite.ID'])" class='colPk'>SubSite&#95;ID</text></g></a>
 <a href='#ng911.AdPoly.SubSite_ID'><g><title>&#x1F517;  References Subsite ( SubSite_ID -&gt; ID ) </title><use x='708' y='1534' href='#fk'/></g></a>
   <a href='#ng911.AdPoly.Structure'><g><title>&#10697;  Structure
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Structure</title><text id='ng911&#46;AdPoly&#46;Structure' x='555' y='1567'>Structure</text></g></a>
 <text x='718' y='1563' text-anchor='end' class='colType'>t</text>  <use x='533' y='1573' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPoly ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='1572' href='#pk'/></g><a href='#ng911.AdPoly.Floor_ID'><g><title>&#10697;  Floor_ID
@@ -2699,43 +2698,43 @@ Referred by CompleteStNam ( St_PosTyp_ID -&gt; ID ) </title><use x='1012' y='143
       Wing ID</title><text id='ng911&#46;AdPoly&#46;Wing&#95;ID' x='555' y='1605' onmouseover="hghl(['AdPoly_fk_AdPoly_has_Wing','ng911.Wing.ID'])" onmouseout="uhghl(['AdPoly_fk_AdPoly_has_Wing','ng911.Wing.ID'])" class='colPk'>Wing&#95;ID</text></g></a>
 <a href='#ng911.AdPoly.Wing_ID'><g><title>&#x1F517;  References Wing ( Wing_ID -&gt; ID ) </title><use x='708' y='1591' href='#fk'/></g></a>
   <a href='#ng911.AdPoly.Unit'><g><title>&#10697;  Unit
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Unit (Canada Only)</title><text id='ng911&#46;AdPoly&#46;Unit' x='555' y='1624'>Unit</text></g></a>
 <text x='718' y='1620' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.UnitPreTyp'><g><title>&#10697;  UnitPreTyp
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Unit Pre-Type (USA Only)</title><text id='ng911&#46;AdPoly&#46;UnitPreTyp' x='555' y='1643'>UnitPreTyp</text></g></a>
 <text x='718' y='1639' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.UnitValue'><g><title>&#10697;  UnitValue
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Unit Value (USA Only)</title><text id='ng911&#46;AdPoly&#46;UnitValue' x='555' y='1662'>UnitValue</text></g></a>
 <text x='718' y='1658' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.Section'><g><title>&#10697;  Section
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Section</title><text id='ng911&#46;AdPoly&#46;Section' x='555' y='1681'>Section</text></g></a>
 <text x='718' y='1677' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.Row'><g><title>&#10697;  Row
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Row</title><text id='ng911&#46;AdPoly&#46;Row' x='555' y='1700'>Row</text></g></a>
 <text x='718' y='1696' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.Room'><g><title>&#10697;  Room
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Room</title><text id='ng911&#46;AdPoly&#46;Room' x='555' y='1719'>Room</text></g></a>
 <text x='718' y='1715' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.Seat'><g><title>&#10697;  Seat
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Seat</title><text id='ng911&#46;AdPoly&#46;Seat' x='555' y='1738'>Seat</text></g></a>
 <text x='718' y='1734' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.Addtl_Loc'><g><title>&#10697;  Addtl_Loc
-     nvarchar(225)
+     text(225)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Additional Location Information</title><text id='ng911&#46;AdPoly&#46;Addtl&#95;Loc' x='555' y='1757'>Addtl&#95;Loc</text></g></a>
 <text x='718' y='1753' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.LocMarker'><g><title>&#10697;  LocMarker
-     nvarchar(100)
+     text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Location Marker</title><text id='ng911&#46;AdPoly&#46;LocMarker' x='555' y='1776'>LocMarker</text></g></a>
 <text x='718' y='1772' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPoly.DisMarker'><g><title>&#10697;  DisMarker
-     nvarchar(150)
+     text(150)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Distance Marker</title><text id='ng911&#46;AdPoly&#46;DisMarker' x='555' y='1795'>DisMarker</text></g></a>
 <text x='718' y='1791' text-anchor='end' class='colType'>t</text>  <use x='533' y='1801' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPoly ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='1800' href='#pk'/></g><a href='#ng911.AdPoly.Place_Type_ID'><g><title>&#10697;  Place_Type_ID
@@ -2751,23 +2750,23 @@ Referred by CompleteStNam ( St_PosTyp_ID -&gt; ID ) </title><use x='1012' y='143
       Placement Method ID</title><text id='ng911&#46;AdPoly&#46;Placement&#95;ID' x='555' y='1833' onmouseover="hghl(['AdPoly_fk_AdPoly_has_PlacementMethod','ng911.PlacementMethod.ID'])" onmouseout="uhghl(['AdPoly_fk_AdPoly_has_PlacementMethod','ng911.PlacementMethod.ID'])" class='colPk'>Placement&#95;ID</text></g></a>
 <a href='#ng911.AdPoly.Placement_ID'><g><title>&#x1F517;  References PlacementMethod ( Placement_ID -&gt; ID ) </title><use x='708' y='1819' href='#fk'/></g></a>
   <a href='#ng911.AdPoly.Longitude'><g><title>&#10697;  Longitude
-     numeric(11,7)
+     real(11,7)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Longitude</title><text id='ng911&#46;AdPoly&#46;Longitude' x='555' y='1852'>Longitude</text></g></a>
 <text x='718' y='1848' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.AdPoly.Latitude'><g><title>&#10697;  Latitude
-     numeric(10,7)
+     real(10,7)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Latitude</title><text id='ng911&#46;AdPoly&#46;Latitude' x='555' y='1871'>Latitude</text></g></a>
 <text x='718' y='1867' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.AdPoly.Elevation'><g><title>&#10697;  Elevation
-     numeric(9,3)
+     real(9,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Elevation</title><text id='ng911&#46;AdPoly&#46;Elevation' x='555' y='1890'>Elevation</text></g></a>
 <text x='718' y='1886' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.AdPoly.Altitude'><g><title>&#10697;  Altitude
-     numeric(9,3)
+     real(9,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Altitude</title><text id='ng911&#46;AdPoly&#46;Altitude' x='555' y='1909'>Altitude</text></g></a>
 <text x='718' y='1905' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.AdPoly.Height'><g><title>&#10697;  Height
-     numeric(9,3)
+     real(9,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Height</title><text id='ng911&#46;AdPoly&#46;Height' x='555' y='1928'>Height</text></g></a>
 <text x='718' y='1924' text-anchor='end' class='colType'>&#35;</text>
@@ -2793,7 +2792,7 @@ Referred by AdPt ( CompleteLStNam_ID -&gt; ID ) </title><use x='252' y='1116' hr
       Legacy Street Name Pre Directional ID</title><text id='ng911&#46;CompleteLStNam&#46;LSt&#95;PreDir&#95;ID' x='156' y='1149' onmouseover="hghl(['CompleteLStNam_fk_CompleteLStNam_has_LSt_PreDir','ng911.LSt_PreDir.ID'])" onmouseout="uhghl(['CompleteLStNam_fk_CompleteLStNam_has_LSt_PreDir','ng911.LSt_PreDir.ID'])" class='colPk'>LSt&#95;PreDir&#95;ID</text></g></a>
 <a href='#ng911.CompleteLStNam.LSt_PreDir_ID'><g><title>&#x1F517;  References LSt_PreDir ( LSt_PreDir_ID -&gt; ID ) </title><use x='252' y='1135' href='#fk'/></g></a>
   <a href='#ng911.CompleteLStNam.LSt_Nam'><g><title>&#10697;  LSt_Nam
-     varchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Legacy Street Name</title><text id='ng911&#46;CompleteLStNam&#46;LSt&#95;Nam' x='156' y='1168'>LSt&#95;Nam</text></g></a>
 <text x='262' y='1164' text-anchor='end' class='colType'>t</text>  <use x='134' y='1174' href='#nn'/><g><title>&#x1F511;  Pk pk_CompleteLStNam ( ID, LSt_PreDir_ID, LSt_Typ_ID, LSt_PosDir_ID ) </title><use x='135' y='1173' href='#pk'/></g><a href='#ng911.CompleteLStNam.LSt_Typ_ID'><g><title>&#10697;  LSt_Typ_ID
@@ -2883,7 +2882,7 @@ Referred by StSeg ( AliasSet_ID -&gt; ID ) </title><use x='1316' y='1211' href='
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Expiration Date</title><text id='ng911&#46;AdPt&#46;Expire' x='555' y='427'>Expire</text></g></a>
 <text x='718' y='423' text-anchor='end' class='colType'>t</text>  <use x='533' y='433' href='#nn'/><a href='#ng911.AdPt.NGUID'><g><title>&#10697;  NGUID
-     * nvarchar(254)
+     * text(254)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       NENA Globally Unique ID</title><text id='ng911&#46;AdPt&#46;NGUID' x='555' y='446'>NGUID</text></g></a>
 <text x='718' y='442' text-anchor='end' class='colType'>t</text>  <use x='533' y='452' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPt ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='451' href='#pk'/></g><a href='#ng911.AdPt.CompleteStNam_ID'><g><title>&#10697;  CompleteStNam_ID
@@ -2915,7 +2914,7 @@ Referred by StSeg ( AliasSet_ID -&gt; ID ) </title><use x='1316' y='1211' href='
       Complete Legacy Street Name ID</title><text id='ng911&#46;AdPt&#46;CompleteLStNam&#95;ID' x='555' y='541' onmouseover="hghl(['AdPt_fk_AdPt_has_CompleteLStNam','ng911.CompleteLStNam.ID'])" onmouseout="uhghl(['AdPt_fk_AdPt_has_CompleteLStNam','ng911.CompleteLStNam.ID'])" class='colPk'>CompleteLStNam&#95;ID</text></g></a>
 <a href='#ng911.AdPt.CompleteLStNam_ID'><g><title>&#x1F517;  References CompleteLStNam ( CompleteLStNam_ID -&gt; ID ) </title><use x='708' y='527' href='#fk'/></g></a>
   <a href='#ng911.AdPt.ESN'><g><title>&#10697;  ESN
-     varchar(5)
+     text(5)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       ESN</title><text id='ng911&#46;AdPt&#46;ESN' x='555' y='560'>ESN</text></g></a>
 <text x='718' y='556' text-anchor='end' class='colType'>t</text>  <use x='533' y='566' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPt ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='565' href='#pk'/></g><a href='#ng911.AdPt.MSAGComm_ID'><g><title>&#10697;  MSAGComm_ID
@@ -2943,7 +2942,7 @@ Referred by StSeg ( AliasSet_ID -&gt; ID ) </title><use x='1316' y='1211' href='
       Postal Code ID</title><text id='ng911&#46;AdPt&#46;Post&#95;Code&#95;ID' x='555' y='636' onmouseover="hghl(['AdPt_fk_AdPt_has_PostalCode','ng911.PostalCode.ID'])" onmouseout="uhghl(['AdPt_fk_AdPt_has_PostalCode','ng911.PostalCode.ID'])" class='colPk'>Post&#95;Code&#95;ID</text></g></a>
 <a href='#ng911.AdPt.Post_Code_ID'><g><title>&#x1F517;  References PostalCode ( Post_Code_ID -&gt; ID ) </title><use x='708' y='622' href='#fk'/></g></a>
   <a href='#ng911.AdPt.PostCodeEx'><g><title>&#10697;  PostCodeEx
-     nvarchar(4)
+     text(4)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Postal Code Extension</title><text id='ng911&#46;AdPt&#46;PostCodeEx' x='555' y='655'>PostCodeEx</text></g></a>
 <text x='718' y='651' text-anchor='end' class='colType'>t</text>  <use x='533' y='661' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPt ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='660' href='#pk'/></g><a href='#ng911.AdPt.Site_ID'><g><title>&#10697;  Site_ID
@@ -2959,7 +2958,7 @@ Referred by StSeg ( AliasSet_ID -&gt; ID ) </title><use x='1316' y='1211' href='
       Subsite ID</title><text id='ng911&#46;AdPt&#46;SubSite&#95;ID' x='555' y='693' onmouseover="hghl(['AdPt_fk_AdPt_has_Subsite','ng911.Subsite.ID'])" onmouseout="uhghl(['AdPt_fk_AdPt_has_Subsite','ng911.Subsite.ID'])" class='colPk'>SubSite&#95;ID</text></g></a>
 <a href='#ng911.AdPt.SubSite_ID'><g><title>&#x1F517;  References Subsite ( SubSite_ID -&gt; ID ) </title><use x='708' y='679' href='#fk'/></g></a>
   <a href='#ng911.AdPt.Structure'><g><title>&#10697;  Structure
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Structure</title><text id='ng911&#46;AdPt&#46;Structure' x='555' y='712'>Structure</text></g></a>
 <text x='718' y='708' text-anchor='end' class='colType'>t</text>  <use x='533' y='718' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPt ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='717' href='#pk'/></g><a href='#ng911.AdPt.Floor_ID'><g><title>&#10697;  Floor_ID
@@ -2975,43 +2974,43 @@ Referred by StSeg ( AliasSet_ID -&gt; ID ) </title><use x='1316' y='1211' href='
       Wing ID</title><text id='ng911&#46;AdPt&#46;Wing&#95;ID' x='555' y='750' onmouseover="hghl(['AdPt_fk_AdPt_has_Wing','ng911.Wing.ID'])" onmouseout="uhghl(['AdPt_fk_AdPt_has_Wing','ng911.Wing.ID'])" class='colPk'>Wing&#95;ID</text></g></a>
 <a href='#ng911.AdPt.Wing_ID'><g><title>&#x1F517;  References Wing ( Wing_ID -&gt; ID ) </title><use x='708' y='736' href='#fk'/></g></a>
   <a href='#ng911.AdPt.Unit'><g><title>&#10697;  Unit
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Unit (Canada Only)</title><text id='ng911&#46;AdPt&#46;Unit' x='555' y='769'>Unit</text></g></a>
 <text x='718' y='765' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.UnitPreTyp'><g><title>&#10697;  UnitPreTyp
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Unit Pre-Type (USA Only)</title><text id='ng911&#46;AdPt&#46;UnitPreTyp' x='555' y='788'>UnitPreTyp</text></g></a>
 <text x='718' y='784' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.UnitValue'><g><title>&#10697;  UnitValue
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Unit Value (USA Only)</title><text id='ng911&#46;AdPt&#46;UnitValue' x='555' y='807'>UnitValue</text></g></a>
 <text x='718' y='803' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.Section'><g><title>&#10697;  Section
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Section</title><text id='ng911&#46;AdPt&#46;Section' x='555' y='826'>Section</text></g></a>
 <text x='718' y='822' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.Row'><g><title>&#10697;  Row
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Row</title><text id='ng911&#46;AdPt&#46;Row' x='555' y='845'>Row</text></g></a>
 <text x='718' y='841' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.Room'><g><title>&#10697;  Room
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Room</title><text id='ng911&#46;AdPt&#46;Room' x='555' y='864'>Room</text></g></a>
 <text x='718' y='860' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.Seat'><g><title>&#10697;  Seat
-     nvarchar(75)
+     text(75)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Seat</title><text id='ng911&#46;AdPt&#46;Seat' x='555' y='883'>Seat</text></g></a>
 <text x='718' y='879' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.Addtl_Loc'><g><title>&#10697;  Addtl_Loc
-     nvarchar(225)
+     text(225)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Additional Location Information</title><text id='ng911&#46;AdPt&#46;Addtl&#95;Loc' x='555' y='902'>Addtl&#95;Loc</text></g></a>
 <text x='718' y='898' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.LocMarker'><g><title>&#10697;  LocMarker
-     nvarchar(100)
+     text(100)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Location Marker</title><text id='ng911&#46;AdPt&#46;LocMarker' x='555' y='921'>LocMarker</text></g></a>
 <text x='718' y='917' text-anchor='end' class='colType'>t</text>  <a href='#ng911.AdPt.DisMarker'><g><title>&#10697;  DisMarker
-     nvarchar(150)
+     text(150)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Distance Marker</title><text id='ng911&#46;AdPt&#46;DisMarker' x='555' y='940'>DisMarker</text></g></a>
 <text x='718' y='936' text-anchor='end' class='colType'>t</text>  <use x='533' y='946' href='#nn'/><g><title>&#x1F511;  Pk pk_AdPt ( ID, CompleteAdNum_ID, CompleteStNam_ID, Placement_ID, Place_Type_ID, Wing_ID, Floor_ID, SubSite_ID, Site_ID, Post_Code_ID, Post_Comm_ID, LCounty_ID, MSAGComm_ID, CompleteLStNam_ID, A1toA5Code_ID, DiscrpAg_ID ) </title><use x='534' y='945' href='#pk'/></g><a href='#ng911.AdPt.Place_Type_ID'><g><title>&#10697;  Place_Type_ID
@@ -3027,23 +3026,23 @@ Referred by StSeg ( AliasSet_ID -&gt; ID ) </title><use x='1316' y='1211' href='
       Placement Method ID</title><text id='ng911&#46;AdPt&#46;Placement&#95;ID' x='555' y='978' onmouseover="hghl(['AdPt_fk_AdPt_has_PlacementMethod','ng911.PlacementMethod.ID'])" onmouseout="uhghl(['AdPt_fk_AdPt_has_PlacementMethod','ng911.PlacementMethod.ID'])" class='colPk'>Placement&#95;ID</text></g></a>
 <a href='#ng911.AdPt.Placement_ID'><g><title>&#x1F517;  References PlacementMethod ( Placement_ID -&gt; ID ) </title><use x='708' y='964' href='#fk'/></g></a>
   <a href='#ng911.AdPt.Longitude'><g><title>&#10697;  Longitude
-     numeric(11,7)
+     real(11,7)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Longitude</title><text id='ng911&#46;AdPt&#46;Longitude' x='555' y='997'>Longitude</text></g></a>
 <text x='718' y='993' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.AdPt.Latitude'><g><title>&#10697;  Latitude
-     numeric(10,7)
+     real(10,7)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Latitude</title><text id='ng911&#46;AdPt&#46;Latitude' x='555' y='1016'>Latitude</text></g></a>
 <text x='718' y='1012' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.AdPt.Elevation'><g><title>&#10697;  Elevation
-     numeric(9,3)
+     real(9,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Elevation</title><text id='ng911&#46;AdPt&#46;Elevation' x='555' y='1035'>Elevation</text></g></a>
 <text x='718' y='1031' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.AdPt.Altitude'><g><title>&#10697;  Altitude
-     numeric(9,3)
+     real(9,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Altitude</title><text id='ng911&#46;AdPt&#46;Altitude' x='555' y='1054'>Altitude</text></g></a>
 <text x='718' y='1050' text-anchor='end' class='colType'>&#35;</text>  <a href='#ng911.AdPt.Height'><g><title>&#10697;  Height
-     numeric(9,3)
+     real(9,3)
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       Height</title><text id='ng911&#46;AdPt&#46;Height' x='555' y='1073'>Height</text></g></a>
 <text x='718' y='1069' text-anchor='end' class='colType'>&#35;</text>
