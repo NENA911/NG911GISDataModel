@@ -1,7 +1,6 @@
 # NENA NG9-1-1 Relational Data Model Diagram v3.0
 
 ### NENA NG9-1-1 Relational Data Model ERD
-Click on the SVG and view 
 ![img](https://raw.githubusercontent.com/NENA911/NG911GISDataModel/refs/heads/v3.0/relational_templates/schema/v3.0/.imgs/relationaldatamodel_v3.0_erd.svg)
 
 ## Tables
