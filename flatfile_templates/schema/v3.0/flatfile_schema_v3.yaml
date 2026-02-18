@@ -874,7 +874,7 @@ domains:
 #        field_precision: If NUMERIC, the precision of the field.
 #        field_scale: If NUMERIC, the scale of the field.
 #        field_length: If TEXT field, the character length of the field.
-#        field_is_nullalbe: Is the field nullable?
+#        field_is_nullable: Is the field nullable?
 #        field_is_required: Is the field required?
 #        field_domain: Name of field domain, if applicable.
 #        field_default: Default value of field, if applicable.
@@ -901,7 +901,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -911,7 +911,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -921,7 +921,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -931,7 +931,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -941,7 +941,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -951,7 +951,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -961,7 +961,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -971,7 +971,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AddressNumber'
         field_default: ''
@@ -981,7 +981,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AddressNumber'
         field_default: ''
@@ -991,7 +991,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AddressNumber'
         field_default: ''
@@ -1001,7 +1001,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AddressNumber'
         field_default: ''
@@ -1011,7 +1011,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 1
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'Parity'
         field_default: ''
@@ -1021,7 +1021,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 1
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'Parity'
         field_default: ''
@@ -1031,7 +1031,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 25
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1041,7 +1041,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameDirectional'
         field_default: ''
@@ -1051,7 +1051,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 50
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameType'
         field_default: ''
@@ -1061,7 +1061,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 20
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNamePreTypeSeparator'
         field_default: ''
@@ -1071,7 +1071,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1081,7 +1081,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 50
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameType'
         field_default: ''
@@ -1091,7 +1091,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameDirectional'
         field_default: ''
@@ -1101,7 +1101,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 25
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1111,7 +1111,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1121,7 +1121,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'LegacyStreetNameDirectional'
         field_default: ''
@@ -1131,7 +1131,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1141,7 +1141,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 4
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1151,7 +1151,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'LegacyStreetNameDirectional'
         field_default: ''
@@ -1161,7 +1161,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 5
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1171,7 +1171,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 5
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1181,7 +1181,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 30
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1191,7 +1191,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 30
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1201,7 +1201,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 5
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1211,7 +1211,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 5
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1221,7 +1221,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -1231,7 +1231,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -1241,7 +1241,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -1251,7 +1251,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -1261,7 +1261,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdministrativeLevels2'
         field_default: ''
@@ -1271,7 +1271,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdministrativeLevels2'
         field_default: ''
@@ -1281,7 +1281,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 6
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdditionalCode'
         field_default: ''
@@ -1291,7 +1291,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 6
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdditionalCode'
         field_default: ''
@@ -1301,7 +1301,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdministrativeLevels3'
         field_default: ''
@@ -1311,7 +1311,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdministrativeLevels3'
         field_default: ''
@@ -1321,7 +1321,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1331,7 +1331,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1341,7 +1341,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1351,7 +1351,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1361,7 +1361,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 7
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PostalCode'
         field_default: ''
@@ -1371,7 +1371,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 7
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PostalCode'
         field_default: ''
@@ -1381,7 +1381,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 40
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PostalCommunityName'
         field_default: ''
@@ -1391,7 +1391,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 40
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PostalCommunityName'
         field_default: ''
@@ -1401,7 +1401,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 24
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'RoadClass'
         field_default: ''
@@ -1411,7 +1411,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'OneWay'
         field_default: ''
@@ -1421,7 +1421,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'SpeedLimit'
         field_default: ''
@@ -1431,7 +1431,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 1
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'Validation'
         field_default: ''
@@ -1441,7 +1441,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 1
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'Validation'
         field_default: ''
@@ -1481,7 +1481,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -1491,7 +1491,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -1501,7 +1501,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1511,7 +1511,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1521,7 +1521,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -1531,7 +1531,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -1541,7 +1541,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -1551,7 +1551,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdministrativeLevels2'
         field_default: ''
@@ -1561,7 +1561,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 6
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdditionalCode'
         field_default: ''
@@ -1571,7 +1571,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdministrativeLevels3'
         field_default: ''
@@ -1581,7 +1581,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1591,7 +1591,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1601,7 +1601,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1611,7 +1611,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AddressNumber'
         field_default: ''
@@ -1621,7 +1621,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1631,7 +1631,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 42
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1641,7 +1641,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 150
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1651,7 +1651,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 25
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1661,7 +1661,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameDirectional'
         field_default: ''
@@ -1671,7 +1671,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 50
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameType'
         field_default: ''
@@ -1681,7 +1681,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 20
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNamePreTypeSeparator'
         field_default: ''
@@ -1691,7 +1691,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1701,7 +1701,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 50
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameType'
         field_default: ''
@@ -1711,7 +1711,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameDirectional'
         field_default: ''
@@ -1721,7 +1721,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 25
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1731,7 +1731,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1741,7 +1741,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'LegacyStreetNameDirectional'
         field_default: ''
@@ -1751,7 +1751,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1761,7 +1761,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 4
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1771,7 +1771,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'LegacyStreetNameDirectional'
         field_default: ''
@@ -1781,7 +1781,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 5
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1791,7 +1791,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 30
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1801,7 +1801,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 5
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1811,7 +1811,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 40
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PostalCommunityName'
         field_default: ''
@@ -1821,7 +1821,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 7
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PostalCode'
         field_default: ''
@@ -1831,7 +1831,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 4
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1841,7 +1841,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1851,7 +1851,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1861,7 +1861,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1871,7 +1871,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1881,7 +1881,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1891,7 +1891,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1901,7 +1901,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1911,7 +1911,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1921,7 +1921,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1931,7 +1931,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1941,7 +1941,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1951,7 +1951,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1961,7 +1961,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1971,7 +1971,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1981,7 +1981,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 225
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -1991,7 +1991,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2001,7 +2001,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 50
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PlaceType'
         field_default: ''
@@ -2011,7 +2011,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 25
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PlacementMethodPoint'
         field_default: ''
@@ -2021,7 +2021,7 @@ feature_classes:
         field_precision: 11
         field_scale: 7
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'Longitude'
         field_default: ''
@@ -2031,7 +2031,7 @@ feature_classes:
         field_precision: 10
         field_scale: 7
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'Latitude'
         field_default: ''
@@ -2041,7 +2041,7 @@ feature_classes:
         field_precision: 9
         field_scale: 3
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2051,7 +2051,7 @@ feature_classes:
         field_precision: 9
         field_scale: 3
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2061,7 +2061,7 @@ feature_classes:
         field_precision: 9
         field_scale: 3
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2097,7 +2097,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -2107,7 +2107,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2117,7 +2117,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2127,7 +2127,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2137,7 +2137,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2147,7 +2147,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -2157,7 +2157,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -2167,7 +2167,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdministrativeLevels2'
         field_default: ''
@@ -2177,7 +2177,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 6
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdditionalCode'
         field_default: ''
@@ -2187,7 +2187,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdministrativeLevels3'
         field_default: ''
@@ -2197,7 +2197,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2207,7 +2207,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2217,7 +2217,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2227,7 +2227,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AddressNumber'
         field_default: ''
@@ -2237,7 +2237,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2247,7 +2247,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 42
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2257,7 +2257,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 150
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2267,7 +2267,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 25
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2277,7 +2277,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameDirectional'
         field_default: ''
@@ -2287,7 +2287,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 50
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameType'
         field_default: ''
@@ -2297,7 +2297,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 20
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNamePreTypeSeparator'
         field_default: ''
@@ -2307,7 +2307,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2317,7 +2317,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 50
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameType'
         field_default: ''
@@ -2327,7 +2327,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'StreetNameDirectional'
         field_default: ''
@@ -2337,7 +2337,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 25
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2347,7 +2347,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 10
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2357,7 +2357,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'LegacyStreetNameDirectional'
         field_default: ''
@@ -2367,7 +2367,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2377,7 +2377,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 4
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2387,7 +2387,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'LegacyStreetNameDirectional'
         field_default: ''
@@ -2397,7 +2397,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 5
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2407,7 +2407,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 30
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2417,7 +2417,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 5
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2427,7 +2427,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 40
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PostalCommunityName'
         field_default: ''
@@ -2437,7 +2437,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 7
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PostalCode'
         field_default: ''
@@ -2447,7 +2447,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 4
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2457,7 +2457,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2467,7 +2467,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2477,7 +2477,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2487,7 +2487,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2497,7 +2497,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2507,7 +2507,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2517,7 +2517,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2527,7 +2527,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2537,7 +2537,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2547,7 +2547,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2557,7 +2557,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2567,7 +2567,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2577,7 +2577,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 75
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2587,7 +2587,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2597,7 +2597,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 225
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2607,7 +2607,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2617,7 +2617,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 50
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PlaceType'
         field_default: ''
@@ -2627,7 +2627,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 25
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'PlacementMethodPoint'
         field_default: ''
@@ -2663,7 +2663,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -2673,7 +2673,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2683,7 +2683,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2693,7 +2693,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2703,7 +2703,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2713,7 +2713,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2723,7 +2723,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2733,7 +2733,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'ServiceURNSOS'
         field_default: 'urn:emergency:service:sos.psap'
@@ -2743,7 +2743,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2753,7 +2753,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2763,7 +2763,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 60
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2795,7 +2795,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -2805,7 +2805,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2815,7 +2815,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2825,7 +2825,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2835,7 +2835,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2845,7 +2845,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2855,7 +2855,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2865,7 +2865,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'ServiceURNResponder'
         field_default: 'urn:emergency:service:responder.police'
@@ -2875,7 +2875,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2885,7 +2885,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2895,7 +2895,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 60
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2935,7 +2935,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -2945,7 +2945,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2955,7 +2955,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2965,7 +2965,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -2975,7 +2975,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2985,7 +2985,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -2995,7 +2995,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3005,7 +3005,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'ServiceURNResponder'
         field_default: 'urn:emergency:service:responder.fire'
@@ -3015,7 +3015,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3025,7 +3025,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3035,7 +3035,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 60
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3075,7 +3075,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -3085,7 +3085,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3095,7 +3095,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3105,7 +3105,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3115,7 +3115,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3125,7 +3125,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3135,7 +3135,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3145,7 +3145,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'ServiceURNResponder'
         field_default: 'urn:emergency:service:responder.ems'
@@ -3155,7 +3155,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3165,7 +3165,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3175,7 +3175,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 60
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3215,7 +3215,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -3225,7 +3225,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3235,7 +3235,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3245,7 +3245,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3255,7 +3255,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3265,7 +3265,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3275,7 +3275,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3285,7 +3285,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'ServiceURNResponder'
         field_default: ''
@@ -3295,7 +3295,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3305,7 +3305,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3315,7 +3315,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 60
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3352,7 +3352,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -3362,7 +3362,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3372,7 +3372,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3382,7 +3382,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3392,7 +3392,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3427,7 +3427,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -3437,7 +3437,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3447,7 +3447,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3457,7 +3457,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3467,7 +3467,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3477,7 +3477,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -3487,7 +3487,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -3518,7 +3518,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -3528,7 +3528,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3538,7 +3538,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3548,7 +3548,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3558,7 +3558,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3568,7 +3568,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -3578,7 +3578,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -3588,7 +3588,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels2'
         field_default: ''
@@ -3598,7 +3598,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 6
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdditionalCode'
         field_default: ''
@@ -3629,7 +3629,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -3639,7 +3639,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3649,7 +3649,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3659,7 +3659,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3669,7 +3669,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3679,7 +3679,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -3689,7 +3689,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -3699,7 +3699,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels2'
         field_default: ''
@@ -3709,7 +3709,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 6
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdditionalCode'
         field_default: ''
@@ -3719,7 +3719,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels3'
         field_default: ''
@@ -3751,7 +3751,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -3761,7 +3761,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3771,7 +3771,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3781,7 +3781,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3791,7 +3791,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3801,7 +3801,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -3811,7 +3811,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -3821,7 +3821,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels2'
         field_default: ''
@@ -3831,7 +3831,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 6
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdditionalCode'
         field_default: ''
@@ -3841,7 +3841,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels3'
         field_default: ''
@@ -3851,7 +3851,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3882,7 +3882,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -3892,7 +3892,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3902,7 +3902,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3912,7 +3912,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -3922,7 +3922,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3932,7 +3932,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels0'
         field_default: ''
@@ -3942,7 +3942,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels1'
         field_default: ''
@@ -3952,7 +3952,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 2
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels2'
         field_default: ''
@@ -3962,7 +3962,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 6
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'AdditionalCode'
         field_default: ''
@@ -3972,7 +3972,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AdministrativeLevels3'
         field_default: ''
@@ -3982,7 +3982,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -3992,7 +3992,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4024,7 +4024,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -4034,7 +4034,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4044,7 +4044,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4054,7 +4054,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4064,7 +4064,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4074,7 +4074,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4084,7 +4084,7 @@ feature_classes:
         field_precision: 7
         field_scale: 3
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4094,7 +4094,7 @@ feature_classes:
         field_precision: 7
         field_scale: 3
         field_length:
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4125,7 +4125,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -4135,7 +4135,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4145,7 +4145,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4155,7 +4155,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4165,7 +4165,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4197,7 +4197,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -4207,7 +4207,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4217,7 +4217,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4227,7 +4227,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4237,7 +4237,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4269,7 +4269,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -4279,7 +4279,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4289,7 +4289,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4299,7 +4299,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: 'MarkerUnitOfMeasurement'
         field_default: ''
@@ -4309,7 +4309,7 @@ feature_classes:
         field_precision: 9
         field_scale: 3
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4319,7 +4319,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4329,7 +4329,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4339,7 +4339,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 1
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'MarkerIndicator'
         field_default: ''
@@ -4349,7 +4349,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4359,7 +4359,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4389,7 +4389,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'AgencyID'
         field_default: ''
@@ -4399,7 +4399,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length:
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4409,7 +4409,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: ''
         field_default: ''
@@ -4419,7 +4419,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4429,7 +4429,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullalbe: true
+        field_is_nullable: true
         field_is_required: false
         field_domain: ''
         field_default: ''
@@ -4439,7 +4439,7 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 1
-        field_is_nullalbe: false
+        field_is_nullable: false
         field_is_required: true
         field_domain: 'LocationMarkerIndicator'
         field_default: ''
