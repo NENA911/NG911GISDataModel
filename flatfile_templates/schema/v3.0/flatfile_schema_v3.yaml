@@ -5164,6 +5164,11 @@ fields:
     section: '5.50'
     title: Height
     description: |
+      Height is the difference between Elevation and Altitude given in meters for a Site/Structure Address Point; often referred to as “Height Above Ground Level” (AGL).
+      
+      Domain: Restricted to a double-precision floating point number with a precision of nine and a scale of three (e.g., REAL (9,3)).
+      Example: -3.3 meters; 15.5 meters; 21 meters
+      Note: For more information about Height, see NENA Requirements for 3D Location Data for E9-1-1 and NG9-1-1, NENA-REQ-003.
     definition:
       type: REAL
       precision: 9
