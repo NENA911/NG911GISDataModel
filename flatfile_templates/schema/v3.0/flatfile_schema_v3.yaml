@@ -4353,16 +4353,6 @@ feature_classes:
         field_is_required: false
         field_domain: ''
         field_default: ''
-      - field_name: ''
-        field_alias: ''
-        field_type: ''
-        field_precision:
-        field_scale:
-        field_length:
-        field_is_nullable: false
-        field_is_required: true
-        field_domain: ''
-        field_default: ''
     metadata:
       -descriptions: |
         Distance Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Distance Markers data MUST be included in the SiteStructureAddressPoint layer. Distance Markers may represent a numeric measurement of a point along a route, such as a mile marker. This dataset is referred to as the DistanceMarkerPoint layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
