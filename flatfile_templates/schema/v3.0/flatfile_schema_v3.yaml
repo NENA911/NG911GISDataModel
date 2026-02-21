@@ -184,14 +184,6 @@ domains:
     values:
       min: -90.0
       max: 90.0
-  - domain_name: 'Longitude'
-    domain_description: |
-      The angular distance of a location east or west of the prime meridian of the coordinate system, expressed in decimal degrees..
-    field_type: 'REAL'
-    domain_type: 'RANGE'
-    values:
-      min: -180.0
-      max: 180.0
   - domain_name: 'LegacyStreetNameDirectional'
     domain_description: |
       The street direction as it currently exists in the MSAG.
@@ -209,6 +201,22 @@ domains:
       'O': 'Ouest'
       'NO': 'Nord-Ouest'
       'SO': 'Sud-Ouest'
+  - domain_name: 'Longitude'
+    domain_description: |
+      The angular distance of a location east or west of the prime meridian of the coordinate system, expressed in decimal degrees..
+    field_type: 'REAL'
+    domain_type: 'RANGE'
+    values:
+      min: -180.0
+      max: 180.0
+  - domain_name: 'LocationMarkerIndicator'
+    domain_description: |
+      Indicates whether the location marker is identified by a physical sign.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+      'P': 'Posted'
+      'U': 'Unposted'
   - domain_name: 'OneWay'
     domain_description: |
       The direction of traffic movement along a road in relation to the FROM node and TO node of the line segment representing the road in the GIS data.
@@ -4301,7 +4309,7 @@ feature_classes:
         field_length: 15
         field_is_nullable: true
         field_is_required: false
-        field_domain: 'MarkerUnitOfMeasurement'
+        field_domain: 'DistanceMarkerUnitOfMeasurement'
         field_default: ''
       - field_name: 'DM_Value'
         field_alias: 'Distance Marker Measurement Value'
@@ -4341,7 +4349,7 @@ feature_classes:
         field_length: 1
         field_is_nullable: false
         field_is_required: true
-        field_domain: 'MarkerIndicator'
+        field_domain: 'DistanceMarkerIndicator'
         field_default: ''
       - field_name: 'DM_Label'
         field_alias: 'Distance Marker Label'
