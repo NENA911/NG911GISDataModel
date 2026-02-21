@@ -3707,8 +3707,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullable: false
-        field_is_required: true
+        field_is_nullable: true
+        field_is_required: false
         field_domain: 'AdministrativeLevels2'
         field_default: ''
       - field_name: 'AddCode'
@@ -3829,8 +3829,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullable: false
-        field_is_required: true
+        field_is_nullable: true
+        field_is_required: false
         field_domain: 'AdministrativeLevels2'
         field_default: ''
       - field_name: 'AddCode'
@@ -3849,8 +3849,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullable: false
-        field_is_required: true
+        field_is_nullable: true
+        field_is_required: false
         field_domain: 'AdministrativeLevels3'
         field_default: ''
       - field_name: 'A4'
@@ -3960,8 +3960,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullable: false
-        field_is_required: true
+        field_is_nullable: true
+        field_is_required: false
         field_domain: 'AdministrativeLevels2'
         field_default: ''
       - field_name: 'AddCode'
@@ -3980,8 +3980,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullable: false
-        field_is_required: true
+        field_is_nullable: true
+        field_is_required: false
         field_domain: 'AdministrativeLevels3'
         field_default: ''
       - field_name: 'A4'
@@ -3990,8 +3990,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullable: false
-        field_is_required: true
+        field_is_nullable: true
+        field_is_required: false
         field_domain: ''
         field_default: ''
       - field_name: 'A5'
