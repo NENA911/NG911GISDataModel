@@ -880,11 +880,11 @@ domains:
 #        field_default: Default value of field, if applicable.
 #    metadata:
 #      -description: The description of the feature class.
-#      -keywords: A list of metadata keywords.
+#      keywords: A list of metadata keywords.
 # ==============================================================================
 
 feature_classes:
-  - name: 'RoadCenterline'
+  - name: 'RoadCenterLine'
     alias: 'Road CenterLines'
     section: 4.1.1
     geometry_type: 'POLYLINE'
@@ -1446,7 +1446,7 @@ feature_classes:
         field_domain: 'Validation'
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Roads data is maintained as a line layer for representing the centerline of a roadway. This dataset is referred to as the RoadCenterLine layer in the GIS Data Layers and Indicators registry in Section 7.1 “GIS Data Layers” Registry “GIS Layers and Indicators” Registry and in NENA documents going forward. GIS road centerline arc node topology is associated with attribute data containing information on street names, address ranges, jurisdictional boundaries, and other attributes. The RoadCenterLine layer is an integral part of any public safety GIS due to its versatility and use for:
         
         •	Querying and geocoding of civic addresses based on dual (left/right) address ranges
@@ -1458,7 +1458,7 @@ feature_classes:
         •	Integration of spatially related attributes for advanced applications including those focused on public safety, asset management, planning, utilities, and public works
         
         All Road Centerlines MUST have the Street Name field populated, even if unnamed.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -2066,7 +2066,7 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Site/Structure Addresses data is maintained as a point layer that supports 3D for representing the location of a site, a structure, an interior space, or access to a site, structure, or an interior space. This dataset is referred to as the SiteStructureAddressPoint layer in in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.  While the SiteStructureAddressPoint layer is required, there is no requirement for the completeness of these data. It is understood that it will take time and resources to develop complete and accurate Site/Structure Addresses data.
 
         Site/Structure Addresses data can be used to locate sites that otherwise may not geocode correctly using the road centerline data. It can also be used to locate areas of unusual addressing (i.e., odd addresses on the even side of the road centerlines and vice versa), and other areas where the data is available. Some addressable locations may be problematic near boundaries.
@@ -2074,7 +2074,7 @@ feature_classes:
         The Address Number, Street Name, and Administrative Levels 1-5 attributes in the SiteStructureAddressPoint layer SHOULD be consistent with the address number range, street name, and left/right Administrative Level attribute combinations found in the RoadCenterLine layer.
 
         While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Addresses data described in this Standard.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -2632,7 +2632,7 @@ feature_classes:
         field_domain: 'PlacementMethodPoint'
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Site/Structure Addresses data is maintained as a polygon layer to represent the extent of addressable areas such as outdoor sites, structures, or interior spaces. This dataset is referred to as the SiteStructureAddressPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. It is understood that it will take time and resources to fully develop complete and accurate Site/Structure Addresses data.
         
         Site/Structure Address Polygon data can be used to more effectively convert geodetic locations into civic locations than Site/Structure Address Point data. This is because the polygon represents the extent of the space whereas the point provides no information as to its extent. Gaps and overlaps between SiteStructureAddressPolygon features MAY exist and are permissible (e.g., a room on a floor within a building may be represented as three overlapping SiteStructureAddressPolygon features).
@@ -2640,7 +2640,7 @@ feature_classes:
         The SiteStructureAddressPolygon feature attribution SHOULD be consistent with the attribution of related SiteStructureAddressPoint or RoadCenterLine features where they exist.
         
         While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Address Polygon data described in this Standard.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -2768,11 +2768,11 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         In an NG9-1-1 deployment, the initial routing of a 9-1-1 call cannot happen without Primary PSAP boundaries. It is the most critical layer and MUST be provided. Its data structure is the same as all service boundary layers defined in this section. All polygons in this layer MUST have a Service URN of urn:service:sos.
 
         The PsapPolygon layer may have one or many PSAP Boundaries contained in the layer. Each PSAP Boundary defines the geographic area of a PSAP that has primary responsibilities for an emergency request. This layer is used by the ECRF to perform a geographic query to determine the PSAP to which an emergency request is routed. An emergency request is routed using the NG9-1-1 Core Services based upon the geographic location of the request, provided by either a civic address, geographic coordinate, or geodetic shapes as defined in NENA-STA-010.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -2900,7 +2900,7 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
 
         The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
@@ -2912,7 +2912,7 @@ feature_classes:
         Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
 
         *Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3040,7 +3040,7 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
 
         The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
@@ -3052,7 +3052,7 @@ feature_classes:
         Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
 
         *Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3180,7 +3180,7 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
 
         The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
@@ -3192,7 +3192,7 @@ feature_classes:
         Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired, or to direct an EIDO to an agency for dispatch, or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
 
         *Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3320,7 +3320,7 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         In an NG9-1-1 deployment, the transfer of 9-1-1 calls uses service boundary layers, all with the same data structure. These agencies may be served by a call center, dispatch center, or other terms.
         
         Other service boundary layers, which may be maintained as separate or combined, MAY include, but are not limited to:
@@ -3329,7 +3329,7 @@ feature_classes:
           •	Forest Service
           •	Coast Guard
           •	Animal Control
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3397,7 +3397,7 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Provisioning Boundaries data is maintained as a polygon layer for representing the area of GIS data provisioning responsibility, with no unintentional gaps or overlaps. This dataset is commonly referred to as the ProvisioningPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. The Provisioning Boundary MUST align with data from all adjoining GIS Data Providers.
 
         A Provisioning Boundary can take on a variety of shapes; for example, it may represent the extent of a city, the extent of a county, a region with multiple cities and counties, or possibly the extent of all areas served by a particular PSAP.
@@ -3405,7 +3405,7 @@ feature_classes:
         When provisioning data for an ECRF and LVF through the SI, a GIS Data Provider MUST only include GIS data within their Provisioning Boundary and MUST ensure the data includes coverage for the entire extent of their Provisioning Boundary. The Spatial Interface Operator will utilize the ProvisioningPolygon layer to ensure that these requirements are met.
 
         Note: The 9-1-1 Authority is ultimately responsible for the GIS data within the area they provide service for.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3492,9 +3492,9 @@ feature_classes:
         field_domain: 'AdministrativeLevels1'
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Administrative Level 1 data, formerly States or Equivalents (A1) data, is maintained as a polygon layer for representing the geographic area of a state, province, territory, or other top level subdivision of the larger country corresponding to the PIDF LO A1 element. This dataset is referred to as the A1Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3603,9 +3603,9 @@ feature_classes:
         field_domain: 'AdditionalCode'
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Administrative Level 2 data, formerly Counties or Equivalents (A2) data, is maintained as a polygon layer. It typically represents the geographic area of a county, parish, regional district, or other similar level division corresponding to the PIDF LO A2 element. The presence of A2 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A2Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3724,9 +3724,9 @@ feature_classes:
         field_domain: 'AdministrativeLevels3'
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Administrative Level 3 data, formerly Incorporated Municipalities (A3) data, is maintained as a polygon layer. It typically represents the geographic area of a city, town, village, or other similar level division corresponding to the PIDF LO A3 element. The presence of A3 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A3Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3856,9 +3856,9 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Administrative Level 4 data, formerly Unincorporated Communities (A4) data, is maintained as a polygon layer. It typically represents the geographic area of an unincorporated community, borough, ward, or other similar level division corresponding to the PIDF LO A4 element. The presence of A4 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A4Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -3997,9 +3997,9 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Administrative Level 5 data, formerly Neighborhood Communities (A5) data, is maintained as a polygon layer. It typically represents the geographic area of a neighborhood, commercial area, or other similar level division corresponding to the PIDF LO A5 element. The presence of A5 polygon records is conditional based on the CLDXF Standard applicable to their country. This dataset is referred to as the A5Polygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -4099,9 +4099,9 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Railroads data is maintained as a line layer for representing the centerline of a real world rail line. This dataset is referred to as the RailroadCenterLine layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Federal Railroad Administration’s Rail Lines database is in Appendix A of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Railway Network database is in Appendix B of NENA-STA-006.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -4170,9 +4170,9 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Hydrology data is maintained as a line layer for representing creeks, streams, rivers, and other linear water features. This dataset is referred to as the HydrologyLine layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D of NENA-STA-006.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -4242,9 +4242,9 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Hydrology data is maintained as a polygon layer for representing areal water body features. This dataset is referred to as the HydrologyPolygon layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C of NENA-STA-006. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D of NENA-STA-006.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -4354,9 +4354,9 @@ feature_classes:
         field_domain: ''
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Distance Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Distance Markers data MUST be included in the SiteStructureAddressPoint layer. Distance Markers may represent a numeric measurement of a point along a route, such as a mile marker. This dataset is referred to as the DistanceMarkerPoint layer in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
@@ -4434,9 +4434,9 @@ feature_classes:
         field_domain: 'LocationMarkerIndicator'
         field_default: ''
     metadata:
-      -descriptions: |
+      description: |
         Location Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Location Markers data MUST be included in the SiteStructureAddressPoint layer. Location Markers may represent locations such as an alarm box, a utility pole, a callbox, trail intersection, buoy, channel marker, or other similar feature. This dataset is referred to as the LocationMarkerPoint layer in in the GIS Layers and Indicators registry in Section 7.1 of NENA-STA-006 “GIS Layers and Indicators” Registry and in NENA documents going forward.
-      -keywords:
+      keywords:
         - 'nena'
         - 'ng9-1-1'
         - 'ng911'
