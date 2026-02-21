@@ -4556,7 +4556,7 @@ fields:
     definition:
       type: INTEGER
       width: 6
-      required: 'No'
+      required: false
     domain: false
   AddNum_Cmp:
     section: '5.7'
@@ -4570,7 +4570,7 @@ fields:
     definition:
       type: TEXT
       width: 42
-      required: 'No'
+      required: false
     domain: false
   AddNum_Pre:
     section: '5.8'
@@ -4584,7 +4584,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: 'No'
+      required: false
     domain: false
   AddNum_Suf:
     section: '5.9'
@@ -4598,7 +4598,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: 'No'
+      required: false
     domain: false
   A1:
     section: '5.10'
@@ -4612,7 +4612,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'Yes'
+      required: true
     domain: true
   A1_L:
     section: '5.11'
@@ -4626,7 +4626,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'Yes'
+      required: true
     domain: true
   A1_R:
     section: '5.12'
@@ -4640,7 +4640,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'Yes'
+      required: true
     domain: true
   A2:
     section: '5.13'
@@ -4655,7 +4655,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A2_L:
     section: '5.14'
@@ -4670,7 +4670,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A2_R:
     section: '5.15'
@@ -4685,7 +4685,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A3:
     section: '5.16'
@@ -4699,7 +4699,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A3_L:
     section: '5.17'
@@ -4713,7 +4713,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A3_R:
     section: '5.18'
@@ -4727,7 +4727,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A4:
     section: '5.19'
@@ -4741,7 +4741,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A4_L:
     section: '5.20'
@@ -4755,7 +4755,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A4_R:
     section: '5.21'
@@ -4769,7 +4769,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A5:
     section: '5.22'
@@ -4783,7 +4783,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A5_L:
     section: '5.23'
@@ -4797,7 +4797,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   A5_R:
     section: '5.24'
@@ -4811,7 +4811,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   Agency_ID:
     section: '5.25'
@@ -4825,7 +4825,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'Yes'
+      required: true
     domain: true
   AVcard_URI:
     section: '5.26'
@@ -4839,7 +4839,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'Yes'
+      required: true
     domain: false
   Altitude:
     section: '5.27'
@@ -4854,7 +4854,7 @@ fields:
       type: REAL
       precision: 9
       scale: 3
-      required: 'No'
+      required: false
     domain: false
   Country:
     section: '5.28'
@@ -4868,7 +4868,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'Yes'
+      required: true
     domain: true
   Country_L:
     section: '5.29'
@@ -4882,7 +4882,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'Yes'
+      required: true
     domain: true
   Country_R:
     section: '5.30'
@@ -4896,7 +4896,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'Yes'
+      required: true
     domain: true
   DateUpdate:
     section: '5.31'
@@ -4909,7 +4909,7 @@ fields:
       2017 12 21T17:58.03.1 05:00 (representing a record updated on December 21, 2017 at 5:58 and 3.1 seconds PM US Eastern Standard Time); 2017 07 11T08:31:15.2 04:00 (representing a record updated on July 11, 2017 at 8:31 and 15.2 seconds AM US Eastern Daylight Time)
     definition:
       type: DATETIME
-      required: 'Yes'
+      required: true
     domain: true
   Dir_Travel:
     section: '5.32'
@@ -4923,7 +4923,7 @@ fields:
     definition:
       type: TEXT
       width: 10
-      required: 'No'
+      required: false
     domain: false
   DiscrpAgID:
     section: '5.33'
@@ -4936,7 +4936,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'Yes'
+      required: true
     domain: false
   DsplayName:
     section: '5.34'
@@ -4949,7 +4949,7 @@ fields:
     definition:
       type: TEXT
       width: 60
-      required: 'Yes'
+      required: true
     domain: false
   DistMarker:
     section: '5.35'
@@ -4963,7 +4963,7 @@ fields:
     definition:
       type: TEXT
       width: 150
-      required: 'No'
+      required: false
     domain: false
   DM_Ind:
     section: '5.36'
@@ -4976,7 +4976,7 @@ fields:
     definition:
       type: TEXT
       width: 1
-      required: 'Yes'
+      required: true
     domain: true
   DM_Label:
     section: '5.37'
@@ -4990,7 +4990,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   DM_Value:
     section: '5.38'
@@ -5004,7 +5004,7 @@ fields:
       type: REAL
       precision: 9
       scale: 3
-      required: 'Yes'
+      required: true
     domain: false
   DM_Rte:
     section: '5.39'
@@ -5017,7 +5017,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'Yes'
+      required: true
     domain: false
   DM_Type:
     section: '5.40'
@@ -5029,7 +5029,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: 'No'
+      required: false
     domain: false
   DM_Unit:
     section: '5.41'
@@ -5042,7 +5042,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: 'No'
+      required: false
     domain: true
   Effective:
     section: '5.42'
@@ -5056,7 +5056,7 @@ fields:
       Note: This field is used when the time and date of a change is known. For example, the time and date an annexation takes effect.
     definition:
       type: DATETIME
-      required: 'No'
+      required: false
     domain: false
   Elevation:
     section: '5.43'
@@ -5071,7 +5071,7 @@ fields:
       type: REAL
       precision: 9
       scale: 3
-      required: 'No'
+      required: false
     domain: false
   ESN:
     section: '5.44'
@@ -5086,7 +5086,7 @@ fields:
     definition:
       type: TEXT
       width: 5
-      required: 'No'
+      required: false
     domain: false
   ESN_L:
     section: '5.45'
@@ -5101,7 +5101,7 @@ fields:
     definition:
       type: TEXT
       width: 5
-      required: 'No'
+      required: false
     domain: false
   ESN_R:
     section: '5.46'
@@ -5116,7 +5116,7 @@ fields:
     definition:
       type: TEXT
       width: 5
-      required: 'No'
+      required: false
     domain: false
   Expire:
     section: '5.47'
@@ -5131,7 +5131,7 @@ fields:
       Note: This field is used when the time and date of a change is known. For example, the time and date an annexation takes effect and the previous boundary is retired.
     definition:
       type: DATETIME
-      required: 'No'
+      required: false
     domain: false
   FloorIndex:
     section: '5.48'
@@ -5145,7 +5145,7 @@ fields:
       Example: -2; -1; 0; 1; 2; 3; 4; 5; 6. See Figure 5-1 in NENA-STA-006.
     definition:
       type: INTEGER
-      required: 'No'
+      required: false
     domain: false
   Floor:
     section: '5.49'
@@ -5158,7 +5158,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   Height:
     section: '5.50'
@@ -5168,7 +5168,7 @@ fields:
       type: REAL
       precision: 9
       scale: 3
-      required: 'No'
+      required: false
     domain: false
   HP_Name:
     section: '5.51'
@@ -5181,7 +5181,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   HP_Type:
     section: '5.52'
@@ -5194,7 +5194,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   HS_Name:
     section: '5.53'
@@ -5207,7 +5207,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   HS_Type:
     section: '5.54'
@@ -5220,7 +5220,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   Latitude:
     section: '5.55'
@@ -5234,7 +5234,7 @@ fields:
       type: REAL
       precision: 10
       scale: 7
-      required: 'No'
+      required: false
     domain: false
   AdNumPre_L:
     section: '5.56'
@@ -5248,7 +5248,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: 'No'
+      required: false
     domain: false
   FromAddr_L:
     section: '5.57'
@@ -5261,7 +5261,7 @@ fields:
       Business Rules: CLDXF-US: Yes; CLDXF-CA: Yes
     definition:
       type: INTEGER
-      required: 'Yes'
+      required: true
     domain: false
   ToAddr_L:
     section: '5.58'
@@ -5274,7 +5274,7 @@ fields:
       Business Rules: CLDXF-US: Yes; CLDXF-CA: Yes
     definition:
       type: INTEGER
-      required: 'Yes'
+      required: true
     domain: false
   LCountyID:
     section: '5.59'
@@ -5289,7 +5289,7 @@ fields:
     definition:
       type: TEXT
       width: 5
-      required: 'No'
+      required: false
     domain: false
   LCntyID_L:
     section: '5.60'
@@ -5304,7 +5304,7 @@ fields:
     definition:
       type: TEXT
       width: 5
-      required: 'No'
+      required: false
     domain: false
   LCntyID_R:
     section: '5.61'
@@ -5319,7 +5319,7 @@ fields:
     definition:
       type: TEXT
       width: 5
-      required: 'No'
+      required: false
     domain: false
   LSt_Name:
     section: '5.62'
@@ -5334,7 +5334,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   LSt_PosDir:
     section: '5.63'
@@ -5351,7 +5351,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'No'
+      required: false
     domain: false
   LSt_PreDir:
     section: '5.64'
@@ -5368,7 +5368,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'No'
+      required: false
     domain: true
   LSt_Typ:
     section: '5.65'
@@ -5382,7 +5382,7 @@ fields:
     definition:
       type: TEXT
       width: 4
-      required: 'No'
+      required: false
     domain: false
   LocMarker:
     section: '5.66'
@@ -5396,7 +5396,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   LM_Ind:
     section: '5.67'
@@ -5409,7 +5409,7 @@ fields:
     definition:
       type: TEXT
       width: 1
-      required: 'Yes'
+      required: true
     domain: true
   LM_Label:
     section: '5.68'
@@ -5422,7 +5422,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   LM_Type:
     section: '5.69'
@@ -5435,7 +5435,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: 'No'
+      required: false
     domain: false
   Longitude:
     section: '5.70'
@@ -5449,7 +5449,7 @@ fields:
       type: REAL
       precision: 11
       scale: 7
-      required: 'No'
+      required: false
     domain: false
   MSAGComm:
     section: '5.71'
@@ -5464,7 +5464,7 @@ fields:
     definition:
       type: TEXT
       width: 30
-      required: 'No'
+      required: false
     domain: false
   MSAGComm_L:
     section: '5.72'
@@ -5479,7 +5479,7 @@ fields:
     definition:
       type: TEXT
       width: 30
-      required: 'No'
+      required: false
     domain: false
   MSAGComm_R:
     section: '5.73'
@@ -5494,7 +5494,7 @@ fields:
     definition:
       type: TEXT
       width: 30
-      required: 'No'
+      required: false
     domain: false
   NGUID:
     section: '5.74'
@@ -5514,7 +5514,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'Yes'
+      required: true
     domain: false
   OneWay:
     section: '5.75'
@@ -5530,7 +5530,7 @@ fields:
     definition:
       type: TEXT
       width: 2
-      required: 'No'
+      required: false
     domain: true
   Parity_L:
     section: '5.76'
@@ -5543,7 +5543,7 @@ fields:
     definition:
       type: TEXT
       width: 1
-      required: 'Yes'
+      required: true
     domain: false
   Parity_R:
     section: '5.77'
@@ -5556,7 +5556,7 @@ fields:
     definition:
       type: TEXT
       width: 1
-      required: 'Yes'
+      required: true
     domain: true
   Place_Type:
     section: '5.78'
@@ -5571,7 +5571,7 @@ fields:
     definition:
       type: TEXT
       width: 50
-      required: 'No'
+      required: false
     domain: false
   Placement:
     section: '5.79'
@@ -5586,7 +5586,7 @@ fields:
     definition:
       type: TEXT
       width: 25
-      required: 'No'
+      required: false
     domain: false
   Post_Code:
     section: '5.80'
@@ -5600,7 +5600,7 @@ fields:
     definition:
       type: TEXT
       width: 7
-      required: 'No'
+      required: false
     domain: false
   PostCodeEx:
     section: '5.81'
@@ -5614,7 +5614,7 @@ fields:
     definition:
       type: TEXT
       width: 4
-      required: 'No'
+      required: false
     domain: false
   PostCode_L:
     section: '5.82'
@@ -5628,7 +5628,7 @@ fields:
     definition:
       type: TEXT
       width: 7
-      required: 'No'
+      required: false
     domain: false
   PostCode_R:
     section: '5.86'
@@ -5642,7 +5642,7 @@ fields:
     definition:
       type: TEXT
       width: 7
-      required: 'No'
+      required: false
     domain: false
   Post_Comm:
     section: '5.84'
@@ -5657,7 +5657,7 @@ fields:
     definition:
       type: TEXT
       width: 40
-      required: 'No'
+      required: false
     domain: false
   PostComm_L:
     section: '5.85'
@@ -5672,7 +5672,7 @@ fields:
     definition:
       type: TEXT
       width: 40
-      required: 'No'
+      required: false
     domain: false
   PostComm_R:
     section: '5.86'
@@ -5687,7 +5687,7 @@ fields:
     definition:
       type: TEXT
       width: 40
-      required: 'No'
+      required: false
     domain: false
   RLName:
     section: '5.87'
@@ -5700,7 +5700,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   RLOp:
     section: '5.88'
@@ -5713,7 +5713,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   RLOwn:
     section: '5.89'
@@ -5726,7 +5726,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'No'
+      required: false
     domain: false
   RMPH:
     section: '5.90'
@@ -5740,7 +5740,7 @@ fields:
       type: REAL
       precision: 7
       scale: 3
-      required: 'No'
+      required: false
     domain: false
   RMPL:
     section: '5.91'
@@ -5754,7 +5754,7 @@ fields:
       type: REAL
       precision: 7
       scale: 3
-      required: 'No'
+      required: false
     domain: false
   AdNumPre_R:
     section: '5.92'
@@ -5768,7 +5768,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: 'No'
+      required: false
     domain: false
   FromAddr_R:
     section: '5.93'
@@ -5781,7 +5781,7 @@ fields:
       Business Rules: CLDXF-US: Yes; CLDXF-CA: Yes
     definition:
       type: INTEGER
-      required: 'Yes'
+      required: true
     domain: false
   ToAddr_R:
     section: '5.94'
@@ -5794,7 +5794,7 @@ fields:
       Business Rules: CLDXF-US: Yes; CLDXF-CA: Yes
     definition:
       type: INTEGER
-      required: 'Yes'
+      required: true
     domain: false
   RoadClass:
     section: '5.95'
@@ -5822,7 +5822,7 @@ fields:
     definition:
       type: TEXT
       width: 24
-      required: 'No'
+      required: false
     domain: true
   Room:
     section: '5.96'
@@ -5836,7 +5836,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   Row:
     section: '5.97'
@@ -5850,7 +5850,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   Seat:
     section: '5.98'
@@ -5864,7 +5864,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   Section:
     section: '5.99'
@@ -5878,7 +5878,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   ServiceNum:
     section: '5.100'
@@ -5891,7 +5891,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: 'No'
+      required: false
     domain: false
   ServiceURI:
     section: '5.101'
@@ -5908,7 +5908,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'Yes'
+      required: true
     domain: true
   ServiceURN:
     section: '5.102'
@@ -5924,7 +5924,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: 'Yes'
+      required: true
     domain: true
   Site:
     section: '5.103'
@@ -5938,7 +5938,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   SpeedLimit:
     section: '5.104'
@@ -5950,7 +5950,7 @@ fields:
       Example: 35; 55; 70
     definition:
       type: INTEGER
-      required: 'No'
+      required: false
     domain: true
   St_Name:
     section: '5.105'
@@ -5964,7 +5964,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   St_PosDir:
     section: '5.106'
@@ -5978,7 +5978,7 @@ fields:
     definition:
       type: TEXT
       width: 10
-      required: 'No'
+      required: false
     domain: true
   St_PosMod:
     section: '5.107'
@@ -5992,7 +5992,7 @@ fields:
     definition:
       type: TEXT
       width: 25
-      required: 'No'
+      required: false
     domain: false
   St_PosTyp:
     section: '5.108'
@@ -6007,7 +6007,7 @@ fields:
     definition:
       type: TEXT
       width: 50
-      required: 'No'
+      required: false
     domain: true
   St_PreDir:
     section: '5.109'
@@ -6021,7 +6021,7 @@ fields:
     definition:
       type: TEXT
       width: 10
-      required: 'No'
+      required: false
     domain: true
   St_PreMod:
     section: '5.110'
@@ -6035,7 +6035,7 @@ fields:
     definition:
       type: TEXT
       width: 25
-      required: 'No'
+      required: false
     domain: false
   St_PreTyp:
     section: '5.111'
@@ -6049,7 +6049,7 @@ fields:
     definition:
       type: TEXT
       width: 50
-      required: 'No'
+      required: false
     domain: true
   St_PreSep:
     section: '5.112'
@@ -6064,7 +6064,7 @@ fields:
     definition:
       type: TEXT
       width: 20
-      required: 'No'
+      required: false
     domain: true
   Structure:
     section: '5.113'
@@ -6078,7 +6078,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   SubSite:
     section: '5.114'
@@ -6092,7 +6092,7 @@ fields:
     definition:
       type: TEXT
       width: 254
-      required: 'No'
+      required: false
     domain: false
   Unit:
     section: '5.115'
@@ -6106,7 +6106,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   UnitPreType:
     section: '5.116'
@@ -6120,7 +6120,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   UnitValue:
     section: '5.117'
@@ -6134,7 +6134,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
   Valid_L:
     section: '5.118'
@@ -6147,7 +6147,7 @@ fields:
     definition:
       type: TEXT
       width: 1
-      required: 'No'
+      required: false
     domain: true
   Valid_R:
     section: '5.119'
@@ -6160,7 +6160,7 @@ fields:
     definition:
       type: TEXT
       width: 1
-      required: 'No'
+      required: false
     domain: true
   Wing:
     section: '5.120'
@@ -6174,7 +6174,7 @@ fields:
     definition:
       type: TEXT
       width: 75
-      required: 'No'
+      required: false
     domain: false
 
 # ==============================================================================
