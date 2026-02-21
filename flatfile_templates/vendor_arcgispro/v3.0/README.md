@@ -13,6 +13,8 @@ This folder currently serves as a placeholder for future Esri ArcGIS Pro templat
 
 ## Folders and Files
 
+* [NENA_NG911_Scripts](NENA_NG911_Scripts): Folder containing Python scripts and libaries that generate various derivative products from the flat-file schema.
+  * [run_schema_report.py](NENA_NG911_Scripts/run_schema_report.py) - Python script that parses the flatfile_schema_v3.yaml file to convert the YAML definition into a Microsoft Excel spreadsheet for simplified review and validation.
 * [README.md](README.md) - This document.
 
 ---
