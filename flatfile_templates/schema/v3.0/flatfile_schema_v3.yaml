@@ -5224,20 +5224,20 @@ fields:
       width: 100
       required: 'No'
     domain: false
-Latitude:
-  section: '5.55'
-  title: Latitude
-  description: |
-    The angular distance of a location north or south of the equator as defined by the coordinate system, expressed in decimal degrees.
-    
-    Domain: Restricted to a double-precision floating point number, between +90 degrees to  90 degrees, with a precision of ten and a scale of seven (e.g., REAL (10,7)).
-    Example: 40.8686865
-  definition:
-    type: REAL
-    precision: 10
-    scale: 7
-    required: 'No'
-  domain: false
+  Latitude:
+    section: '5.55'
+    title: Latitude
+    description: |
+      The angular distance of a location north or south of the equator as defined by the coordinate system, expressed in decimal degrees.
+      
+      Domain: Restricted to a double-precision floating point number, between +90 degrees to  90 degrees, with a precision of ten and a scale of seven (e.g., REAL (10,7)).
+      Example: 40.8686865
+    definition:
+      type: REAL
+      precision: 10
+      scale: 7
+      required: 'No'
+    domain: false
   AdNumPre_L:
     section: '5.56'
     title: Left Address Number Prefix
