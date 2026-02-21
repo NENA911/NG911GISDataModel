@@ -1366,7 +1366,7 @@ feature_classes:
         field_domain: 'PostalCode'
         field_default: ''
       - field_name: 'PostCode_R'
-        field_alias: 'Postal Code Left'
+        field_alias: 'Postal Code Right'
         field_type: 'TEXT'
         field_precision:
         field_scale:
