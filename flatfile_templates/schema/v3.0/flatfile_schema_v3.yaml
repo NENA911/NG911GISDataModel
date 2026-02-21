@@ -3151,10 +3151,10 @@ feature_classes:
         field_default: 'urn:emergency:service:responder.ems'
       - field_name: 'ServiceNum'
         field_alias: 'Service Number'
-        field_type: ''
+        field_type: 'TEXT'
         field_precision:
         field_scale:
-        field_length:
+        field_length: 15
         field_is_nullable: true
         field_is_required: false
         field_domain: ''
