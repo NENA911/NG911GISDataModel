@@ -140,7 +140,7 @@ The owner of this repository approves all changes to the repository.
 
 This repository is owned by the 
 [NENA Data Structures Committee](https://www.nena.org/page/DataStructures), 
-DS-GIS Template working group.
+DS-NG GIS Data Model working group.
 
 **Contact:**
 
