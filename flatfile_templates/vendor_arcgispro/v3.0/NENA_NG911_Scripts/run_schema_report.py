@@ -64,7 +64,9 @@ def run_schema_report(**params):
     # ==========================================================================
     # Load YAML
     # ==========================================================================
-    with open('../../../schema/v3.0/flatfile_schema_v3.yaml', 'r', encoding='utf-8') as f:
+    relative_yaml_path = os.path.join('..', '..', '..', 'schema', 'v3.0', 'flatfile_schema_v3.yaml')
+    absolute_yaml_path = os.path.abspath(relative_yaml_path)
+    with open(absolute_yaml_path, 'r', encoding='utf-8') as f:
         data = yaml.load(f, Loader=yaml.SafeLoader)
         DOMAINS = data['domains']
         FEATURE_CLASSES = data['feature_classes']
