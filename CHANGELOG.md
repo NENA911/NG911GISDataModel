@@ -143,6 +143,7 @@ This release of the **NENA NG9-1-1 GIS Data Model Templates** is based on NENA's
   - Changed field name for Site NENA Globally Unique ID (Foreign Key) from “Site_NGUID” to “SSAP_NGUID” in the LandmarkNamePartTable, the LandmarkNameCompleteAliasTable, and the CellSectorPoint layer. 
   - Changed field name for Complete Landmark Name Alias NENA Globally Unique ID (Foreign Key) from “ACLMNNGUID” to “CLNA_NGUID” in the LandmarkNamePartTable.
   - Changed field name for Legacy Street Name Type from “LSt_Type” to “LSt_Typ” in the RoadCenterLine layer and the SiteStructureAddressPoint layer. 
+  - Changed descriptive name “ZIP Plus 4” to “Postal Code Extension” and changed associated field name “Post_Code4” to “PostCodeEx” in the SiteStructureAddressPoint layer. 
   - Changed descriptive name “Mile Post” to “Milepost” and changed associated field name “Mile_Post” to “Milepost” in the SiteStructureAddressPoint layer. 
   - Changed field name for Rail Line Name from “RLNameE” to “RLName” in the RailroadCenterLine layer.  
   - Changed “State” field to Not Required in all service boundary layers. 
