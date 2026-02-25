@@ -1,15 +1,15 @@
 # Flat-File GIS Data Model Template
 
-The portion of this repository has undergone a significant refactor in the v3.0 release to better support long‑term maintainability and multiple NENA model versions. What began as a single, monolithic structure has been reorganized into a clearer, modular layout that separates core schema definitions from vendor‑specific tooling and prebuilt deliverables.
+The portion of this repository has undergone a significant refactor in the v3.0 release to better support long‑term maintainability and multiple NENA NG9-1-1 GIS Data Model versions. What began as a single, monolithic structure has been reorganized into a clearer, modular layout that separates core schema definitions from vendor‑specific tooling and prebuilt deliverables.
 
-To make the project easier to navigate, and to streamline future updates, the repository is now organized into the following directories:
+To make the project easier to navigate and to streamline future updates, the repository is now organized into the following directories:
 
-- [prebuilt_templates](prebuilt_templates) – Ready‑to‑use File Geodatabase (FGDB) and GeoPackage (GPKG) templates generated from the NENA schema organized by version subfolders.
-- [schema](schema) – The canonical, versioned logical schema definitions that drive all template generation organized by version subfolders.
-- [vendor_arcgispro](vendor_arcgispro) – ArcGIS Pro–specific example code
+- [prebuilt_templates](prebuilt_templates) – Ready‑to‑use File Geodatabase (FGDB) and GeoPackage (GPKG) templates generated from the NENA schema, organized by version subfolders.
+- [schema](schema) – The canonical, versioned logical schema definitions that drive all template generation, organized by version subfolders.
+- [vendor_arcgispro](vendor_arcgispro) – ArcGIS Pro–specific example code.
 - [vendor_qgis](vendor_qgis) – Placeholder for future QGIS‑specific example code.
 
-This structure provides a clean foundation for contributors, tool developers, and public safety GIS practitioners who need a consistent, version‑aware implementation of the NENA NG9‑1‑1 data model.
+This structure provides a clean foundation for contributors, tool developers, and public safety GIS practitioners who need a consistent, version‑aware implementation of the NENA NG9‑1‑1 GIS Data Model.
 
 ---
 
@@ -40,7 +40,7 @@ sub-folders by version.
 
 ## Help
 
-For assistance not provided within this repositories documentation, please visit https://www.nena.org/page/DataStructures where contact information for the leadership of the Data Structures Committee can be found.  
+For assistance not provided within this repository's documentation, please visit https://www.nena.org/page/DevelopmentGroup where contact information for the leadership of the Data Structures & Management Committee can be found.  
 
 ---
 
