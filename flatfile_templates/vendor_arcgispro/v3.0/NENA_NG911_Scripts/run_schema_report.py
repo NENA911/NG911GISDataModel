@@ -286,11 +286,11 @@ def run_schema_report(**params):
     ws_domains['B1'].font = CELL_FONT_BOLD
 
     ws_domains['C1'] = 'Field Type'
-    ws_domains.column_dimensions['C'].width = 30
+    ws_domains.column_dimensions['C'].width = 40
     ws_domains['C1'].font = CELL_FONT_BOLD
 
     ws_domains['D1'] = 'Description'
-    ws_domains.column_dimensions['D'].width = 100
+    ws_domains.column_dimensions['D'].width = 50
     ws_domains['D1'].font = CELL_FONT_BOLD
 
     row = 2
@@ -302,7 +302,7 @@ def run_schema_report(**params):
         ws_domains[f'C{row}'] = domain["field_type"]
         ws_domains[f'C{row}'].alignment = Alignment(vertical='top')
         ws_domains[f'D{row}'] = domain["domain_description"]
-        ws_domains[f'D{row}'].alignment = Alignment(vertical='top')
+        ws_domains[f'D{row}'].alignment = Alignment(vertical='top', wrap_text=True)
 
         if domain["domain_type"] == 'CODED':
             row += 1
@@ -531,10 +531,10 @@ def run_schema_report(**params):
         row += 1
 
     # ==========================================================================
-    # Create Section 7.1 Layer Registry
+    # Create GIS Layer Registry
     # ==========================================================================
 
-    ws_reg = wb.create_sheet("Section 7.1 Layer Registry")
+    ws_reg = wb.create_sheet("GIS Layer Registry")
 
     ws_reg['A1'] = 'Layer Name'
     ws_reg.column_dimensions['A'].width = 40
@@ -573,7 +573,7 @@ if __name__ == '__main__':
     desktop_path = "~\\OneDrive\\Desktop"
 
     params = {
-        "report_name": 'NG911_SchemaReport',
+        "report_name": 'NG911_GISDataModelSchemaReport_v3.0',
         "out_path": os.path.expanduser(desktop_path)
     }
 
