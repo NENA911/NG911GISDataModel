@@ -33,19 +33,13 @@
 domains:
   - domain_name: 'AdditionalCode'
     domain_description: |
-      A case-sensitive alphanumeric code of up to six characters used to disambiguate addresses in Canada.
-    field_type: 'TEXT'
-    domain_type: 'CODED'
-    values:
-  - domain_name: 'AgencyID'
-    domain_description: |
-      A Domain Name System (DNS) domain name which is used to uniquely identify an agency.
+      A case-sensitive alphanumeric code of up to six characters, used to disambiguate addresses in Canada.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
   - domain_name: 'AddressNumber'
     domain_description: |
-      The numeric identifier of a location along a thoroughfare or within a defined community.
+      The integer identifier of a location along a thoroughfare or within a defined community.
     field_type: 'INTEGER'
     domain_type: 'RANGE'
     values:
@@ -53,7 +47,7 @@ domains:
       max: 999999
   - domain_name: 'AdministrativeLevels0'
     domain_description: |
-      The name of a country represented by its two-letter ISO 3166-1 English country alpha-2 code elements in UPPER CASE letters.
+      The name of a country represented by its two letter ISO 3166-1 English country alpha-2 code elements in UPPERCASE letters.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -62,7 +56,7 @@ domains:
       'MX': 'Mexico'
   - domain_name: 'AdministrativeLevels1'
     domain_description: |
-      The name of a state or state equivalent, represented by the two-letter abbreviation given in USPS Publication 28, Appendix B.
+      The name of a state, province, or territory represented by the two-letter UPPERCASE abbreviation given in ISO 3166-2.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -141,13 +135,19 @@ domains:
       'YT': 'Yukon'
   - domain_name: 'AdministrativeLevels2'
     domain_description: |
-      The name of a County or County-equivalent where the address is located. The Domain is restricted to the exact listed values as published in ANSI INCITS 31:2009, including casing and use of abbreviations.
+      The name of the primary subdivision of a state, province, or territory.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
   - domain_name: 'AdministrativeLevels3'
     domain_description: |
       The name of the secondary division of a state, province, or territory. In Canada, where no Administrative Level 2 exists, it can be the name of the primary division of the province or territory.
+    field_type: 'TEXT'
+    domain_type: 'CODED'
+    values:
+  - domain_name: 'AgencyID'
+    domain_description: |
+      A Domain Name System (DNS) domain name which is used to uniquely identify an agency.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -172,7 +172,7 @@ domains:
       'meters': 'meters'
   - domain_name: 'ESN'
     domain_description: |
-      A 3-5 character alphanumeric string that represents an Emergency Service Zone (ESZ).
+      A 3-5 character numeric string that represents one or more Emergency Service Zones (ESZ).
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -186,7 +186,7 @@ domains:
       max: 90.0
   - domain_name: 'LegacyStreetNameDirectional'
     domain_description: |
-      The street direction as it currently exists in the MSAG.
+      The leading or trailing street direction suffix as it currently exists in the MSAG.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -201,14 +201,6 @@ domains:
       'O': 'Ouest'
       'NO': 'Nord-Ouest'
       'SO': 'Sud-Ouest'
-  - domain_name: 'Longitude'
-    domain_description: |
-      The angular distance of a location east or west of the prime meridian of the coordinate system, expressed in decimal degrees..
-    field_type: 'REAL'
-    domain_type: 'RANGE'
-    values:
-      min: -180.0
-      max: 180.0
   - domain_name: 'LocationMarkerIndicator'
     domain_description: |
       Indicates whether the location marker is identified by a physical sign.
@@ -217,6 +209,14 @@ domains:
     values:
       'P': 'Posted'
       'U': 'Unposted'
+  - domain_name: 'Longitude'
+    domain_description: |
+      The angular distance of a location east or west of the prime meridian of the coordinate system, expressed in decimal degrees.
+    field_type: 'REAL'
+    domain_type: 'RANGE'
+    values:
+      min: -180.0
+      max: 180.0
   - domain_name: 'OneWay'
     domain_description: |
       The direction of traffic movement along a road in relation to the FROM node and TO node of the line segment representing the road in the GIS data.
@@ -228,7 +228,7 @@ domains:
       'TF': 'One-way - TO node to FROM node'
   - domain_name: 'Parity'
     domain_description: |
-      The even or odd property of the address number on the corresponding side of the road segment relative to the FROM Node.
+      The even or odd property of the address number range of the road segment relative to the FROM Node.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -253,7 +253,7 @@ domains:
       'Unknown': 'Unknown'
   - domain_name: 'PlacementMethodPolygon'
     domain_description: |
-      The methodology used for placement of the address polygon.
+      The methodology defining the extent of an address polygon.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -318,13 +318,13 @@ domains:
       'youth-camp': 'Youth Camp'
   - domain_name: 'PostalCode'
     domain_description: |
-      A system of 5-digit (US) or 7-character codes (Canada) that identify the individual USPS or Canadian Post Office or metropolitan area delivery station associated with an address.
+      A system of codes that identifies an individual Post Office or metropolitan area delivery station associated with an address.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
   - domain_name: 'PostalCommunityName'
     domain_description: |
-      A city name for the Postal Code of an address. 
+      A mailing place name for the Postal Code of an address.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -349,13 +349,13 @@ domains:
       'Other': 'Other'
   - domain_name: 'ServiceURI'
     domain_description: |
-      URI for call routing. This attribute is contained in the service boundary layers and will define the Service URI of the service.
+      URI for call routing. This attribute is contained in the service boundary layers and will define the URI of the service.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
   - domain_name: 'ServiceURNSOS'
     domain_description: |
-      The URN used to select the service for which a route is desired.
+      The SOS Service URN used to select the service for which a route is desired.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -365,7 +365,7 @@ domains:
       'urn:emergency:service:sos.call_taker': 'Call Taker'
   - domain_name: 'ServiceURNResponder'
     domain_description: |
-      The URN used to select the service for which a route is desired.
+      The Responder Service URN used to select the service for which a route is desired.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -411,7 +411,7 @@ domains:
       'urn:emergency:service:responder.psap': 'Responder PSAP'
   - domain_name: 'SpeedLimit'
     domain_description: |
-      Posted Speed Limit in MPH in US or Km/h in Canada
+      Posted Speed Limit in MPH or Km/h.
     field_type: 'INTEGER'
     domain_type: 'RANGE'
     values:
@@ -419,7 +419,7 @@ domains:
       max: 999
   - domain_name: 'StreetNameDirectional'
     domain_description: |
-      A word preceding or following the Street Name element that indicates the direction taken by the road from an arbitrary starting point or line, or the sector where it is located.
+      A word preceding or following the Street Name element that indicates the direction taken by the thoroughfare from an arbitrary starting point or line, or the sector where it is located.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
@@ -854,7 +854,7 @@ domains:
       'to': 'to'
   - domain_name: 'Validation'
     domain_description: |
-      Indicates if the address range on the corresponding side of the road segment should be used for civic location validation.
+      Indicates if the address range of the road segment, relative to the FROM node, should be used for civic location validation.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
