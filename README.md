@@ -1,7 +1,7 @@
 # NG9-1-1 GIS Data Model Templates
 
 The 
-[NENA Standard for NG9-1-1 GIS Data Model, NENA-STA-006](https://www.nena.org/page/NG911GISDataModel)  supports the NENA Next Generation 9-1-1 (NG9-1-1) Core Services (NGCS) of location validation and geospatial call routing to the appropriate agency for dispatch. This model also defines several GIS data layers (hereinafter "layers") used in local Public Safety Answering Point (PSAP) and response agency mapping applications for handling and responding to 9-1-1 calls.
+[NENA Standard for NG9-1-1 GIS Data Model, NENA-STA-006](https://www.nena.org/page/NG911GISDataModel), supports the NENA Next Generation 9-1-1 (NG9-1-1) Core Services (NGCS) of location validation and geospatial call routing to the appropriate agency for dispatch. This model also defines several GIS data layers (hereinafter "layers") used in local Public Safety Answering Point (PSAP) and response agency mapping applications for handling and responding to 9-1-1 calls.
 
 The objective of the templates in this repository is to provide a common transport format of NG9-1-1 data layers between GIS Data Providers and an NGCS Spatial Interface (SI). While the following scripts and tools may be used by GIS Data Providers as a template for the management of their own NG9-1-1 data, it is expected that each GIS Data Provider will adapt the scripts and extend the schema to meet their specific organization's needs and requirements. 
 
@@ -120,7 +120,7 @@ what you're looking for, feel free to submit a new issue.
 
 ## Contributing
 
-The NENA NG9-1-1 Data Model Working Group welcomes contributions from anyone and everyone. There are many ways you can contribute to this repository.
+The NENA GIS Data Model Working Group welcomes contributions from anyone and everyone. There are many ways you can contribute to this repository.
 
 * Suggest enhancements or code changes as GitHub issues.
 * Report potential bugs to GitHub issues.
