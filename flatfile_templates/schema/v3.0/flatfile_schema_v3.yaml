@@ -4455,22 +4455,32 @@ feature_classes:
         - 'channel marker'
 
 # ==============================================================================
-# Section: 5 Detailed Description of Field Names and associated attribute data
+# Section: 5 Detailed Description of Field Names and Associated Attribute Data
 #
-# Purpose: Each of the Field Names given in the tables in Section 4, GIS Data
-#          Model Layers, are listed in alphabetical order below. Each Field
+# Purpose: Each of the Field Names given in the tables in Section 4 GIS Data
+#          Model Layers are listed in alphabetical order below. Each Field
 #          Name has a description, attribute data domain, and an example. Some
 #          Field Names include a conditional business rule that controls the
 #          presence of a value in the data field. For details on case
 #          sensitivity, please refer to Section 3.5 Case Sensitivity of
 #          NENA-STA-006.
 #
-#          An attribute data domain defines the set of all valid values that
-#          are allowed in the attribute data field. If the domain is none,
+#          A domain defines the set of all valid values that are allowed in
+#          the attribute data field. If the domain is defined as "None",
 #          then any value that matches the data type and description MAY be
-#          used for the attribute field. Those with a given data domain MUST
+#          used. Those with a given data domain MUST
 #          use only those values with the domain given. Web links in the
 #          examples are for illustrative purposes.
+#
+#          Due to differences in addressing methodologies between Canada and
+#          the United States, the business rules for each Field Name are set in
+#          the CLDXF Standard appropriate for the country of the implementor
+#          (i.e., CLDXF-US for the United States, CLDXF-CA for Canada). If the
+#          Field Name does not exist or is not used in a CLDXF Standard for a
+#          particular country, but not the other countries, the business rule will
+#          have a value of “Not Applicable” and the Field Name will be listed as
+#          “Conditional” in the GIS data layer tables in Section 4 GIS Data Model
+#          Layers of NENA-STA-006.
 # ==============================================================================
 
 fields:      
@@ -6183,9 +6193,9 @@ fields:
 
 # ==============================================================================
 # Section:  "GIS Data Layers" Registry
-# Purpose:  Dictionary representation of Section "GIS Data Layers" Registry
-#           used in tests to verify NENA GIS Data Layer names and Layer
-#           Indicators are documented and implemented correctly.
+# Purpose:  Dictionary representation of Section 7.` "GIS Data Layers" Registry
+#           in NENA-STA-006 used in tests to verify NENA GIS Data Layer names
+#           and Layer Indicators are documented and implemented correctly.
 # ==============================================================================
 
 gis_data_layers_registry:

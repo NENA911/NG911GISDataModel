@@ -1,6 +1,6 @@
 # Relational GIS Data Model Template
 
-In the NENA NG9-1-1 GIS Data Model **Section 15, Appendix E-Relational Data Model** outlines the relational data model utilized in the SI (Spatial Interface). Apart from primary and foreign keys, the Descriptive Names used in Appendix E align with those listed in **Section 5 Detailed Description of Field Names and Associated Attribute Data**.
+The NENA NG9-1-1 GIS Data Model **Section 15 Appendix E-Relational Data Model** outlines the relational data model utilized in the SI (Spatial Interface). Apart from primary and foreign keys, the Descriptive Names used in Appendix E align with those listed in **Section 5 Detailed Description of Field Names and Associated Attribute Data**.
 
 Due to various SQL dialects, the relational database model is currently represented as a logical, rather than a physical, data model. A logical model focuses on structure, relationships, and rules, independent of any specific database technology, whereas a physical model focuses on how the database will is implemented in a specific database. 
 
