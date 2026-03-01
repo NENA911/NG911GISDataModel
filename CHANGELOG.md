@@ -122,13 +122,13 @@ This release of the **NENA NG9-1-1 GIS Data Model Templates** is based on NENA's
 ### Enhancements
 
 - Migrated GIS Data Model Templates to GitHub.
-- [ArcGIS] Added ArcGIS Toolboxes for both ArcGIS Pro and ArcGIS Desktop 10.x
-- [ArcGIS] Refactored Python script to operate in multiple versions of ArcGIS Desktop
+- [ArcGIS] Added ArcGIS Toolboxes for both ArcGIS Pro and ArcGIS Desktop 10.x.
+- [ArcGIS] Refactored Python script to operate in multiple versions of ArcGIS Desktop.
  
 ### Changed
 
 - Updated layer names, table names, domain names, descriptions, & field names to align with the v2 standard.
-- Addressed Items identified in [NENA-STA-006.2-2022](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.2-2022_ng9-1-1.pdf) **Reason for Issue / Reissue** section
+- Addressed Items identified in [NENA-STA-006.2-2022](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.2-2022_ng9-1-1.pdf) **Reason for Issue / Reissue** section.
 
   - Redefined “P” field type and changed all “E” field type values to “P” field type in all layers. 
   - Changed Discrepancy Agency ID field width from 75 to 100 in all layers. 
@@ -159,20 +159,20 @@ This release of the **NENA NG9-1-1 GIS Data Model Templates** is based on NENA's
   - Updated Alias Street Name Pre/Post Directional domains (added French values).
   - Updated Street Name Pre/Post Directional domains (added French values).
   - Updated Road Class domain.
-  - Updated PlaceType domain (intentionally left vehicles out of the domain)
+  - Updated PlaceType domain (intentionally left vehicles out of the domain).
   - Updated ServiceURN domain.
-  - Update administrative area (state, county, etc.) domain names to include Canadian equivalents.
+  - Updated administrative area (state, county, etc.) domain names to include Canadian equivalents.
   - Increased Street Name Pre and Post Directionals (not Legacy Directionals) to 10 characters to support new French domain values.
   - Increased "RoadClass" to 24 characters to support new domain values.
   - Removed Legacy Street Name Type Domain and association with fields.
   - Updated "PropertyAccess" domain value (from "Property Access").
-  - Increase length of ServiceURN to 55 characters to support URN registry entries.
+  - Increased length of ServiceURN to 55 characters to support URN registry entries.
   - Removed the 'AdditionalCodes' domain requirement for `AddCode`, `AddCode_L`, and `AddCode_R` fields in both versions.
 
 - [PostgreSQL] Added missing `St_PreDir` and `St_PosDir` field missing from the v1.0 RoadCenterlines schema.
 - [PostgreSQL] Corrected longitude check error from `CHECK ( -90 <= Longitude AND Longitude <= 90 )` to `CHECK ( -180 <= Longitude AND Longitude <= 180 )` in multiple tables.
 - [PostgreSQL] Changed domain and reference tables to follow NENA table and field naming conventions.
-- [PostgreSQL] Reordered fields in schema to the same order as GIS Data Model documentation for ease of quality assurance and control.
+- [PostgreSQL] Reordered fields in the schema to the same order as the GIS Data Model documentation for ease of quality assurance and control.
 - [PostgreSQL] Changed all `DOUBLE PRECISION` datatypes to `REAL` to reflect the `FLOAT` value defined in NENA-STA-006.2-2022.
 - [PostgreSQL] Changed all `TIMESTAMP WITH TIME ZONE` datatypes to `TIMESTAMPTZ` which is the proper datatype that is a time zone-aware data and time datatype. PostgreSQL converts the `TIMESTAMPTZ` value into a UTC value and stores the UTC value in the table.
 - [PostgreSQL] Changed all `CHARACTER VARYING` to `VARCHAR`, which is the more common alias.
