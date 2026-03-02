@@ -277,14 +277,14 @@ domains:
       'campground': 'Campground'
       'care-facility': 'Care Facility'
       'classroom': 'Classroom'
-      'club': 'Club dance club nightclub or discotheque.'
-      'construction': 'Construction site.'
-      'convention-center': 'Convention center or exhibition hall.'
+      'club': 'Club, dance club, nightclub, or discotheque'
+      'construction': 'Construction site'
+      'convention-center': 'Convention center or exhibition hall'
       'detached-unit': 'Detached Unit'
       'fire-station': 'Fire Station'
       'government': 'Government building'
-      'hospital': "Hospital medical clinic or doctor's office."
-      'hotel': 'Hotel motel inn or other lodging.'
+      'hospital': "Hospital, medical clinic, or doctor's office"
+      'hotel': 'Hotel, motel, inn, or other lodging'
       'industrial': 'Industrial setting'
       'landmark-address': 'Landmark address'
       'library': 'Library'
@@ -292,8 +292,8 @@ domains:
       'museum': 'Museum'
       'office': 'Office or business'
       'other': 'Other'
-      'outdoors': 'Outdoor facility such as a park or city streets.'
-      'parking': 'Parking lot garage.'
+      'outdoors': 'Outdoor facility such as a park or city streets'
+      'parking': 'Parking lot garage'
       'phone-box': 'Phone or call box'
       'place-of-worship': 'Place of Worship'
       'post-office': 'Post Office'
@@ -302,7 +302,7 @@ domains:
       'residence': 'Residence'
       'restaurant': 'Restaurant'
       'school': 'School or university property'
-      'shopping-area': 'Shopping mall or shopping area.'
+      'shopping-area': 'Shopping mall or shopping area'
       'stadium': 'Stadium'
       'store': 'Store'
       'street': 'Street'
@@ -311,10 +311,10 @@ domains:
       'town-hall': 'Town Hall'
       'train-station': 'Train station'
       'utility-box': 'Utility box'
-      'unknown': 'Unknown.'
+      'unknown': 'Unknown'
       'warehouse': 'Warehouse'
       'waste-transfer-facility': 'Waste Transfer Facility'
-      'water': 'Water'
+      'water-facility': 'Water Facility'
       'youth-camp': 'Youth Camp'
   - domain_name: 'PostalCode'
     domain_description: |
@@ -339,6 +339,7 @@ domains:
       'Local': 'Local roads'
       'Ramp': 'Ramp'
       'Service Drive': 'Service Drive'
+      'Vehicular Trail': 'Vehicular Trail (4WD, Snowmobile)'
       'Walkway/Pedestrian Trail': 'Walkway/Pedestrian Trail'
       'Stairway': 'Stairway'
       'Alley': 'Alley'
@@ -378,7 +379,7 @@ domains:
       'urn:emergency:service:responder.ems.air': 'EMS - Air'
       'urn:emergency:service:responder.ems.tribal': 'EMS - Native American'
       'urn:emergency:service:responder.ems.countyParish': 'EMS - County or Parish'
-      'urn:emergency:service:responder.ems.local': 'EMS - City Town Township Borough or Village'
+      'urn:emergency:service:responder.ems.local': 'EMS - City, Town, Township, Borough, or Village'
       'urn:emergency:service:responder.ems.private': 'EMS - Contracted Ambulance Service'
       'urn:emergency:service:responder.ems.military': 'EMS - Military'
       'urn:emergency:service:responder.fire.airport': 'Fire - Airport Fire Service'
@@ -387,7 +388,7 @@ domains:
       'urn:emergency:service:responder.fire.private': 'Fire - Private Fire Service'
       'urn:emergency:service:responder.police.countyParish': 'Police - County or Parish (not Sheriff)'
       'urn:emergency:service:responder.police.federal': 'Police - Federal'
-      'urn:emergency:service:responder.police.local': 'Police - City Town Township Borough or Village'
+      'urn:emergency:service:responder.police.local': 'Police - City, Town, Township, Borough, or Village'
       'urn:emergency:service:responder.police.tribal': 'Police - Native American'
       'urn:emergency:service:responder.police.stateProvincial': 'Police - State/Provincial'
       'urn:emergency:service:responder.police.sheriff': "Police - Sheriff's Office"
@@ -1079,8 +1080,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 254
-        field_is_nullable: true
-        field_is_required: false
+        field_is_nullable: false
+        field_is_required: true
         field_domain: ''
         field_default: ''
       - field_name: 'St_PosTyp'
@@ -1455,7 +1456,7 @@ feature_classes:
         field_default: ''
     metadata:
       description: |
-        Roads data is maintained as a line layer for representing the centerline of a roadway. This dataset is referred to as the RoadCenterLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. GIS road centerline arc node topology is associated with attribute data containing information on street names, address ranges, jurisdictional boundaries, and other attributes. The RoadCenterLine layer is an integral part of any public safety GIS due to its versatility and use for:
+        Roads data is maintained as a line layer for representing the centerline of a roadway. This dataset is referred to as the RoadCenterLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. GIS road centerline arc-node topology is associated with attribute data containing information on street names, address ranges, jurisdictional boundaries, and other attributes. The RoadCenterLine layer is an integral part of any public safety GIS due to its versatility and use for:
         
         •	Querying and geocoding of civic addresses based on dual (left/right) address ranges
         •	Tactical map display
@@ -1480,7 +1481,7 @@ feature_classes:
     has_z: true
     primary: true
     country_specific_field_removals:
-      - CA: ['PostCodeEx', 'UnitPreType', 'UnitValue']
+      - CA: ['PostCodeEx', 'UnitPreTyp', 'UnitValue']
       - US: ['AddCode', 'Unit']
     fields:
       - field_name: 'DiscrpAgID'
@@ -1913,7 +1914,7 @@ feature_classes:
         field_is_required: false
         field_domain: ''
         field_default: ''
-      - field_name: 'UnitPreType'
+      - field_name: 'UnitPreTyp'
         field_alias: 'Unit Pre Type'
         field_type: 'TEXT'
         field_precision:
@@ -2096,7 +2097,7 @@ feature_classes:
     has_z: false
     primary: true
     country_specific_field_removals:
-      - CA: [ 'PostCodeEx', 'UnitPreType', 'UnitValue' ]
+      - CA: [ 'PostCodeEx', 'UnitPreTyp', 'UnitValue' ]
       - US: [ 'AddCode', 'Unit' ]
     fields:
       - field_name: 'DiscrpAgID'
@@ -2255,16 +2256,6 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 42
-        field_is_nullable: true
-        field_is_required: false
-        field_domain: ''
-        field_default: ''
-      - field_name: 'DistMarker'
-        field_alias: 'Distance Marker'
-        field_type: 'TEXT'
-        field_precision:
-        field_scale:
-        field_length: 150
         field_is_nullable: true
         field_is_required: false
         field_domain: ''
@@ -2529,7 +2520,7 @@ feature_classes:
         field_is_required: false
         field_domain: ''
         field_default: ''
-      - field_name: 'UnitPreType'
+      - field_name: 'UnitPreTyp'
         field_alias: 'Unit Pre Type'
         field_type: 'TEXT'
         field_precision:
@@ -2589,16 +2580,6 @@ feature_classes:
         field_is_required: false
         field_domain: ''
         field_default: ''
-      - field_name: 'LocMarker'
-        field_alias: 'Location Marker'
-        field_type: 'TEXT'
-        field_precision:
-        field_scale:
-        field_length: 100
-        field_is_nullable: true
-        field_is_required: false
-        field_domain: ''
-        field_default: ''
       - field_name: 'Addtl_Loc'
         field_alias: 'Additional Location Information'
         field_type: 'TEXT'
@@ -2637,7 +2618,7 @@ feature_classes:
         field_length: 25
         field_is_nullable: true
         field_is_required: false
-        field_domain: 'PlacementMethodPoint'
+        field_domain: 'PlacementMethodPolygon'
         field_default: ''
     metadata:
       description: |
@@ -3732,7 +3713,7 @@ feature_classes:
         field_default: ''
     metadata:
       description: |
-        Administrative Level 3 data, formerly Incorporated Municipalities (A3) data, is maintained as a polygon layer. It typically represents the geographic area of a city, town, village, or other similar level division corresponding to the PIDF-LO A3 element. The presence of A3 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A3Polygon layer in the GIS Layers and Indicators registry in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+        Administrative Level 3 data, formerly Incorporated Municipalities (A3) data, is maintained as a polygon layer. It typically represents the geographic area of a city, town, village, or other similar level division corresponding to the PIDF-LO A3 element. The presence of A3 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A3Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
       keywords:
         - 'nena'
         - 'ng9-1-1'
@@ -3881,7 +3862,7 @@ feature_classes:
     primary: true
     country_specific_field_removals:
       - CA: [ ]
-      - US: [ 'AddCode' ]
+      - US: [ ]
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3963,16 +3944,6 @@ feature_classes:
         field_is_required: false
         field_domain: 'AdministrativeLevels2'
         field_default: ''
-      - field_name: 'AddCode'
-        field_alias: 'Additional Code'
-        field_type: 'TEXT'
-        field_precision:
-        field_scale:
-        field_length: 6
-        field_is_nullable: true
-        field_is_required: false
-        field_domain: 'AdditionalCode'
-        field_default: ''
       - field_name: 'A3'
         field_alias: 'Administrative Level 3'
         field_type: 'TEXT'
@@ -4005,7 +3976,7 @@ feature_classes:
         field_default: ''
     metadata:
       description: |
-        Administrative Level 5 data, formerly Neighborhood Communities (A5) data, is maintained as a polygon layer. It typically represents the geographic area of a neighborhood, commercial area, or other similar level division corresponding to the PIDF-LO A5 element. The presence of A5 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A5Polygon layer in the GIS Layers and Indicators registry in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+        Administrative Level 5 data, formerly Neighborhood Communities (A5) data, is maintained as a polygon layer. It typically represents the geographic area of a neighborhood, commercial area, or other similar level division corresponding to the PIDF-LO A5 element. The presence of A5 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A5Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
       keywords:
         - 'nena'
         - 'ng9-1-1'
@@ -4178,7 +4149,7 @@ feature_classes:
         field_default: ''
     metadata:
       description: |
-        Hydrology data is maintained as a line layer for representing creeks, streams, rivers, and other linear water features. This dataset is referred to as the HydrologyLine layer in the GIS Layers and Indicators registry in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C—United States’ National Hydrography Dataset (NHD) Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D—Canada’s National Hydrographic Network Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document.
+        Hydrology data is maintained as a line layer for representing creeks, streams, rivers, and other linear water features. This dataset is referred to as the HydrologyLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C—United States’ National Hydrography Dataset (NHD) Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D—Canada’s National Hydrographic Network Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document.
       keywords:
         - 'nena'
         - 'ng9-1-1'
@@ -4250,7 +4221,7 @@ feature_classes:
         field_default: ''
     metadata:
       description: |
-        Hydrology data is maintained as a polygon layer for representing the area of water features. This dataset is referred to as the HydrologyPolygon layer in the GIS Layers and Indicators registry in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C—United States’ National Hydrography Dataset (NHD) Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D—Canada’s National Hydrographic Network Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document.
+        Hydrology data is maintained as a polygon layer for representing the area of water features. This dataset is referred to as the HydrologyPolygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C—United States’ National Hydrography Dataset (NHD) Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D—Canada’s National Hydrographic Network Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document.
       keywords:
         - 'nena'
         - 'ng9-1-1'
@@ -4306,8 +4277,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 15
-        field_is_nullable: true
-        field_is_required: false
+        field_is_nullable: false
+        field_is_required: true
         field_domain: 'DistanceMarkerUnitOfMeasurement'
         field_default: ''
       - field_name: 'DM_Value'
@@ -4335,7 +4306,7 @@ feature_classes:
         field_type: 'TEXT'
         field_precision:
         field_scale:
-        field_length: 15
+        field_length: 50
         field_is_nullable: true
         field_is_required: false
         field_domain: ''
@@ -4416,8 +4387,8 @@ feature_classes:
         field_precision:
         field_scale:
         field_length: 100
-        field_is_nullable: true
-        field_is_required: false
+        field_is_nullable: false
+        field_is_required: true
         field_domain: ''
         field_default: ''
       - field_name: 'LM_Type'
@@ -4425,7 +4396,7 @@ feature_classes:
         field_type: 'TEXT'
         field_precision:
         field_scale:
-        field_length: 15
+        field_length: 50
         field_is_nullable: true
         field_is_required: false
         field_domain: ''
@@ -4442,7 +4413,7 @@ feature_classes:
         field_default: ''
     metadata:
       description: |
-        Location Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Location Markers data MUST be included in the SiteStructureAddressPoint layer. Location Markers may represent locations such as an alarm box, a utility pole, a callbox, a trail intersection, a buoy, a channel marker, or other similar features. This dataset is referred to as the LocationMarkerPoint layer in the GIS Layers and Indicators registry in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+        Location Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Location Markers data MUST be included in the SiteStructureAddressPoint layer. Location Markers may represent locations such as an alarm box, a utility pole, a callbox, a trail intersection, a buoy, a channel marker, or other similar features. This dataset is referred to as the LocationMarkerPoint layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
       keywords:
         - 'nena'
         - 'ng9-1-1'
@@ -5051,7 +5022,7 @@ fields:
     definition:
       type: TEXT
       width: 15
-      required: false
+      required: true
     domain: true
   Effective:
     section: '5.42'
@@ -5436,7 +5407,7 @@ fields:
     definition:
       type: TEXT
       width: 100
-      required: false
+      required: true
     domain: false
   LM_Type:
     section: '5.69'
@@ -6122,7 +6093,7 @@ fields:
       width: 75
       required: false
     domain: false
-  UnitPreType:
+  UnitPreTyp:
     section: '5.116'
     title: Unit Pre Type
     description: |
@@ -6222,7 +6193,7 @@ gis_data_layers_registry:
   - layer_name: "HydrologyLine"
     layer_indicator: "HydL"
   - layer_name: "HydrologyPolygon"
-    layer_indicator: "HydPgn"
+    layer_indicator: "HydPoly"
   - layer_name: "LocationMarkerPoint"
     layer_indicator: "LocMark"
   - layer_name: "DistanceMarkerPoint"
