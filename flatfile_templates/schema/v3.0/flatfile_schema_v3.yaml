@@ -5008,7 +5008,7 @@ fields:
       Example: Road; Waterway; Beach; Trail; Railroad
     definition:
       type: TEXT
-      width: 15
+      width: 50
       required: false
     domain: false
   DM_Unit:
@@ -5419,7 +5419,7 @@ fields:
       Example: Call Box; Utility Pole; Water Crossing; Trail Intersection; Standpipe
     definition:
       type: TEXT
-      width: 15
+      width: 50
       required: false
     domain: false
   Longitude:
