@@ -232,6 +232,9 @@ def run_schema_report(**params):
                 if field_dict["field_name"] == feature_class["name"][:2]:
                     ws_fcs[f'H{row}'].fill = CELL_FILL_WARN
                     ws_fcs[f'H{row}'].comment = Comment("Special exception", '')
+                elif field_dict["field_name"] == 'St_Name' and feature_class["name"] == 'RoadCenterLine':
+                    ws_fcs[f'H{row}'].fill = CELL_FILL_WARN
+                    ws_fcs[f'H{row}'].comment = Comment("Not Null in RoadCenterLine", '')
                 else:
                     ws_fcs[f'H{row}'].fill = CELL_FILL_FAIL
                     ws_fcs[f'H{row}'].comment = Comment(
@@ -245,6 +248,9 @@ def run_schema_report(**params):
                 if field_dict["field_name"] == feature_class["name"][:2]:
                     ws_fcs[f'I{row}'].fill = CELL_FILL_WARN
                     ws_fcs[f'I{row}'].comment = Comment("Special exception", '')
+                elif field_dict["field_name"] == 'St_Name' and feature_class["name"] == 'RoadCenterLine':
+                    ws_fcs[f'I{row}'].fill = CELL_FILL_WARN
+                    ws_fcs[f'I{row}'].comment = Comment("Required in RoadCenterLine", '')
                 else:
                     ws_fcs[f'I{row}'].fill = CELL_FILL_FAIL
                     ws_fcs[f'I{row}'].comment = Comment(
