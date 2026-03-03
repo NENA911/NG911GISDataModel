@@ -22,7 +22,7 @@
 
 # ==============================================================================
 # Domains used in NENA-STA-006.3-2026
-# Domains last updated: 2026-02-07
+# Domains last updated: 2026-03-03
 #   PlaceType: https://www.iana.org/assignments/location-type-registry/location-type-registry.xml
 #   PlacementMethod: http://technet.nena.org/nrs/registry/SiteStructureAddressPointPlacementMethod.xml
 #   StreetNameType: http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml
@@ -310,7 +310,7 @@ domains:
       'toll-booth': 'Toll-booth'
       'town-hall': 'Town Hall'
       'train-station': 'Train station'
-      'utility-box': 'Utility box'
+      'utilitybox': 'Utility box'
       'unknown': 'Unknown'
       'warehouse': 'Warehouse'
       'waste-transfer-facility': 'Waste Transfer Facility'
