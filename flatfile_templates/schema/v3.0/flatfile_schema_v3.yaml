@@ -348,12 +348,6 @@ domains:
       'Bike Path or Trail': 'Bike Path or Trail'
       'Bridle Path': 'Bridle Path'
       'Other': 'Other'
-  - domain_name: 'ServiceURI'
-    domain_description: |
-      URI for call routing. This attribute is contained in the service boundary layers and will define the URI of the service.
-    field_type: 'TEXT'
-    domain_type: 'CODED'
-    values:
   - domain_name: 'ServiceURNSOS'
     domain_description: |
       The SOS Service URN used to select the service for which a route is desired.
@@ -1172,7 +1166,7 @@ feature_classes:
         field_length: 5
         field_is_nullable: true
         field_is_required: false
-        field_domain: ''
+        field_domain: '' #'ESN'
         field_default: ''
       - field_name: 'ESN_R'
         field_alias: 'ESN Right'
@@ -1182,7 +1176,7 @@ feature_classes:
         field_length: 5
         field_is_nullable: true
         field_is_required: false
-        field_domain: ''
+        field_domain: '' #'ESN'
         field_default: ''
       - field_name: 'MSAGComm_L'
         field_alias: 'MSAG Community Name Left'
@@ -1792,7 +1786,7 @@ feature_classes:
         field_length: 5
         field_is_nullable: true
         field_is_required: false
-        field_domain: ''
+        field_domain: '' #'ESN'
         field_default: ''
       - field_name: 'MSAGComm'
         field_alias: 'MSAG Community Name'
@@ -2398,7 +2392,7 @@ feature_classes:
         field_length: 5
         field_is_nullable: true
         field_is_required: false
-        field_domain: ''
+        field_domain: '' #'ESN'
         field_default: ''
       - field_name: 'MSAGComm'
         field_alias: 'MSAG Community Name'
