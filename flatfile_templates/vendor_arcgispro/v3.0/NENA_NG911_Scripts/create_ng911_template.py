@@ -17,7 +17,6 @@
 | TODO: Resolve issue with Esri not recognizing EPSG 4979
 | TODO: Create ArcGIS Toolbox
 | TODO: Add code support to generate File Geodatabase and/or GeoPackage in code
-| TODO: Add code support for CDLXF dialects
 | TODO: Add code support for field level metadata. Blocked by Esri.
 | TODO: Add code to check if user has ArcGIS Pro license and to refresh if necessary.
 """
@@ -229,6 +228,7 @@ def main(**params):
         msg_type=params["params_type"],
         log=log
     )
+
     # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-file-gdb.htm
     arcpy.management.CreateFileGDB(
         out_folder_path=params["output_folder"],
@@ -396,6 +396,7 @@ def main(**params):
             sr = arcpy.SpatialReference(int(params["spatial_reference_horizontal"]))
         """
 
+        # Create empty Feature Class
         # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-feature-class.htm
         arcpy.management.CreateFeatureclass(
             out_path=output_fgdb_path,
@@ -416,49 +417,78 @@ def main(**params):
             log=log,
             progress=False
         )
-        for field in fc["fields"]:
-            messages(
-                msgs=[
-                    f'|---Creating {field["field_name"]} field'
-                ],
-                msg_lvl='INFO',
-                msg_type=params["params_type"],
-                log=log,
-                progress=False
-            )
-            # Convert FIELD data types to Esri equivalents
-            esri_data_type = convert_datatype(field["field_type"], params, log)
 
-            # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/add-field.htm
-            arcpy.management.AddField(
-                in_table=fc["name"],
-                field_name=field["field_name"],
-                field_type=esri_data_type,
-                field_precision=field["field_precision"],
-                field_scale=field["field_scale"],
-                field_length=field["field_length"],
-                field_alias=field["field_alias"],
-                field_is_nullable=field["field_is_nullable"],
-                field_is_required=field["field_is_required"],
-                field_domain=field["field_domain"]
-            )
-            default_value = field["field_default"]
-            if len(default_value) > 0:
+        # Determine what CLDXF version to support
+        cldxf_field_removals = []
+        for cldxf_country in fc["country_specific_field_removals"]:
+            if params["cldxf_support"] == f'CLDXF-{cldxf_country}':
+                cldxf_field_removals = fc["country_specific_field_removals"][cldxf_country]
+
+        # Append fields to Feature Class
+        for field in fc["fields"]:
+            if field["field_name"] not in cldxf_field_removals:
                 messages(
                     msgs=[
-                        f'|----Adding default value "{default_value}" to {field["field_name"]} field...'
+                        f'|---Creating {field["field_name"]} field'
                     ],
                     msg_lvl='INFO',
                     msg_type=params["params_type"],
                     log=log,
                     progress=False
                 )
-                # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/assign-default-to-field.htm
-                arcpy.management.AssignDefaultToField(
+                # Convert FIELD data types to Esri equivalents
+                esri_data_type = convert_datatype(field["field_type"], params, log)
+
+                # Domain handling due to differences in CDLXF versions
+                domain = field["field_domain"]
+                if params["cldxf_support"] == f'CLDXF-CA' and field["field_name"] == 'Place_Type':
+                    domain = ''
+
+                # Add field to feature class
+                # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/add-field.htm
+                arcpy.management.AddField(
                     in_table=fc["name"],
                     field_name=field["field_name"],
-                    default_value=default_value
+                    field_type=esri_data_type,
+                    field_precision=field["field_precision"],
+                    field_scale=field["field_scale"],
+                    field_length=field["field_length"],
+                    field_alias=field["field_alias"],
+                    field_is_nullable=field["field_is_nullable"],
+                    field_is_required=field["field_is_required"],
+                    field_domain=domain
                 )
+
+                # Populate default value to field
+                default_value = field["field_default"]
+                if len(default_value) > 0:
+                    messages(
+                        msgs=[
+                            f'|----Adding default value "{default_value}" to {field["field_name"]} field...'
+                        ],
+                        msg_lvl='INFO',
+                        msg_type=params["params_type"],
+                        log=log,
+                        progress=False
+                    )
+                    # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/assign-default-to-field.htm
+                    arcpy.management.AssignDefaultToField(
+                        in_table=fc["name"],
+                        field_name=field["field_name"],
+                        default_value=default_value
+                    )
+            else:
+                messages(
+                    msgs=[
+                        f'|---Skipping {field["field_name"]} field, not supported in {params["cldxf_support"]}'
+                    ],
+                    msg_lvl='INFO',
+                    msg_type=params["params_type"],
+                    log=log,
+                    progress=False
+                )
+
+        # Convert DateUpdate field to UTC time tracked field.
         messages(
             msgs=[
                 '|- Enabling UTC date tracking on DateUpdate field...'
@@ -518,8 +548,8 @@ if __name__ == '__main__':
         "output_template_name": 'NG911_GISDataModelTemplate_v3',
         "file_type": 'File Geodatabase (.gdb)',
         "gdb_version": 'CURRENT',
+        "cldxf_support": 'CLDXF-CA',  # Combined | CLDXF-CA | CLDXF-US
         "spatial_reference_horizontal": CONSTANTS.SR_WGS84_HORIZONTAL,
-        "spatial_reference_vertical": CONSTANTS.SR_WGS84_VERTICAL,
         "allow_overwrite": "true",
         "primary": "false",
         "include_metadata": "true"
