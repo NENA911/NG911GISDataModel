@@ -894,9 +894,10 @@ feature_classes:
     has_m: false
     has_z: true
     primary: true
-    country_specific_field_removals:
-      - CA: []
-      - US: ['AddCode_L', 'AddCode_R']
+    country_specific_field_removals: {
+      CA: [],
+      US: ['AddCode_L', 'AddCode_R']
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -1474,9 +1475,10 @@ feature_classes:
     has_m: false
     has_z: true
     primary: true
-    country_specific_field_removals:
-      - CA: ['PostCodeEx', 'UnitPreTyp', 'UnitValue']
-      - US: ['AddCode', 'Unit']
+    country_specific_field_removals: {
+      CA: ['PostCodeEx', 'UnitPreTyp', 'UnitValue'],
+      US: ['AddCode', 'Unit']
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -2090,9 +2092,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ 'PostCodeEx', 'UnitPreTyp', 'UnitValue' ]
-      - US: [ 'AddCode', 'Unit' ]
+    country_specific_field_removals: {
+      CA: [ 'PostCodeEx', 'UnitPreTyp', 'UnitValue' ],
+      US: [ 'AddCode', 'Unit' ]
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -2636,9 +2639,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: []
-      - US: []
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -2768,9 +2772,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -2908,9 +2913,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3047,9 +3053,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3187,9 +3194,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: false
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3324,9 +3332,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3399,9 +3408,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3490,9 +3500,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: ['AddCode']
+    country_specific_field_removals: {
+      CA: [],
+      US: ['AddCode']
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3601,9 +3612,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ 'AddCode' ]
+    country_specific_field_removals: {
+      CA: [],
+      US: ['AddCode']
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3723,9 +3735,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ 'AddCode' ]
+    country_specific_field_removals: {
+      CA: [],
+      US: ['AddCode']
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3854,9 +3867,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -3986,9 +4000,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -4087,9 +4102,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -4159,9 +4175,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -4231,9 +4248,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
@@ -4341,9 +4359,10 @@ feature_classes:
     has_m: false
     has_z: false
     primary: true
-    country_specific_field_removals:
-      - CA: [ ]
-      - US: [ ]
+    country_specific_field_removals: {
+      CA: [],
+      US: []
+    }
     fields:
       - field_name: 'DiscrpAgID'
         field_alias: 'Discrepancy Agency ID'
