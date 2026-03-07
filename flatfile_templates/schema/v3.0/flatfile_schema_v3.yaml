@@ -37,6 +37,10 @@ domains:
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
+      # IMPORTANT! Add your coded domain values here
+      # '3h12jk': '3h12jk'
+      # '100232': '100232'
+      # 'AREQUF': 'AREQUF'
   - domain_name: 'AddressNumber'
     domain_description: |
       The integer identifier of a location along a thoroughfare or within a defined community.
@@ -139,18 +143,32 @@ domains:
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
+      # IMPORTANT! Add your coded domain values here
+      # 'Washington County': 'Washington County'
+      # 'District of Columbia': 'District of Columbia'
+      # 'Capitale-Nationale': 'Capitale-Nationale'
+      # 'Region of Peel': 'Region of Peel'
   - domain_name: 'AdministrativeLevels3'
     domain_description: |
       The name of the secondary division of a state, province, or territory. In Canada, where no Administrative Level 2 exists, it can be the name of the primary division of the province or territory.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
+      # IMPORTANT! Add your coded domain values here
+      # 'Southlake': 'Southlake'
+      # 'Alpine': 'Alpine'
+      # 'Yellowknife': 'Yellowknife'
   - domain_name: 'AgencyID'
     domain_description: |
       A Domain Name System (DNS) domain name which is used to uniquely identify an agency.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
+      # IMPORTANT! Add your coded domain values here
+      # 'psap.harriscounty.tx.us': 'psap.harriscounty.tx.us'
+      # 'police.allegheny.pa.us': 'police.allegheny.pa.us'
+      # 'newbrunswick.ca': 'newbrunswick.ca'
+      # 'flctnecd.gov': 'flctnecd.gov'
   - domain_name: 'DistanceMarkerIndicator'
     domain_description: |
       Indicator of the type of distance marker.
@@ -176,6 +194,10 @@ domains:
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
+      # IMPORTANT! Add your coded domain values here
+      # '54321': '54321'
+      # '120': '120'
+      # '001': '001'
   - domain_name: 'Latitude'
     domain_description: |
       The angular distance of a location north or south of the equator as defined by the coordinate system, expressed in decimal degrees.
@@ -322,12 +344,19 @@ domains:
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
+      # IMPORTANT! Add your coded domain values here
+      # '02109': '02109'
+      # 'M4E 2V4': 'M4E 2V4'
   - domain_name: 'PostalCommunityName'
     domain_description: |
       A mailing place name for the Postal Code of an address.
     field_type: 'TEXT'
     domain_type: 'CODED'
     values:
+      # IMPORTANT! Add your coded domain values here
+      # 'Bowen': 'Bowen'
+      # 'Cypress': 'Cypress'
+      # 'Sarnia': 'Sarnia'
   - domain_name: 'RoadClass'
     domain_description: |
       The general description of the type of road.
