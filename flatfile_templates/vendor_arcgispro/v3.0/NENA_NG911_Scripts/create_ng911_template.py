@@ -16,15 +16,20 @@
 |
 | TODO: Resolve issue with Esri not recognizing EPSG 4979
 | TODO: Create ArcGIS Toolbox
-| TODO: Add code support to generate File Geodatabase and/or GeoPackage in code
 | TODO: Add code support for field level metadata. Blocked by Esri.
 | TODO: Add code to check if user has ArcGIS Pro license and to refresh if necessary.
+| TODO: Resolve issue with FGDB names with period in the name.
+| TODO: Resolve issue with overwrite due to Esri only deleting contents of FGDB but not parent folder
 """
 import arcpy
 import os
+import xml.etree.ElementTree as ET
 import yaml
+from pathlib import Path
+from shutil import rmtree
 from six import iteritems
 from sys import exit
+
 from util import CreateLogger
 
 # ==============================================================================
@@ -106,6 +111,13 @@ def convert_datatype(in_data_type, params, log):
     return esri_data_type
 
 
+def export_parse_metadata(tmp_path, item_path, name):
+    temp_xml = os.path.join(tmp_path, f'{name}.xml')
+    tmd = arcpy.metadata.Metadata(item_path)
+    tmd.exportMetadata(temp_xml, 'ISO19115_3')
+    return ET.parse(temp_xml).getroot()
+
+
 # ==============================================================================
 # Functions
 # ==============================================================================
@@ -177,30 +189,31 @@ def main(**params):
     # =========================================================================
 
     # Create output file geodatabase name and path
-    fgdb_name = params["output_template_name"]
-    if fgdb_name.endswith('.gdb'):
-        fgdb_name = fgdb_name[-4]
-    output_fgdb = os.path.join(fgdb_name + params["file_type"][-5:-1])
-    output_fgdb_path = os.path.join(params["output_folder"], output_fgdb)
+    db_name = Path(params["output_template_name"]).stem
+    output_fgdb_path = os.path.join(params["output_folder"], f'{db_name}.gdb')
+    output_gpkg_path = os.path.join(params["output_folder"], f'{db_name}.gpkg')
 
     # Check if the File Geodatabase exists. Add Error if Allow Overwrite not enabled
     # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/exists.htm
-    if arcpy.Exists(output_fgdb_path):
+    if os.path.exists(output_fgdb_path) or os.path.exists(output_gpkg_path):
         if params["allow_overwrite"] == "true":
             messages(
                 msgs=[
-                    'Deleting {}...'.format(output_fgdb)
+                    'Deleting {}...'.format(f'{db_name} database...')
                 ],
                 msg_lvl='WARN',
                 msg_type=params["params_type"],
                 log=log
             )
+            # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/clear-workspace-cache.htm
+            arcpy.management.ClearWorkspaceCache()
             # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/delete.htm
             arcpy.management.Delete(output_fgdb_path)
+            arcpy.management.Delete(output_gpkg_path)
         else:
             messages(
                 msgs=[
-                    f'{output_fgdb} already exists.Please select a different location or enable Allow Overwrite in the Options.'
+                    f'{db_name} already exists. Please select a different location or enable Allow Overwrite in the Options.'
                 ],
                 msg_lvl='ERROR',
                 msg_type=params["params_type"],
@@ -210,7 +223,7 @@ def main(**params):
     messages(
         msgs=[
             '{}'.format("#" * 80),
-            'Creating File Geodatabase...',
+            'Creating template database(s)...',
             '{}'.format("#" * 80)
         ],
         msg_lvl='INFO',
@@ -222,7 +235,7 @@ def main(**params):
     # Create new File Geodatabase
     messages(
         msgs=[
-            'Creating...'.format(output_fgdb_path)
+            f'Creating {output_fgdb_path}...'
         ],
         msg_lvl='INFO',
         msg_type=params["params_type"],
@@ -240,7 +253,7 @@ def main(**params):
     if not arcpy.Exists(output_fgdb_path):
         messages(
             msgs=[
-                f'ERROR: {output_fgdb} failed to be created.'
+                f'ERROR: {db_name}.gdb failed to be created.'
             ],
             msg_lvl='ERROR',
             msg_type=params["params_type"],
@@ -249,7 +262,7 @@ def main(**params):
     else:
         messages(
             msgs=[
-                f'{output_fgdb} successfully created.'
+                f'{db_name}.gdb successfully created.'
             ],
             msg_lvl='INFO',
             msg_type=params["params_type"],
@@ -258,6 +271,44 @@ def main(**params):
 
     arcpy.env.workspace = output_fgdb_path
 
+    if params["file_type"] == 'Both' or params["file_type"] == 'GeoPackage (.gpkg)':
+        # Create new Geopackage
+        messages(
+            msgs=[
+                f'Creating {output_gpkg_path}...'
+            ],
+            msg_lvl='INFO',
+            msg_type=params["params_type"],
+            log=log
+        )
+
+        # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-sqlite-database.htm
+        arcpy.management.CreateSQLiteDatabase(
+            out_database_name=output_gpkg_path,
+            spatial_type='GEOPACKAGE'
+        )
+
+        # Check if the GeoPackage was created
+        if not arcpy.Exists(output_gpkg_path):
+            messages(
+                msgs=[
+                    f'ERROR: {db_name}.gpkg failed to be created.'
+                ],
+                msg_lvl='ERROR',
+                msg_type=params["params_type"],
+                log=log
+            )
+        else:
+            messages(
+                msgs=[
+                    f'{db_name}.gpkg successfully created.'
+                ],
+                msg_lvl='INFO',
+                msg_type=params["params_type"],
+                log=log
+            )
+
+    # =========================================================================
     # Create NG9-1-1 FGDB Metadata
     # https://pro.arcgis.com/en/pro-app/latest/arcpy/metadata/metadata-class.htm
     if params['include_metadata'] == 'true':
@@ -269,7 +320,8 @@ def main(**params):
         md.credits = CONSTANTS.MD_CREDIT
         md.save()
 
-    # Create NENA Domains and populate initial data, is provided.
+    # =========================================================================
+    # Create NENA Domains and populate initial data, if defined by NENA.
     messages(
         msgs=[
             '{}'.format("#" * 80),
@@ -377,6 +429,8 @@ def main(**params):
         progress=False
     )
 
+    # =========================================================================
+    # Create Feature Classes
     for fc in primary_layers:
         messages(
             msgs=[
@@ -386,16 +440,8 @@ def main(**params):
             msg_type=params["params_type"],
             log=log
         )
-        # Create Esri spatial reference definition
-        # https://pro.arcgis.com/en/pro-app/latest/arcpy/classes/spatialreference.htm
-        # TODO: Resolve issue with ArcGIS Pro not recognizing EPSG 4979.
-        """
-        if fc["has_z"]:
-            sr = arcpy.SpatialReference(int(params["spatial_reference_horizontal"]), int(params["spatial_reference_vertical"]))
-        else:
-            sr = arcpy.SpatialReference(int(params["spatial_reference_horizontal"]))
-        """
 
+        # =====================================================================
         # Create empty Feature Class
         # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-feature-class.htm
         arcpy.management.CreateFeatureclass(
@@ -488,6 +534,7 @@ def main(**params):
                     progress=False
                 )
 
+        # =====================================================================
         # Convert DateUpdate field to UTC time tracked field.
         messages(
             msgs=[
@@ -505,6 +552,7 @@ def main(**params):
             record_dates_in='UTC'
         )
 
+        # =====================================================================
         # Create NG9-1-1 Feature Class Metadata
         # https://pro.arcgis.com/en/pro-app/latest/arcpy/metadata/metadata-class.htm
         if params['include_metadata'] == 'true':
@@ -528,45 +576,107 @@ def main(**params):
     # Module Cleanup
     # =========================================================================
 
+    # GeoPackage Support
+    if params["file_type"] == 'Both' or params["file_type"] == 'GeoPackage (.gpkg)':
+        # Copy feature classes from FGDB to GPKG
+        messages(
+            msgs=[
+                '|- Copying FGDB feature classes to GeoPackage...'
+            ],
+            msg_lvl='INFO',
+            msg_type=params["params_type"],
+            log=log,
+            progress=False
+        )
+        # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/listfeatureclasses.htm
+        featureclasses = arcpy.ListFeatureClasses()
+        for feat in featureclasses:
+            # https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/copy-features.htm
+            out_fc = os.path.join(output_gpkg_path, feat)
+            arcpy.management.CopyFeatures(feat, out_fc)
+
+        # Create GeoPackage Metadata
+        messages(
+            msgs=[
+                '|- Writing GeoPackage metadata...'
+            ],
+            msg_lvl='INFO',
+            msg_type=params["params_type"],
+            log=log,
+            progress=False
+        )
+        output_xml = f'{output_gpkg_path}.xml'
+        tmp_path = os.path.join(os.path.dirname(__file__), 'tmp')
+        if not os.path.exists(tmp_path):
+            os.makedirs(tmp_path)
+        xml_root = ET.Element('NENAStandardforNG9-1-1GISDataModel')
+        db_root = export_parse_metadata(tmp_path, output_fgdb_path, name="database")
+        db_element = ET.SubElement(xml_root, 'GISDataModel')
+        db_element.append(db_root)
+
+        layers = arcpy.ListFeatureClasses()
+        for layer in layers:
+            item_path = os.path.join(output_fgdb_path, layer)
+            item_root = export_parse_metadata(tmp_path, item_path, name=layer)
+            item_element = ET.SubElement(xml_root, 'LayerMetadata', name=layer)
+            item_element.append(item_root)
+
+        tree = ET.ElementTree(xml_root)
+        tree.write(output_xml, encoding="utf-8", xml_declaration=True)
+
+    if params["file_type"] == 'GeoPackage (.gpkg)':
+        arcpy.management.ClearWorkspaceCache()
+        rmtree(output_fgdb_path)
+
+
 if __name__ == '__main__':
     """  Transfers Toolbox Parameters to the script.
           
-    :returns  params    Dictionary of script parameters
+    :returns params    Dictionary of script parameters
+               params_type: Defines if the code is run from CONSOLE or TOOLBOX
+               output_folder: Path to the output folder.
+               output_template_name: Name of the output database
+               file_type: Database format options [Both | File geodatabase (.gdb) | GeoPackage (.gpkg)]
+               gdb_version: File geodatabase version [CURRENT]
+               cldxf_support: CLXDF support options [Combined | CLDXF-CA | CLDXF-US]
+               spatial_reference_horizontal: EPSG Code
+               allow_overwrite: [true|false]
+               primary: [true|false]
+               include_metadata: [true|false]
     """
 
-    # Parameters if you want to run this Python script from the console
-    # Be sure to change the main() function kwargs to 'main(**console_params)`
-    # and change the variables to your environment
+    # The console_params are provided if you wish to run this Python script from
+    # the console. Be sure to change the man() function to pass the console_params
+    # kwargs (e.g., 'main(**console_params)' and change the values to your
+    # environment
 
-    # desktop_path = "~\\Desktop"
-    desktop_path = "~\\OneDrive\\Desktop"
-    temp = os.path.expanduser(desktop_path)
+    output_folder = r'c:\temp'
 
     console_params = {
         "params_type": 'CONSOLE',      # Do not change this parameter
-        "output_folder": temp,
+        "output_folder": output_folder,
         "output_template_name": 'NG911_GISDataModelTemplate_v3',
-        "file_type": 'File Geodatabase (.gdb)',
+        "file_type": 'Both',
         "gdb_version": 'CURRENT',
-        "cldxf_support": 'CLDXF-CA',  # Combined | CLDXF-CA | CLDXF-US
+        "cldxf_support": 'Combined',  # Combined | CLDXF-CA | CLDXF-US
         "spatial_reference_horizontal": CONSTANTS.SR_WGS84_HORIZONTAL,
         "allow_overwrite": "true",
         "primary": "false",
         "include_metadata": "true"
     }
 
+    # The toolbox_params are used if running this code from an ArcGIS Toolbox
     # https://pro.arcgis.com/en/pro-app/latest/arcpy/functions/getparameterastext.htm
-    # TODO: Not yet implemented.
     toolbox_params = {
         "params_type": 'TOOLBOX',
         "output_folder": arcpy.GetParameterAsText(0),
         "output_template_name": arcpy.GetParameterAsText(1),
-        "file_type": 'File Geodatabase (.gdb)',
-        "gdb_version": arcpy.GetParameterAsText(2),
-        "spatial_reference_horizontal": arcpy.GetParameterAsText(3),
-        "spatial_reference_vertical": CONSTANTS.SR_WGS84_VERTICAL,
-        "allow_overwrite": arcpy.GetParameterAsText(4),
-        "primary": arcpy.GetParameterAsText(5),
-        "include_metadata": arcpy.GetParameterAsText(6)
+        "file_type": arcpy.GetParameterAsText(2),
+        "gdb_version": arcpy.GetParameterAsText(3),
+        "cldxf_support": arcpy.GetParameterAsText(4),
+        "spatial_reference_horizontal": arcpy.GetParameterAsText(5),
+        "allow_overwrite": arcpy.GetParameterAsText(6),
+        "primary": arcpy.GetParameterAsText(7),
+        "include_metadata": arcpy.GetParameterAsText(8)
     }
     main(**console_params)
