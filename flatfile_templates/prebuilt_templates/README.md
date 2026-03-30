@@ -4,7 +4,7 @@ The **prebuilt_templates** folder contains the NENA NG9-1-1 GIS Data Model
 pre-built templates in sub-folders by version.
 
 These pre-built templates are directly tied to their associated NENA document
-(NENA-STA-006.x-YYYY). They are only updated when the associated document is 
+(NENA-STA-006.3-2026). They are only updated when the associated document is 
 released.
 
 **Domains are only accurate at time of publication.**

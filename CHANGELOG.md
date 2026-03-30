@@ -3,9 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ---
  
-## v3.0 - YYYY-MM-DD
+## v3.0 - 2026-03-24
  
-This release of the **NENA NG9-1-1 GIS Data Model Templates** is in alignment with NENA's NG9-1-1 GIS Data Model ([NENA-STA-006.3-YYYY](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.3-2026_ng9-1-1.pdf)) approved by the NENA Board of Directors on YYYY-MM-DD.
+This release of the **NENA NG9-1-1 GIS Data Model Templates** is in alignment with NENA's NG9-1-1 GIS Data Model ([NENA-STA-006.3-2026](https://github.com/NENA911/NG911GISDataModel/blob/main/docs/nena-sta-006.3-2026_ng9-1-1.pdf)) approved by the NENA Board of Directors on 2026-03-24.
  
 ### Changed
 - Created the SiteStructureAddressPolygon layer.

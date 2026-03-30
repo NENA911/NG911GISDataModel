@@ -100,7 +100,7 @@ DSM-NG GIS Data Model working group.
 # Version History
 All notable changes to the NG9-1-1 GIS Data Model Templates will be documented in this file. This project adheres to the[NENA Rules for Code Repositories](https://github.com/babley/NENA-Rules-for-Code-Repositories/blob/main/NENA-ADM-012-2021.md). For a more detailed Change Log, please visit the [CHANGE_LOG](CHANGELOG.md).
 
-### v3.0 - YYYY-MM-DD
+### [v3.0 - 2026-03-24](https://github.com/NENA911/NG911GISDataModel/releases/tag/3.0)
 
 ### [v2.0a - 2023-05-07](https://github.com/NENA911/NG911GISDataModel/releases/tag/2.0a)
 
