@@ -19,7 +19,7 @@
 | TODO: Add code support for field level metadata. Blocked by Esri.
 | TODO: Add code to check if user has ArcGIS Pro license and to refresh if necessary.
 | TODO: Resolve issue with FGDB names with period in the name.
-| TODO: Resolve issue with overwrite due to Esri only deleting contents of FGDB but not parent folder
+| TODO: Resolve issue with overwrite due to Esri only deleting contents of FGDB but not parent folder. This appears to be an Esri bug associated with Windows 11 and its use of OneDrive. OneDrive appears to lock the parent folder. Moving from the Desktop folder to c:\temp is used as a workaround for the issue.
 """
 import arcpy
 import os
