@@ -15,11 +15,10 @@
 | Author:    NENA Data Structures Committee, DS-GIS Template Working Group
 |
 | TODO: Resolve issue with Esri not recognizing EPSG 4979
-| TODO: Create ArcGIS Toolbox
 | TODO: Add code support for field level metadata. Blocked by Esri.
 | TODO: Add code to check if user has ArcGIS Pro license and to refresh if necessary.
 | TODO: Resolve issue with FGDB names with period in the name.
-| TODO: Resolve issue with overwrite due to Esri only deleting contents of FGDB but not parent folder. This appears to be an Esri bug associated with Windows 11 and its use of OneDrive. OneDrive appears to lock the parent folder. Moving from the Desktop folder to c:\temp is used as a workaround for the issue.
+| TODO: Resolve issue with overwrite due to Esri only deleting contents of FGDB but not parent folder. This appears to be an Esri bug associated with Windows 11 Home and its use of OneDrive. OneDrive appears to lock the parent folder. Moving from the Desktop folder to c:\temp is used as a workaround for the issue.
 """
 import arcpy
 import os
@@ -450,13 +449,13 @@ def main(**params):
             geometry_type=fc["geometry_type"],
             has_m="Yes" if fc["has_m"] else "No",
             has_z="Yes" if fc["has_z"] else "No",
-            spatial_reference=arcpy.SpatialReference(params["spatial_reference_horizontal"]),
+            spatial_reference=params["spatial_reference_horizontal"],
             out_alias=fc["alias"]
         )
 
         messages(
             msgs=[
-                f'|- Creating {fc["fields"]} fields for {fc["name"]}...'
+                f'|- Creating fields for {fc["name"]}...'
             ],
             msg_lvl='INFO',
             msg_type=params["params_type"],
@@ -639,7 +638,7 @@ if __name__ == '__main__':
                file_type: Database format options [Both | File geodatabase (.gdb) | GeoPackage (.gpkg)]
                gdb_version: File geodatabase version [CURRENT]
                cldxf_support: CLXDF support options [Combined | CLDXF-CA | CLDXF-US]
-               spatial_reference_horizontal: EPSG Code
+               spatial_reference_horizontal:
                allow_overwrite: [true|false]
                primary: [true|false]
                include_metadata: [true|false]
@@ -679,4 +678,4 @@ if __name__ == '__main__':
         "primary": arcpy.GetParameterAsText(7),
         "include_metadata": arcpy.GetParameterAsText(8)
     }
-    main(**console_params)
+    main(**toolbox_params)
