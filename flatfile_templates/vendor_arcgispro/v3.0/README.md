@@ -57,7 +57,7 @@ If you are interested in creating the NENA GIS Data Model template from the supp
 * Double-click **Create NG9-1-1 GIS Data Model Template** to run the geoprocessing tool.<br>
   ![](../.imgs/arcgispro_create_fgdb_dialog.png)
 
-#### Create NG9-1-1 GIS Data Model Template Tool
+### Create NG9-1-1 GIS Data Model Template Tool
 
 The **Create NG9-1-1 GIS Data Model Template** tool takes approximately seven to nine minutes to build out the complete database(s). 
 
