@@ -18,3 +18,4 @@ released.
   * [NG911_GISDataModelSchemaReport_v3.0.xlsx](v3.0/NG911_GISDataModelSchemaReport_v3.0.xlsx) - Microsoft Excel spreadsheet providing an schema report.
   * [NG911_GISDataModelTemplate_v3.0.gdb.zip](v3.0/NG911_GISDataModelTemplate_v3.0.gdb.zip) - ZIP archive of Esri file geodatabase (FGDB) version of the template.
   * [NG911_GISDataModelTemplate_v3.0.gpkg](v3.0/NG911_GISDataModelTemplate_v3.0.gpkg) - Geopackage (GPKG) version of the template.
+  * [NG911_GISDataModelTemplate_v3.0.gpkg.xml](v3.0/NG911_GISDataModelTemplate_v3.gpkg.xml) - GeoPackage (GPKG) Metadata file.
