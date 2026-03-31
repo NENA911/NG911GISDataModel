@@ -44,7 +44,7 @@ This folder contains Python scripts and ArcGIS Pro Toolbox capable of creating N
 
 If you are interested in creating the NENA GIS Data Model template from the supplied ArcGIS Pro Toolbox, you must download/clone the Git repository to your local computer before proceeding.
 
-<summary>ArcGIS Pro Instructions</summary>
+####ArcGIS Pro Instructions
 
 * From the **Start** menu, open **ArcGIS Pro**
 * Create a new project using the **Catalog** template
