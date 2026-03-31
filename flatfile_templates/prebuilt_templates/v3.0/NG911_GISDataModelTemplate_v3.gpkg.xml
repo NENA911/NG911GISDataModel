@@ -1,0 +1,1417 @@
+<?xml version='1.0' encoding='utf-8'?>
+<NENAStandardforNG9-1-1GISDataModel xmlns:ns0="http://standards.iso.org/iso/19115/-3/mdb/1.0" xmlns:ns1="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:ns2="http://standards.iso.org/iso/19115/-3/cit/1.0" xmlns:ns3="http://standards.iso.org/iso/19115/-3/mri/1.0"><GISDataModel><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Next Generation 9-1-1 GIS Data Template</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>The purpose of the template is to serve as a reference implementation of the current National Emergency Number Association's NG9-1-1 GIS Data Model (NENA-STA-006.3-2026). While the template can be used as a data structure for local GIS data, it is not a requirement. An entity which builds and maintains GIS data for NG9-1-1 need only be able to transform their internally-managed GIS data into a format which matches this template in preparation for data exchange with an external entity. For more information on the specifics of each field, attribute, relationship, etc. please refer to the "NENA Standard for NG9-1-1 GIS Data Model (NENA-STA-006.3-2026)"  This standard can be found at https://www.nena.org/page/standards and database templates can be found at https://github.com/NENA911/NG911GISDataModel. This metadata is provided to give the end user a high level overview of the template.  End users who use this template are encouraged to provide their own metadata in accordance with their internal data distribution policies.</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>GIS data model template that is conformant with the NG9-1-1 Data Model Standard (NENA-STA-006.3-2026). This data template is a National Emergency Number Association (NENA) working group-approved representation of the data model outlined in NENA Standard for NG9-1-1 GIS Data Model (NENA-STA-006.3-2026)</ns1:CharacterString>
+</ns3:purpose>
+<ns3:credit>
+<ns1:CharacterString>This template was prepared by a National Emergency Number Association (NENA) working group called the "GIS Data Model Working Group". The working group operated under the Data Structures Committee; a NENA committee that maintains interoperable 9-1-1 data formats.</ns1:CharacterString>
+</ns3:credit>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>NENA</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>NG9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>GIS</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>Data Model</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></GISDataModel><LayerMetadata name="RoadCenterLine"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Road CenterLines</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Roads data is maintained as a line layer for representing the centerline of a roadway. This dataset is referred to as the RoadCenterLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. GIS road centerline arc-node topology is associated with attribute data containing information on street names, address ranges, jurisdictional boundaries, and other attributes. The RoadCenterLine layer is an integral part of any public safety GIS due to its versatility and use for:
+
+•	Querying and geocoding of civic addresses based on dual (left/right) address ranges
+•	Tactical map display
+•	Map and attribute viewing
+•	Map production
+•	Location and driving directions
+•	Integration of network topology to allow vehicle routing, drive time analysis
+•	Integration of spatially related attributes for advanced applications including those focused on public safety, asset management, planning, utilities, and public works
+
+All Road Centerlines MUST have the Street Name field populated, even if unnamed.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Roads data is maintained as a line layer for representing the centerline of a roadway. This dataset is referred to as the RoadCenterLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. GIS road centerline arc-node topology is associated with attribute data containing information on street names, address ranges, jurisdictional boundaries, and other attributes. The RoadCenterLine layer is an integral part of any public safety GIS due to its versatility and use for:
+
+•	Querying and geocoding of civic addresses based on dual (left/right) address ranges
+•	Tactical map display
+•	Map and attribute viewing
+•	Map production
+•	Location and driving directions
+•	Integration of network topology to allow vehicle routing, drive time analysis
+•	Integration of spatially related attributes for advanced applications including those focused on public safety, asset management, planning, utilities, and public works
+
+All Road Centerlines MUST have the Street Name field populated, even if unnamed.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>transportation</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>road centerlines</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="SiteStructureAddressPoint"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Site/Structure Address Points</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Site/Structure Addresses data is maintained as a point layer that supports 3D for representing the location of a site, a structure, an interior space, or access to a site, structure, or an interior space. This dataset is referred to as the SiteStructureAddressPoint layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. While the SiteStructureAddressPoint layer is required, there is no requirement for the completeness of these data. It is understood that it will take time and resources to develop complete and accurate Site/Structure Addresses data.
+
+Site/Structure Addresses data can be used to locate sites that otherwise may not geocode correctly using the road centerline data. It can also be used to locate areas of unusual addressing (i.e., odd addresses on the even side of the road centerlines and vice versa), and other areas where the data is available. Some addressable locations may be problematic near boundaries.
+
+The Address Number, Street Name, and Administrative Levels 1-5 attributes in the SiteStructureAddressPoint layer SHOULD be consistent with the address number range, street name, and left/right Administrative Level attribute combinations found in the RoadCenterLine layer.
+
+While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Addresses data described in this Standard.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Site/Structure Addresses data is maintained as a point layer that supports 3D for representing the location of a site, a structure, an interior space, or access to a site, structure, or an interior space. This dataset is referred to as the SiteStructureAddressPoint layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. While the SiteStructureAddressPoint layer is required, there is no requirement for the completeness of these data. It is understood that it will take time and resources to develop complete and accurate Site/Structure Addresses data.
+
+Site/Structure Addresses data can be used to locate sites that otherwise may not geocode correctly using the road centerline data. It can also be used to locate areas of unusual addressing (i.e., odd addresses on the even side of the road centerlines and vice versa), and other areas where the data is available. Some addressable locations may be problematic near boundaries.
+
+The Address Number, Street Name, and Administrative Levels 1-5 attributes in the SiteStructureAddressPoint layer SHOULD be consistent with the address number range, street name, and left/right Administrative Level attribute combinations found in the RoadCenterLine layer.
+
+While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Addresses data described in this Standard.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>address</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>situs</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="SiteStructureAddressPolygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Site/Structure Address Polygons</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Site/Structure Addresses data is maintained as a polygon layer to represent the extent of addressable areas such as outdoor sites, structures, or interior spaces. This dataset is referred to as the SiteStructureAddressPolygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. It is understood that it will take time and resources to fully develop complete and accurate Site/Structure Addresses data.
+
+Site/Structure Address Polygon data can be used to more effectively convert geodetic locations into civic locations than Site/Structure Address Point data. This is because the polygon represents the extent of the space whereas the point provides no information as to its extent. Gaps and overlaps between SiteStructureAddressPolygon features MAY exist and are permissible (e.g., a room on a floor within a building may be represented as three overlapping SiteStructureAddressPolygon features).
+
+SiteStructureAddressPolygon feature attribution SHOULD be consistent with the attribution of related SiteStructureAddressPoint or RoadCenterLine features where they exist.
+
+While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Address Polygon data described in this Standard.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Site/Structure Addresses data is maintained as a polygon layer to represent the extent of addressable areas such as outdoor sites, structures, or interior spaces. This dataset is referred to as the SiteStructureAddressPolygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. It is understood that it will take time and resources to fully develop complete and accurate Site/Structure Addresses data.
+
+Site/Structure Address Polygon data can be used to more effectively convert geodetic locations into civic locations than Site/Structure Address Point data. This is because the polygon represents the extent of the space whereas the point provides no information as to its extent. Gaps and overlaps between SiteStructureAddressPolygon features MAY exist and are permissible (e.g., a room on a floor within a building may be represented as three overlapping SiteStructureAddressPolygon features).
+
+SiteStructureAddressPolygon feature attribution SHOULD be consistent with the attribution of related SiteStructureAddressPoint or RoadCenterLine features where they exist.
+
+While there may be address data available, it may not be in the standardized format of this structure. GIS Data Providers should be working toward developing and maintaining the Site/Structure Address Polygon data described in this Standard.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>address</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>situs</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="PsapPolygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>PSAP Polygon</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>In an NG9-1-1 deployment, the initial routing of a 9-1-1 call cannot happen without Primary PSAP boundaries. It is the most critical layer and MUST be provided. Its data structure is the same as all service boundary layers defined in this section. All polygons in this layer MUST have a Service URN of urn:service:sos.
+
+The PsapPolygon layer may have one or many PSAP Boundaries contained in the layer. Each PSAP Boundary defines the geographic area of a PSAP that has primary responsibilities for an emergency request. This layer is used by the ECRF to perform a geographic query to determine the PSAP to which an emergency request is routed. An emergency request is routed using the NG9-1-1 Core Services based upon the geographic location of the request, provided by either a civic address, geographic coordinate, or geodetic shapes as defined in NENA-STA-010.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>In an NG9-1-1 deployment, the initial routing of a 9-1-1 call cannot happen without Primary PSAP boundaries. It is the most critical layer and MUST be provided. Its data structure is the same as all service boundary layers defined in this section. All polygons in this layer MUST have a Service URN of urn:service:sos.
+
+The PsapPolygon layer may have one or many PSAP Boundaries contained in the layer. Each PSAP Boundary defines the geographic area of a PSAP that has primary responsibilities for an emergency request. This layer is used by the ECRF to perform a geographic query to determine the PSAP to which an emergency request is routed. An emergency request is routed using the NG9-1-1 Core Services based upon the geographic location of the request, provided by either a civic address, geographic coordinate, or geodetic shapes as defined in NENA-STA-010.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>service boundary</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>psap</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="PolicePolygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Police Polygon</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired or to direct an EIDO to an agency for dispatch or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired or to direct an EIDO to an agency for dispatch or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>service boundary</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>police</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="FirePolygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Fire Polygon</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired or to direct an EIDO to an agency for dispatch or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired or to direct an EIDO to an agency for dispatch or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>service boundary</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>fire</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="EmsPolygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>EMS Polygon</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired or to direct an EIDO to an agency for dispatch or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>In an NG9-1-1 deployment, the selective transfer of 9-1-1 calls and Emergency Incident Data Objects (EIDOs) to another PSAP or downstream agency uses service boundary layers, all with the same data structure.
+
+The following layers (formerly known as Emergency Service Boundaries), which may be maintained as separate or combined, are the next highest priority for NG9-1-1 deployment. Primary Emergency Services MUST include the following:
+
+•	Police
+•	Fire
+•	Emergency Medical Services
+
+Each of these layers is used by the ECRF to perform a geographic query to determine which agencies are responsible for providing service to a location in the event a selective transfer is desired or to direct an EIDO to an agency for dispatch or to display the responsible agencies at the PSAP. In addition, service boundary layers are used by PSAPs to identify the appropriate entities/first responders to be dispatched. Each layer representing a primary emergency service may contain one or more polygon boundaries that define the primary emergency services for that geographic area.
+
+*Note: The service boundary layers described here are intended to represent the entirety of the service boundary of the agencies. In many agencies, the service boundary is broken into smaller areas served by a station/beat/platoon, with the service area of the agency being the union of the smaller areas. The layer can contain a polygon set (more than one polygon), which is intended to cover holes, and disconnected areas of service, which does occur. Because a polygon set is allowed, if this layer had the smaller polygons and if all of them have the same Service URI and Service URN (but not necessarily the same Display Name, for example), it would work correctly. It has the downside of increasing work on the ECRF since it has more polygons to consider. The SI Operator can advise whether small polygons can be accommodated in any given implementation.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>service boundary</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ems</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="ServiceBoundaryPolygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Service Boundary Polygon</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>In an NG9-1-1 deployment, the transfer of 9-1-1 calls uses service boundary layers, all with the same data structure. These agencies may be served by a call center, dispatch center, or other terms.
+
+Other service boundary layers, which may be maintained as separate or combined, MAY include, but are not limited to:
+
+•	Poison Control
+•	Forest Service
+•	Coast Guard
+•	Animal Control
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>In an NG9-1-1 deployment, the transfer of 9-1-1 calls uses service boundary layers, all with the same data structure. These agencies may be served by a call center, dispatch center, or other terms.
+
+Other service boundary layers, which may be maintained as separate or combined, MAY include, but are not limited to:
+
+•	Poison Control
+•	Forest Service
+•	Coast Guard
+•	Animal Control
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>service boundary</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>other</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="ProvisioningPolygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Provisioning Boundaries</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Provisioning Boundaries data is maintained as a polygon layer for representing the area of GIS data provisioning responsibility, with no unintentional gaps or overlaps. This dataset is commonly referred to as the ProvisioningPolygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. The Provisioning Boundary MUST align with data from all adjoining GIS Data Providers.
+
+A Provisioning Boundary can take on a variety of shapes; for example, it may represent the extent of a city, the extent of a county, a region with multiple cities and counties, or possibly the extent of all areas served by a particular PSAP.
+
+When provisioning data for an ECRF and LVF through the SI, a GIS Data Provider MUST only include GIS data within their Provisioning Boundary and MUST ensure the data includes coverage for the entire extent of their Provisioning Boundary. The Spatial Interface Operator will utilize the ProvisioningPolygon layer to ensure that these requirements are met.
+
+Note: The 9-1-1 Authority is ultimately responsible for the GIS data within the area they provide service for.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Provisioning Boundaries data is maintained as a polygon layer for representing the area of GIS data provisioning responsibility, with no unintentional gaps or overlaps. This dataset is commonly referred to as the ProvisioningPolygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. The Provisioning Boundary MUST align with data from all adjoining GIS Data Providers.
+
+A Provisioning Boundary can take on a variety of shapes; for example, it may represent the extent of a city, the extent of a county, a region with multiple cities and counties, or possibly the extent of all areas served by a particular PSAP.
+
+When provisioning data for an ECRF and LVF through the SI, a GIS Data Provider MUST only include GIS data within their Provisioning Boundary and MUST ensure the data includes coverage for the entire extent of their Provisioning Boundary. The Spatial Interface Operator will utilize the ProvisioningPolygon layer to ensure that these requirements are met.
+
+Note: The 9-1-1 Authority is ultimately responsible for the GIS data within the area they provide service for.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>provisioning boundary</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="A1Polygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Administrative Level 1 (A1) Polygons</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Administrative Level 1 data, formerly States or Equivalents (A1) data, is maintained as a polygon layer for representing the geographic area of a state, province, territory, or other top level subdivision of the larger country corresponding to the PIDF-LO A1 element. This dataset is referred to as the A1Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Administrative Level 1 data, formerly States or Equivalents (A1) data, is maintained as a polygon layer for representing the geographic area of a state, province, territory, or other top level subdivision of the larger country corresponding to the PIDF-LO A1 element. This dataset is referred to as the A1Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>administrative unit</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>state</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>province</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="A2Polygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Administrative Level 2 (A2) Polygons</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Administrative Level 2 data, formerly Counties or Equivalents (A2) data, is maintained as a polygon layer. It typically represents the geographic area of a county, parish, regional district, or other similar level division corresponding to the PIDF-LO A2 element. The presence of A2 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A2Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Administrative Level 2 data, formerly Counties or Equivalents (A2) data, is maintained as a polygon layer. It typically represents the geographic area of a county, parish, regional district, or other similar level division corresponding to the PIDF-LO A2 element. The presence of A2 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A2Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>administrative unit</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>county</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>parish</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="A3Polygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Administrative Level 3 (A3) Polygons</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Administrative Level 3 data, formerly Incorporated Municipalities (A3) data, is maintained as a polygon layer. It typically represents the geographic area of a city, town, village, or other similar level division corresponding to the PIDF-LO A3 element. The presence of A3 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A3Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Administrative Level 3 data, formerly Incorporated Municipalities (A3) data, is maintained as a polygon layer. It typically represents the geographic area of a city, town, village, or other similar level division corresponding to the PIDF-LO A3 element. The presence of A3 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A3Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>administrative unit</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>city</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>town</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>village</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="A4Polygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Administrative Level 4 (A4) Polygons</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Administrative Level 4 data, formerly Unincorporated Communities (A4) data, is maintained as a polygon layer. It typically represents the geographic area of an unincorporated community, borough, ward, or other similar level division corresponding to the PIDF-LO A4 element. The presence of A4 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A4Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Administrative Level 4 data, formerly Unincorporated Communities (A4) data, is maintained as a polygon layer. It typically represents the geographic area of an unincorporated community, borough, ward, or other similar level division corresponding to the PIDF-LO A4 element. The presence of A4 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A4Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>administrative unit</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>borough</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ward</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="A5Polygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Administrative Level 5 (A5) Polygons</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Administrative Level 5 data, formerly Neighborhood Communities (A5) data, is maintained as a polygon layer. It typically represents the geographic area of a neighborhood, commercial area, or other similar level division corresponding to the PIDF-LO A5 element. The presence of A5 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A5Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Administrative Level 5 data, formerly Neighborhood Communities (A5) data, is maintained as a polygon layer. It typically represents the geographic area of a neighborhood, commercial area, or other similar level division corresponding to the PIDF-LO A5 element. The presence of A5 polygon records is conditional based on the CLDXF Standard applicable to the country of the GIS Data Provider. This dataset is referred to as the A5Polygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>administrative unit</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>neighborhood</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>commercial area</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>subdivision</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="RailroadCenterLine"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Railroad CenterLine</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Railroads data is maintained as a line layer for representing the centerline of a rail line. This dataset is referred to as the RailroadCenterLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Federal Railroad Administration’s Rail Lines database is in Appendix A—United States’ Federal Railroad Association (FRA) Rail Lines Database Structure Crosswalk to NENA’s RailroadCenterLine Layer of this document. A database structure crosswalk between this model and Canada’s National Railway Network database is in Appendix B—Canada’s National Railway Network Database Structure Crosswalk to NENA’s RailroadCenterLine Layer of this document.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Railroads data is maintained as a line layer for representing the centerline of a rail line. This dataset is referred to as the RailroadCenterLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Federal Railroad Administration’s Rail Lines database is in Appendix A—United States’ Federal Railroad Association (FRA) Rail Lines Database Structure Crosswalk to NENA’s RailroadCenterLine Layer of this document. A database structure crosswalk between this model and Canada’s National Railway Network database is in Appendix B—Canada’s National Railway Network Database Structure Crosswalk to NENA’s RailroadCenterLine Layer of this document.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>transporation</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>railroad</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>rail</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="HydrologyLine"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Hydrology Lines</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Hydrology data is maintained as a line layer for representing creeks, streams, rivers, and other linear water features. This dataset is referred to as the HydrologyLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C—United States’ National Hydrography Dataset (NHD) Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D—Canada’s National Hydrographic Network Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Hydrology data is maintained as a line layer for representing creeks, streams, rivers, and other linear water features. This dataset is referred to as the HydrologyLine layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C—United States’ National Hydrography Dataset (NHD) Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D—Canada’s National Hydrographic Network Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>hydrology</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>creek</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>stream</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>river</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="HydrologyPolygon"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Hydrology Polygons</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Hydrology data is maintained as a polygon layer for representing the area of water features. This dataset is referred to as the HydrologyPolygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C—United States’ National Hydrography Dataset (NHD) Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D—Canada’s National Hydrographic Network Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Hydrology data is maintained as a polygon layer for representing the area of water features. This dataset is referred to as the HydrologyPolygon layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward. A database structure crosswalk between this model and the United States Geological Survey’s National Hydrography Dataset (NHD) database is in Appendix C—United States’ National Hydrography Dataset (NHD) Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document. A database structure crosswalk between this model and Canada’s National Hydrographic Network database is in Appendix D—Canada’s National Hydrographic Network Database Structure Crosswalk to NENA’s HydrologyLine Layer and HydrologyPolygon Layer of this document.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>hydrology</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>lake</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>pond</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>reservoir</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="DistanceMarkerPoint"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Distance Markers</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Distance Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Distance Markers data MUST be included in the SiteStructureAddressPoint layer. Distance Markers may represent a numeric measurement of a point along a route, such as a mile marker. This dataset is referred to as the DistanceMarkerPoint layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Distance Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Distance Markers data MUST be included in the SiteStructureAddressPoint layer. Distance Markers may represent a numeric measurement of a point along a route, such as a mile marker. This dataset is referred to as the DistanceMarkerPoint layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>mile marker</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>route marker</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata><LayerMetadata name="LocationMarkerPoint"><ns0:MD_Metadata>
+<ns0:metadataScope>
+<ns0:MD_MetadataScope>
+<ns0:resourceScope>
+<MD_ScopeCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</MD_ScopeCode>
+</ns0:resourceScope>
+</ns0:MD_MetadataScope>
+</ns0:metadataScope>
+<ns0:contact ns1:nilReason="missing">
+</ns0:contact>
+<ns0:dateInfo ns1:nilReason="missing">
+</ns0:dateInfo>
+<ns0:metadataStandard>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>ISO 19115-3 Geographic Information - Metadata - Part 1: Fundamentals</ns1:CharacterString>
+</ns2:title>
+<ns2:edition>
+<ns1:CharacterString>2014</ns1:CharacterString>
+</ns2:edition>
+</ns2:CI_Citation>
+</ns0:metadataStandard>
+<ns0:identificationInfo>
+<ns3:MD_DataIdentification>
+<ns3:citation>
+<ns2:CI_Citation>
+<ns2:title>
+<ns1:CharacterString>Location Markers</ns1:CharacterString>
+</ns2:title>
+</ns2:CI_Citation>
+</ns3:citation>
+<ns3:abstract>
+<ns1:CharacterString>Location Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Location Markers data MUST be included in the SiteStructureAddressPoint layer. Location Markers may represent locations such as an alarm box, a utility pole, a callbox, a trail intersection, a buoy, a channel marker, or other similar features. This dataset is referred to as the LocationMarkerPoint layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:abstract>
+<ns3:purpose>
+<ns1:CharacterString>Location Markers data is maintained as a point layer and is used primarily for map display purposes. If required for ECRF and LVF purposes, Location Markers data MUST be included in the SiteStructureAddressPoint layer. Location Markers may represent locations such as an alarm box, a utility pole, a callbox, a trail intersection, a buoy, a channel marker, or other similar features. This dataset is referred to as the LocationMarkerPoint layer in the GIS Data Layers registry in Section 7.1 “GIS Data Layers” Registry and in NENA documents going forward.
+</ns1:CharacterString>
+</ns3:purpose>
+<ns3:descriptiveKeywords>
+<ns3:MD_Keywords>
+<ns3:keyword>
+<ns1:CharacterString>nena</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng9-1-1</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>ng911</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>alarm box</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>utility pole</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>callbox</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>trail intersection</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>buoy</ns1:CharacterString>
+</ns3:keyword>
+<ns3:keyword>
+<ns1:CharacterString>channel marker</ns1:CharacterString>
+</ns3:keyword>
+</ns3:MD_Keywords>
+</ns3:descriptiveKeywords>
+<ns3:defaultLocale ns1:nilReason="missing">
+</ns3:defaultLocale>
+</ns3:MD_DataIdentification>
+</ns0:identificationInfo>
+</ns0:MD_Metadata></LayerMetadata></NENAStandardforNG9-1-1GISDataModel>
