@@ -8,7 +8,7 @@ This folder contains Python scripts and ArcGIS Pro Toolbox capable of creating N
 * [Getting Started](#getting-started)
   * [Dependencies](#dependencies)
   * [Using the ArcGIS Pro Toolbox](#using-the-arcgis-pro-toolbox)
-  * [Create NG9-1-1 GIS Data Model Template Tool](#create-ng9-1-1-gis-data-model-template-tool
+  * [Create NG9-1-1 GIS Data Model Template Tool](#create-ng9-1-1-gis-data-model-template-tool)
 * [Known Issues](#known-issues)
 * [Help](#help)
 * [Change Log](#change-log)
@@ -52,7 +52,7 @@ If you are interested in creating the NENA GIS Data Model template from the supp
   ![](../.imgs/arcgispro_add_toolbox.png)
 * In the **Add Toolbox** file dialog, navigate to where the Git repository was downloaded, select **NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx**, and click **Open**.<br>
   ![](../.imgs/arcgispro_add_toolbox_file_dialog.png)
-* Expand the **NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx**
+* Expand the **NENA_NG911_Toolbox_for_ArcGIS_Pro.tbx**<br>
   ![](../.imgs/arcgispro_nena_toolbox_added.png)
 * Double-click **Create NG9-1-1 GIS Data Model Template** to run the geoprocessing tool.<br>
   ![](../.imgs/arcgispro_create_fgdb_dialog.png)
@@ -79,7 +79,7 @@ The **Create NG9-1-1 GIS Data Model Template** tool takes approximately seven to
 * **Primary Service Boundaries Only** - Create only the primary Service Boundaries (PsapPolygon, FirePolygon, PolicePolygon, and EmsPolygon) or includes all primary Service Boundaries and the Service Boundaries template layer.
 * **Import Metadata** - Enables (checked) or disables (un-checked) the default metadata.
 
-Click **Run** to run the script.
+Click **Run** to run the script.<br>
 ![](../.imgs/arcgispro_create_fgdb_status.png)
 
 Click **View Details** to see the progress details.<br>
