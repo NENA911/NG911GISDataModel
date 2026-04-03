@@ -158,7 +158,7 @@ terms of the [Apache License 2.0](LICENSE.md).
 ## Associated Documents
 
 - **NENA Standard for NG9-1-1 GIS Data Model**
-  - NENA-STA-006.3-2026
+  - [NENA-STA-006.3-2026](docs/nena-sta-006.3-2026_ng9-1-1.pdf)
   - [NENA-STA-006.2a-2023](docs/nena-sta-006.2a-2023_ng9-1-1.pdf)
   - [NENA-STA-006.2-2022](docs/nena-sta-006.2-2022_ng9-1-1.pdf)
   - [NENA-STA-006.1.1-2020](docs/nena-sta-006.1.1-2020_ng9-1-1.pdf)
